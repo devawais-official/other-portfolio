@@ -1,0 +1,26 @@
+# Muhammad Awais (DevAwais)
+
+> Senior Mobile Architect specializing in high-performance Android, KMP, and Flutter ecosystems.
+> Location: Lahore, Pakistan (Available for Global Remote)
+> Portfolio: https://devawais.com
+> GitHub: https://github.com/devawais-official
+> LinkedIn: https://linkedin.com/in/devawais
+> Email: mughal963@gmail.com
+
+## Core Expertise
+- **Android Native**: Expert in Kotlin, Jetpack Compose, MVVM, Clean Architecture, Coroutines, and Dependency Injection (Hilt/Dagger).
+- **Flutter**: Lead developer for cross-platform enterprise solutions utilizing BLoC and Provider state management.
+- **System Optimization**: Specialized in memory management (RAM reduction), background processing, real-time Location-Based Services (LBS) optimization, and maintaining 99.9% uptime.
+- **Data & Real-Time Systems**: High-frequency data handling via Socket.IO, WebSockets, and Firebase.
+- **DevOps**: Advanced CI/CD pipeline automation and automated testing suites for mobile applications.
+
+## Key Projects
+- **Healthwire**: Top-tier HealthTech and telemedicine platform in Pakistan.
+- **HCloud**: Enterprise clinic management suite serving thousands of healthcare providers.
+- **DonGamers**: Global e-sports community platform featuring high-frequency real-time updates.
+- **Makernote**: Cross-platform educational technology tool.
+
+## Technical Stats & Summary
+- **Experience**: 6+ years of professional industry experience.
+- **Production Apps**: 25+ successfully deployed and maintained mobile applications.
+- **Domains**: Healthcare, E-sports, EdTech, FinTech, and Real-Time Tracking.

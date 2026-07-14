@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: 28, 28, 28;
+  --color-surface: 27, 41, 34;
+  --color-surface2: 35, 51, 43;
+  --color-border: 74, 105, 88;
+  --color-primary: 74, 105, 88;
+  --color-primary-light: 110, 141, 124;
+  --color-primary-dark: 53, 77, 64;
+  --color-accent: 142, 175, 157;
+  --color-accent-light: 178, 207, 192;
+  --color-secondary: 67, 81, 70;
+  --color-secondary-light: 94, 112, 98;
+  --color-mint: 134, 239, 172;
+  --color-ink: 244, 246, 245;
+  --color-muted: 128, 138, 131;
+  --color-selection-bg: 139, 92, 246;
+  /* converted to standard hex/RGB compatibility */
+  --color-selection-text: 245, 243, 255;
+  --color-focus-outline: 156, 139, 255;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-bg text-ink font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tight;
+  }
+
+  ::selection {
+    background-color: rgb(var(--color-selection-bg));
+    color: rgb(var(--color-selection-text));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--color-focus-outline));
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-primary-light;
+  }
+
+  .card-surface {
+    @apply rounded-xl border border-border bg-surface/70 backdrop-blur-sm;
+  }
+
+  /* 🛠️ Cleaned classes & safely parsed gradients */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-ink transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98];
+    background-image: linear-gradient(to right, rgb(var(--color-primary)), rgb(var(--color-accent)));
+    /* Safe CSS Box-shadow declaration avoiding Tailwind @apply parsing error */
+    box-shadow: 0 10px 28px -8px rgba(74, 105, 88, 0.4);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-ink transition-colors duration-300 hover:border-primary-light/60 hover:text-primary-light;
+  }
+
+  .section-pad {
+    @apply py-20 sm:py-28;
+  }
+
+  .input-base {
+    @apply w-full rounded-lg border border-border bg-surface2/60 px-4 py-3 text-sm text-ink placeholder:text-muted/70 transition-colors duration-200 focus:border-primary-light/60 focus:outline-none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
