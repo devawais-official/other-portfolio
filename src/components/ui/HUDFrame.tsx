@@ -1,0 +1,63 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+interface HUDFrameProps {
+  isHovered: boolean;
+}
+
+export function HUDFrame({ isHovered }: HUDFrameProps) {
+  return (
+    <>
+      {/* Top Laser Scanner Line */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute left-0 top-0 z-30 h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-hover:opacity-100"
+        animate={{ x: isHovered ? ["-100%", "100%"] : "-100%" }}
+        transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
+      />
+
+      {/* Bottom Laser Scanner Line */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute bottom-0 left-0 z-30 h-px w-full bg-gradient-to-r from-transparent via-secondary to-transparent opacity-0 group-hover:opacity-100"
+        animate={{ x: isHovered ? ["100%", "-100%"] : "100%" }}
+        transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
+      />
+
+      {/* Cyberpunk HUD Corners */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-20 p-3 md:p-4">
+        <svg
+          className="h-full w-full"
+          viewBox="0 0 100 100"
+          fill="none"
+          preserveAspectRatio="none" /* 👈 This prevents corner deformation */
+        >
+          {[
+            "M 5 1.5 L 1.5 1.5 L 1.5 5",
+            "M 95 1.5 L 98.5 1.5 L 98.5 5",
+            "M 5 98.5 L 1.5 98.5 L 1.5 95",
+            "M 95 98.5 L 98.5 98.5 L 98.5 95",
+          ].map((d) => (
+            <path
+              key={d}
+              d={d}
+              stroke="currentColor"
+              strokeWidth="0.8"
+              className="text-primary opacity-30 transition-opacity duration-300 group-hover:opacity-100"
+            />
+          ))}
+        </svg>
+      </div>
+
+      {/* Vertical Scan Light Grid Sweep */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute left-0 top-0 z-20 h-[15%] w-full bg-gradient-to-b from-primary/10 to-transparent opacity-0 group-hover:opacity-100"
+        initial={{ top: "-15%" }}
+        animate={{ top: isHovered ? "100%" : "-15%" }}
+        transition={{ duration: 1.2, ease: "easeInOut" }}
+      />
+    </>
+  );
+}

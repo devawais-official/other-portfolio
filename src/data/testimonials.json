@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "clientName": "Louis Wong",
+        "clientRole": "CEO @ Tackle Education ltd",
+        "clientImage": "",
+        "message": "Working with Awais was a great experience. He optimized our application, reduced its RAM usage, and improved performance by 30%. His expertise in code optimization and shared architectures made a noticeable impact on our product quality.",
+        "rating": 5,
+        "verified": true,
+        "appUrl": "https://apps.apple.com/hk/app/makernote/id6475201417?l=en-GB"
+    },
+    {
+        "id": 2,
+        "clientName": "Nasir",
+        "clientRole": "Founder @ Status200",
+        "clientImage": "",
+        "message": "Awais did great work on our app. His attention to detail, clean architecture, and focus on solid, maintainable code made the entire development process smooth from start to finish. Highly recommended for any serious Android or Kotlin Multiplatform project.",
+        "rating": 5,
+        "verified": true,
+        "appUrl": "https://apps.apple.com/hk/app/makernote/id6475201417?l=en-GB"
+    },
+    {
+        "id": 3,
+        "clientName": "Ahsan",
+        "clientRole": "Product Lead @ Techcreatix",
+        "clientImage": "",
+        "message": "Awais built our Eco Grocery app end-to-end, from the barcode scanner to the recipe recommendation engine. The app runs smoothly, the architecture is clean, and it has genuinely improved how our users manage their groceries and expiry tracking.",
+        "rating": 5,
+        "verified": true,
+        "appUrl": "#"
+    },
+    {
+        "id": 4,
+        "clientName": "Spectra Care",
+        "clientRole": "Healthcare Technology Partner, Nigeria",
+        "clientImage": "",
+        "message": "Awais delivered an outstanding telehealth app for our hospital, integrating video consultations and IoT health monitor data reliably. Our patients and doctors both rely on the app daily, and it has held up flawlessly under real-world clinical use.",
+        "rating": 5,
+        "verified": true,
+        "appUrl": "https://play.google.com/store/apps/details?id=com.spectra.care"
+    }
+]

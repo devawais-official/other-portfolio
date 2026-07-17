@@ -14,9 +14,11 @@ function colorWithOpacity(variableName: string, defaultOpacity?: number): any {
 
 const config: Config = {
   content: [
-    "./app/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./lib/**/*.{ts,tsx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/features/**/*.{js,ts,jsx,tsx,mdx}", // 🎯 Fix: Features folder add kiya taake marquee styles render hon!
+    "./src/lib/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/i18n/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -48,20 +50,30 @@ const config: Config = {
         mono: ["var(--font-jetbrains)", "monospace"],
       },
       backgroundImage: {
-        // Smooth fade out to the new charcoal background
         "grid-fade":
           "linear-gradient(to bottom, rgba(var(--color-bg), 0) 0%, rgb(var(--color-bg)) 100%)",
-        // Gorgeous forest-to-soft-sage transition
         "primary-accent-gradient":
           "linear-gradient(135deg, rgb(var(--color-primary)) 0%, rgb(var(--color-accent)) 100%)",
-        // Multi-stop premium organic gradient
         "brand-gradient":
           "linear-gradient(120deg, rgb(var(--color-primary)) 0%, rgb(var(--color-mint)) 55%, rgb(var(--color-surface)) 100%)",
-        // Subtle, high-end deep green radial glow from the top
         "radial-glow":
           "radial-gradient(circle at 50% 0%, rgba(var(--color-primary), 0.25), transparent 60%)",
       },
       keyframes: {
+        liquid: {
+          "0%": {
+            transform: "translate(0px, 0px) scale(1) rotate(0deg)",
+            borderRadius: "40% 60% 70% 30% / 40% 50% 60% 50%",
+          },
+          "50%": {
+            transform: "translate(20px, -30px) scale(1.1) rotate(180deg)",
+            borderRadius: "70% 30% 50% 50% / 30% 60% 40% 70%",
+          },
+          "100%": {
+            transform: "translate(-10px, 20px) scale(0.95) rotate(360deg)",
+            borderRadius: "40% 60% 70% 30% / 40% 50% 60% 50%",
+          },
+        },
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-14px)" },
@@ -84,6 +96,7 @@ const config: Config = {
         },
       },
       animation: {
+        "liquid-blob": "liquid 10s infinite alternate ease-in-out",
         float: "float 6s ease-in-out infinite",
         "float-slow": "float-slow 9s ease-in-out infinite",
         marquee: "marquee 28s linear infinite",

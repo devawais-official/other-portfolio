@@ -1,0 +1,186 @@
+{
+    "nav": {
+        "home": "Accueil",
+        "about": "À propos",
+        "projects": "Projets",
+        "blog": "Blog",
+        "contact": "Contact",
+        "services": "Services",
+        "testimonials": "Témoignages"
+    },
+    "cta": {
+        "bookedStatus": "Disponibilités ouvertes pour le T3 2026",
+        "title": "Un projet d'application mobile à concrétiser ?",
+        "description": "Parlez-moi de votre produit et de vos besoins en plateformes — je vous réponds sous un jour ouvré avec les prochaines étapes.",
+        "startProject": "Démarrer un projet",
+        "seeWork": "Voir mes réalisations"
+    },
+    "footer": {
+        "copyright": "© {year} Muhammad Awais. Tous droits réservés.",
+        "poweredBy": "Développé avec Next.js & Tailwind CSS",
+        "navigate": "Navigation",
+        "specialties": "Spécialités",
+        "getInTouch": "Me contacter"
+    },
+    "home": {
+        "metaTitle": "Muhammad Awais | Développeur Android & Kotlin Multiplatform",
+        "metaDesc": "Développeur Android freelance spécialisé en Kotlin Multiplatform, Compose Multiplatform et Flutter. Clean Architecture, MVI, applications publiées sur Google Play & App Store.",
+        "availability": "Ouvert aux opportunités",
+        "heading1": "Des applications mobiles livrées une fois,",
+        "heading2": " déployées partout.",
+        "description": "Je suis Muhammad Awais, développeur d'applications mobiles avec une solide expertise en Android natif (Kotlin & Java), et plus de 2 ans d'expérience en développement d'applications de production avec Kotlin Multiplatform, Compose Multiplatform et Flutter.",
+        "buttonStart": "Démarrer un projet",
+        "buttonView": "Voir les projets",
+        "stats": {
+            "experience": "Années d'expérience",
+            "completed": "Projets réalisés",
+            "stores": "Applications publiées"
+        },
+        "selectedWork": "Réalisations sélectionnées",
+        "recentProjects": "Projets récents",
+        "allProjectsLink": "Tous les projets",
+        "processTitle": "Comment se déroule une mission",
+        "processSubtitle": "Un processus centré sur la livraison, pas sur les réunions",
+        "processSteps": {
+            "01": {
+                "title": "Découverte",
+                "body": "Un appel ciblé pour définir le périmètre, les plateformes et la définition du « terminé » pour le lancement."
+            },
+            "02": {
+                "title": "Architecture",
+                "body": "Je conçois la structure des modules — couches de Clean Architecture, code partagé vs. spécifique à la plateforme — avant d'écrire l'interface."
+            },
+            "03": {
+                "title": "Développement",
+                "body": "Des versions hebdomadaires que vous pouvez installer et tester sur un vrai appareil, pas de simples rapports d'avancement."
+            },
+            "04": {
+                "title": "Livraison",
+                "body": "Fiche de store, pipeline de publication et documentation de passation exploitable par votre future équipe."
+            }
+        },
+        "feedbackTitle": "Avis clients",
+        "feedbackSubtitle": "Ce que disent mes clients",
+        "allTestimonialsLink": "Tous les témoignages"
+    },
+    "about": {
+        "title": "À propos",
+        "metaTitle": "À propos de Muhammad Awais | Développeur Android & KMP, Lahore",
+        "metaDesc": "4+ ans d'expérience dans la création d'applications Android de production et de systèmes Kotlin Multiplatform en Clean Architecture. Basé à Lahore, Pakistan, avec des clients dans le monde entier.",
+        "headerTitle": "Bonjour, je suis Muhammad — développeur d'applications mobiles.",
+        "headerDesc": "Développeur mobile avec plus de 4 ans d'expérience en applications de production. Spécialisé en Android natif, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP) et Flutter. Je construis des systèmes multiplateformes évolutifs et maintenables avec une architecture propre.",
+        "infoTitle": "Basé à",
+        "infoLocation": "Lahore, Pakistan",
+        "infoAvailability": "Disponibilité",
+        "infoFocus": "Spécialisation",
+        "infoFocusVal": "Android · KMP · CMP · Flutter",
+        "stats": {
+            "experience": "Années d'expérience",
+            "completed": "Projets réalisés",
+            "satisfied": "Clients satisfaits",
+            "stores": "Applications publiées"
+        },
+        "expertiseTitle": "Expertise",
+        "expertiseSubtitle": "Ce que j'apporte à une équipe mobile",
+        "experienceTitle": "Expérience",
+        "experienceSubtitle": "Où j'ai travaillé"
+    },
+    "projects": {
+        "title": "Projets",
+        "metaTitle": "Projets | Portfolio d'applications Android & Kotlin Multiplatform",
+        "metaDesc": "Découvrez des applications Android natives, KMP, Compose Multiplatform et Flutter livrées — des produits réels disponibles sur Google Play et l'App Store.",
+        "headerTitle": "Applications livrées en Android natif et Kotlin Multiplatform.",
+        "headerDesc": "Filtrez par plateforme pour voir comment l'architecture et la stack évoluent selon les besoins réels du produit.",
+        "filters": {
+            "all": "Tout",
+            "android": "Android",
+            "ios": "iOS",
+            "kmp": "KMP",
+            "cmp": "CMP",
+            "flutter": "Flutter"
+        },
+        "ctas": {
+            "playStore": "Google Play",
+            "appStore": "App Store",
+            "details": "Voir les détails"
+        },
+        "nextProject": "Projet suivant",
+        "highlights": "Points forts",
+        "techStack": "Stack technique",
+        "backToProjects": "Tous les projets"
+    },
+    "blog": {
+        "title": "Blog",
+        "metaTitle": "Blog | Notes d'architecture Android & Kotlin Multiplatform",
+        "metaDesc": "Articles pratiques sur le développement Android, Kotlin Multiplatform, Compose Multiplatform et la Clean Architecture — issus de missions réelles, pas de théorie.",
+        "headerTitle": "Notes sur l'architecture mobile.",
+        "headerDesc": "Écrits pratiques sur Android, Kotlin Multiplatform et Compose Multiplatform — issus de missions réelles, pas de théorie.",
+        "backToBlog": "Tous les articles"
+    },
+    "contact": {
+        "title": "Contact",
+        "metaTitle": "Contact | Recruter un développeur Android & Kotlin Multiplatform",
+        "metaDesc": "Lancez votre projet d'application mobile. Précisez vos besoins en plateformes — Android, KMP, Compose Multiplatform ou Flutter — et recevez une réponse sous un jour ouvré.",
+        "headerTitle": "Parlez-moi de votre projet.",
+        "headerDesc": "Partagez quelques détails sur le projet et les plateformes envisagées — je réponds personnellement sous un jour ouvré.",
+        "directTitle": "Contact direct",
+        "replyNotice": "Réponse sous 1 jour ouvré",
+        "beforeWriteTitle": "Avant de m'écrire",
+        "beforeWriteTips": [
+            "Une idée approximative du périmètre est plus utile qu'un cahier des charges complet.",
+            "Précisez si vous connaissez déjà vos plateformes cibles.",
+            "Des maquettes existantes ou une application déjà en ligne sont utiles, mais pas indispensables."
+        ],
+        "form": {
+            "nameLabel": "Nom",
+            "namePlaceholder": "Jordan Lee",
+            "nameRequired": "Veuillez indiquer votre nom.",
+            "emailLabel": "E-mail",
+            "emailPlaceholder": "jordan@company.com",
+            "emailRequired": "Veuillez indiquer une adresse e-mail valide.",
+            "platformLabel": "Plateforme",
+            "budgetLabel": "Budget estimé",
+            "detailsLabel": "Détails du projet",
+            "detailsPlaceholder": "Que construisez-vous, et quel est le délai ?",
+            "detailsRequired": "Donnez-moi un peu plus de détails sur le projet (12 caractères min.).",
+            "buttonSend": "Envoyer le message",
+            "buttonSending": "Envoi en cours...",
+            "successTitle": "Message envoyé",
+            "successMessage": "Merci de m'avoir contacté — je lis chaque message personnellement et je réponds sous un jour ouvré. Vérifiez votre boîte mail pour la confirmation.",
+            "preferDirect": "Vous préférez l'e-mail ? Contactez-moi directement, je vous répondrai depuis là aussi.",
+            "platforms": {
+                "android": "Android natif (Kotlin/Java)",
+                "kmp": "Kotlin Multiplatform (KMP)",
+                "cmp": "Compose Multiplatform (CMP)",
+                "flutter": "Flutter",
+                "notsure": "Pas encore sûr"
+            },
+            "budgets": {
+                "under10k": "Moins de 10 000 $",
+                "10k_30k": "10 000 $ – 30 000 $",
+                "30k_75k": "30 000 $ – 75 000 $",
+                "over75k": "75 000 $ et plus"
+            }
+        }
+    },
+    "services": {
+        "title": "Ce que je propose",
+        "metaTitle": "Services de développement Android & Kotlin Multiplatform",
+        "metaDesc": "Services d'ingénierie mobile senior : applications Android natives, Kotlin Multiplatform, Compose Multiplatform et Flutter, conçues pour la scalabilité en Clean Architecture.",
+        "headerTitle": "Ingénierie mobile sur mesure, conçue pour évoluer.",
+        "headerDesc": "Développement Android natif et multiplateforme — code partagé quand c'est pertinent, natif complet quand c'est nécessaire."
+    },
+    "testimonials": {
+        "title": "Témoignages",
+        "metaTitle": "Témoignages clients | Avis sur le développeur Android & KMP",
+        "metaDesc": "Découvrez ce que fondateurs de startups et CTO disent de leur collaboration avec Muhammad Awais sur des projets d'applications Android natives et Kotlin Multiplatform.",
+        "headerTitle": "Ce que c'est que de travailler ensemble.",
+        "headerDesc": "Retours de fondateurs et de responsables produit après la livraison conjointe d'applications Android natives et Kotlin Multiplatform."
+    },
+    "notfound": {
+        "eyebrow": "404",
+        "title": "Cette page n'existe pas.",
+        "desc": "La page que vous recherchez a été déplacée, renommée ou n'a jamais été créée. Revenons sur le bon chemin.",
+        "button": "Retour à l'accueil"
+    }
+}

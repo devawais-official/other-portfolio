@@ -1,0 +1,186 @@
+{
+    "nav": {
+        "home": "الرئيسية",
+        "about": "نبذة عني",
+        "projects": "المشاريع",
+        "blog": "المدونة",
+        "contact": "تواصل معي",
+        "services": "الخدمات",
+        "testimonials": "آراء العملاء"
+    },
+    "cta": {
+        "bookedStatus": "الحجز مفتوح للربع الثالث من 2026",
+        "title": "لديك فكرة تطبيق جوال تحتاج إلى الانطلاق؟",
+        "description": "أخبرني عن منتجك ومتطلبات المنصة — سأرد خلال يوم عمل واحد بالخطوات التالية.",
+        "startProject": "ابدأ مشروعًا",
+        "seeWork": "شاهد أعمالي"
+    },
+    "footer": {
+        "copyright": "© {year} محمد أويس. جميع الحقوق محفوظة.",
+        "poweredBy": "مبني باستخدام Next.js و Tailwind CSS",
+        "navigate": "روابط سريعة",
+        "specialties": "التخصصات",
+        "getInTouch": "تواصل معي"
+    },
+    "home": {
+        "metaTitle": "محمد أويس | مطور تطبيقات أندرويد و Kotlin Multiplatform",
+        "metaDesc": "مطور أندرويد مستقل متخصص في Kotlin Multiplatform وComposeMultiplatform وFlutter. Clean Architecture وMVI، وتطبيقات منشورة على Google Play وApp Store.",
+        "availability": "متاح لفرص عمل جديدة",
+        "heading1": "تطبيقات جوال تُبنى مرة واحدة",
+        "heading2": " وتعمل في كل مكان.",
+        "description": "أنا محمد أويس، مطور تطبيقات جوال أمتلك أساسًا قويًا في أندرويد الأصلي (Kotlin وJava)، إضافة إلى أكثر من عامين في بناء تطبيقات إنتاجية باستخدام Kotlin Multiplatform وCompose Multiplatform وFlutter.",
+        "buttonStart": "ابدأ مشروعًا",
+        "buttonView": "عرض المشاريع",
+        "stats": {
+            "experience": "سنوات الخبرة",
+            "completed": "مشاريع منجزة",
+            "stores": "تطبيقات منشورة"
+        },
+        "selectedWork": "أعمال مختارة",
+        "recentProjects": "أحدث المشاريع",
+        "allProjectsLink": "جميع المشاريع",
+        "processTitle": "كيف تسير المشاريع",
+        "processSubtitle": "منهجية مبنية على التسليم لا الاجتماعات",
+        "processSteps": {
+            "01": {
+                "title": "الاستكشاف",
+                "body": "مكالمة مركّزة لتحديد النطاق والمنصات وتعريف \"الاكتمال\" عند الإطلاق."
+            },
+            "02": {
+                "title": "التصميم المعماري",
+                "body": "أصمم بنية الوحدات — طبقات Clean Architecture، والكود المشترك مقابل الخاص بكل منصة — قبل البدء بالواجهة."
+            },
+            "03": {
+                "title": "البناء",
+                "body": "إصدارات أسبوعية يمكنك تثبيتها واختبارها على جهاز حقيقي، وليست مجرد تقارير سير عمل."
+            },
+            "04": {
+                "title": "الإطلاق",
+                "body": "قائمة على متجر التطبيقات، خط نشر جاهز، ومستند تسليم يمكن لفريقك المستقبلي استخدامه فعليًا."
+            }
+        },
+        "feedbackTitle": "آراء العملاء",
+        "feedbackSubtitle": "ماذا يقول عملائي",
+        "allTestimonialsLink": "جميع الآراء"
+    },
+    "about": {
+        "title": "نبذة عني",
+        "metaTitle": "نبذة عن محمد أويس | مطور أندرويد وKMP، لاهور",
+        "metaDesc": "أكثر من 4 سنوات في بناء تطبيقات أندرويد إنتاجية وأنظمة Kotlin Multiplatform باستخدام Clean Architecture. مقيم في لاهور، باكستان، ويعمل مع شركات ناشئة حول العالم.",
+        "headerTitle": "مرحبًا، أنا محمد — مطور تطبيقات جوال.",
+        "headerDesc": "مطور جوال بخبرة تفوق 4 سنوات في تسليم تطبيقات إنتاجية. متخصص في أندرويد الأصلي، وKotlin Multiplatform (KMP)، وCompose Multiplatform (CMP)، وFlutter. أبني أنظمة متعددة المنصات قابلة للتوسع والصيانة باستخدام العمارة النظيفة.",
+        "infoTitle": "المقر",
+        "infoLocation": "لاهور، باكستان",
+        "infoAvailability": "التوفر",
+        "infoFocus": "مجال التركيز",
+        "infoFocusVal": "أندرويد · KMP · CMP · Flutter",
+        "stats": {
+            "experience": "سنوات الخبرة",
+            "completed": "مشاريع منجزة",
+            "satisfied": "عملاء راضون",
+            "stores": "تطبيقات منشورة"
+        },
+        "expertiseTitle": "الخبرات",
+        "expertiseSubtitle": "ما أقدمه لفريق التطوير",
+        "experienceTitle": "الخبرة العملية",
+        "experienceSubtitle": "أماكن عملي السابقة"
+    },
+    "projects": {
+        "title": "المشاريع",
+        "metaTitle": "المشاريع | معرض تطبيقات أندرويد وKotlin Multiplatform",
+        "metaDesc": "تصفّح تطبيقات أندرويد أصلية وKMP وCompose Multiplatform وFlutter تم إطلاقها فعليًا — منتجات حقيقية منشورة على Google Play وApp Store.",
+        "headerTitle": "تطبيقات تم إطلاقها بتقنيتي أندرويد الأصلي وKotlin Multiplatform.",
+        "headerDesc": "صفِّ حسب المنصة لترى كيف تتغيّر البنية المعمارية والتقنيات المستخدمة بحسب احتياج المنتج الفعلي.",
+        "filters": {
+            "all": "الكل",
+            "android": "أندرويد",
+            "ios": "آيفون",
+            "kmp": "KMP",
+            "cmp": "CMP",
+            "flutter": "Flutter"
+        },
+        "ctas": {
+            "playStore": "Google Play",
+            "appStore": "App Store",
+            "details": "عرض التفاصيل"
+        },
+        "nextProject": "المشروع التالي",
+        "highlights": "أبرز النقاط",
+        "techStack": "التقنيات المستخدمة",
+        "backToProjects": "جميع المشاريع"
+    },
+    "blog": {
+        "title": "المدونة",
+        "metaTitle": "المدونة | ملاحظات في عمارة أندرويد وKotlin Multiplatform",
+        "metaDesc": "مقالات عملية حول تطوير أندرويد وKotlin Multiplatform وCompose Multiplatform وClean Architecture — مستخلصة من مشاريع فعلية لا نظرية بحتة.",
+        "headerTitle": "ملاحظات حول العمارة البرمجية للجوال.",
+        "headerDesc": "كتابات عملية حول أندرويد وKotlin Multiplatform وCompose Multiplatform — مستخلصة من مشاريع فعلية لا نظرية بحتة.",
+        "backToBlog": "جميع المقالات"
+    },
+    "contact": {
+        "title": "تواصل معي",
+        "metaTitle": "تواصل معي | استعن بمطور أندرويد وKotlin Multiplatform",
+        "metaDesc": "ابدأ مشروع تطبيقك الجوال. شاركني متطلبات المنصة — أندرويد أو KMP أو Compose Multiplatform أو Flutter — واحصل على رد خلال يوم عمل واحد.",
+        "headerTitle": "أخبرني عمّا تعمل على بنائه.",
+        "headerDesc": "شارك بضع تفاصيل عن المشروع والمنصات المطلوبة — أرد شخصيًا خلال يوم عمل واحد.",
+        "directTitle": "تواصل مباشر",
+        "replyNotice": "الرد خلال يوم عمل واحد",
+        "beforeWriteTitle": "قبل أن تكتب",
+        "beforeWriteTips": [
+            "فكرة عامة عن نطاق المشروع أفيد من مواصفات كاملة.",
+            "أخبرني إن كنت تعرف بالفعل المنصات المستهدفة.",
+            "التصاميم الجاهزة أو التطبيق الحالي مفيدة، لكنها ليست ضرورية."
+        ],
+        "form": {
+            "nameLabel": "الاسم",
+            "namePlaceholder": "جوردان لي",
+            "nameRequired": "يرجى إدخال اسمك.",
+            "emailLabel": "البريد الإلكتروني",
+            "emailPlaceholder": "jordan@company.com",
+            "emailRequired": "يرجى إدخال بريد إلكتروني صحيح.",
+            "platformLabel": "المنصة",
+            "budgetLabel": "نطاق الميزانية",
+            "detailsLabel": "تفاصيل المشروع",
+            "detailsPlaceholder": "ما الذي تعمل على بنائه، وما الجدول الزمني؟",
+            "detailsRequired": "أخبرني بمزيد من التفاصيل عن المشروع (12 حرفًا على الأقل).",
+            "buttonSend": "إرسال الرسالة",
+            "buttonSending": "جارٍ الإرسال...",
+            "successTitle": "تم إرسال الرسالة",
+            "successMessage": "شكرًا لتواصلك — أقرأ كل رسالة بنفسي وأرد خلال يوم عمل واحد. تحقّق من بريدك الإلكتروني لرسالة التأكيد.",
+            "preferDirect": "تفضّل البريد الإلكتروني؟ تواصل معي مباشرة وسأرد من هناك أيضًا.",
+            "platforms": {
+                "android": "أندرويد أصلي (Kotlin/Java)",
+                "kmp": "Kotlin Multiplatform (KMP)",
+                "cmp": "Compose Multiplatform (CMP)",
+                "flutter": "Flutter",
+                "notsure": "لست متأكدًا بعد"
+            },
+            "budgets": {
+                "under10k": "أقل من 10,000 دولار",
+                "10k_30k": "10,000 – 30,000 دولار",
+                "30k_75k": "30,000 – 75,000 دولار",
+                "over75k": "أكثر من 75,000 دولار"
+            }
+        }
+    },
+    "services": {
+        "title": "ما الذي أقدمه",
+        "metaTitle": "خدمات تطوير تطبيقات أندرويد وKotlin Multiplatform",
+        "metaDesc": "خدمات هندسة تطبيقات جوال احترافية: تطبيقات أندرويد أصلية وKotlin Multiplatform وCompose Multiplatform وFlutter مبنية للتوسّع باستخدام Clean Architecture.",
+        "headerTitle": "هندسة تطبيقات جوال مخصصة، مبنية للتوسّع.",
+        "headerDesc": "تطوير أندرويد أصلي ومتعدد المنصات — مع مشاركة الكود حيثما يفيد، والاعتماد الكامل على الحل الأصلي حيثما يكون ضروريًا."
+    },
+    "testimonials": {
+        "title": "آراء العملاء",
+        "metaTitle": "آراء العملاء | تقييمات مطور أندرويد وKMP",
+        "metaDesc": "اطّلع على آراء مؤسسي الشركات الناشئة ومديري التقنية حول العمل مع محمد أويس في مشاريع تطبيقات أندرويد أصلية وKotlin Multiplatform.",
+        "headerTitle": "كيف تبدو تجربة العمل معي.",
+        "headerDesc": "آراء من مؤسسين ومسؤولي منتجات بعد إطلاق تطبيقات أندرويد أصلية وKotlin Multiplatform معًا."
+    },
+    "notfound": {
+        "eyebrow": "404",
+        "title": "هذه الصفحة غير موجودة.",
+        "desc": "الصفحة التي تبحث عنها تم نقلها أو إعادة تسميتها أو لم يتم إنشاؤها أصلًا. دعنا نعيدك إلى المسار الصحيح.",
+        "button": "العودة إلى الرئيسية"
+    }
+}

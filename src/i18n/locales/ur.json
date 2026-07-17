@@ -1,0 +1,186 @@
+{
+  "nav": {
+    "home": "ہوم",
+    "about": "میرے بارے میں",
+    "projects": "پراجیکٹس",
+    "blog": "بلاگ",
+    "contact": "رابطہ",
+    "services": "خدمات",
+    "testimonials": "تاثرات"
+  },
+  "cta": {
+    "bookedStatus": "کیو تھری 2026 کے لیے بکنگ جاری ہے",
+    "title": "کوئی موبائل ایپ آئیڈیا ہے جسے لانچ کرنا ہے؟",
+    "description": "اپنی پروڈکٹ اور پلیٹ فارم کی ضروریات بتائیں — میں ایک کاروباری دن کے اندر اگلے اقدامات کے ساتھ جواب دوں گا۔",
+    "startProject": "پراجیکٹ شروع کریں",
+    "seeWork": "میرا کام دیکھیں"
+  },
+  "footer": {
+    "copyright": "© {year} محمد اویس۔ جملہ حقوق محفوظ ہیں۔",
+    "poweredBy": "Next.js اور Tailwind CSS سے تیار کردہ",
+    "navigate": "نیویگیشن",
+    "specialties": "مہارتیں",
+    "getInTouch": "رابطہ کریں"
+  },
+  "home": {
+    "metaTitle": "محمد اویس | اینڈرائیڈ اور Kotlin Multiplatform ڈویلپر",
+    "metaDesc": "Kotlin Multiplatform، Compose Multiplatform اور Flutter میں پروڈکشن ایپس بنانے والا فری لانس اینڈرائیڈ ڈویلپر۔ Clean Architecture، MVI، Google Play اور App Store پر شائع شدہ۔",
+    "availability": "نئے مواقع کے لیے دستیاب",
+    "heading1": "ایسی موبائل ایپس جو ایک بار بنیں،",
+    "heading2": " اور ہر جگہ چلیں۔",
+    "description": "میں محمد اویس ہوں، ایک موبائل ایپ ڈویلپر جسے نیٹو اینڈرائیڈ (Kotlin اور Java) میں مضبوط بنیاد حاصل ہے، اور Kotlin Multiplatform، Compose Multiplatform اور Flutter کے ساتھ پروڈکشن ایپس بنانے کا 2+ سالہ تجربہ ہے۔",
+    "buttonStart": "پراجیکٹ شروع کریں",
+    "buttonView": "پراجیکٹس دیکھیں",
+    "stats": {
+      "experience": "سالوں کا تجربہ",
+      "completed": "مکمل شدہ پراجیکٹس",
+      "stores": "شائع شدہ ایپس"
+    },
+    "selectedWork": "منتخب کام",
+    "recentProjects": "حالیہ پراجیکٹس",
+    "allProjectsLink": "تمام پراجیکٹس",
+    "processTitle": "کام کا طریقہ کار",
+    "processSubtitle": "میٹنگز نہیں، ڈیلیوری پر مبنی عمل",
+    "processSteps": {
+      "01": {
+        "title": "ڈسکوری",
+        "body": "دائرہ کار، پلیٹ فارمز، اور لانچ کے لیے 'مکمل' کی تعریف طے کرنے کے لیے ایک مرکوز کال۔"
+      },
+      "02": {
+        "title": "آرکیٹیکچر",
+        "body": "یوآئی لکھنے سے پہلے میں ماڈیول ڈھانچہ ڈیزائن کرتا ہوں — Clean Architecture کی تہیں، مشترکہ اور پلیٹ فارم مخصوص کوڈ۔"
+      },
+      "03": {
+        "title": "تعمیر",
+        "body": "ہفتہ وار بلڈز جنہیں آپ اصل ڈیوائس پر انسٹال اور ٹیسٹ کر سکتے ہیں، محض پیش رفت رپورٹس نہیں۔"
+      },
+      "04": {
+        "title": "لانچ",
+        "body": "اسٹور لسٹنگ، ریلیز پائپ لائن، اور ایک ہینڈ اوور دستاویز جسے آپ کی مستقبل کی ٹیم واقعی استعمال کر سکے۔"
+      }
+    },
+    "feedbackTitle": "کلائنٹ فیڈبیک",
+    "feedbackSubtitle": "کلائنٹس کیا کہتے ہیں",
+    "allTestimonialsLink": "تمام تاثرات"
+  },
+  "about": {
+    "title": "میرے بارے میں",
+    "metaTitle": "محمد اویس کے بارے میں | اینڈرائیڈ اور KMP ڈویلپر، لاہور",
+    "metaDesc": "Clean Architecture کے ساتھ پروڈکشن اینڈرائیڈ ایپس اور Kotlin Multiplatform سسٹمز بنانے کا 4+ سالہ تجربہ۔ لاہور، پاکستان میں مقیم، دنیا بھر کے اسٹارٹ اپس کے ساتھ کام۔",
+    "headerTitle": "السلام علیکم، میں محمد ہوں — ایک موبائل ایپ ڈویلپر۔",
+    "headerDesc": "4+ سالہ تجربے کے ساتھ موبائل ڈویلپر جو پروڈکشن ایپس ڈیلیور کرتا ہے۔ نیٹو اینڈرائیڈ، Kotlin Multiplatform (KMP)، Compose Multiplatform (CMP) اور Flutter میں مہارت رکھتا ہوں۔ کلین آرکیٹیکچر کے ساتھ قابلِ توسیع اور قابلِ دیکھ بھال کراس پلیٹ فارم سسٹمز بناتا ہوں۔",
+    "infoTitle": "مقام",
+    "infoLocation": "لاہور، پاکستان",
+    "infoAvailability": "دستیابی",
+    "infoFocus": "فوکس",
+    "infoFocusVal": "اینڈرائیڈ · KMP · CMP · Flutter",
+    "stats": {
+      "experience": "سالوں کا تجربہ",
+      "completed": "مکمل شدہ پراجیکٹس",
+      "satisfied": "مطمئن کلائنٹس",
+      "stores": "شائع شدہ ایپس"
+    },
+    "expertiseTitle": "مہارت",
+    "expertiseSubtitle": "میں موبائل ٹیم کو کیا دیتا ہوں",
+    "experienceTitle": "تجربہ",
+    "experienceSubtitle": "میں نے کہاں کام کیا"
+  },
+  "projects": {
+    "title": "پراجیکٹس",
+    "metaTitle": "پراجیکٹس | اینڈرائیڈ اور Kotlin Multiplatform ایپ پورٹ فولیو",
+    "metaDesc": "شائع شدہ نیٹو اینڈرائیڈ، KMP، Compose Multiplatform اور Flutter ایپس دیکھیں — اصل پروڈکٹس جو Google Play اور App Store پر لائیو ہیں۔",
+    "headerTitle": "نیٹو اینڈرائیڈ اور Kotlin Multiplatform میں شائع شدہ ایپس۔",
+    "headerDesc": "پلیٹ فارم کے حساب سے فلٹر کریں اور دیکھیں کہ پروڈکٹ کی اصل ضرورت کے مطابق آرکیٹیکچر اور اسٹیک کیسے بدلتا ہے۔",
+    "filters": {
+      "all": "تمام",
+      "android": "اینڈرائیڈ",
+      "ios": "آئی او ایس",
+      "kmp": "KMP",
+      "cmp": "CMP",
+      "flutter": "Flutter"
+    },
+    "ctas": {
+      "playStore": "Google Play",
+      "appStore": "App Store",
+      "details": "تفصیلات دیکھیں"
+    },
+    "nextProject": "اگلا پراجیکٹ",
+    "highlights": "نمایاں پہلو",
+    "techStack": "ٹیک اسٹیک",
+    "backToProjects": "تمام پراجیکٹس"
+  },
+  "blog": {
+    "title": "بلاگ",
+    "metaTitle": "بلاگ | اینڈرائیڈ اور Kotlin Multiplatform آرکیٹیکچر نوٹس",
+    "metaDesc": "اینڈرائیڈ ڈویلپمنٹ، Kotlin Multiplatform، Compose Multiplatform اور Clean Architecture پر عملی مضامین — نظریے سے نہیں بلکہ حقیقی کلائنٹ پراجیکٹس سے۔",
+    "headerTitle": "موبائل آرکیٹیکچر پر نوٹس۔",
+    "headerDesc": "اینڈرائیڈ، Kotlin Multiplatform اور Compose Multiplatform پر عملی تحریریں — نظریے سے نہیں بلکہ حقیقی پراجیکٹس سے۔",
+    "backToBlog": "تمام پوسٹس"
+  },
+  "contact": {
+    "title": "رابطہ",
+    "metaTitle": "رابطہ | اینڈرائیڈ اور Kotlin Multiplatform ڈویلپر ہائر کریں",
+    "metaDesc": "اپنا موبائل ایپ پراجیکٹ شروع کریں۔ اپنی پلیٹ فارم کی ضروریات بتائیں — اینڈرائیڈ، KMP، Compose Multiplatform یا Flutter — اور ایک کاروباری دن کے اندر جواب پائیں۔",
+    "headerTitle": "بتائیں کہ آپ کیا بنا رہے ہیں۔",
+    "headerDesc": "پراجیکٹ اور مطلوبہ پلیٹ فارمز کے بارے میں کچھ تفصیلات شیئر کریں — میں خود ایک کاروباری دن کے اندر جواب دیتا ہوں۔",
+    "directTitle": "براہ راست رابطہ",
+    "replyNotice": "1 کاروباری دن کے اندر جواب",
+    "beforeWriteTitle": "لکھنے سے پہلے",
+    "beforeWriteTips": [
+      "دائرہ کار کا موٹا خاکہ مکمل اسپیک سے زیادہ مفید ہوتا ہے۔",
+      "اگر آپ اپنے ہدف پلیٹ فارمز پہلے سے جانتے ہیں تو ذکر کریں۔",
+      "موجودہ ڈیزائنز یا لائیو ایپ مفید ہیں، لیکن لازمی نہیں۔"
+    ],
+    "form": {
+      "nameLabel": "نام",
+      "namePlaceholder": "جورڈن لی",
+      "nameRequired": "براہ کرم اپنا نام درج کریں۔",
+      "emailLabel": "ای میل",
+      "emailPlaceholder": "jordan@company.com",
+      "emailRequired": "براہ کرم درست ای میل درج کریں۔",
+      "platformLabel": "پلیٹ فارم",
+      "budgetLabel": "بجٹ کی حد",
+      "detailsLabel": "پراجیکٹ کی تفصیلات",
+      "detailsPlaceholder": "آپ کیا بنا رہے ہیں، اور ٹائم لائن کیا ہے؟",
+      "detailsRequired": "پراجیکٹ کے بارے میں مزید بتائیں (کم از کم 12 حروف)۔",
+      "buttonSend": "پیغام بھیجیں",
+      "buttonSending": "بھیجا جا رہا ہے...",
+      "successTitle": "پیغام بھیج دیا گیا",
+      "successMessage": "رابطہ کرنے کا شکریہ — میں ہر پیغام خود پڑھتا ہوں اور ایک کاروباری دن کے اندر جواب دیتا ہوں۔ تصدیقی ای میل کے لیے اپنا ان باکس چیک کریں۔",
+      "preferDirect": "ای میل ترجیح دیتے ہیں؟ براہ راست رابطہ کریں، میں وہاں سے بھی جواب دوں گا۔",
+      "platforms": {
+        "android": "نیٹو اینڈرائیڈ (Kotlin/Java)",
+        "kmp": "Kotlin Multiplatform (KMP)",
+        "cmp": "Compose Multiplatform (CMP)",
+        "flutter": "Flutter",
+        "notsure": "ابھی یقین نہیں"
+      },
+      "budgets": {
+        "under10k": "10,000 ڈالر سے کم",
+        "10k_30k": "10,000 – 30,000 ڈالر",
+        "30k_75k": "30,000 – 75,000 ڈالر",
+        "over75k": "75,000 ڈالر سے زیادہ"
+      }
+    }
+  },
+  "services": {
+    "title": "میں کیا پیش کرتا ہوں",
+    "metaTitle": "اینڈرائیڈ اور Kotlin Multiplatform ڈویلپمنٹ سروسز",
+    "metaDesc": "سینئر موبائل انجینئرنگ خدمات: نیٹو اینڈرائیڈ، Kotlin Multiplatform، Compose Multiplatform اور Flutter ایپس جو Clean Architecture کے ساتھ اسکیل کے لیے بنائی گئی ہیں۔",
+    "headerTitle": "اسکیل کے لیے تیار کردہ حسبِ ضرورت موبائل انجینئرنگ۔",
+    "headerDesc": "نیٹو اینڈرائیڈ اور کراس پلیٹ فارم ڈویلپمنٹ — جہاں مفید ہو وہاں کوڈ شیئر کرنا، اور جہاں ضروری ہو وہاں مکمل نیٹو حل اپنانا۔"
+  },
+  "testimonials": {
+    "title": "تاثرات",
+    "metaTitle": "کلائنٹ تاثرات | اینڈرائیڈ اور KMP ڈویلپر کے جائزے",
+    "metaDesc": "پڑھیں کہ اسٹارٹ اپ بانی اور سی ٹی اوز محمد اویس کے ساتھ نیٹو اینڈرائیڈ اور Kotlin Multiplatform ایپ پراجیکٹس پر کام کرنے کے بارے میں کیا کہتے ہیں۔",
+    "headerTitle": "میرے ساتھ کام کرنا کیسا ہے۔",
+    "headerDesc": "نیٹو اینڈرائیڈ اور Kotlin Multiplatform ایپس مل کر شائع کرنے کے بعد بانیوں اور پروڈکٹ لیڈز کا فیڈبیک۔"
+  },
+  "notfound": {
+    "eyebrow": "404",
+    "title": "یہ صفحہ موجود نہیں ہے۔",
+    "desc": "جو صفحہ آپ ڈھونڈ رہے ہیں وہ منتقل، نام تبدیل، یا کبھی بنایا ہی نہیں گیا۔ آئیے آپ کو صحیح راستے پر واپس لے چلیں۔",
+    "button": "ہوم پیج پر واپس جائیں"
+  }
+}

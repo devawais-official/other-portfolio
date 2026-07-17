@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "title": "Android Native Development",
+        "description": "High-performance native Android apps with Jetpack Compose, Material Design 3, and modern Android practices.",
+        "icon": "Smartphone",
+        "tech": [
+            "Kotlin",
+            "Jetpack Compose",
+            "Material Design 3",
+            "Clean Architecture"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Kotlin Multiplatform",
+        "description": "Cross-platform development with KMP and CMP, sharing business logic across Android and iOS.",
+        "icon": "Cpu",
+        "tech": [
+            "KMP",
+            "CMP",
+            "Shared Core",
+            "SQLDelight"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Flutter Development",
+        "description": "Fast-moving cross-platform apps with Flutter, ideal for MVP and rapid prototyping.",
+        "icon": "Zap",
+        "tech": [
+            "Flutter",
+            "Dart",
+            "Firebase",
+            "State Management"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "App Architecture & Optimization",
+        "description": "Designing scalable, maintainable architectures following Clean Architecture and SOLID principles.",
+        "icon": "GitBranch",
+        "tech": [
+            "Clean Architecture",
+            "MVVM/MVI",
+            "SOLID",
+            "Performance"
+        ]
+    }
+]

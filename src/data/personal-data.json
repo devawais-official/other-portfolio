@@ -1,0 +1,22 @@
+{
+    "name": "Muhammad Awais",
+    "shortName": "Awais",
+    "title": "Mobile App Developer",
+    "subtitle": "Android • Kotlin Multiplatform • Compose Multiplatform • Flutter",
+    "bio": "Mobile developer with 4+ years shipping production apps. Specialized in Android native, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), and Flutter. Building scalable, maintainable cross-platform systems with clean architecture.",
+    "email": "mughal963@gmail.com",
+    "location": "Lahore, Pakistan",
+    "availability": "Open to opportunities",
+    "social": {
+        "github": "https://github.com/devawais-official",
+        "linkedin": "https://linkedin.com/in/devawais",
+        "twitter": "https://twitter.com/awaisdevm",
+        "stackoverflow": "https://stackoverflow.com/users/15903692/awais963",
+        "medium": "https://medium.com/@devawais"
+    },
+    "contact": {
+        "email": "mughal963@gmail.com",
+        "phone": "+923010789555",
+        "whatsapp": "https://wa.me/+923010789555"
+    }
+}
