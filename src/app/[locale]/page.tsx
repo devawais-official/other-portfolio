@@ -5,6 +5,7 @@ import { siteRoutes } from "@/lib/site-config";
 import { getLocalizedPath } from "@/utils/navigation";
 import { Locale } from "@/i18n/config";
 import { generatePageMetadata } from "@/lib/metadata";
+import { Metadata } from "next";
 
 interface HomeProps {
   params: Promise<{ locale: Locale }>;
