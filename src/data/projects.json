@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "spectra-care",
         "title": "Spectra Care App",
         "category": "Telehealth & IoT",
@@ -31,6 +32,7 @@
     },
     {
         "id": 2,
+        "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "zouris",
         "title": "Zouris: Holistic Wellness Platform",
         "category": "Health & Wellness",
@@ -63,6 +65,7 @@
     },
     {
         "id": 3,
+        "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "egora-b2b",
         "title": "Egora B2B: Restaurant Partner Platform",
         "category": "B2B Solutions",
@@ -92,6 +95,7 @@
     },
     {
         "id": 4,
+        "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "egora",
         "title": "Egora: Smart Restaurant Ecosystem",
         "category": "Food & Beverage",
@@ -122,6 +126,7 @@
     },
     {
         "id": 5,
+        "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "makernote",
         "title": "Makernote: Multiplatform EdTech",
         "category": "Education App",
@@ -151,6 +156,7 @@
     },
     {
         "id": 6,
+        "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "eco-grocery",
         "title": "Eco Grocery: Smart Inventory & Recipes",
         "category": "Smart Utility",
@@ -183,6 +189,7 @@
     },
     {
         "id": 7,
+        "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "hcloud",
         "title": "HCloud: Clinic Management Suite",
         "category": "Doctors App",
@@ -211,6 +218,7 @@
     },
     {
         "id": 8,
+        "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "healthwire",
         "title": "Healthwire: HealthTech Platform",
         "category": "Telehealth Platform",
@@ -240,6 +248,7 @@
     },
     {
         "id": 9,
+        "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "dongamers",
         "title": "DonGamers: E-Sports Platform",
         "category": "E-Gaming Platform",

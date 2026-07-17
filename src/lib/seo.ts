@@ -111,19 +111,7 @@ export function getMetadata(locale: string): Metadata {
     };
 }
 
-// Per-page metadata, driven by pageMetaDefaults (home, about, services, etc.)
-export function generatePageMetadata(locale: string, pageKey: keyof typeof pageMetaDefaults): Metadata {
-    const resolvedLocale: Locale = locales.includes(locale as Locale) ? (locale as Locale) : "en";
-    const page = pageMetaDefaults[pageKey];
-    const localized = page.translations[resolvedLocale];
-    const path = pageKey === "home" ? "" : `/${page.slug}`;
 
-    return {
-        ...buildSharedFields(resolvedLocale, path, localized.title, localized.desc),
-        title: localized.title,
-        keywords: [...localized.keywords],
-    };
-}
 
 export const personSchemaData = {
     "@context": "https://schema.org",
