@@ -23,24 +23,41 @@ export default function AboutTimeline({ experiences }: AboutTimelineProps) {
                     title={translate("about.experienceSubtitle")}
                     className={style.timelineHeaderClass}
                 />
+
                 <div className={style.timelineContainer}>
                     {experiences.map((exp, i) => (
-                        <AnimatedSection key={exp.id} delay={i * 0.06} className={style.experienceCard}>
-                            <div>
-                                <p className={style.expDuration}>{exp.duration}</p>
+                        <AnimatedSection
+                            key={exp.id}
+                            delay={i * 0.06}
+                            className={style.experienceCard}
+                        >
+                            {/* Left Column: Role Meta (Takes 1/4 layout on desktop) */}
+                            <div className="flex flex-col gap-1 md:col-span-1">
+                                <span className={style.expDuration}>{exp.duration}</span>
                                 <h3 className={style.expRole}>{exp.role}</h3>
                                 <p className={style.expCompany}>{exp.company}</p>
                             </div>
-                            <div>
-                                <p className={style.expDesc}>{exp.description}</p>
-                                <ul className={style.achievementsList}>
-                                    {exp.achievements.map((a) => (
-                                        <li key={a} className={style.achievementItem}>
-                                            <span className={style.bulletPoint} />
-                                            {a}
-                                        </li>
-                                    ))}
-                                </ul>
+
+                            {/* Right Column: Detailed Experience (Takes 3/4 layout on desktop) */}
+                            <div className="md:col-span-3 flex flex-col gap-4">
+                                {/* 🎯 direct variable class style.expDesc access taake naya contrast apply ho */}
+                                <p className={style.expDesc}>
+                                    {exp.description}
+                                </p>
+
+                                {exp.achievements && exp.achievements.length > 0 && (
+                                    <ul className={style.achievementsList}>
+                                        {exp.achievements.map((a, aIdx) => (
+                                            <li
+                                                key={`${exp.id}-ach-${aIdx}`}
+                                                className={style.achievementItem}
+                                            >
+                                                <span className={style.bulletPoint}>—</span>
+                                                <span>{a}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
                             </div>
                         </AnimatedSection>
                     ))}

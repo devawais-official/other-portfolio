@@ -33,7 +33,8 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
   const htmlClassNames = `${fontClasses} ${siteTheme.htmlStyles}`;
 
   return (
-    <html lang={locale} dir={dir} className={htmlClassNames}>
+    <html lang={locale} dir={dir} className={htmlClassNames}
+      data-scroll-behavior="smooth">
       <head>
         <SchemaMarkup type="Person" data={personSchemaData} />
       </head>

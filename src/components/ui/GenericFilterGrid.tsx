@@ -41,25 +41,27 @@ export default function GenericFilterGrid({
 
   return (
     <div>
-      {/* Filters Bar */}
-      <div className="flex flex-wrap gap-2">
+      {/* 🎯 Updated Filters Bar with dynamic theme matching button styles */}
+      <div className="flex flex-wrap gap-3 items-center justify-start">
+        {/* All Button */}
         <button
           onClick={() => setActive("all")}
-          className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-200 ${active === "all"
-              ? "border-primary-light/60 bg-surface2 text-ink"
-              : "border-border text-muted hover:text-ink"
+          className={`rounded-full px-5 py-2 text-xs font-mono tracking-wider uppercase font-bold transition-all duration-300 relative ${active === "all"
+            ? "liquid-glass !border-primary/60 text-primary shadow-[0_0_15px_rgba(255,177,98,0.12)] scale-[1.03]"
+            : "border border-white/5 bg-white/[0.02] text-ink/60 hover:text-ink hover:border-white/20"
             }`}
         >
           {allLabel}
         </button>
 
+        {/* Dynamic Filters */}
         {filters.map((filter) => (
           <button
             key={filter.value}
             onClick={() => setActive(filter.value)}
-            className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors duration-200 ${active === filter.value
-                ? "border-primary-light/60 bg-surface2 text-ink"
-                : "border-border text-muted hover:text-ink"
+            className={`rounded-full px-5 py-2 text-xs font-mono tracking-wider uppercase font-bold transition-all duration-300 relative ${active === filter.value
+                ? "liquid-glass !border-primary/60 text-primary shadow-[0_0_15px_rgba(255,177,98,0.12)] scale-[1.03]"
+                : "border border-white/5 bg-white/[0.02] text-ink/60 hover:text-ink hover:border-white/20"
               }`}
           >
             {filter.label}

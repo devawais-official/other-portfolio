@@ -66,7 +66,7 @@ export default function DesktopNavbar({ getLocalizedHref, translate }: DesktopNa
                             ) : (
                                 <Button variant="ghost" size="icon" className={style.socialBtn} asChild>
                                     <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
-                                        <social.icon className={style.socialIcon} />
+                                        <social.icon className={cn(style.socialIcon,)} />
                                     </a>
                                 </Button>
                             )}

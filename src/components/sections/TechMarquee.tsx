@@ -1,19 +1,19 @@
-"use client"; // 🎯 Yeh line missing thi!
+"use client"; // 🎯 React Client Component
+
 import { expertise } from "@/data";
 import { useI18n } from "@/i18n/i18n-provider";
+import SectionWrapper from "@/components/layout/SectionWrapper";
+import { siteTheme } from "@/lib/theme-config";
+import SectionHeader from "../ui/SectionHeader";
 
 interface TechItem {
   name: string;
-  // Simple Icons CDN slug (Hum lower-case direct mappings use karenge)
   iconSlug: string;
 }
 
-// 🎯 One single source mapping for icons. 
-// Agar koi naya skill dynamic JSON me add ho, to yahan bas icon mapping define karni hogi.
 const iconMapping: Record<string, string> = {
-  // Languages
   "Kotlin": "kotlin",
-  "Java": "openjdk", // using openjdk icon for java
+  "Java": "openjdk",
   "Dart": "dart",
   "TypeScript": "typescript",
   "JavaScript": "javascript",
@@ -21,8 +21,8 @@ const iconMapping: Record<string, string> = {
   // Android & KMP
   "Jetpack Compose": "jetpackcompose",
   "Material Design 3": "materialdesign",
-  "Coroutines": "kotlin", // Fallback to Kotlin
-  "Flow": "reactive x", // Rx logo style fallback
+  "Coroutines": "kotlin",
+  "Flow": "reactivex",
   "Room DB": "sqlite",
   "Hilt": "android",
   "Kotlin Multiplatform (KMP)": "kotlin",
@@ -42,66 +42,83 @@ const iconMapping: Record<string, string> = {
   "Retrofit": "square",
   "GraphQL": "graphql",
   "SQLite": "sqlite",
+  "Google AdMob": "googleadmob",
+  "Google Analytics": "googleanalytics",
+  "Google Maps": "googlemaps",
+  "Google Nearby": "googlenearby"
 };
 
-// 🎯 DRY - Pulling directly from our raw json file (Zero manual drifts!)
 const rawStack = [
   ...expertise.languages,
-  ...expertise.android.slice(0, 3), // composition limits
+  ...expertise.android.slice(0, 3),
   ...expertise.multiplatform.slice(0, 3),
   ...expertise.flutter.slice(0, 2),
   ...expertise.tools.slice(0, 4)
 ];
 
-// Map standard text list to fully formed TechItem objects
 const stack: TechItem[] = rawStack.map((name) => ({
   name,
-  iconSlug: iconMapping[name] || "android" // Safe fallback logo
+  iconSlug: iconMapping[name] || "android"
 }));
+
 export default function TechMarquee() {
-  const { translate } = useI18n();
-  // Double the items dynamically to make the scroll seamless and infinite
+  const { translate, locale } = useI18n(); // 🎯 'locale' ko extract kiya context se
   const items = [...stack, ...stack, ...stack];
 
+  const eyebrowText = translate("home.skillsEyebrow") || "TOOLKIT";
+  const titleText = translate("home.skillsTitle") || "Technical Skills";
+
+  const styles = siteTheme.home.marquee;
+
   return (
-    <section className="relative w-full overflow-hidden bg-bg py-16">
+    // 🎯 Re-render purely when locale changes (key is dynamic now)
+    <SectionWrapper
+      key={`marquee-sec-${locale}`}
+      className={styles.wrapper}
+      blobColorLeft=""
+    >
 
-      {/* 2. Infinite Marquee Container */}
-      <div className="relative flex w-full flex-col gap-6 overflow-hidden py-4">
+      {/* 🎯 Header respects LTR/RTL correctly */}
+      <div className="container-page mx-auto px-6 md:px-8">
+        <SectionHeader
+          eyebrow={eyebrowText}
+          title={titleText}
+          className="max-w-2xl mb-14 text-left rtl:text-right" // RTL alignment handles Urdu seamlessly
+        />
+      </div>
 
-        {/* Left & Right Elegant Edge Fading Mask */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-bg to-transparent sm:w-48" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-bg to-transparent sm:w-48" />
-
-        {/* Dynamic Running Track */}
-        <div className="flex w-max animate-marquee gap-6 hover:[animation-play-state:paused] cursor-pointer">
+      {/* 🎯 FORCE LTR on Marquee container: 'dir="ltr"' stops the track from going blank! */}
+      <div
+        dir="ltr"
+        className="relative flex w-full flex-col gap-6 overflow-hidden py-4"
+        style={styles.maskStyle}
+      >
+        {/* Running Track */}
+        <div className={styles.track}>
           {items.map((item, i) => (
             <div
               key={`${item.name}-${i}`}
-              className="flex w-36 flex-col items-center justify-center gap-3 rounded-3xl border border-border bg-surface px-4 py-6 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md"
+              className={styles.capsule}
             >
-              {/* Icon Container (Using Simple Icons CDN safely) */}
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-50 p-2.5">
+              <div className={styles.iconContainer}>
                 <img
                   src={`https://cdn.simpleicons.org/${item.iconSlug}`}
                   alt={item.name}
-                  className="h-full w-full object-contain"
+                  className={styles.iconImg}
                   loading="lazy"
                   onError={(e) => {
-                    // Fallback to a standard android/code icon if CDN fails or key is missing
                     (e.target as HTMLImageElement).src = "https://cdn.simpleicons.org/android/3DDC84";
                   }}
                 />
               </div>
 
-              {/* Skill Label (Matching screenshot sizing) */}
-              <span className="text-center font-sans text-xs font-medium text-ink/80 truncate max-w-full">
+              <span className={styles.text}>
                 {item.name}
               </span>
             </div>
           ))}
         </div>
       </div>
-    </section>
+    </SectionWrapper>
   );
 }

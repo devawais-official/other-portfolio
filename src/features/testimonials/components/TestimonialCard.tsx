@@ -33,7 +33,6 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
       </p>
 
       <div className={cardStyle.avatarContainer}>
-        {/* Clean helper function called directly inside render */}
         <span className={cardStyle.avatarBadge}>
           {getInitials(testimonial.clientName)}
         </span>

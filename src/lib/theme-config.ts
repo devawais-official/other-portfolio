@@ -11,18 +11,45 @@ export const siteTheme = {
         left: "#1d4ed8",
         right: "#3b82f6"
     },
+    home: {
+        marquee: {
+            // 🎯 Spacing ko mazeed tight kiya (py-6)
+            wrapper: "py-6 border-t border-border/40 px-0",
+
+            // 🎯 Dynamic CSS Mask Style (Ab kisi solid color overlay ki zaroorat nahi!)
+            maskStyle: {
+                WebkitMaskImage: "linear-gradient(to right, transparent, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, transparent)",
+                maskImage: "linear-gradient(to right, transparent, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, transparent)"
+            },
+
+            // Moving track container (Vertical spacing tightened)
+            track: "flex w-max animate-marquee gap-4 hover:[animation-play-state:paused] cursor-pointer py-1",
+
+            // Compact Capsule Design
+            capsule: "liquid-glass flex items-center gap-3 px-5 py-2.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5",
+
+            // Brand logo container
+            iconContainer: "flex h-6 w-6 items-center justify-center",
+            iconImg: "h-full w-full object-contain transition-transform duration-300 group-hover:scale-105",
+
+            // Text styling
+            text: "font-sans text-xs sm:text-sm font-medium text-ink/90 whitespace-nowrap",
+        }
+    },
     projects: {
         sectionPadding: "pb-24",
         container: "container-page",
-        cardWrapper: "h-full", // Card wrap classes if any
-
+        cardWrapper: "group relative p-5 rounded-2xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] transition-all duration-500 flex flex-col justify-between h-full relative overflow-hidden",
         // Card custom states/transitions for Next Image & Icon Fallbacks
         imageTransition: "object-cover transition-all duration-700 [.is-hovered_&]:scale-110 [.is-hovered_&]:blur-[2px] [.is-hovered_&]:brightness-75",
         iconFallbackTransition: "absolute inset-0 flex items-center justify-center transition-transform duration-700 [.is-hovered_&]:scale-105",
-
+        imageContainer: "w-full aspect-[4/3] rounded-xl bg-gradient-to-b from-white/[0.02] to-transparent border border-white/[0.03] overflow-hidden flex items-center justify-center p-8 relative",
         // Icon configurations
+        hoverGlow: "absolute inset-0 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-all duration-500 pointer-events-none",
         fallbackIconColorOpacity: "opacity-30",
-        storeIconStyle: "h-3.5 w-3.5 shrink-0"
+        storeIconStyle: "h-3.5 w-3.5 shrink-0",
+        title: "mt-5 font-display text-lg font-bold text-ink leading-tight group-hover:text-primary transition-colors duration-300",
+        description: "mt-2 text-xs text-muted/70 leading-relaxed line-clamp-2",
     },
     services: {
         sectionPadding: "pb-24",
@@ -117,100 +144,119 @@ export const siteTheme = {
         emptyIcon: "mx-auto h-12 w-12 mb-4 opacity-30",
 
         // Blog Card styles
-        card: "group relative rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-black/30",
-        imageWrapper: "relative w-full h-28 overflow-hidden rounded-t-xl",
-        image: "h-full w-full object-cover transition-transform duration-500 group-hover:scale-105",
-        imageOverlay: "absolute inset-0 bg-gradient-to-t from-black/60 to-transparent",
-        readTimeBadge: "absolute top-2 right-2 flex items-center gap-1 rounded-full bg-black/50 px-2 py-0.5 text-[9px] text-white backdrop-blur",
-        categoryBadge: "absolute bottom-2 left-2 rounded-full bg-primary/20 px-2 py-0.5 text-[9px] uppercase tracking-wide text-primary-light backdrop-blur",
-        contentWrapper: "flex flex-col gap-2 p-3",
-        date: "text-[10px] text-gray-400",
-        title: "text-[13px] font-semibold leading-snug text-white line-clamp-2 transition-colors group-hover:text-primary-light",
-        excerpt: "text-[11px] text-gray-400 line-clamp-2",
-        footer: "mt-1 flex items-center justify-between border-t border-white/10 pt-2 text-[11px] text-primary-light",
-        footerUnderline: "absolute left-0 -bottom-0.5 h-px w-0 bg-primary-light transition-all group-hover:w-full",
-        arrowIcon: "transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+        card: "group flex flex-col overflow-hidden rounded-2xl border border-white/5 bg-[rgba(var(--color-surface),0.3)] backdrop-blur-sm transition-all hover:border-white/10 hover:bg-[rgba(var(--color-surface),0.5)] max-w-sm",
+        imageWrapper: "relative h-36 w-full overflow-hidden",
+        image: "object-cover w-full h-full", // Fade hataya
+        imageOverlay: "hidden", // Overlay disable kar diya
+
+        readTimeBadge: "absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-[rgba(0,0,0,0.6)] px-3 py-1 text-xs font-medium text-white backdrop-blur-md border border-white/10",
+        categoryBadge: "absolute top-3 right-3 rounded-full bg-[rgb(var(--color-primary))] px-2 py-1 text-[10px] font-bold text-[rgb(var(--color-bg))]",
+        contentWrapper: "flex flex-1 flex-col p-4",
+        date: "mb-1.5 font-mono text-[9px] uppercase tracking-widest text-[rgb(var(--color-muted))]",
+        title: "mb-2 font-display text-base font-medium leading-snug text-[rgb(var(--color-ink))]",
+        excerpt: "mb-3 line-clamp-2 text-xs text-[rgb(var(--color-muted))]",
+        footer: "mt-auto flex items-center justify-between pt-3 border-t border-white/5",
+        footerUnderline: "absolute -bottom-1 left-0 h-[1px] w-0 bg-[rgb(var(--color-primary))] transition-all group-hover:w-full",
+        arrowIcon: "text-[rgb(var(--color-primary))]"
     },
     about: {
+
         sectionPadding: "pb-16",
-        mainGrid: "container-page grid gap-12 lg:grid-cols-[0.9fr_1.1fr]",
+        mainGrid: "container-page grid gap-8 lg:grid-cols-[0.9fr_1.1fr] items-stretch", // stretch items for uniform heights
 
         // Bio Card (Left Column)
-        bioCard: "card-surface p-6 sm:p-8",
-        avatarBadge: "flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/60 font-display text-xl font-bold text-white",
+        bioCard: "p-6 rounded-2xl border border-white/5 bg-white/[0.02] flex flex-col justify-between h-full min-h-[500px]",
         bioName: "mt-5 font-display text-2xl font-semibold",
         bioTagline: "text-sm text-muted",
         infoList: "mt-6 space-y-3 border-t border-border pt-6 text-sm",
         infoRow: "flex justify-between gap-4",
         infoLabel: "text-muted",
         infoValue: "text-right",
+        avatarBadge: "w-12 h-12 rounded-xl flex items-center justify-center bg-primary/10 text-primary font-bold text-lg border border-primary/20",
 
         // Stats Block
         statsGrid: "mt-8 grid grid-cols-2 gap-5 border-t border-border pt-6",
         statValue: "font-display text-xl font-semibold text-ink",
         statLabel: "mt-1 text-xs text-muted",
 
-        // Expertise Block (Right Column)
-        expertiseGrid: "mt-8 grid gap-4 sm:grid-cols-2",
-        expertiseCard: "card-surface p-5",
-        expertiseTitle: "font-display text-sm font-semibold text-primary-light",
-        tagsContainer: "mt-3 flex flex-wrap gap-1.5",
-        tagSpan: "rounded-full border border-border px-2.5 py-1 text-xs text-muted",
+        // 🎯 RE-DESIGNED EXPERTISE CLASSES (Clean & Modern Grid)
+        expertiseGrid: "grid grid-cols-1 sm:grid-cols-2 gap-4",
+        expertiseCard: "group p-5 rounded-xl border border-white/5 bg-white/[0.015] hover:bg-white/[0.035] hover:border-primary/15 transition-all duration-300 flex flex-col justify-between min-h-[140px] relative overflow-hidden",
+        expertiseTitle: "text-xs font-mono font-bold tracking-wider text-ink/90 uppercase",
+        tagsContainer: "flex flex-wrap gap-1.5 mt-3", // Normal static top margin instead of forcing dynamic bottom stretch
+        tagSpan: "px-2.5 py-1 text-[11px] font-mono font-medium rounded-lg bg-white/[0.03] text-muted/90 hover:bg-primary/10 hover:text-primary hover:border-primary/20 transition-all duration-300 border border-white/[0.03]",
+
+        // Bio Card (Left Column)
+
+        statsDivider: "border-t border-white/5 my-5",
+        socialStatsGrid: "grid grid-cols-2 gap-4 my-5 pt-4 border-t border-white/5",
+        socialStatItem: "flex flex-col gap-1 p-3 rounded-lg bg-white/[0.01] border border-white/[0.03]",
+        cvButton: "w-full mt-4 py-2.5 px-4 rounded-xl text-center text-xs font-mono font-bold tracking-wider uppercase border border-primary/20 bg-primary/5 text-primary hover:bg-primary/10 hover:border-primary/40 transition-all duration-300"
+        ,   // Expertise Block (Right Column)
 
         // Experience Timeline Section
-        timelineSection: "section-pad border-t border-border bg-surface/30",
-        timelineLayout: "container-page",
-        timelineHeaderClass: "max-w-xl",
-        timelineContainer: "mt-12 space-y-8",
-        experienceCard: "card-surface grid gap-4 p-6 sm:grid-cols-[180px_1fr] sm:gap-8 sm:p-7",
-        expDuration: "font-mono text-xs text-primary-light",
-        expRole: "mt-1 font-display text-lg font-semibold",
-        expCompany: "text-sm text-muted",
-        expDesc: "text-sm leading-relaxed text-muted",
-        achievementsList: "mt-4 space-y-2",
-        achievementItem: "flex items-start gap-2.5 text-sm text-ink/80",
-        bulletPoint: "mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary"
+        timelineSection: "py-24 border-t border-white/5",
+        timelineLayout: "container-page mx-auto max-w-6xl px-5 sm:px-8",
+        timelineHeaderClass: "max-w-xl mb-12",
+        timelineContainer: "flex flex-col gap-6 mt-12", // thoda sa gap kam kiya cards ke beech
+
+        // Grid layout: Left 1 part for Meta, Right 3 parts for content
+        experienceCard: "p-6 md:p-8 rounded-2xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] transition-all duration-300 grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-10",
+        // Left column metadata (Duration, role and company)
+        expDuration: "inline-block px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-primary/90 bg-primary/5 rounded-md border border-primary/10 w-fit mb-2",
+        expRole: "text-base font-bold text-ink leading-snug",
+        expCompany: "text-[11px] font-mono text-muted/60 uppercase tracking-widest mt-1",
+
+        // Right column content details
+        expDesc: "text-sm text-zinc-100/95 leading-relaxed md:col-span-3 flex flex-col gap-4",
+        achievementsList: "flex flex-col gap-3 mt-2",
+        achievementItem: "flex items-start gap-3 text-sm text-muted/80 leading-relaxed",
+        bulletPoint: "text-primary/70 text-xs mt-[6px] shrink-0 font-mono font-bold"
     },
+
     footer: {
-        container: "border-t border-border bg-surface/40",
-        grid: "container-page grid gap-10 py-14 sm:grid-cols-2 md:grid-cols-4",
+        container: "w-full border-t border-white/5 bg-bg py-14",
+        grid: "grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12",
 
         // Brand Block
-        brandCol: "flex flex-col items-start sm:col-span-2 md:col-span-1",
-        logoLink: "relative block mb-4 w-14 h-14 md:w-16 md:h-16 group cursor-pointer",
+        brandCol: "flex flex-col items-start gap-2",
+        logoLink: "relative block mb-1 w-14 h-14 md:w-16 md:h-16 group cursor-pointer",
         logoGradientBg: "absolute inset-0 rotate-45 rounded-lg bg-gradient-to-r from-primary via-mint to-accent transition-transform duration-500 group-hover:rotate-90 shadow-[0_0_20px_rgba(74,105,88,0.25)]",
         logoInnerBg: "absolute inset-2 rotate-45 rounded-lg flex items-center justify-center bg-bg transition-transform duration-500 group-hover:rotate-0",
         logoMask: "w-8 h-8 -rotate-45 transition-transform duration-500 bg-ink group-hover:rotate-0",
-        brandTitle: "text-xl md:text-2xl font-black text-ink tracking-tighter uppercase italic",
-        brandTagline: "mt-1 text-[10px] font-bold uppercase tracking-widest text-primary-light",
+        brandTitle: "text-xl md:text-2xl font-black text-ink tracking-tight uppercase italic leading-none",
+        brandTagline: "text-xs text-muted/70 max-w-[200px] leading-relaxed uppercase tracking-wider font-mono",
 
         // Typography & List
         eyebrow: "eyebrow",
-        listContainer: "mt-4 space-y-2.5",
-        linkText: "text-sm text-muted transition-colors hover:text-ink focus-visible:outline-none focus-visible:underline min-h-[32px] inline-flex items-center",
+        listContainer: "mt-4 flex flex-col gap-1.5 text-sm",
+        linkText: "text-sm text-muted transition-colors hover:text-ink hover:text-primary focus-visible:outline-none focus-visible:underline min-h-[32px] inline-flex items-center",
         staticText: "text-sm text-muted",
 
-        // Socials
-        socialContainer: "mt-5 flex gap-3",
-        socialIconLink: "flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-muted transition-all duration-300 hover:border-white/30 hover:text-primary-light hover:bg-white/[0.08] hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-light",
-        // Meta
-        metaRow: "border-t border-border py-6",
-        metaLayout: "container-page flex flex-col items-center justify-between gap-2 text-xs text-muted sm:flex-row"
+        // Socials (No more tooltip styles needed!)
+        socialContainer: "flex flex-wrap items-center gap-2.5 mt-3 justify-start",
+        socialIconLink: "w-9 h-9 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center text-ink/60 hover:text-primary hover:border-primary/30 hover:shadow-[0_0_10px_rgba(255,177,98,0.1)] transition-all duration-300",
+
+        // Meta (Copyrights)
+        metaContainer: "mt-10 pt-6 border-t border-white/5 text-xs text-muted/50 w-full",
+        metaLayout: "flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
     },
     button: {
-        base: "inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-300 active:scale-95 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50",
-
+        base: "inline-flex items-center justify-center gap-2 rounded-full transition-all duration-300 font-semibold text-sm",
         variants: {
-            ghost: "bg-transparent hover:bg-surface text-ink/90 hover:text-ink",
-            solid: "bg-primary-accent-gradient text-bg font-semibold shadow-[0_4px_20px_0_rgba(74,105,88,0.35)] hover:shadow-[0_4px_25px_0_rgba(142,175,157,0.5)] hover:opacity-95",
-            outline: "border border-border bg-surface text-ink hover:border-primary/40 hover:bg-surface2/50",
-        },
+            // Primary: Linear Gradient from root variables
+            solid: "bg-gradient-to-r from-[rgb(var(--color-primary))] to-[rgb(var(--color-accent))] text-[rgb(var(--color-bg))] hover:scale-[1.03]",
 
+            // Outline: Using CSS variables for border and background transparency
+            outline: "border border-[rgba(var(--color-primary),0.3)] bg-[rgba(var(--color-bg),0.2)] text-[rgb(var(--color-ink))] hover:bg-[rgba(var(--color-primary),0.1)] hover:border-[rgba(var(--color-primary),0.6)] hover:text-[rgb(var(--color-primary-light))]",
+
+            ghost: "text-[rgb(var(--color-ink))] hover:bg-[rgba(var(--color-surface),0.3)]",
+        },
         sizes: {
-            default: "h-11 px-5 text-sm",
-            sm: "h-9 px-3.5 text-xs",
-            icon: "h-10 w-10 p-0",
-        }
+            default: "px-6 py-3",
+            sm: "px-4 py-2 text-xs",
+            icon: "p-3",
+        },
     },
     header: {
         // 1. Wrapper ka background bhi bg-bg/80 karo (pehle bg-background/80 tha)
@@ -224,8 +270,8 @@ export const siteTheme = {
 
         // Social Block
         socialDivider: "flex items-center gap-1 border-l border-border/40 pl-3 ml-2",
-        socialBtn: "w-8 h-8 rounded-full flex items-center justify-center text-muted hover:text-primary transition-all duration-200",
-        socialIcon: "w-4 h-4",
+        socialIcon: "w-4 h-4 text-muted hover:text-primary-light transition-colors", // w-4 se w-5 kar do
+        socialBtn: "flex items-center justify-center p-2 rounded-full", // padding thodi adjust karo
 
         mobileToggle: "md:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-muted/50",
 
@@ -250,7 +296,7 @@ export const siteTheme = {
         layoutGrid: "container-page grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]",
         eyebrow: "eyebrow flex items-center gap-2",
         heading: "mt-5 font-display text-4xl font-semibold leading-[1.06] tracking-tight sm:text-5xl lg:text-6xl",
-        headingGradient: "bg-brand-gradient bg-clip-text text-transparent",
+        headingGradient: "bg-gradient-to-r from-primary to-zinc-100 bg-clip-text text-transparent inline-block pb-3 -mb-1.5 pt-1",
         description: "mt-6 max-w-lg text-base text-muted sm:text-lg",
         buttonContainer: "mt-8 flex flex-col gap-3 sm:flex-row w-full sm:w-auto",
         statsContainer: "mt-12 grid grid-cols-3 gap-6 border-t border-border pt-8 w-full",
@@ -275,22 +321,16 @@ export const siteTheme = {
     },
     // Testimonial Card ke styles, colors aur typography tokens
     testimonialCard: {
-        container: "card-surface flex h-full flex-col p-6",
+        // 🎯 Is container style ko update kar lein
+        container: "relative flex flex-col gap-5 p-6 rounded-2xl border border-border/40 bg-zinc-950/20 backdrop-blur-sm transition-all duration-300 ease-out md:hover:-translate-y-1.5 md:hover:scale-[1.02] md:hover:border-primary/40 md:hover:shadow-lg md:hover:shadow-primary/5 cursor-pointer",
 
-        // Icons & Visuals
-        quoteIcon: "text-primary-light opacity-70",
-        starIcon: "fill-accent text-accent",
-
-        // Message Typography
-        messageText: "mt-4 flex-1 text-sm leading-relaxed text-ink/90",
-
-        // Avatar & Meta Info
-        avatarContainer: "mt-6 flex items-center gap-3 border-t border-border pt-4",
-        avatarBadge: "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/20 font-mono text-xs font-semibold text-primary-light",
-
-        // Client Meta Typography
-        clientName: "text-sm font-semibold text-ink",
-        clientRole: "text-xs text-muted"
+        quoteIcon: "text-primary/60",
+        starIcon: "fill-primary text-primary",
+        messageText: "font-sans text-sm leading-relaxed text-ink/80 flex-1",
+        avatarContainer: "flex items-center gap-3 pt-4 border-t border-border/20",
+        avatarBadge: "flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase border border-primary/20",
+        clientName: "font-sans text-sm font-semibold text-ink",
+        clientRole: "font-sans text-xs text-ink/60",
     },
     notFoundPage: {
         container: "container-page flex min-h-[60vh] flex-col items-center justify-center text-center",

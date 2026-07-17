@@ -68,12 +68,13 @@ export default function HeroSection({ translate, homeData }: HeroSectionProps) {
 
                     {/* Action buttons */}
                     <div className={heroStyle.buttonContainer}>
-                        <Button asChild variant="solid" className="w-full sm:w-auto px-6 py-3 justify-center">
+                        <Button asChild variant="solid" className="w-full sm:w-auto">
                             <Link href={contactPath}>
                                 {translate("home.buttonStart")} <ArrowUpRight size={16} />
                             </Link>
                         </Button>
-                        <Button asChild variant="outline" className="w-full sm:w-auto px-6 py-3 justify-center">
+
+                        <Button asChild variant="outline" className="w-full sm:w-auto">
                             <Link href={projectsPath}>
                                 {translate("home.buttonView")}
                             </Link>
@@ -119,21 +120,22 @@ export default function HeroSection({ translate, homeData }: HeroSectionProps) {
                             />
                         </div>
 
-                        {/* Floating stack badge with pure-CSS Tooltip */}
-                        <div className={heroStyle.badgeContainer}>
+                        {/* Container: 'mx-auto' and 'w-fit' keeps it centered and tightly wrapped around the badges */}
+                        <div className="liquid-glass w-fit mx-auto flex items-center gap-4 px-6 py-3 rounded-full border border-primary/20 shadow-lg shadow-primary/5 relative z-20">
                             {stackBadges.map((b) => (
                                 <div
                                     key={b.name}
-                                    className={heroStyle.badgeItem}
+                                    className={`${heroStyle.badgeItem} relative group z-10`}
                                 >
                                     {/* React Icon element */}
                                     {b.icon}
 
                                     {/* Tooltip */}
-                                    <span className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200 pointer-events-none bg-zinc-900 text-[11px] font-medium text-white px-2 py-1 rounded border border-white/10 shadow-xl">
+                                    <span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200 pointer-events-none liquid-glass bg-gradient-to-br from-primary/10 via-bg/20 to-bg/50 backdrop-blur-xl border border-primary/20 text-[11px] font-medium text-ink px-2.5 py-1 rounded-lg shadow-lg shadow-primary/5 whitespace-nowrap z-30">
                                         {b.tooltip}
+
                                         {/* Tooltip Arrow */}
-                                        <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-zinc-900" />
+                                        <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary/80" />
                                     </span>
                                 </div>
                             ))}

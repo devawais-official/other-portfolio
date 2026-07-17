@@ -21,33 +21,26 @@ export default function BlogCard({ post }: BlogCardProps) {
 
     return (
         <article className={style.card}>
-            {/* IMAGE AREA */}
-            <a
-                href={post.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-            >
+            <a href={post.link} target="_blank" rel="noopener noreferrer">
                 <div className={style.imageWrapper}>
                     <Image
                         src={imgSrc}
-                        alt={post.title || "blog"}
-                        width={400}
-                        height={200}
+                        alt={post.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Ye line add karo
                         className={style.image}
                         onError={() => setImgSrc(fallbackImage)}
                     />
 
-                    {/* Gradient Screen */}
-                    <div className={style.imageOverlay} />
+                    {/* Gradient Overlay wala div yahan se HATA DO */}
 
-                    {/* Meta Time Badge */}
+                    {/* Badge ko proper align kiya */}
                     <div className={style.readTimeBadge}>
-                        <Clock size={10} />
-                        {post.readTime}m
+                        <Clock size={14} />
+                        <span>{post.readTime} min read</span>
                     </div>
 
-                    {/* Dynamic Tag */}
+                    {/* Category Badge */}
                     {post.category && (
                         <div className={style.categoryBadge}>
                             {post.category}
@@ -56,33 +49,22 @@ export default function BlogCard({ post }: BlogCardProps) {
                 </div>
             </a>
 
-            {/* CONTENT AREA */}
             <div className={style.contentWrapper}>
-                <span className={style.date}>
-                    {formatFullDateTime(post.publishDate)}
-                </span>
+                {/* DATE & TIME ALIGNMENT */}
+                <div className="flex items-center justify-between mb-3">
+                    <span className={style.date}>{formatFullDateTime(post.publishDate)}</span>
+                    {post.category && <span className={style.categoryBadge}>{post.category}</span>}
+                </div>
 
-                <h2 className={style.title}>
-                    {post.title}
-                </h2>
+                <h2 className={style.title}>{post.title}</h2>
+                <p className={style.excerpt}>{post.excerpt}</p>
 
-                {post.excerpt && (
-                    <p className={style.excerpt}>
-                        {post.excerpt}
-                    </p>
-                )}
-
-                {/* INTERACTION FOOTER */}
                 <div className={style.footer}>
-                    <span className="relative">
-                        Read
+                    <span className="relative text-sm font-medium text-[rgb(var(--color-primary-light))]">
+                        Read more
                         <span className={style.footerUnderline} />
                     </span>
-
-                    <ArrowUpRight
-                        size={13}
-                        className={style.arrowIcon}
-                    />
+                    <ArrowUpRight size={16} className={style.arrowIcon} />
                 </div>
             </div>
         </article>

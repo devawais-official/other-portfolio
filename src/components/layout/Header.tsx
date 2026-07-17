@@ -1,12 +1,11 @@
-// src/components/layout/Header.tsx
 "use client"
 
 import { useState, useEffect, useMemo } from "react"
-import { usePathname, useParams } from "next/navigation"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { useScroll, useMotionValueEvent } from "framer-motion"
 import { Menu, X } from "lucide-react"
-import { navLinks, siteConfig } from "@/lib/site-config"
+import { siteConfig } from "@/lib/site-config"
 import { siteTheme } from "@/lib/theme-config"
 import { useI18n } from "@/i18n/i18n-provider"
 import { Magnetic } from "../ui/Magnetic"
@@ -14,7 +13,6 @@ import { Button } from "../ui/button"
 import { cn } from "@/lib/utils"
 import DesktopNavbar from "./DesktopNavbar"
 import MobileDrawer from "./MobileDrawer"
-
 
 const { header: style } = siteTheme
 
@@ -24,10 +22,11 @@ export default function Header() {
   const [mounted, setMounted] = useState(false)
 
   const pathname = usePathname()
-  const params = useParams()
+
+  // 🎯 Single source of truth from your i18n context provider
+  const { translate, locale } = useI18n()
+
   const { scrollYProgress } = useScroll()
-  const { translate } = useI18n()
-  const locale = (params?.locale as string) || "en"
 
   useEffect(() => {
     setMounted(true)
@@ -44,12 +43,16 @@ export default function Header() {
     setMobileMenuOpen(false)
   }, [pathname])
 
-  // Localized Navigation Helper
+  // 🎯 Recalculate local links dynamically whenever 'locale' switches
   const getLocalizedHref = useMemo(() => {
-    return (href: string) => (href === "/" ? `/${locale}` : `/${locale}${href}`)
+    return (href: string) => {
+      const activeLocale = locale || "en"
+      return href === "/" ? `/${activeLocale}` : `/${activeLocale}${href}`
+    }
   }, [locale])
 
-  if (!mounted || pathname?.startsWith("/wallpaper")) return null
+  // Hydration safety check (Wallpaper block completely removed!)
+  if (!mounted) return null
 
   return (
     <header className={cn(style.wrapper, visible ? "translate-y-0" : "-translate-y-full")}>
@@ -65,7 +68,12 @@ export default function Header() {
         </Magnetic>
 
         {/* DESKTOP NAVBAR */}
-        <DesktopNavbar getLocalizedHref={getLocalizedHref} translate={translate} />
+        {/* 🎯 Re-rendering navbar components strictly on local key change */}
+        <DesktopNavbar
+          key={`desktop-nav-${locale}`}
+          getLocalizedHref={getLocalizedHref}
+          translate={translate}
+        />
 
         {/* MOBILE TOGGLE BUTTON */}
         <Button
@@ -81,6 +89,7 @@ export default function Header() {
 
       {/* MOBILE DRAWER */}
       <MobileDrawer
+        key={`mobile-nav-${locale}`}
         isOpen={mobileMenuOpen}
         getLocalizedHref={getLocalizedHref}
         translate={translate}

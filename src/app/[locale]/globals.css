@@ -4,7 +4,7 @@
 
 :root {
   --color-bg: 15, 61, 52;
-  --color-surface: 105, 135, 115;
+  --color-surface: 20, 70, 60;
   /* Deep Sage */
   --color-surface2: 135, 165, 145;
   /* Light Sage */
@@ -23,11 +23,9 @@
   --color-mint: 255, 215, 170;
 
   --color-ink: 245, 240, 225;
-
   --color-muted: 201, 193, 177;
-
-  --color-border: 80, 60, 55;
-
+  --color-border: 40, 80, 70;
+  /* Border ko thoda sa visible karo */
   --color-selection-bg: 163, 81, 57;
   --color-selection-text: 238, 233, 223;
   --color-focus-outline: 255, 177, 98;
@@ -37,6 +35,17 @@
   :root {
     color-scheme: dark only;
     --color-bg: 15, 61, 52;
+  }
+}
+
+@layer utilities {
+  .card-bottom-gradient {
+    /* Hardcoded dark color hata kar direct CSS variables (color-bg) ko transparency levels ke sath bind kar diya hai */
+    background: linear-gradient(to top,
+        rgba(var(--color-bg), 0.98) 0%,
+        rgba(var(--color-bg), 0.7) 35%,
+        rgba(var(--color-bg), 0.2) 65%,
+        transparent 100%);
   }
 }
 
@@ -103,15 +112,6 @@
     @apply rounded-xl border border-border bg-surface/70 backdrop-blur-sm;
   }
 
-  .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-ink transition-transform duration-300 hover:scale-[1.03] active:scale-[0.98];
-    background-image: linear-gradient(to right, rgb(var(--color-primary)), rgb(var(--color-accent)));
-    box-shadow: 0 10px 28px -8px rgba(74, 105, 88, 0.4);
-  }
-
-  .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-ink transition-colors duration-300 hover:border-primary-light/60 hover:text-primary-light;
-  }
 
   .section-pad {
     @apply py-20 sm:py-28;

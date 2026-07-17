@@ -1,3 +1,7 @@
+// src/features/projects/components/ProjectGridCard.tsx
+
+"use client";
+
 import Image from "next/image";
 import { Smartphone, ArrowUpRight } from "lucide-react";
 import { Project } from "@/data";
@@ -17,26 +21,30 @@ interface ProjectGridCardProps {
 }
 
 export default function ProjectGridCard({ project, labels }: ProjectGridCardProps) {
-    const styles = siteTheme.projects; // 👈 Layout styles extracted
+    const styles = siteTheme.projects;
 
-    // 1. Media Block using siteTheme classes
+    // 🎯 1. Updated Media Block: Center contained image frame to prevent raw bleed & contrast clash
+    // 🎯 Clear, large, and centered icon block optimized for transparent PNGs
     const media = project.image ? (
-        <Image
-            src={project.image}
-            alt={`${project.title} preview`}
-            fill
-            className={styles.imageTransition}
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
+        <div className="w-full h-full flex flex-col items-center justify-center pt-8 pb-4">
+            {/* Soft ambient glow strictly behind the logo */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+
+            <div className="relative w-32 h-32 z-10 transition-transform duration-500 group-hover:scale-105">
+                <Image
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    fill
+                    className="object-contain filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.3)]"
+                    sizes="128px"
+                />
+            </div>
+        </div>
     ) : (
-        <div
-            aria-hidden
-            className={styles.iconFallbackTransition}
-            style={{
-                background: `radial-gradient(circle at 30% 20%, ${project.accent}33, transparent 60%), linear-gradient(160deg, #13161D 0%, #0B0D12 100%)`,
-            }}
-        >
-            <Smartphone size={56} style={{ color: project.accent }} className={styles.fallbackIconColorOpacity} />
+        <div aria-hidden className="w-full h-full flex items-center justify-center pt-8 pb-4">
+            <div className="relative w-28 h-28 rounded-2xl flex items-center justify-center border border-white/10 bg-white/[0.02] shadow-inner">
+                <Smartphone size={40} style={{ color: project.accent }} className={styles.fallbackIconColorOpacity} />
+            </div>
         </div>
     );
 

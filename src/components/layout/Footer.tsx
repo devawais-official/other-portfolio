@@ -4,16 +4,16 @@
 import Link from "next/link";
 import { useI18n } from "@/i18n/i18n-provider";
 import { siteTheme } from "@/lib/theme-config";
-import { navLinks, siteConfig, socialLinks } from "@/lib/site-config";
+import { siteConfig, socialLinks } from "@/lib/site-config";
 
 export default function Footer() {
   const { translate } = useI18n();
   const { footer: style } = siteTheme;
 
-  const tagline = translate("about.role");
-  const availabilityText = translate("about.availability");
+  // Fallbacks in case translation keys are missing
+  const tagline = translate("about.role") !== "about.role" ? translate("about.role") : "Mobile App Developer";
+  const availabilityText = translate("about.availability") !== "about.availability" ? translate("about.availability") : "Available for freelance";
 
-  // Specialties parsing safely
   const rawSpecialties = translate("footer.specialtiesList", { returnObjects: true });
   const specialties: string[] = Array.isArray(rawSpecialties)
     ? (rawSpecialties as string[])
@@ -21,59 +21,50 @@ export default function Footer() {
 
   return (
     <footer className={style.container}>
-      <div className={style.grid}>
+      <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
 
-        {/* 1. Brand Component */}
-        <FooterBrand name={siteConfig.name} tagline={tagline} style={style} />
+        <div className={style.grid}>
 
-        {/* 2. Navigation Column */}
-        <FooterCol title={translate("footer.navigate")} style={style}>
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link href={link.href} className={style.linkText}>
-                {translate(`nav.${link.label.toLowerCase()}`)}
-              </Link>
+          {/* 1. Brand Column */}
+          <FooterBrand name={siteConfig.name} tagline={tagline} style={style} />
+
+          {/* 2. Specialties Column */}
+          {specialties.length > 0 && (
+            <FooterCol title={translate("footer.specialties")} style={style} isStatic>
+              {specialties.map((s) => (
+                <li key={s} className="leading-relaxed">{s}</li>
+              ))}
+            </FooterCol>
+          )}
+
+          {/* 3. Contact & Social Column */}
+          <FooterCol title={translate("footer.getInTouch")} style={style} isStatic>
+            <li className="mb-1">
+              <a href={`mailto:${siteConfig.email}`} className={style.linkText}>
+                {siteConfig.email}
+              </a>
             </li>
-          ))}
-        </FooterCol>
-
-        {/* 3. Specialties Column */}
-        {specialties.length > 0 && (
-          <FooterCol title={translate("footer.specialties")} style={style} isStatic>
-            {specialties.map((s) => (
-              <li key={s}>{s}</li>
-            ))}
+            <li className="text-xs text-muted/80 leading-relaxed mb-3">
+              {translate("about.infoLocation") !== "about.infoLocation" ? translate("about.infoLocation") : "Lahore, Pakistan"} — {availabilityText}
+            </li>
+            {/* Clean Social Icons without any tooltips */}
+            <FooterSocials links={socialLinks} style={style} />
           </FooterCol>
-        )}
 
-        {/* 4. Contact & Social Column */}
-        <FooterCol title={translate("footer.getInTouch")} style={style} isStatic>
-          <li>
-            <a href={`mailto:${siteConfig.email}`} className={style.linkText}>
-              {siteConfig.email}
-            </a>
-          </li>
-          <li>
-            {translate("about.infoLocation")} — {availabilityText}
-          </li>
-          {/* Social Icons Render */}
-          <FooterSocials links={socialLinks} style={style} />
-        </FooterCol>
+        </div>
 
+        {/* 4. Bottom Copyright Row */}
+        <FooterMeta
+          copyright={translate("footer.copyright", { year: new Date().getFullYear().toString() })}
+          style={style}
+        />
       </div>
-
-      {/* 5. Bottom Copyright Row */}
-      <FooterMeta
-        copyright={translate("footer.copyright", { year: new Date().getFullYear().toString() })}
-        poweredBy={translate("footer.poweredBy")}
-        style={style}
-      />
     </footer>
   );
 }
 
 // ==========================================
-// Sub-Components (Keep them inside same file or create a footer/ sub-folder)
+// Sub-Components
 // ==========================================
 
 interface FooterStyleProps {
@@ -102,7 +93,9 @@ function FooterBrand({ name, tagline, style }: FooterStyleProps & { name: string
         </div>
       </Link>
       <h3 className={style.brandTitle}>{name}</h3>
-      <p className={style.brandTagline}>{tagline}</p>
+      <p className={style.brandTagline}>
+        {tagline}
+      </p>
     </div>
   );
 }
@@ -125,7 +118,7 @@ function FooterCol({ title, children, style, isStatic = false }: FooterColProps)
   );
 }
 
-/* 🌐 Social Links */
+/* 🌐 Clean Social Links (Tooltips Removed!) */
 function FooterSocials({ links, style }: FooterStyleProps & { links: typeof socialLinks }) {
   return (
     <div className={style.socialContainer}>
@@ -138,7 +131,7 @@ function FooterSocials({ links, style }: FooterStyleProps & { links: typeof soci
           aria-label={`Visit our ${label} profile`}
           className={style.socialIconLink}
         >
-          <Icon size={18} />
+          <Icon size={15} />
         </a>
       ))}
     </div>
@@ -146,12 +139,11 @@ function FooterSocials({ links, style }: FooterStyleProps & { links: typeof soci
 }
 
 /* 📝 Meta copyrights footer */
-function FooterMeta({ copyright, poweredBy, style }: FooterStyleProps & { copyright: string; poweredBy: string }) {
+function FooterMeta({ copyright, style }: FooterStyleProps & { copyright: string }) {
   return (
-    <div className={style.metaRow}>
+    <div className={style.metaContainer}>
       <div className={style.metaLayout}>
-        <p>{copyright}</p>
-        <p>{poweredBy}</p>
+        <p className="tracking-wide text-left">{copyright}</p>
       </div>
     </div>
   );
