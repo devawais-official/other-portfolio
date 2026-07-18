@@ -13,22 +13,21 @@ interface HeroSectionProps {
     translate: (key: string) => string;
     homeData: MappedHomeData;
 }
-
 const stackBadges = [
     {
         name: "Kotlin",
         tooltip: "Kotlin",
-        icon: <SiKotlin className="w-3.5 h-3.5" aria-hidden="true" />
+        icon: <SiKotlin className="w-3.5 h-3.5" role="img" aria-label="Kotlin Logo" />
     },
     {
         name: "Jetpack Compose",
         tooltip: "Compose",
-        icon: <SiAndroid className="w-3.5 h-3.5" aria-hidden="true" /> // Android/Compose core logo
+        icon: <SiAndroid className="w-3.5 h-3.5" role="img" aria-label="Jetpack Compose Logo" />
     },
     {
         name: "Flutter",
         tooltip: "Flutter",
-        icon: <SiFlutter className="w-3.5 h-3.5" aria-hidden="true" />
+        icon: <SiFlutter className="w-3.5 h-3.5" role="img" aria-label="Flutter Logo" />
     }
 ];
 
@@ -117,7 +116,9 @@ export default function HeroSection({ translate, homeData }: HeroSectionProps) {
                                 sizes="(max-width: 640px) 260px, (max-width: 768px) 320px, 370px"
                                 className={heroStyle.imageElement}
                                 priority
+                                fetchPriority="high"
                             />
+
                         </div>
 
                         {/* Container: 'mx-auto' and 'w-fit' keeps it centered and tightly wrapped around the badges */}
