@@ -98,21 +98,24 @@
   }
 
   .liquid-glass {
-    background: rgba(var(--color-surface), 0.3);
-    /* Hydration visibility optimized */
+    background: rgba(var(--color-surface), 0.45);
+    /* Opacity 0.15/0.3 se barha kar 0.45 ki taake desktop text standard clear ho */
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    /* Border contrast thoda sharp kiya */
     border-radius: 1rem;
+  }
+
+  .card-surface {
+    /* bg-surface/70 ko thoda dark solid support diya taake background text easily visible ho */
+    @apply rounded-xl border border-border/80 bg-surface/85 backdrop-blur-sm;
   }
 
   .eyebrow {
     @apply font-mono text-xs uppercase tracking-[0.2em] text-primary-light;
   }
 
-  .card-surface {
-    @apply rounded-xl border border-border bg-surface/70 backdrop-blur-sm;
-  }
 
   .section-pad {
     @apply py-20 sm:py-28;
