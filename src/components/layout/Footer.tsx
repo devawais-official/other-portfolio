@@ -143,7 +143,7 @@ function FooterMeta({ copyright, style }: FooterStyleProps & { copyright: string
   return (
     <div className={style.metaContainer}>
       <div className={style.metaLayout}>
-        <p className="tracking-wide text-left">{copyright}</p>
+        <p className="tracking-wide text-left text-ink/80 text-sm antialiased selection:bg-selection-bg">{copyright}</p>
       </div>
     </div>
   );
