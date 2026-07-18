@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ArrowUpRight, Clock } from "lucide-react";
 import { BlogPost } from "../types";
 import { formatFullDateTime } from "@/utils/date";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 
 interface BlogCardProps {
     post: BlogPost;
@@ -13,7 +13,7 @@ interface BlogCardProps {
 
 export default function BlogCard({ post }: BlogCardProps) {
     const { blog: style } = siteTheme;
-    const fallbackImage = "/images/blog-fallback.jpg";
+    const fallbackImage = "/images/placeholder.svg";
 
     const [imgSrc, setImgSrc] = useState(
         post.thumbnailUrl || fallbackImage
@@ -30,6 +30,7 @@ export default function BlogCard({ post }: BlogCardProps) {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Ye line add karo
                         className={style.image}
                         onError={() => setImgSrc(fallbackImage)}
+                        priority
                     />
 
                     {/* Gradient Overlay wala div yahan se HATA DO */}

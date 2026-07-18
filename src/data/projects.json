@@ -3,12 +3,12 @@
         "id": 1,
         "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "spectra-care",
-        "title": "Spectra Care App",
-        "category": "Telehealth & IoT",
         "technology": "Android Native",
         "platform": "android",
-        "summary": "Telehealth app with Jetpack Compose, Agora video SDK, and IoT health monitoring.",
-        "description": "Premium Android Native telehealth app built with Jetpack Compose — integrating Agora SDK video calling, Spectra SDK for 6-in-1 IoT health monitors, appointments, and lab tests.",
+        "image": "/images/projects/spectra-care.webp",
+        "url": "https://play.google.com/store/apps/details?id=com.spectra.care",
+        "gradient": "from-blue-500 via-teal-500 to-emerald-500",
+        "accent": "#10B981",
         "tech": [
             "Android Native",
             "Jetpack Compose",
@@ -17,30 +17,21 @@
             "6-in-1 Health Monitor",
             "Doctor Appointments",
             "Lab Test Booking"
-        ],
-        "image": "/images/projects/spectra-care.webp",
-        "url": "https://play.google.com/store/apps/details?id=com.spectra.care",
-        "ctaText": "View on Google Play",
-        "gradient": "from-blue-500 via-teal-500 to-emerald-500",
-        "accent": "#10B981",
-        "highlights": [
-            "Real-time video consultations",
-            "Live health metrics streaming",
-            "Offline appointment sync"
-        ],
-        "altText": "Spectra Care — Android Native telehealth app with Agora video calling and Spectra IoT health monitor integration, built by Senior Android Developer Muhammad Awais"
+        ]
     },
     {
         "id": 2,
         "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "zouris",
-        "title": "Zouris: Holistic Wellness Platform",
-        "category": "Health & Wellness",
-        "technology": "Kotlin Multiplatform",
+        "technology": "Flutter (KMP)",
         "platform": "flutter",
-        "summary": "Cross-platform meditation app built with Compose Multiplatform, shipping iOS and Android from one codebase.",
-        "description": "Zouris is a holistic wellness platform engineered using Compose Multiplatform (KMP) where certified coaches, counselors, and wellness practitioners share guided sessions, meditations, and affirmations across iOS and Android.",
+        "image": "/images/projects/zouris.webp",
+        "url": "https://play.google.com/store/apps/details?id=io.zouris.app.zouris",
+        "iosUrl": "https://apps.apple.com/ae/app/zouris/id6759085359",
+        "gradient": "from-purple-500 via-fuchsia-500 to-pink-500",
+        "accent": "#6366F1",
         "tech": [
+            "Flutter",
             "Kotlin Multiplatform",
             "Compose Multiplatform",
             "Ktor Streaming",
@@ -48,62 +39,40 @@
             "Mindfulness Practices",
             "Decompose Navigation",
             "SQLDelight"
-        ],
-        "image": "/images/projects/zouris.webp",
-        "url": "https://play.google.com/store/apps/details?id=io.zouris.app.zouris",
-        "iosUrl": "https://apps.apple.com/ae/app/zouris/id6759085359",
-        "ctaText": "Google Play",
-        "iosCtaText": "App Store",
-        "gradient": "from-purple-500 via-fuchsia-500 to-pink-500",
-        "accent": "#6366F1",
-        "highlights": [
-            "80% code sharing with KMP",
-            "Native UI on both platforms",
-            "Real-time audio streaming"
-        ],
-        "altText": "Zouris wellness coaching app — cross-platform meditation and coaching UI shared across iOS and Android using Compose Multiplatform"
+        ]
     },
     {
         "id": 3,
         "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "egora-b2b",
-        "title": "Egora B2B: Restaurant Partner Platform",
-        "category": "B2B Solutions",
-        "technology": "Kotlin Multiplatform",
+        "technology": "Flutter (KMP)",
         "platform": "flutter",
-        "summary": "White-labeled KMP dashboard for restaurant owners to manage orders, pick-ups, and native table reservations.",
-        "description": "White-labeled B2B counterpart of the Egora ecosystem. Built using Kotlin Multiplatform (KMP), it empowers restaurant owners on both Android & iOS to independently manage dine-in, pickup, reservations, and QR code ordering operations with full native payment integration.",
+        "image": "/images/projects/egora-logo.webp",
+        "url": "#",
+        "gradient": "from-rose-500 via-pink-500 to-purple-500",
+        "accent": "#F59E0B",
         "tech": [
+            "Flutter",
             "Kotlin Multiplatform",
             "Compose Multiplatform",
             "SQLDelight Cache",
             "Order Management",
             "Reservation Control",
             "Ktor"
-        ],
-        "image": "/images/projects/egora-logo.webp",
-        "url": "#",
-        "ctaText": "View Project Details",
-        "gradient": "from-rose-500 via-pink-500 to-purple-500",
-        "accent": "#F59E0B",
-        "highlights": [
-            "Independent owner dashboards",
-            "Cross-platform state engine",
-            "Real-time operations sync"
-        ],
-        "altText": "Egora B2B restaurant partner dashboard — white-labeled order, reservation and QR ordering management built with a shared KMP codebase"
+        ]
     },
     {
         "id": 4,
         "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "egora",
-        "title": "Egora: Smart Restaurant Ecosystem",
-        "category": "Food & Beverage",
-        "technology": "Kotlin Multiplatform",
+        "technology": "Flutter (KMP)",
         "platform": "flutter",
-        "summary": "Smart restaurant app with QR ordering, dine-in, and reservation management via shared KMP core.",
-        "description": "Comprehensive Kotlin Multiplatform (KMP) restaurant management app streamlining dine-in, pickup, and reservation flows across platforms. Features unified QR code ordering logic and secure native payment gateway integrations for a seamless dining experience.",
+        "image": "/images/projects/egora-logo.webp",
+        "url": "#",
+        "gradient": "from-orange-500 via-red-500 to-rose-500",
+        "accent": "#F59E0B",
         "tech": [
+            "Flutter",
             "Kotlin Multiplatform",
             "Shared Business Logic",
             "QR Code Ordering Engine",
@@ -111,59 +80,38 @@
             "Order Management",
             "SQLDelight",
             "Payment Integration"
-        ],
-        "image": "/images/projects/egora-logo.webp",
-        "url": "#",
-        "ctaText": "View Project Details",
-        "gradient": "from-orange-500 via-red-500 to-rose-500",
-        "accent": "#F59E0B",
-        "highlights": [
-            "QR code ordering engine",
-            "Real-time order sync",
-            "Multi-platform consistency"
-        ],
-        "altText": "Egora restaurant ecosystem app — QR ordering, dine-in and pickup flows powered by a shared multiplatform business logic layer"
+        ]
     },
     {
         "id": 5,
         "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "makernote",
-        "title": "Makernote: Multiplatform EdTech",
-        "category": "Education App",
-        "technology": "Kotlin Multiplatform",
+        "technology": "Flutter (KMP)",
         "platform": "flutter",
-        "summary": "Educational platform with real-time collaboration built with KMP and Firebase.",
-        "description": "High-performance educational app for teachers and students — built with Kotlin Multiplatform (KMP) for seamless native iOS and Android delivery with real-time multiplatform collaboration features.",
+        "image": "/images/projects/makernote.webp",
+        "url": "https://apps.apple.com/hk/app/makernote/id6475201417?l=en-GB",
+        "gradient": "from-primary via-accent to-secondary",
+        "accent": "#06B6D4",
         "tech": [
+            "Flutter",
             "Kotlin Multiplatform",
             "Firebase Multiplatform",
             "MVI Architecture",
             "Koin DI",
             "Real-time Sync",
             "Offline Support"
-        ],
-        "image": "/images/projects/makernote.webp",
-        "url": "https://apps.apple.com/hk/app/makernote/id6475201417?l=en-GB",
-        "ctaText": "View on App Store",
-        "gradient": "from-primary via-accent to-secondary",
-        "accent": "#06B6D4",
-        "highlights": [
-            "Real-time collaboration",
-            "Offline support",
-            "Performance optimized"
-        ],
-        "altText": "Makernote EdTech app for teachers and students — real-time collaboration built with MVI architecture on Kotlin Multiplatform"
+        ]
     },
     {
         "id": 6,
         "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "eco-grocery",
-        "title": "Eco Grocery: Smart Inventory & Recipes",
-        "category": "Smart Utility",
         "technology": "Android Native",
         "platform": "android",
-        "summary": "Smart grocery tracker with barcode scanning, recipe recommendations, and expiry tracking.",
-        "description": "Intelligent Android grocery management app featuring a dynamic to-buy list linked to a recipe recommendation engine, plus a built-in barcode scanner for real-time nutritional tracking and expiry management.",
+        "image": "/images/projects/eco-grocery.webp",
+        "url": "#",
+        "gradient": "from-green-500 via-emerald-500 to-teal-500",
+        "accent": "#10B981",
         "tech": [
             "Android Native",
             "Kotlin",
@@ -174,58 +122,36 @@
             "Expiry Management",
             "ML Kit",
             "Room DB"
-        ],
-        "image": "/images/projects/eco-grocery.webp",
-        "url": "#",
-        "ctaText": "View Project Details",
-        "gradient": "from-green-500 via-emerald-500 to-teal-500",
-        "accent": "#10B981",
-        "highlights": [
-            "Barcode scanning integration",
-            "Recipe ML model",
-            "Smart notifications"
-        ],
-        "altText": "Eco Grocery Android app — barcode-scanning grocery tracker with recipe recommendations and expiry alerts"
+        ]
     },
     {
         "id": 7,
         "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "hcloud",
-        "title": "HCloud: Clinic Management Suite",
-        "category": "Doctors App",
         "technology": "Android Native",
         "platform": "android",
-        "summary": "Enterprise-grade operations portal for doctor clinics built with Clean Architecture.",
-        "description": "Enterprise-grade clinic operations platform serving thousands of healthcare providers with real-time prescription sync and smart appointment scheduling.",
+        "image": "/images/projects/hcloud.webp",
+        "url": "https://play.google.com/store/apps/details?id=com.healthwire.hcloud",
+        "gradient": "from-secondary via-primary to-accent",
+        "accent": "#EF4444",
         "tech": [
             "Clean Architecture",
             "Retrofit Integration",
             "Real-time Sync",
             "Advanced CI/CD",
             "Kotlin"
-        ],
-        "image": "/images/projects/hcloud.webp",
-        "url": "https://play.google.com/store/apps/details?id=com.healthwire.hcloud",
-        "ctaText": "View on Google Play",
-        "gradient": "from-secondary via-primary to-accent",
-        "accent": "#EF4444",
-        "highlights": [
-            "Enterprise appointment sync",
-            "Offline-first sync queue",
-            "Highly responsive physician UI"
-        ],
-        "altText": "HCloud clinic management suite — real-time prescription sync and appointment scheduling for healthcare providers"
+        ]
     },
     {
         "id": 8,
         "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "healthwire",
-        "title": "Healthwire: HealthTech Platform",
-        "category": "Telehealth Platform",
         "technology": "Android Native",
         "platform": "android",
-        "summary": "Leading healthcare app with pharmacy logistics, lab booking, and telemedicine.",
-        "description": "Architected Pakistan's leading healthcare app — optimizing pharmacy logistics, lab-test booking, and telemedicine for thousands of daily active users.",
+        "image": "/images/projects/healthwire.webp",
+        "url": "https://play.google.com/store/apps/details?id=com.healthwire.healthwire",
+        "gradient": "from-primary via-secondary to-accent",
+        "accent": "#EF4444",
         "tech": [
             "Kotlin Native",
             "Jetpack Compose",
@@ -233,46 +159,24 @@
             "LBS Optimization",
             "Location Services",
             "Clean Architecture"
-        ],
-        "image": "/images/projects/healthwire.webp",
-        "url": "https://play.google.com/store/apps/details?id=com.healthwire.healthwire",
-        "ctaText": "View on Google Play",
-        "gradient": "from-primary via-secondary to-accent",
-        "accent": "#EF4444",
-        "highlights": [
-            "2M+ downloads",
-            "Complex payment integration",
-            "Location-based services"
-        ],
-        "altText": "Healthwire healthcare app — pharmacy logistics, lab test booking and telemedicine built with Jetpack Compose"
+        ]
     },
     {
         "id": 9,
         "updatedAt": "2026-07-17T11:52:00Z",
         "slug": "dongamers",
-        "title": "DonGamers: E-Sports Platform",
-        "category": "E-Gaming Platform",
         "technology": "Android Native",
         "platform": "android",
-        "summary": "Gaming tournament platform featuring robust real-time chats, brackets, and interactive custom animations.",
-        "description": "Built a global gaming community platform with real-time chat, tournament brackets, and Unity-powered interactive features — handling thousands of concurrent sessions.",
+        "image": "/images/projects/dongamers.webp",
+        "url": "https://play.google.com/store/apps/details?id=com.dongamers.dongamers",
+        "gradient": "from-accent via-secondary to-primary",
+        "accent": "#22D3EE",
         "tech": [
             "Socket.IO",
             "Unity Integration",
             "Reactive Flow",
             "Scale Optimization",
             "Android Native"
-        ],
-        "image": "/images/projects/dongamers.webp",
-        "url": "https://play.google.com/store/apps/details?id=com.dongamers.dongamers",
-        "ctaText": "View on Google Play",
-        "gradient": "from-accent via-secondary to-primary",
-        "accent": "#22D3EE",
-        "highlights": [
-            "Instant matchmaking socket integrations",
-            "Real-time brackets tracking",
-            "Interactive Unity widgets"
-        ],
-        "altText": "DonGamers e-sports community platform — real-time tournament chat built with Socket.IO on Android"
+        ]
     }
 ]

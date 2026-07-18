@@ -1,49 +1,26 @@
 [
     {
         "id": 1,
-        "role": "Senior Mobile Developer",
+        "slug": "egora",
         "company": "Egora Pvt Ltd",
-        "duration": "2024 - Present",
-        "description": "Architecting enterprise-scale Android & Kotlin Multiplatform (KMP) ecosystems. Led a 40% performance gain in mission-critical hardware integrations and designed shared multiplatform codebases with a zero-failure deployment record.",
-        "achievements": [
-            "Shipped 3 production apps across Android and KMP",
-            "Mentored 2 junior developers",
-            "Reduced app crashes by 40%"
-        ]
+        "duration": "2024 - Present"
     },
     {
         "id": 2,
-        "role": "Software Engineer, Mobile Developer",
-        "duration": "2022 - 2024",
+        "slug": "healthwire",
         "company": "Healthwire Pvt Ltd",
-        "description": "Revolutionized healthcare delivery via advanced Google Maps location intelligence. Scaled a modular Clean Architecture core that streamlined client applications for thousands of active daily healthcare providers.",
-        "achievements": [
-            "Scaled app to 2M+ downloads",
-            "Implemented complex payment integration",
-            "Built location-based services"
-        ]
+        "duration": "2022 - 2024"
     },
     {
         "id": 3,
-        "role": "Senior Mobile App Developer",
+        "slug": "dongamers",
         "company": "DonGamers",
-        "description": "Engineered high-frequency e-sports systems handling real-time chat and tournament data. Successfully solved high-latency challenges in global gaming platforms with 92% reactive state stability.",
-        "duration": "2020 - 2022",
-        "achievements": [
-            "Shipped 5+ production apps",
-            "Learned modern Android stack",
-            "Improved code quality practices"
-        ]
+        "duration": "2020 - 2022"
     },
     {
         "id": 4,
-        "duration": "2019 - 2020",
-        "role": "Android Developer",
+        "slug": "netroots",
         "company": "Netroots Technologies",
-        "description": "Developed high-retention consumer Android apps with a focus on UI/UX excellence and robust RESTful API integrations using Kotlin.",
-        "achievements": [
-            "Learned modern Android stack",
-            "Improved code quality practices"
-        ]
+        "duration": "2019 - 2020"
     }
 ]

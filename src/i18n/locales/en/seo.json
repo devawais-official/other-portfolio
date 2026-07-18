@@ -1,0 +1,37 @@
+{
+    "home": {
+        "title": "Muhammad Awais | Android & Kotlin Multiplatform Developer",
+        "description": "Freelance Android developer building production apps with Kotlin Multiplatform, Compose Multiplatform & Flutter.",
+        "keywords": "Android developer, Kotlin Multiplatform, Compose Multiplatform, Flutter, Mobile App Developer, Freelance Developer"
+    },
+    "projects": {
+        "title": "Projects | Android & Kotlin Multiplatform App Portfolio",
+        "description": "Browse shipped Android Native, KMP, Compose Multiplatform, and Flutter apps.",
+        "keywords": "Mobile app portfolio, Android projects, KMP apps, Compose Multiplatform, Flutter showcase, Shipped apps"
+    },
+    "about": {
+        "title": "About | Muhammad Awais, Mobile Developer",
+        "description": "4+ years building production Android apps and Kotlin Multiplatform systems.",
+        "keywords": "About Muhammad Awais, Mobile Developer, Android expert, KMP developer, Software Engineering, Mobile Architecture"
+    },
+    "contact": {
+        "title": "Contact | Hire an Android & Kotlin Multiplatform Developer",
+        "description": "Start your mobile app project. Share your platform needs.",
+        "keywords": "Hire mobile developer, Contact Android expert, App development services, Hire KMP developer, Freelance mobile dev"
+    },
+    "testimonials": {
+        "title": "Client Testimonials | Devawais",
+        "description": "See what our clients say about our Android, Kotlin Multiplatform, and Flutter development services.",
+        "keywords": "testimonials, client reviews, flutter development, android development, kmp, mobile app success stories"
+    },
+    "services": {
+        "title": "Mobile App Development Services | Muhammad Awais",
+        "description": "Expert mobile engineering services including native Android, Kotlin Multiplatform, and Flutter architecture for scalable production apps.",
+        "keywords": "mobile app development, Android development services, Kotlin Multiplatform consultancy, Flutter development, app architecture, scalable mobile systems"
+    },
+    "blog": {
+        "title": "Blog | Mobile Architecture & KMP Insights",
+        "description": "Technical insights, lessons on Kotlin Multiplatform, and best practices for building robust mobile applications.",
+        "keywords": "mobile development blog, Kotlin Multiplatform tips, Android architecture, software engineering insights, KMP best practices, mobile app performance"
+    }
+}

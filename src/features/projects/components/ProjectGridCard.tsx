@@ -1,13 +1,12 @@
-// src/features/projects/components/ProjectGridCard.tsx
-
 "use client";
 
 import Image from "next/image";
 import { Smartphone, ArrowUpRight } from "lucide-react";
-import { Project } from "@/data";
+// IMPORTANT: Yahan wahi interface import karo jo tumne features/projects/types.ts mein banaya hai
+import { Project } from "@/features/projects/data";
 import GenericCard, { CardAction, CardBadge } from "@/components/ui/PreviewCard";
 import { AppStoreIcon, PlayStoreIcon } from "@/components/icons/StoreIcons";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 
 const isPlayStoreLink = (url?: string) => Boolean(url?.includes("play.google.com"));
 
@@ -23,13 +22,10 @@ interface ProjectGridCardProps {
 export default function ProjectGridCard({ project, labels }: ProjectGridCardProps) {
     const styles = siteTheme.projects;
 
-    // 🎯 1. Updated Media Block: Center contained image frame to prevent raw bleed & contrast clash
-    // 🎯 Clear, large, and centered icon block optimized for transparent PNGs
+    // Media Block
     const media = project.image ? (
         <div className="w-full h-full flex flex-col items-center justify-center pt-8 pb-4">
-            {/* Soft ambient glow strictly behind the logo */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-primary/10 rounded-full blur-2xl pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-
             <div className="relative w-32 h-32 z-10 transition-transform duration-500 group-hover:scale-105">
                 <Image
                     src={project.image}
@@ -37,6 +33,7 @@ export default function ProjectGridCard({ project, labels }: ProjectGridCardProp
                     fill
                     className="object-contain filter drop-shadow-[0_8px_16px_rgba(0,0,0,0.3)]"
                     sizes="128px"
+                    priority
                 />
             </div>
         </div>
@@ -48,21 +45,22 @@ export default function ProjectGridCard({ project, labels }: ProjectGridCardProp
         </div>
     );
 
-    // 2. Badges mapping
+    // Badges
     const badges: CardBadge[] = [
         { text: project.platform, variant: "primary" },
         { text: project.category, variant: "secondary" }
     ];
 
-    // 3. Tags mapping
+    // Tags
     const tags = project.tech.slice(0, 4).map(t => ({ text: t }));
 
-    // 4. Action Buttons mapping
+    // Action Buttons
     const actions: CardAction[] = [];
 
+    // PlayStore / URL button
     if (project.url) {
         actions.push({
-            label: project.ctaText || labels.ctaPlayStore,
+            label: labels.ctaPlayStore, // Ab yeh prop se aa raha hai
             href: project.url,
             isExternal: true,
             variant: "primary",
@@ -72,9 +70,10 @@ export default function ProjectGridCard({ project, labels }: ProjectGridCardProp
         });
     }
 
+    // AppStore button
     if (project.iosUrl) {
         actions.push({
-            label: project.iosCtaText || labels.ctaAppStore,
+            label: labels.ctaAppStore,
             href: project.iosUrl,
             isExternal: true,
             variant: "secondary",
@@ -82,9 +81,10 @@ export default function ProjectGridCard({ project, labels }: ProjectGridCardProp
         });
     }
 
+    // Details button (fallback)
     if (!project.url && !project.iosUrl) {
         actions.push({
-            label: project.ctaText || labels.ctaDetails,
+            label: labels.ctaDetails,
             href: `/projects/${project.slug}`,
             isExternal: false,
             variant: "secondary",

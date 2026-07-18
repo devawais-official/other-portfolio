@@ -1,4 +1,4 @@
-import { projects } from "@/data";
+import { rawProjects } from "@/data";
 import { siteConfig } from "@/lib/site-config";
 import type { MetadataRoute } from "next";
 
@@ -42,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   const projectRoutes = locales.flatMap((locale) =>
-    projects.map((p) => ({
+    rawProjects.map((p) => ({
       url: `${siteConfig.url}/${locale}/projects/${p.slug}`,
       lastModified: p.updatedAt ? new Date(p.updatedAt) : now,
       changeFrequency: "monthly" as const,

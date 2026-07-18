@@ -7,7 +7,7 @@ import TestimonialsSection from "./TestimonialsSection";
 import { getHomeData } from "@/features/home/data";
 import { Locale } from "next-intl";
 
-type RawHomeData = ReturnType<typeof getHomeData>;
+type RawHomeData = Awaited<ReturnType<typeof getHomeData>>;
 
 export type MappedHomeData = RawHomeData & {
     availabilityText: string;

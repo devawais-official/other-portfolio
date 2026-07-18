@@ -135,7 +135,10 @@ export const personSchemaData = {
         "Clean Architecture",
         "MVI Architecture",
     ],
-    sameAs: [siteConfig.social.github, siteConfig.social.linkedin, siteConfig.social.twitter].filter(
-        (url): url is string => Boolean(url)
-    ),
+    sameAs: [
+        siteConfig.socialBaseUrls.github && `${siteConfig.socialBaseUrls.github}${siteConfig.usernames.github}`,
+        siteConfig.socialBaseUrls.linkedin && `${siteConfig.socialBaseUrls.linkedin}${siteConfig.usernames.linkedin}`,
+        siteConfig.socialBaseUrls.twitter && `${siteConfig.socialBaseUrls.twitter}${siteConfig.usernames.twitter}`].filter(
+            (url): url is string => Boolean(url)
+        ),
 };

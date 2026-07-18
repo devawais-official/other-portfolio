@@ -1,8 +1,8 @@
-import en from "./locales/en.json";
-import ur from "./locales/ur.json";
-import ar from "./locales/ar.json";
-import fr from "./locales/fr.json";
-import tr from "./locales/tr.json";
+import en from "./locales/en";
+import ur from "./locales/ur";
+import ar from "./locales/ar";
+import fr from "./locales/fr";
+import tr from "./locales/tr";
 
 // 1. Array banaya taake runtime check bhi ho sake
 export const locales = ["en", "ur", "ar", "fr", "tr"] as const;

@@ -1,18 +1,18 @@
 import PageHeader from "@/components/ui/PageHeader";
 import GenericFilterGrid, { FilterGridItem } from "@/components/ui/GenericFilterGrid";
-import CTASection from "@/components/sections/CTASection";
 import ProjectGridCard from "@/features/projects/components/ProjectGridCard";
 import { getProjectsGridConfig } from "../configs/projects-config";
-import { projects } from "@/data";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 import { StandardPageLabels } from "@/utils/label-helper";
+import { Project } from "@/features/projects/data";
 
 interface ProjectsViewProps {
+    projects: Project[];
     labels: StandardPageLabels;
     gridConfig: ReturnType<typeof getProjectsGridConfig>;
 }
 
-export default function ProjectsView({ labels, gridConfig }: ProjectsViewProps) {
+export default function ProjectsView({ projects, labels, gridConfig }: ProjectsViewProps) {
     const styles = siteTheme.projects; // 👈 Styles extraction for view layout
 
     const mappedGridItems: FilterGridItem[] = projects.map((project) => ({

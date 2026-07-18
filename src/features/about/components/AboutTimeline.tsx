@@ -3,7 +3,7 @@
 
 import AnimatedSection from "@/components/layout/AnimatedSection";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 import { useI18n } from "@/i18n/i18n-provider";
 import type { Experience } from "../types";
 
@@ -40,7 +40,6 @@ export default function AboutTimeline({ experiences }: AboutTimelineProps) {
 
                             {/* Right Column: Detailed Experience (Takes 3/4 layout on desktop) */}
                             <div className="md:col-span-3 flex flex-col gap-4">
-                                {/* 🎯 direct variable class style.expDesc access taake naya contrast apply ho */}
                                 <p className={style.expDesc}>
                                     {exp.description}
                                 </p>

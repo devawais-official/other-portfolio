@@ -1,45 +1,32 @@
 import { SiteConfig, NavLink } from "@/types/site";
-import { siteTheme } from "./theme-config";
 import data from "@/data/personal-data.json";
 import { FaGithub, FaLinkedin, FaMedium, FaStackOverflow, FaTwitter } from "react-icons/fa6";
-import { Locale } from "next-intl";
+import { siteTheme } from "@/styles/theme";
 
 const SITE_URL = "https://devawais.com";
 
-type LocalizedPageMeta = {
-  title: string;
-  desc: string;
-  keywords: string[];
-};
+const personalData = data as any;
 
-type PageMetaEntry = {
-  slug: string;
-  keyPrefix: string;
-  translations: Record<Locale, LocalizedPageMeta>;
-};
 export const siteConfig: SiteConfig = {
-  name: data.name,
-  shortName: data.shortName,
-  role: data.title,
-  tagline: data.subtitle,
-  bio: data.bio,
-  email: data.email,
-  location: data.location,
-  availability: data.availability,
+  name: personalData.name,
+  shortName: personalData.shortName,
+  role: personalData.title,
+  tagline: personalData.subtitle,
+  bio: personalData.bio,
+  email: personalData.email,
+  location: personalData.location,
+  availability: personalData.availability,
   url: SITE_URL,
-  description: `${data.name} (Devawais) — ${data.title} specializing in Android, Kotlin Multiplatform (KMP), and Flutter app development.`,
+  description: `${personalData.name} — ${personalData.title} specializing in Android, Kotlin Multiplatform (KMP), and Flutter app development.`,
   keywords: [
     "Muhammad Awais",
     "Devawais",
-    "Awais",
     "Android Developer",
     "Mobile Developer",
     "Kotlin Multiplatform",
     "Flutter Developer",
     "Jetpack Compose",
-    "Compose Multiplatform",
   ],
-  social: data.social,
   expertise: {
     languages: ["Kotlin", "Java", "Dart", "TypeScript"],
     android: ["Jetpack Compose", "Coroutines"],
@@ -47,17 +34,56 @@ export const siteConfig: SiteConfig = {
     flutter: ["Flutter", "Bloc", "Dart"],
     architecture: ["MVI", "MVVM", "Clean Architecture"],
   },
+  socialBaseUrls: personalData.socialBaseUrls,
+  usernames: personalData.usernames,
 };
 
 export const socialLinks = [
-  { href: data.social.github, icon: FaGithub, label: "GitHub" },
-  { href: data.social.linkedin, icon: FaLinkedin, label: "LinkedIn" },
-  { href: data.social.twitter, icon: FaTwitter, label: "Twitter" },
-  { href: data.social.stackoverflow, icon: FaStackOverflow, label: "Stack Overflow" },
-  { href: data.social.medium, icon: FaMedium, label: "Medium" },
+  {
+    id: "github",
+    href: `${personalData.socialBaseUrls.github}${personalData.usernames.github}`,
+    displayValue: `@${personalData.usernames.github}`,
+    icon: FaGithub,
+    label: "GitHub",
+    isEmail: false
+  },
+  {
+    id: "linkedin",
+    href: `${personalData.socialBaseUrls.linkedin}${personalData.usernames.linkedin}`,
+    displayValue: `@${personalData.usernames.linkedin}`,
+    icon: FaLinkedin,
+    label: "LinkedIn",
+    isEmail: false
+  },
+  // Optional platforms: Agar JSON mein ho tabhi spread hongey (Safe Check)
+  ...(personalData.usernames.twitter ? [{
+    id: "twitter",
+    href: `${personalData.socialBaseUrls.twitter}${personalData.usernames.twitter}`,
+    displayValue: `@${personalData.usernames.twitter}`,
+    icon: FaTwitter,
+    label: "Twitter",
+    isEmail: false
+  }] : []),
+  ...(personalData.usernames.stackoverflow ? [{
+    id: "stackoverflow",
+    href: `${personalData.socialBaseUrls.stackoverflow}${personalData.usernames.stackoverflow}`,
+    displayValue: `@${personalData.usernames.stackoverflow}`,
+    icon: FaStackOverflow,
+    label: "Stack Overflow",
+    isEmail: false
+  }] : []),
+  ...(personalData.usernames.medium ? [{
+    id: "medium",
+    href: `${personalData.socialBaseUrls.medium}${personalData.usernames.medium}`,
+    displayValue: `@${personalData.usernames.medium}`,
+    icon: FaMedium,
+    label: "Medium",
+    isEmail: false
+  }] : [])
 ];
 
-export const navLinks: NavLink[] = [
+// 2. NavLinks ko 'as const' rakho taake unki values fix rahein
+export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
@@ -65,7 +91,7 @@ export const navLinks: NavLink[] = [
   { href: "/testimonials", label: "Testimonials" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
-];
+] as const satisfies NavLink[];
 
 export const siteRoutes = {
   home: "/",
@@ -77,6 +103,8 @@ export const siteRoutes = {
   contact: "/contact",
 } as const;
 
+export { siteTheme };
+
 export const pageMetaDefaults = {
   home: { slug: "home", keyPrefix: "home" },
   testimonials: { slug: "testimonials", keyPrefix: "testimonials" },
@@ -87,4 +115,4 @@ export const pageMetaDefaults = {
   projects: { slug: "projects", keyPrefix: "projects" },
 } as const;
 
-export { siteTheme };
+export type PageKey = keyof typeof pageMetaDefaults;

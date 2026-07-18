@@ -1,10 +1,20 @@
-export interface SocialLinks {
+export interface Usernames {
     github: string;
     linkedin: string;
     twitter?: string;
-    email?: string;
-    stackoverflow?: string;
     medium?: string;
+    stackoverflow?: string;
+}
+export interface SocialPlatform {
+    base: string;
+    username: string;
+}
+export interface SocialBaseUrls {
+    github: string;
+    linkedin: string;
+    twitter: string;
+    medium: string;
+    stackoverflow: string;
 }
 
 export interface Expertise {
@@ -24,7 +34,8 @@ export interface SiteConfig {
     email: string;
     location: string;
     availability: string;
-    social: SocialLinks;
+    socialBaseUrls: SocialBaseUrls;
+    usernames: Usernames;
     expertise: Expertise;
     url: string;
     description: string;

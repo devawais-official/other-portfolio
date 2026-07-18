@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 import AnimatedSection from "../layout/AnimatedSection";
 
 interface SectionHeaderProps {

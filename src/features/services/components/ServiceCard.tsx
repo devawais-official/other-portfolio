@@ -1,4 +1,4 @@
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 import { SERVICES_ICON_MAP, LocalizedServiceItem } from "../configs/services-config";
 import { Smartphone } from "lucide-react";
 

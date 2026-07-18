@@ -3,7 +3,7 @@
 
 import Link from "next/link";
 import { useI18n } from "@/i18n/i18n-provider";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 import { siteConfig, socialLinks } from "@/lib/site-config";
 
 export default function Footer() {

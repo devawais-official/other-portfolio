@@ -1,4 +1,4 @@
-import "./globals.css";
+import "@/styles/globals.css";
 
 import SchemaMarkup from "@/components/seo/SchemaMarkup";
 import Header from "@/components/layout/Header";

@@ -4,11 +4,11 @@
 import { useEffect, useState } from "react";
 import AnimatedSection from "@/components/layout/AnimatedSection";
 import { siteConfig } from "@/lib/site-config";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 import { useI18n } from "@/i18n/i18n-provider";
 import { FiDownload, FiGithub, FiLinkedin } from "react-icons/fi";
-import { social } from "@/data/personal-data.json"
-import { } from "@/data/stats.json"
+import data from "@/data/personal-data.json";
+
 interface AboutBioCardProps {
     stats: {
         yearsExperience: string;
@@ -29,7 +29,7 @@ export default function AboutBioCard({ stats, tagline, availability }: AboutBioC
 
     useEffect(() => {
         // Apne github username ko siteConfig se le rahe hain
-        const username = social.github || "devawais-official";
+        const username = data.usernames.github;
 
         async function fetchGitHubData() {
             try {

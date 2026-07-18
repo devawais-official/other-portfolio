@@ -5,7 +5,7 @@ import { StandardPageLabels } from "@/utils/label-helper";
 import { motion, Variants } from "framer-motion";
 
 import { useSocialLinks } from "@/hooks/useSocialLinks";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 import { transformSocialLinksToOptions } from "../configs/contact-options";
 import SystemStatusPanel from "./SystemStatusPanel";
 import ContactCard from "./ContactCard";
@@ -32,8 +32,7 @@ const systemInitVariants: Variants = {
 };
 
 export default function ContactView({ labels, location }: ContactViewProps) {
-    const rawSocialLinks = useSocialLinks();
-    const contactOptions = transformSocialLinksToOptions(rawSocialLinks);
+    const contactOptions = transformSocialLinksToOptions();
     const layout = siteTheme.contact;
 
     return (

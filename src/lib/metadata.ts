@@ -1,4 +1,3 @@
-// src/lib/metadata.ts
 import type { Metadata } from "next";
 import { getTranslationServer } from "@/i18n/i18n-server";
 import { pageMetaDefaults } from "./site-config";
@@ -13,18 +12,16 @@ export function generatePageMetadata(
     const config = pageMetaDefaults[pageKey];
     const translate = getTranslationServer(resolvedLocale);
 
-    const titleKey = `${config.keyPrefix}.metaTitle`;
-    const descKey = `${config.keyPrefix}.metaDesc`;
-    const keywordsKey = `${config.keyPrefix}.metaKeywords`;
+    const titleKey = `seo.${config.keyPrefix}.title`;
+    const descKey = `seo.${config.keyPrefix}.description`;
+    const keywordsKey = `seo.${config.keyPrefix}.keywords`;
 
     const title = translate(titleKey);
     const description = translate(descKey);
     const keywordsRaw = translate(keywordsKey);
 
-    // Defensive checks: getTranslationServer returns the key itself when missing,
-    // so this catches un-translated locale files instead of shipping a raw key as the title
     if (!title || title === titleKey) {
-        console.warn(`[SEO] Missing translation: ${titleKey} for locale "${resolvedLocale}"`);
+        console.warn(`[SEO ERROR] Missing translation: ${titleKey}`);
     }
     if (!description || description === descKey) {
         console.warn(`[SEO] Missing translation: ${descKey} for locale "${resolvedLocale}"`);

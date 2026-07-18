@@ -22,13 +22,15 @@ export function getTranslationServer(locale: Locale) {
     let current: any = data;
 
     for (const part of parts) {
-      if (!current || current[part] === undefined) {
+      if (current && typeof current === 'object' && part in current) {
+        current = current[part];
+      } else {
+        // Fallback logic
         if (currentLocale !== defaultLocale) {
           return getTranslationServer(defaultLocale)(key, replacements);
         }
         return key;
       }
-      current = current[part];
     }
 
     if (typeof current !== "string") return key;

@@ -1,7 +1,7 @@
 // src/features/services/components/ServicesView.tsx
 import PageHeader from "@/components/ui/PageHeader";
 import ServiceCard from "./ServiceCard";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 import type { StandardPageLabels } from "@/utils/label-helper";
 import AnimatedSection from "@/components/layout/AnimatedSection";
 

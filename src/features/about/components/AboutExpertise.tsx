@@ -3,7 +3,7 @@
 
 import AnimatedSection from "@/components/layout/AnimatedSection";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 import { useI18n } from "@/i18n/i18n-provider";
 import {
     FiTerminal,

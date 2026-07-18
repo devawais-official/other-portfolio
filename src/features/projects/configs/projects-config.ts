@@ -1,9 +1,5 @@
-// src/features/projects/configs/projects-config.ts
-
-import localeEn from "@/i18n/locales/en.json";
-export const PROJECT_FILTER_KEYS = Object.keys(localeEn.projects.filters).filter(
-    (key) => key !== "all"
-);
+export const PROJECT_FILTER_KEYS = ["android", "kmp", "flutter"] as const;
+export type ProjectFilterKey = typeof PROJECT_FILTER_KEYS[number];
 
 export interface ProjectsGridConfig {
     allLabel: string;
@@ -20,19 +16,21 @@ export interface ProjectsGridConfig {
 }
 
 export function getProjectsGridConfig(translate: (key: string) => string): ProjectsGridConfig {
+
+    // Improved fallback mechanism
     const safeTranslate = (key: string, fallback: string) => {
         const val = translate(key);
-        return val === key || val.startsWith("projects.") ? fallback : val;
+        // Agar translation key wapis aa rahi hai (missing), toh fallback show karo
+        return val === key ? fallback : val;
     };
 
     return {
-        // Direct call to projects.filters.all
         allLabel: safeTranslate("projects.filters.all", "All"),
 
-        // 3. Filters list ab pure dynamic keys par loop karegi bina kisi hardcoding ke!
+        // Filters map securely using defined keys
         filters: PROJECT_FILTER_KEYS.map((key) => ({
-            value: key, // "android", "kmp", etc. (Matches project.platform in data)
-            label: safeTranslate(`projects.filters.${key}`, key.toUpperCase())
+            value: key,
+            label: safeTranslate(`projects.filters.${key}`, key.charAt(0).toUpperCase() + key.slice(1))
         })),
 
         labels: {

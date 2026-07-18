@@ -1,10 +1,9 @@
 import { Quote, Star } from "lucide-react";
 import { getHomeData } from "@/features/home/data";
-import { siteTheme } from "@/lib/theme-config";
 import { getInitials } from "@/utils/string";
-
-type Testimonial = ReturnType<typeof getHomeData>["featuredTestimonials"][number];
-
+import { siteTheme } from "@/lib/site-config";
+import { Testimonial } from "@/features/testimonials/types";
+//type Testimonial = Awaited<ReturnType<typeof getHomeData>>["featuredTestimonials"][number];
 interface TestimonialCardProps {
   testimonial: Testimonial;
 }

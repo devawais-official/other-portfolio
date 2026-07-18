@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { ObfuscatedContact } from "@/components/ui/ObfuscatedContact";
 import { ContactOption } from "../types";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 
 interface ContactCardProps {
     option: ContactOption;

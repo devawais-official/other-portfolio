@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { motion, AnimatePresence, Variants } from "framer-motion"
 import { navLinks } from "@/lib/site-config"
-import { siteTheme } from "@/lib/theme-config"
+import { siteTheme } from "@/lib/site-config";
 import { useSocialLinks } from "@/hooks/useSocialLinks"
 import { ObfuscatedContact } from "../ui/ObfuscatedContact"
 

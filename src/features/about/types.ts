@@ -4,16 +4,21 @@ export interface ExpertiseGroup {
     label: string;
     items: string[];
 }
-
 export interface Experience {
-    id: number;
-    duration: string;
+    slug: string;
+    id: string;
     role: string;
-    company: string;
+    company: string;      // Yeh add karo
+    duration: string;
     description: string;
     achievements: string[];
 }
 
+export interface AboutData {
+    expertiseGroups: any[];
+    experiences: Experience[];
+    stats: any;
+}
 export interface Stats {
     yearsExperience: string;
     projectsCompleted: string;
@@ -21,8 +26,3 @@ export interface Stats {
     appsOnStores: string;
 }
 
-export interface AboutData {
-    expertiseGroups: ExpertiseGroup[];
-    experiences: Experience[];
-    stats: Stats;
-}

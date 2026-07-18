@@ -1,6 +1,6 @@
 import { getLocaleServer, getTranslationServer } from "@/i18n/i18n-server";
 import Link from "next/link";
-import { siteTheme } from "@/lib/theme-config"; // 👈 Centralized theme imported
+import { siteTheme } from "@/lib/site-config";
 import { getLocalizedPath } from "@/utils/navigation"; // 👈 Dynamic routing utility
 
 export default async function NotFound() {

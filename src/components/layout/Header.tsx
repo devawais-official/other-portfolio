@@ -6,7 +6,7 @@ import Link from "next/link"
 import { useScroll, useMotionValueEvent } from "framer-motion"
 import { Menu, X } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
-import { siteTheme } from "@/lib/theme-config"
+import { siteTheme } from "@/lib/site-config";
 import { useI18n } from "@/i18n/i18n-provider"
 import { Magnetic } from "../ui/Magnetic"
 import { Button } from "../ui/button"

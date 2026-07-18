@@ -1,0 +1,145 @@
+{
+    "nav": {
+        "home": "الرئيسية",
+        "about": "من أنا",
+        "projects": "المشاريع",
+        "blog": "المدونة",
+        "contact": "اتصل بي",
+        "services": "الخدمات",
+        "testimonials": "آراء العملاء"
+    },
+    "cta": {
+        "bookedStatus": "متاح حالياً للحجز في الربع الثالث من 2026",
+        "title": "هل لديك فكرة تطبيق جوال تحتاج إلى تنفيذ؟",
+        "description": "أخبرني عن احتياجات منتجك والمنصات المطلوبة — وسأرد عليك في غضون يوم عمل واحد مع الخطوات التالية.",
+        "startProject": "ابدأ مشروعاً",
+        "seeWork": "شاهد أعمالي"
+    },
+    "footer": {
+        "copyright": "© {year} محمد عويس. جميع الحقوق محفوظة.",
+        "poweredBy": "تم البناء باستخدام Next.js و Tailwind CSS",
+        "navigate": "التنقل",
+        "specialties": "التخصصات",
+        "getInTouch": "تواصل معي",
+        "specialtiesList": [
+            "تطوير أندرويد أصلي (Kotlin)",
+            "Kotlin Multiplatform",
+            "Compose Multiplatform",
+            "Flutter وتطوير المنصات المتعددة"
+        ]
+    },
+    "profile": {
+        "title": "مطور تطبيقات جوال",
+        "subtitle": "Android • Kotlin Multiplatform • Compose Multiplatform • Flutter",
+        "bio": "مطور تطبيقات جوال بخبرة تزيد عن 4 سنوات في إطلاق تطبيقات تجارية. متخصص في تطوير أندرويد الأصلي، وKotlin Multiplatform (KMP)، وCompose Multiplatform (CMP)، وFlutter. أعمل على بناء أنظمة قابلة للتوسع والصيانة باستخدام الهندسة النظيفة (Clean Architecture).",
+        "location": "لاهور، باكستان",
+        "availability": "متاح لفرص عمل جديدة"
+    },
+    "skills": {
+        "title": "المهارات التقنية",
+        "subtitle": "مجموعة أدواتي المهنية عبر الأنظمة المختلفة",
+        "languages": "لغات البرمجة",
+        "android": "تطوير أندرويد الأصلي",
+        "multiplatform": "المنصات المتعددة (KMP/CMP)",
+        "flutter": "Flutter",
+        "architecture": "الهندسة المعمارية والممارسات",
+        "tools": "الأدوات والتكاملات"
+    },
+    "home": {
+        "availability": "متاح للمشاريع المستقلة",
+        "heading1": "تطبيقات جوال تُبنى مرة واحدة،",
+        "heading2": " وتعمل في كل مكان.",
+        "description": "أنا محمد عويس، مطور تطبيقات جوال أمتلك أساساً قوياً في تطوير أندرويد الأصلي (Kotlin & Java)، بالإضافة إلى أكثر من عامين في بناء تطبيقات احترافية باستخدام Kotlin Multiplatform، وCompose Multiplatform، وFlutter.",
+        "buttonStart": "ابدأ مشروعاً",
+        "buttonView": "شاهد المشاريع",
+        "skillsEyebrow": "مجموعة الأدوات",
+        "skillsTitle": "المهارات التقنية",
+        "stats": {
+            "experience": "سنوات الخبرة",
+            "completed": "المشاريع المنجزة",
+            "stores": "تطبيقات على المتاجر"
+        },
+        "selectedWork": "أعمال مختارة",
+        "recentProjects": "مشاريع حديثة",
+        "allProjectsLink": "جميع المشاريع",
+        "processTitle": "كيف نعمل معاً",
+        "processSubtitle": "عملية تركز على الإنجاز، لا على الاجتماعات",
+        "processSteps": {
+            "01": {
+                "title": "الاكتشاف",
+                "body": "مكالمة مركزة لتحديد نطاق العمل، المنصات، وما يعنيه 'الإنجاز' للبدء."
+            },
+            "02": {
+                "title": "الهندسة المعمارية",
+                "body": "أقوم بتصميم هيكل الوحدات — طبقات الهندسة النظيفة، الكود المشترك مقابل كود المنصة — قبل كتابة الواجهات."
+            },
+            "03": {
+                "title": "البناء",
+                "body": "بناء أسبوعي للتطبيق يمكنك تثبيته واختباره على جهاز حقيقي، وليس مجرد تقارير تقدم."
+            },
+            "04": {
+                "title": "الإطلاق",
+                "body": "رفع التطبيق على المتجر، خط أنابيب الإصدار، ووثيقة تسليم يمكن لفريقك المستقبلي استخدامها فعلياً."
+            }
+        },
+        "feedbackTitle": "آراء العملاء",
+        "feedbackSubtitle": "ماذا يقول العملاء",
+        "allTestimonialsLink": "جميع الآراء"
+    },
+    "about": {
+        "title": "من أنا",
+        "headerTitle": "مرحباً، أنا محمد — مطور تطبيقات جوال.",
+        "expertiseTitle": "الخبرات",
+        "expertiseSubtitle": "ما أضيفه لفريق تطوير الجوال",
+        "experienceTitle": "الخبرة المهنية",
+        "experienceSubtitle": "أماكن عملت بها"
+    },
+    "projects": {
+        "title": "المشاريع",
+        "headerTitle": "تطبيقات أُطلقت على أندرويد الأصلي و Kotlin Multiplatform.",
+        "headerDesc": "قم بالتصفية حسب المنصة لرؤية كيف تتغير الهندسة المعمارية والتقنيات بناءً على احتياجات المنتج الفعلية.",
+        "filters": {
+            "all": "الكل",
+            "android": "أندرويد",
+            "ios": "iOS",
+            "kmp": "KMP",
+            "cmp": "CMP",
+            "flutter": "Flutter"
+        },
+        "ctas": {
+            "playStore": "متجر Google Play",
+            "appStore": "متجر Apple",
+            "details": "عرض التفاصيل"
+        },
+        "backToProjects": "جميع المشاريع",
+        "techStack": "التقنيات المستخدمة"
+    },
+    "contact": {
+        "title": "اتصل بي",
+        "headerTitle": "أخبرني عما تقوم ببنائه.",
+        "headerDesc": "شاركني بعض التفاصيل حول المشروع والمنصات المطلوبة — وسأرد عليك شخصياً في غضون يوم عمل واحد.",
+        "form": {
+            "nameLabel": "الاسم",
+            "emailLabel": "البريد الإلكتروني",
+            "platformLabel": "المنصة",
+            "budgetLabel": "نطاق الميزانية",
+            "detailsLabel": "تفاصيل المشروع",
+            "buttonSend": "إرسال الرسالة",
+            "successTitle": "تم إرسال الرسالة",
+            "successMessage": "شكراً لتواصلك — أنا أقرأ كل رسالة بنفسي."
+        }
+    },
+    "services": {
+        "title": "خدماتي",
+        "headerTitle": "هندسة برمجيات مخصصة، مبنية للتوسع."
+    },
+    "testimonials": {
+        "title": "آراء العملاء",
+        "headerTitle": "تجربة العمل معاً."
+    },
+    "notfound": {
+        "eyebrow": "404",
+        "title": "هذه الصفحة غير موجودة.",
+        "button": "العودة للرئيسية"
+    }
+}

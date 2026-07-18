@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { Slot } from "./slot";
 import { cn } from "@/lib/utils";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 
 type Variant = "ghost" | "solid" | "outline";
 type Size = "default" | "icon" | "sm";

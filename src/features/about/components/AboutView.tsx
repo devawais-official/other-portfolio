@@ -2,8 +2,7 @@
 "use client";
 
 import PageHeader from "@/components/ui/PageHeader";
-import CTASection from "@/components/sections/CTASection";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 import type { StandardPageLabels } from "@/utils/label-helper";
 
 // Local Sub-components

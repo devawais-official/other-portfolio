@@ -7,7 +7,7 @@ import experiencesData from "./experiences.json";
 import testimonialsData from "./testimonials.json";
 
 // 1. Export Types directly from imported shapes
-export type Project = (typeof projectsData)[number];
+export type RawProject = typeof projectsData[number];
 export type Service = (typeof servicesData)[number];
 export type Experience = (typeof experiencesData)[number];
 export type Testimonial = (typeof testimonialsData)[number];
@@ -16,12 +16,12 @@ export type Testimonial = (typeof testimonialsData)[number];
 export const profile = profileData;
 export const expertise = expertiseData;
 export const stats = statsData;
-export const projects: Project[] = projectsData;
+export const rawProjects: RawProject[] = projectsData;
 export const services: Service[] = servicesData;
 export const experiences: Experience[] = experiencesData;
 export const testimonials: Testimonial[] = testimonialsData;
 
 // 3. Derived Filter Slices
 export const platformFilters = Array.from(
-    new Set(projects.map((p) => p.platform))
+    new Set(rawProjects.map((p) => p.platform))
 ).sort();

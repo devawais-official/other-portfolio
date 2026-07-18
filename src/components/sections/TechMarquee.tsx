@@ -3,7 +3,7 @@
 import { expertise } from "@/data";
 import { useI18n } from "@/i18n/i18n-provider";
 import SectionWrapper from "@/components/layout/SectionWrapper";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 import SectionHeader from "../ui/SectionHeader";
 
 interface TechItem {

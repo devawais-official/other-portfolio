@@ -130,7 +130,7 @@ export default function GenericCard({
                   return (
                     <Comp
                       key={idx}
-                      href={action.href}
+                      href={action.href || "#"}
                       onClick={(e) => e.stopPropagation()}
                       className={`relative inline-flex items-center gap-2 overflow-hidden rounded-sm px-3 py-2 text-white transition-all duration-300 min-h-[34px] border ${isPrimary
                         ? "border-primary/40 bg-primary/20 hover:bg-primary/30"

@@ -3,7 +3,7 @@
 import { BookOpen } from "lucide-react";
 import PageHeader from "@/components/ui/PageHeader";
 import AnimatedSection from "@/components/layout/AnimatedSection";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 import BlogCard from "./BlogCard";
 import { BlogPost } from "../types";
 import { StandardPageLabels } from "@/utils/label-helper";

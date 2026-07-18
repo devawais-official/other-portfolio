@@ -1,0 +1,153 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "projects": "Projects",
+        "blog": "Blog",
+        "contact": "Contact",
+        "services": "Services",
+        "testimonials": "Testimonials"
+    },
+    "cta": {
+        "bookedStatus": "Currently booking Q3 2026",
+        "title": "Have a mobile app idea that needs to ship?",
+        "description": "Tell me about your product and platform needs — I'll reply within one business day with next steps.",
+        "startProject": "Start a project",
+        "seeWork": "See my work"
+    },
+    "footer": {
+        "copyright": "© {year} Muhammad Awais. All rights reserved.",
+        "poweredBy": "Built with Next.js & Tailwind CSS",
+        "navigate": "Navigate",
+        "specialties": "Specialties",
+        "getInTouch": "Get in touch",
+        "specialtiesList": [
+            "Native Android (Kotlin)",
+            "Kotlin Multiplatform",
+            "Compose Multiplatform",
+            "Flutter & Cross-platform"
+        ]
+    },
+    "profile": {
+        "title": "Mobile App Developer",
+        "subtitle": "Android • Kotlin Multiplatform • Compose Multiplatform • Flutter",
+        "bio": "Mobile developer with 4+ years shipping production apps. Specialized in Android native, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), and Flutter. Building scalable, maintainable cross-platform systems with clean architecture.",
+        "location": "Lahore, Pakistan",
+        "availability": "Open to opportunities"
+    },
+    "skills": {
+        "title": "Technical Skills",
+        "subtitle": "My professional toolkit across ecosystems",
+        "languages": "Languages",
+        "android": "Native Android",
+        "multiplatform": "Multiplatform (KMP/CMP)",
+        "flutter": "Flutter",
+        "architecture": "Architecture & Practices",
+        "tools": "Tools & Integrations"
+    },
+    "home": {
+        "availability": "Available for freelance projects",
+        "heading1": "Mobile apps that ship once,",
+        "heading2": " run everywhere.",
+        "description": "I'm Muhammad Awais, a mobile app developer with a strong foundation in native Android (Kotlin & Java), plus 2+ years building production apps with Kotlin Multiplatform, Compose Multiplatform, and Flutter.",
+        "buttonStart": "Start a project",
+        "buttonView": "View projects",
+        "skillsEyebrow": "ToolKit",
+        "skillsTitle": "Technical Skills",
+        "stats": {
+            "experience": "Years experience",
+            "completed": "Projects completed",
+            "stores": "Apps on stores"
+        },
+        "selectedWork": "Selected work",
+        "recentProjects": "Recent projects",
+        "allProjectsLink": "All projects",
+        "processTitle": "How engagements work",
+        "processSubtitle": "A process built around shipping, not meetings",
+        "processSteps": {
+            "01": {
+                "title": "Discovery",
+                "body": "A focused call to define scope, platforms, and what 'done' looks like for launch."
+            },
+            "02": {
+                "title": "Architecture",
+                "body": "I design the module structure — Clean Architecture layers, shared vs. platform code — before writing UI."
+            },
+            "03": {
+                "title": "Build",
+                "body": "Weekly builds you can install and test on a real device, not just progress reports."
+            },
+            "04": {
+                "title": "Ship",
+                "body": "Store listing, release pipeline, and a handover doc your future team can actually use."
+            }
+        },
+        "feedbackTitle": "Client feedback",
+        "feedbackSubtitle": "What clients say",
+        "allTestimonialsLink": "All testimonials"
+    },
+    "about": {
+        "title": "About",
+        "headerTitle": "Hi, I'm Muhammad — a mobile app developer.",
+        "headerDesc": "I focus on building scalable mobile systems using native Android, Kotlin Multiplatform, and Flutter, with a passion for clean architecture.",
+        "expertiseTitle": "Expertise",
+        "expertiseSubtitle": "What I bring to a mobile team",
+        "experienceTitle": "Experience",
+        "experienceSubtitle": "Where I've worked"
+    },
+    "projects": {
+        "title": "Projects",
+        "headerTitle": "Shipped apps across Android Native and Kotlin Multiplatform.",
+        "headerDesc": "Filter by platform to see how the architecture and stack shift depending on what the product actually needs.",
+        "filters": {
+            "all": "All",
+            "android": "Android",
+            "ios": "iOS",
+            "kmp": "KMP",
+            "cmp": "CMP",
+            "flutter": "Flutter"
+        },
+        "ctas": {
+            "playStore": "Google Play",
+            "appStore": "App Store",
+            "details": "View details"
+        },
+        "backToProjects": "All projects",
+        "techStack": "Tech stack"
+    },
+    "contact": {
+        "title": "Contact",
+        "headerTitle": "Tell me about what you're building.",
+        "headerDesc": "Share a few details about the project and platforms in mind — I reply personally within one business day.",
+        "form": {
+            "nameLabel": "Name",
+            "emailLabel": "Email",
+            "platformLabel": "Platform",
+            "budgetLabel": "Budget range",
+            "detailsLabel": "Project details",
+            "buttonSend": "Send message",
+            "successTitle": "Message sent",
+            "successMessage": "Thanks for reaching out — I read every message myself."
+        }
+    },
+    "services": {
+        "title": "What I offer",
+        "headerDesc": "From individual feature development to end-to-end architecture design and cross-platform product launches.",
+        "headerTitle": "Custom mobile engineering, built for scale."
+    },
+    "testimonials": {
+        "title": "Testimonials",
+        "headerTitle": "What it's like to work together.",
+        "headerDesc": "Don't just take my word for it—here is what founders, product leads, and partners have to say about our collaborations."
+    },
+    "notfound": {
+        "eyebrow": "404",
+        "title": "This screen doesn't exist.",
+        "button": "Back to home"
+    },
+    "blog": {
+        "title": "Blog",
+        "headerTitle": "Technical insights & lessons.",
+        "headerDesc": "My thoughts on mobile architecture, KMP best practices, and the lessons learned while shipping production apps."
+    }
+}

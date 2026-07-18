@@ -1,0 +1,145 @@
+{
+    "nav": {
+        "home": "Accueil",
+        "about": "À propos",
+        "projects": "Projets",
+        "blog": "Blog",
+        "contact": "Contact",
+        "services": "Services",
+        "testimonials": "Témoignages"
+    },
+    "cta": {
+        "bookedStatus": "Disponible pour le T3 2026",
+        "title": "Vous avez une idée d'application mobile à concrétiser ?",
+        "description": "Parlez-moi de votre produit et de vos besoins en plateformes — je vous répondrai sous un jour ouvrable avec les prochaines étapes.",
+        "startProject": "Lancer un projet",
+        "seeWork": "Voir mes travaux"
+    },
+    "footer": {
+        "copyright": "© {year} Muhammad Awais. Tous droits réservés.",
+        "poweredBy": "Construit avec Next.js & Tailwind CSS",
+        "navigate": "Navigation",
+        "specialties": "Spécialités",
+        "getInTouch": "Contactez-moi",
+        "specialtiesList": [
+            "Android Natif (Kotlin)",
+            "Kotlin Multiplatform",
+            "Compose Multiplatform",
+            "Flutter & Multiplateforme"
+        ]
+    },
+    "profile": {
+        "title": "Développeur d'applications mobiles",
+        "subtitle": "Android • Kotlin Multiplatform • Compose Multiplatform • Flutter",
+        "bio": "Développeur mobile avec plus de 4 ans d'expérience dans la mise en production d'applications. Spécialisé en Android natif, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP) et Flutter. Création de systèmes multiplateformes évolutifs et maintenables avec une architecture propre (Clean Architecture).",
+        "location": "Lahore, Pakistan",
+        "availability": "Ouvert aux opportunités"
+    },
+    "skills": {
+        "title": "Compétences techniques",
+        "subtitle": "Ma boîte à outils professionnelle à travers les écosystèmes",
+        "languages": "Langages",
+        "android": "Android Natif",
+        "multiplatform": "Multiplateforme (KMP/CMP)",
+        "flutter": "Flutter",
+        "architecture": "Architecture & Pratiques",
+        "tools": "Outils & Intégrations"
+    },
+    "home": {
+        "availability": "Disponible pour des projets freelance",
+        "heading1": "Des applications mobiles qui,",
+        "heading2": " une fois lancées, fonctionnent partout.",
+        "description": "Je suis Muhammad Awais, développeur mobile avec une base solide en Android natif (Kotlin & Java), et plus de 2 ans d'expérience dans la construction d'applications de production avec Kotlin Multiplatform, Compose Multiplatform et Flutter.",
+        "buttonStart": "Lancer un projet",
+        "buttonView": "Voir les projets",
+        "skillsEyebrow": "Boîte à outils",
+        "skillsTitle": "Compétences techniques",
+        "stats": {
+            "experience": "Années d'expérience",
+            "completed": "Projets terminés",
+            "stores": "Apps sur les stores"
+        },
+        "selectedWork": "Travaux sélectionnés",
+        "recentProjects": "Projets récents",
+        "allProjectsLink": "Tous les projets",
+        "processTitle": "Comment nous travaillons",
+        "processSubtitle": "Un processus axé sur la livraison, pas sur les réunions",
+        "processSteps": {
+            "01": {
+                "title": "Découverte",
+                "body": "Un appel ciblé pour définir la portée, les plateformes et les objectifs de lancement."
+            },
+            "02": {
+                "title": "Architecture",
+                "body": "Conception de la structure modulaire (Clean Architecture) avant de coder l'interface."
+            },
+            "03": {
+                "title": "Construction",
+                "body": "Builds hebdomadaires testables sur appareil réel, pas juste des rapports de progression."
+            },
+            "04": {
+                "title": "Lancement",
+                "body": "Publication sur le store, pipelines et documentation de transfert pour votre future équipe."
+            }
+        },
+        "feedbackTitle": "Avis des clients",
+        "feedbackSubtitle": "Ce que disent les clients",
+        "allTestimonialsLink": "Tous les témoignages"
+    },
+    "about": {
+        "title": "À propos",
+        "headerTitle": "Bonjour, je suis Muhammad — développeur d'applications mobiles.",
+        "expertiseTitle": "Expertise",
+        "expertiseSubtitle": "Ce que j'apporte à une équipe mobile",
+        "experienceTitle": "Expérience",
+        "experienceSubtitle": "Où j'ai travaillé"
+    },
+    "projects": {
+        "title": "Projets",
+        "headerTitle": "Applications livrées sur Android Natif et Kotlin Multiplatform.",
+        "headerDesc": "Filtrez par plateforme pour voir comment l'architecture s'adapte aux besoins réels du produit.",
+        "filters": {
+            "all": "Tous",
+            "android": "Android",
+            "ios": "iOS",
+            "kmp": "KMP",
+            "cmp": "CMP",
+            "flutter": "Flutter"
+        },
+        "ctas": {
+            "playStore": "Google Play",
+            "appStore": "App Store",
+            "details": "Voir les détails"
+        },
+        "backToProjects": "Tous les projets",
+        "techStack": "Stack technique"
+    },
+    "contact": {
+        "title": "Contact",
+        "headerTitle": "Parlez-moi de votre projet.",
+        "headerDesc": "Partagez quelques détails sur le projet et les plateformes — je répondrai personnellement sous un jour ouvrable.",
+        "form": {
+            "nameLabel": "Nom",
+            "emailLabel": "E-mail",
+            "platformLabel": "Plateforme",
+            "budgetLabel": "Budget estimé",
+            "detailsLabel": "Détails du projet",
+            "buttonSend": "Envoyer le message",
+            "successTitle": "Message envoyé",
+            "successMessage": "Merci de m'avoir contacté — je lis chaque message moi-même."
+        }
+    },
+    "services": {
+        "title": "Mes services",
+        "headerTitle": "Ingénierie mobile sur mesure, conçue pour l'évolutivité."
+    },
+    "testimonials": {
+        "title": "Témoignages",
+        "headerTitle": "Ce que disent mes clients."
+    },
+    "notfound": {
+        "eyebrow": "404",
+        "title": "Cette page n'existe pas.",
+        "button": "Retour à l'accueil"
+    }
+}

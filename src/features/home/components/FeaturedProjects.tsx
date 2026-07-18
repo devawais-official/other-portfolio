@@ -4,16 +4,16 @@ import { getProjectsGridConfig } from "@/features/projects/configs/projects-conf
 import { MappedHomeData } from "./HomeView";
 import AnimatedSection from "@/components/layout/AnimatedSection";
 import SectionWrapper from "@/components/layout/SectionWrapper";
+import { Project } from "@/features/projects/data"; // 👈 Sahi wala interface import karo
 
 interface FeaturedProjectsProps {
     translate: (key: string) => string;
-    homeData: MappedHomeData;
+    homeData: MappedHomeData; // Yeh کافی hai
 }
 
 export default function FeaturedProjects({ translate, homeData }: FeaturedProjectsProps) {
-    const { featuredProjects, projectsPath } = homeData;
+    const { featuredProjects, projectsPath } = homeData; // Yeh data sahi aa raha hai
     const gridConfig = getProjectsGridConfig(translate);
-
     return (
         <SectionWrapper className="section-pad" showBlobs={false}>
             <div className="container-page">

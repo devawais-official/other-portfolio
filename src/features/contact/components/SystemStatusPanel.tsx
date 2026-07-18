@@ -2,7 +2,7 @@
 
 import { MapPin } from "lucide-react";
 import { Globe } from "@/components/ui/globe";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 
 interface SystemStatusPanelProps {
     location: string;

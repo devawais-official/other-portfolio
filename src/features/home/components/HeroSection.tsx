@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import StatCounter from "@/components/ui/StatCounter";
 import { Button } from "@/components/ui/button";
-import { siteTheme } from "@/lib/theme-config";
+import { siteTheme } from "@/lib/site-config";
 import { MappedHomeData } from "./HomeView";
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import AnimatedSection from "@/components/layout/AnimatedSection";

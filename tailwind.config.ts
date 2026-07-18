@@ -16,9 +16,11 @@ const config: Config = {
   content: [
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/features/**/*.{js,ts,jsx,tsx,mdx}", // 🎯 Fix: Features folder add kiya taake marquee styles render hon!
+    "./src/features/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/lib/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/i18n/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/styles/theme/**/*.{js,ts,jsx,tsx}",
+
   ],
   theme: {
     extend: {
