@@ -3,10 +3,17 @@ import HomeView from "@/features/home/components/HomeView";
 import { getHomeData } from "@/features/home/data";
 import { siteRoutes } from "@/lib/site-config";
 import { getLocalizedPath } from "@/utils/navigation";
-import { Locale } from "@/i18n/config";
-import { generatePageMetadata } from "@/lib/metadata";
-import { Metadata } from "next";
+import { Locale, locales } from "@/i18n/config";
 
+
+export const revalidate = 3600;
+
+// 🚀 FIX 2: Build time par hi saare language paths (/en, /ar, etc.) ka HTML generate kar dega
+export async function generateStaticParams() {
+  return locales.map((locale) => ({
+    locale: locale,
+  }));
+}
 interface HomeProps {
   params: Promise<{ locale: Locale }>;
 }

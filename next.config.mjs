@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   compress: true,
+  experimental: {
+    optimizeCss: true,
+  },
   images: {
     remotePatterns: [
       {
