@@ -44,16 +44,12 @@ export default function HeroSection({ translate, homeData }: HeroSectionProps) {
 
                 {/* Left Side: Content Area */}
                 <AnimatedSection className={heroStyle.contentCol}>
-                    <p className={`${heroStyle.eyebrow} flex items-center gap-2.5 text-ink/90 font-semibold tracking-wide antialiased`}>
-                        <span className="relative flex h-2.5 w-2.5 shrink-0">
-                            {/* Glowing Ping Effect: Emerald-400 screen visibility ke liye full 100% opacity ke sath */}
-                            <span className="absolute inline-flex h-full w-full animate-ping motion-reduce:animate-none rounded-full bg-emerald-400 opacity-100" />
-                            <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-sm" />
+                    <p className={heroStyle.eyebrow}>
+                        <span className="relative flex h-2 w-2">
+                            <span className="absolute inline-flex h-full w-full animate-ping motion-reduce:animate-none rounded-full bg-emerald-400 opacity-75" />
+                            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
                         </span>
-                        {/* Availability Text Wrapper: Isse pure text component ko 4.5:1+ contrast clear milega */}
-                        <span className="text-emerald-300 font-mono text-xs uppercase tracking-[0.2em]">
-                            {availabilityText}
-                        </span>
+                        {availabilityText}
                     </p>
 
                     {/* Main Headings */}
