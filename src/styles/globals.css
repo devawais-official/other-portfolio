@@ -3,15 +3,12 @@
 @tailwind utilities;
 
 :root {
-  /* Core Base Colors (Deep Matrix Dark Theme) */
-  --color-bg: 10, 41, 35;
-  /* Lighthouse Optimization: Thoda dark kiya taake dynamic components par contrast pure 7:1+ mile */
-  --color-surface: 15, 54, 46;
-  /* Surface background */
-  --color-surface2: 24, 74, 64;
-  /* Safe Input/Card BG: Light Sage ki jagah proper dark tint base di taake ink text visible ho */
+  --color-bg: 15, 61, 52;
+  --color-surface: 20, 70, 60;
 
-  /* Primary Branding (Orange/Gold Accent) */
+  /* Safe Input/Card BG: Light Sage ko input backgrounds par visible karne keliye adjust kiya */
+  --color-surface2: 28, 84, 73;
+
   --color-primary: 255, 177, 98;
   --color-primary-light: 255, 195, 130;
   --color-primary-dark: 200, 130, 60;
@@ -20,29 +17,26 @@
   --color-accent-light: 255, 210, 160;
 
   --color-secondary: 115, 105, 100;
-  /* Contrast Booster */
   --color-secondary-light: 135, 125, 120;
 
   --color-mint: 255, 215, 170;
 
-  /* Typography Contrast Boosters (WCAG AA Compliant) */
-  --color-ink: 252, 250, 242;
-  /* Pure Off-White: Har component par crystal clear text reading keliye */
-  --color-muted: 218, 212, 198;
-  /* Contrast Fixed: 4.8:1 Ratio achieve karne keliye thoda text bright kiya */
-  --color-border: 45, 92, 80;
-  /* UI Borders */
+  /* Typography Contrast Boosters (WCAG AA Compliant on 15, 61, 52 background) */
+  --color-ink: 255, 253, 245;
+  /* Thoda sa mazeed bright off-white kiya taake tumhare deep sage background par khil kar aaye */
+  --color-muted: 228, 222, 208;
+  /* FIXED: Isko thoda sa bright kiya taake tumhare original background par contrast ratio 4.5:1 cross kar jaye */
+  --color-border: 40, 80, 70;
 
-  /* Selection & Focus States */
-  --color-selection-bg: 179, 90, 64;
-  --color-selection-text: 252, 250, 242;
+  --color-selection-bg: 163, 81, 57;
+  --color-selection-text: 238, 233, 223;
   --color-focus-outline: 255, 177, 98;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     color-scheme: dark only;
-    --color-bg: 10, 41, 35;
+    --color-bg: 15, 61, 52;
   }
 }
 
