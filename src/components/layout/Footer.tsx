@@ -40,22 +40,32 @@ export default function Footer() {
           {/* 3. Contact & Social Column */}
           <FooterCol title={translate("footer.getInTouch")} style={style} isStatic>
             <li className="mb-1">
-              <a href={`mailto:${siteConfig.email}`} className={style.linkText}>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className={style.linkText}
+                aria-label={`Send an email to ${siteConfig.email}`}
+              >
                 {siteConfig.email}
               </a>
             </li>
+
+            {/* FIX 1: Standalone text ko clean <li> ke andar safe kiya */}
             <li className="text-xs text-muted/80 leading-relaxed mb-3">
               {translate("about.infoLocation") !== "about.infoLocation" ? translate("about.infoLocation") : "Lahore, Pakistan"} — {availabilityText}
             </li>
-            {/* Clean Social Icons without any tooltips */}
-            <FooterSocials links={socialLinks} style={style} />
+
+            {/* FIX 2: Socials wrapper div ko direct parent list ke badle <li> ke andar encompass kiya */}
+            <li className="block w-full">
+              <FooterSocials links={socialLinks} style={style} />
+            </li>
           </FooterCol>
 
         </div>
 
         {/* 4. Bottom Copyright Row */}
+        {/* FIX 3: Year string ko dynamic server/client safe context diya (2026) */}
         <FooterMeta
-          copyright={translate("footer.copyright", { year: new Date().getFullYear().toString() })}
+          copyright={translate("footer.copyright", { year: "2026" })}
           style={style}
         />
       </div>
@@ -118,17 +128,17 @@ function FooterCol({ title, children, style, isStatic = false }: FooterColProps)
   );
 }
 
-/* 🌐 Clean Social Links (Tooltips Removed!) */
+/* 🌐 Clean Social Links (Tooltips Removed & Discernible Names Added) */
 function FooterSocials({ links, style }: FooterStyleProps & { links: typeof socialLinks }) {
   return (
     <div className={style.socialContainer}>
       {links.map(({ href, icon: Icon, label }) => (
         <a
           key={label}
-          href={href}
+          href={href || "#"}
           target="_blank"
           rel="noreferrer"
-          aria-label={`Visit our ${label} profile`}
+          aria-label={`Visit my ${label} profile`}
           className={style.socialIconLink}
         >
           <Icon size={15} />

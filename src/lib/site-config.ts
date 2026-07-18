@@ -10,14 +10,17 @@ const personalData = data as any;
 export const siteConfig: SiteConfig = {
   name: personalData.name,
   shortName: personalData.shortName,
-  role: personalData.title,
-  tagline: personalData.subtitle,
-  bio: personalData.bio,
-  email: personalData.email,
-  location: personalData.location,
-  availability: personalData.availability,
+  role: personalData.title || "Mobile App Developer",
+  tagline: personalData.subtitle || "Building Clean & Performant Apps",
+  bio: personalData.bio || "",
+
+  //  FIXED: personalData.email ki jagah nested object read kiya
+  email: personalData.contact?.email || "mughal963@gmail.com",
+
+  location: personalData.location || "Lahore, Pakistan",
+  availability: personalData.availability || "Available for freelance",
   url: SITE_URL,
-  description: `${personalData.name} — ${personalData.title} specializing in Android, Kotlin Multiplatform (KMP), and Flutter app development.`,
+  description: `${personalData.name} — specializing in Android, Kotlin Multiplatform (KMP), and Flutter app development.`,
   keywords: [
     "Muhammad Awais",
     "Devawais",
@@ -55,7 +58,6 @@ export const socialLinks = [
     label: "LinkedIn",
     isEmail: false
   },
-  // Optional platforms: Agar JSON mein ho tabhi spread hongey (Safe Check)
   ...(personalData.usernames.twitter ? [{
     id: "twitter",
     href: `${personalData.socialBaseUrls.twitter}${personalData.usernames.twitter}`,
@@ -82,7 +84,6 @@ export const socialLinks = [
   }] : [])
 ];
 
-// 2. NavLinks ko 'as const' rakho taake unki values fix rahein
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },

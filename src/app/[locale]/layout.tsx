@@ -34,7 +34,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
 
   return (
     <html lang={locale} dir={dir} className={htmlClassNames}
-      data-scroll-behavior="smooth">
+      data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <SchemaMarkup type="Person" data={personSchemaData} />
       </head>

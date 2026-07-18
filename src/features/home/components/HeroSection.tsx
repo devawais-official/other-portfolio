@@ -18,17 +18,17 @@ const stackBadges = [
     {
         name: "Kotlin",
         tooltip: "Kotlin",
-        icon: <SiKotlin className="w-3.5 h-3.5" />
+        icon: <SiKotlin className="w-3.5 h-3.5" aria-hidden="true" />
     },
     {
         name: "Jetpack Compose",
         tooltip: "Compose",
-        icon: <SiAndroid className="w-3.5 h-3.5" /> // Android/Compose core logo
+        icon: <SiAndroid className="w-3.5 h-3.5" aria-hidden="true" /> // Android/Compose core logo
     },
     {
         name: "Flutter",
         tooltip: "Flutter",
-        icon: <SiFlutter className="w-3.5 h-3.5" />
+        icon: <SiFlutter className="w-3.5 h-3.5" aria-hidden="true" />
     }
 ];
 
@@ -126,8 +126,9 @@ export default function HeroSection({ translate, homeData }: HeroSectionProps) {
                                 <div
                                     key={b.name}
                                     className={`${heroStyle.badgeItem} relative group z-10`}
+                                    aria-label={`${b.name} technology`} /* Screen reader context */
                                 >
-                                    {/* React Icon element */}
+                                    {/* React Icon element (ab isme automatic aria-hidden pass hoga) */}
                                     {b.icon}
 
                                     {/* Tooltip */}
