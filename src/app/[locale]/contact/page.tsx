@@ -17,7 +17,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
   const { locale } = await params;
   const translate = getTranslationServer(locale as any);
 
-  const resolvedLocation = translate("about.infoLocation") || "Lahore";
+  const resolvedLocation = translate("aboutData.infoLocation") || "Lahore, Pakistan";
   const labels = getStandardPageLabels(translate, "contact");
 
   return <ContactView labels={labels} location={resolvedLocation} />;

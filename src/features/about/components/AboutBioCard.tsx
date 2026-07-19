@@ -46,7 +46,7 @@ export default function AboutBioCard({ stats, tagline, availability }: AboutBioC
 
     }, []);
 
-    const finalTagline = !tagline || tagline === "aboutData.role"
+    const finalTagline = !tagline || tagline === "aboutData.roleVal" || tagline === "aboutData.role"
         ? "Mobile App Developer"
         : tagline;
 
@@ -113,14 +113,26 @@ export default function AboutBioCard({ stats, tagline, availability }: AboutBioC
                     {/* GitHub Box */}
                     <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/10">
                         <GithubIcon className="text-primary text-base" />
-                        <div>
-                            <p className="text-sm font-mono font-bold leading-none text-ink">
-                                {githubStats.loading ? "..." : `${githubStats.followers} / ${githubStats.stars} ★`}
-                            </p>
-                            {/* 🛠️ Text size ko 8px se 10px kiya aur opacity hata kar direct clear text-muted lagaya */}
-                            <p className="text-[10px] font-mono text-muted uppercase tracking-wider mt-1.5">
-                                Followers / Stars
-                            </p>
+                        <div className="min-w-0">
+                            <div className="flex items-baseline gap-3">
+                                <div>
+                                    <p className="text-sm font-mono font-bold leading-none text-ink">
+                                        {githubStats.loading ? "..." : githubStats.followers}
+                                    </p>
+                                    <p className="text-[10px] font-mono text-muted uppercase tracking-wider mt-1">
+                                        Followers
+                                    </p>
+                                </div>
+                                <span className="text-muted/30 text-xs font-mono">·</span>
+                                <div>
+                                    <p className="text-sm font-mono font-bold leading-none text-ink">
+                                        {githubStats.loading ? "..." : `${githubStats.stars} ★`}
+                                    </p>
+                                    <p className="text-[10px] font-mono text-muted uppercase tracking-wider mt-1">
+                                        Stars
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

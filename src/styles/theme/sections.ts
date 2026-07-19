@@ -89,7 +89,7 @@ export const aboutTheme = {
     expCompany: "text-[11px] font-mono text-muted/60 uppercase tracking-widest mt-1",
 
     // Right column content details
-    expDesc: "text-sm text-zinc-100/95 leading-relaxed md:col-span-3 flex flex-col gap-4",
+    expDesc: "text-sm text-zinc-100/95 leading-relaxed",
     achievementsList: "flex flex-col gap-3 mt-2",
     achievementItem: "flex items-start gap-3 text-sm text-muted/80 leading-relaxed",
     bulletPoint: "text-primary/70 text-xs mt-[6px] shrink-0 font-mono font-bold"
@@ -196,7 +196,7 @@ export const servicesTheme = {
 };
 export const blogTheme = {
     sectionPadding: "pb-24",
-    grid: "container-page grid gap-6 sm:grid-cols-2",
+    grid: "container-page grid gap-6 sm:grid-cols-2 [&:has(>article:only-child)]:sm:grid-cols-1 [&:has(>div:only-child)]:sm:grid-cols-1 [&:has(>div:only-child)]:max-w-md [&:has(>div:only-child)]:mx-auto",
     emptyState: "col-span-full py-16 text-center text-muted",
     emptyIcon: "mx-auto h-12 w-12 mb-4 opacity-30",
 

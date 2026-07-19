@@ -46,8 +46,9 @@ export default function GenericCard({
     <div
       className={`group relative aspect-[4/5] sm:aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] border border-white/5 bg-[#0f241a]/40 backdrop-blur-md shadow-2xl transition-all duration-500 hover:border-primary/30 hover:shadow-primary/5 flex flex-col justify-between ${isHovered ? "is-hovered" : ""
         }`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onPointerEnter={() => setIsHovered(true)}
+      onPointerLeave={() => setIsHovered(false)}
+      onTouchStart={() => setIsHovered((prev) => !prev)}
     >
       {/* HUD Effect overlay */}
       <HUDFrame isHovered={isHovered} />

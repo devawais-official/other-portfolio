@@ -20,11 +20,11 @@ export const sectionHeaderTheme = {
 };
 
 export const testimonialCardTheme = {
-    container: "relative flex flex-col gap-5 p-6 rounded-2xl border border-border/40 bg-zinc-950/20 backdrop-blur-sm transition-all duration-300 ease-out md:hover:-translate-y-1.5 md:hover:scale-[1.02] md:hover:border-primary/40 md:hover:shadow-lg md:hover:shadow-primary/5 cursor-pointer",
+    container: "relative flex flex-col gap-5 p-6 rounded-2xl border border-border/40 bg-zinc-950/20 backdrop-blur-sm transition-all duration-300 ease-out overflow-hidden md:hover:-translate-y-1.5 md:hover:scale-[1.02] md:hover:border-primary/40 md:hover:shadow-lg md:hover:shadow-primary/5 cursor-pointer",
     quoteIcon: "text-primary/60",
     starIcon: "fill-primary text-primary",
-    messageText: "font-sans text-sm leading-relaxed text-ink/80 flex-1",
-    avatarContainer: "flex items-center gap-3 pt-4 border-t border-border/20",
+    messageText: "font-sans text-sm leading-relaxed text-ink/80 flex-1 line-clamp-5",
+    avatarContainer: "flex items-center gap-3 pt-4 border-t border-border/20 mt-auto",
     avatarBadge: "flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase border border-primary/20",
     clientName: "font-sans text-sm font-semibold text-ink",
     clientRole: "font-sans text-xs text-ink/60",

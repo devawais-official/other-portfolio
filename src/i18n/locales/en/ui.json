@@ -47,8 +47,8 @@
     },
     "home": {
         "availability": "Available for freelance projects",
-        "heading1": "Mobile apps that ship once,",
-        "heading2": " run everywhere.",
+        "heading1": "Mobile apps that ship once, ",
+        "heading2": "run everywhere.",
         "description": "I'm Muhammad Awais, a mobile app developer with a strong foundation in native Android (Kotlin & Java), plus 2+ years building production apps with Kotlin Multiplatform, Compose Multiplatform, and Flutter.",
         "buttonStart": "Start a project",
         "buttonView": "View projects",
@@ -118,7 +118,7 @@
     "contact": {
         "title": "Contact",
         "headerTitle": "Tell me about what you're building.",
-        "headerDesc": "Share a few details about the project and platforms in mind — I reply personally within one business day.",
+        "headerDesc": "Reach out directly via email or connect on professional channels — I reply personally within one business day.",
         "form": {
             "nameLabel": "Name",
             "emailLabel": "Email",

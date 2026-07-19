@@ -50,6 +50,29 @@
         rgba(var(--color-bg), 0.2) 65%,
         transparent 100%);
   }
+
+  /* Scroll affordance: fades the right edge of horizontally-scrollable pill rows
+     so users see "more content →" instead of an abrupt clip */
+  .scroll-fade-x {
+    -webkit-mask-image: linear-gradient(to right, black 75%, transparent 100%);
+    mask-image: linear-gradient(to right, black 75%, transparent 100%);
+  }
+
+  /* Fade both sides of marquee for smooth transition */
+  .marquee-mask {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  }
+
+  /* Overflow scroll without visible scrollbar — for pill/chip rows */
+  .pills-scroll {
+    @apply overflow-x-auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .pills-scroll::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer base {

@@ -91,8 +91,7 @@ export default function TechMarquee() {
       {/* 🎯 FORCE LTR on Marquee container: 'dir="ltr"' stops the track from going blank! */}
       <div
         dir="ltr"
-        className="relative flex w-full flex-col gap-6 overflow-hidden py-4"
-        style={styles.maskStyle}
+        className="relative flex w-full flex-col gap-6 overflow-hidden py-4 marquee-mask"
       >
         {/* Running Track */}
         <div className={styles.track}>
