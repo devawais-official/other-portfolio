@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: 12, 32, 28;
+  --color-bg: 15, 61, 52;
   --color-surface: 19, 46, 40;
   --color-surface-2: 26, 58, 51;
   --color-border: 112, 134, 124;
@@ -17,10 +17,10 @@
   --color-muted: 173, 185, 177;
 
   /* Always pair with a LIGHT surface (--color-bg), never with ink/muted */
-  --color-text-on-accent: 12, 32, 28;
+  --color-text-on-accent: 15, 61, 52;
 
   --color-selection-bg: 232, 149, 74;
-  --color-selection-text: 12, 32, 28;
+  --color-selection-text: 15, 61, 52;
   --color-focus-outline: 245, 176, 112;
   /* nichy old */
 
@@ -70,6 +70,7 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
+
   .pills-scroll::-webkit-scrollbar {
     display: none;
   }
