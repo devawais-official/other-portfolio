@@ -1,4 +1,4 @@
-import { AndroidIcon, ComposeMultiplatformIcon, FlutterIcon, SmartphoneIcon, StackOutlinedIcon, type IconProps } from "@/components/icons/icons";
+import { AndroidIcon, ComposeMultiplatformIcon, FlutterIcon, StackOutlinedIcon, type IconProps } from "@/components/icons/icons";
 
 export const SERVICES_ICON_MAP: Record<string, React.ComponentType<IconProps>> = {
     // Agar data mein "AndroidIcon" aa raha hai to theek, nahi to lowercase strings add karein:

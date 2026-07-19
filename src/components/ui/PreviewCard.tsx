@@ -33,7 +33,6 @@ interface GenericCardProps {
 }
 
 export default function GenericCard({
-  href,
   title,
   summary,
   media,

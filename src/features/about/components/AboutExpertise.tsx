@@ -5,7 +5,7 @@ import AnimatedSection from "@/components/layout/AnimatedSection";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { siteTheme } from "@/lib/site-config";
 import { useI18n } from "@/i18n/i18n-provider";
-import { AndroidIcon, ComposeMultiplatformIcon, FlutterIcon, LanguageIcon, LinkedinIcon, StackOutlinedIcon, ToolIcon } from "@/components/icons/icons";
+import { AndroidIcon, FlutterIcon, LanguageIcon, LinkedinIcon, StackOutlinedIcon, ToolIcon } from "@/components/icons/icons";
 
 
 interface ExpertiseGroup {

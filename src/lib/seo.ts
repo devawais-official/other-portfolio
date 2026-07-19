@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { siteConfig, pageMetaDefaults } from "./site-config";
+import { siteConfig } from "./site-config";
 import { locales, Locale } from "@/i18n/config";
 
 const localizedDefaults: Record<Locale, { title: string; description: string }> = {

@@ -8,7 +8,7 @@ export async function getLocaleServer(): Promise<Locale> {
     const cookieStore = await cookies();
     const locale = cookieStore.get("NEXT_LOCALE")?.value as Locale;
     return locales.includes(locale) ? locale : defaultLocale;
-  } catch (err) {
+  } catch {
     return defaultLocale;
   }
 }

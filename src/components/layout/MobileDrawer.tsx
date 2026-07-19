@@ -62,8 +62,10 @@ export default function MobileDrawer({ isOpen, getLocalizedHref, translate, onCl
     const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
-        setMounted(true)
-    }, [])
+        requestAnimationFrame(() => {
+            setMounted(true);
+        });
+    }, []);
 
     useEffect(() => {
         if (isOpen) {

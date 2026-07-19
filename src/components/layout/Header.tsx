@@ -29,8 +29,10 @@ export default function Header() {
   const { scrollYProgress } = useScroll()
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    requestAnimationFrame(() => {
+      setMounted(true);
+    });
+  }, []);
 
   // Show/Hide Header on Scroll
   useMotionValueEvent(scrollYProgress, "change", (current) => {
@@ -40,8 +42,10 @@ export default function Header() {
 
   // Close mobile menu on route change
   useEffect(() => {
-    setMobileMenuOpen(false)
-  }, [pathname])
+    requestAnimationFrame(() => {
+      setMobileMenuOpen(false);
+    });
+  }, [pathname]);
 
   // 🎯 Recalculate local links dynamically whenever 'locale' switches
   const getLocalizedHref = useMemo(() => {

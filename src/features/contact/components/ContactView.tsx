@@ -4,7 +4,6 @@ import PageHeader from "@/components/ui/PageHeader";
 import { StandardPageLabels } from "@/utils/label-helper";
 import { motion, Variants } from "framer-motion";
 
-import { useSocialLinks } from "@/hooks/useSocialLinks";
 import { siteTheme } from "@/lib/site-config";
 import { transformSocialLinksToOptions } from "../configs/contact-options";
 import SystemStatusPanel from "./SystemStatusPanel";

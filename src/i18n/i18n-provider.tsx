@@ -23,12 +23,14 @@ export function I18nProvider({
   const router = useRouter();
 
   useEffect(() => {
-    const match = document.cookie.match(/(?:^|; )NEXT_LOCALE=([^;]*)/);
-    const cookieLocale = match ? (match[1] as Locale) : initialLocale;
-    // Check if it's a valid locale from our supported list
-    if (locales.includes(cookieLocale) && cookieLocale !== locale) {
-      setLocale(cookieLocale);
-    }
+    requestAnimationFrame(() => {
+      const match = document.cookie.match(/(?:^|; )NEXT_LOCALE=([^;]*)/);
+      const cookieLocale = match ? (match[1] as Locale) : initialLocale;
+      // Check if it's a valid locale from our supported list
+      if (locales.includes(cookieLocale) && cookieLocale !== locale) {
+        setLocale(cookieLocale);
+      }
+    })
   }, [initialLocale, locale]);
 
   function changeLocale(newLocale: Locale) {

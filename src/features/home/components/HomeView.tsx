@@ -29,7 +29,7 @@ interface HomeViewProps {
     processSteps: ProcessStep[];
 }
 
-export default function HomeView({ locale, translate, homeData, processSteps }: HomeViewProps) {
+export default function HomeView({ translate, homeData, processSteps }: HomeViewProps) {
     return (
         <>
             {/* 1. Hero Landing Area */}

@@ -32,8 +32,6 @@ export async function getGitHubStatsAction(username: string): Promise<GitHubStat
         if (Array.isArray(reposData)) {
             totalStars = reposData.reduce((acc, repo) => acc + (repo.stargazers_count || 0), 0);
         }
-        console.log("total followers", userData.followers);
-        console.log("total stars", totalStars);
 
         return {
 

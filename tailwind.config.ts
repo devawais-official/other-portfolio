@@ -20,7 +20,6 @@ const config: Config = {
     "./src/lib/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/i18n/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/styles/theme/**/*.{js,ts,jsx,tsx}",
-
   ],
   theme: {
     extend: {

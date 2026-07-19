@@ -1,7 +1,6 @@
 import SectionHeader from "@/components/ui/SectionHeader";
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import AnimatedSection from "@/components/layout/AnimatedSection";
-import { siteTheme } from "@/lib/site-config";
 import { ProcessStep } from "./HomeView";
 
 interface ProcessSectionProps {

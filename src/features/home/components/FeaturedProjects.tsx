@@ -4,7 +4,7 @@ import { getProjectsGridConfig } from "@/features/projects/configs/projects-conf
 import { MappedHomeData } from "./HomeView";
 import AnimatedSection from "@/components/layout/AnimatedSection";
 import SectionWrapper from "@/components/layout/SectionWrapper";
-import { Project } from "@/features/projects/data"; // 👈 Sahi wala interface import karo
+// 👈 Sahi wala interface import karo
 
 interface FeaturedProjectsProps {
     translate: (key: string) => string;

@@ -1,6 +1,5 @@
 "use client"
 
-import { Sparkles } from "@react-three/drei"
 import type React from "react"
 import { useState, useRef, useEffect, useMemo } from "react"
 import { SparkleIcon } from "../icons/icons"

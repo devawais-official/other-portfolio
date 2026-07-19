@@ -5,6 +5,7 @@ import { useI18n } from "@/i18n/i18n-provider";
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import { siteTheme } from "@/lib/site-config";
 import SectionHeader from "../ui/SectionHeader";
+import Image from "next/image";
 
 interface TechItem {
   name: string;
@@ -101,11 +102,13 @@ export default function TechMarquee() {
               className={styles.capsule}
             >
               <div className={styles.iconContainer}>
-                <img
+                <Image
                   src={`https://cdn.simpleicons.org/${item.iconSlug}`}
                   alt={item.name}
                   className={styles.iconImg}
-                  loading="lazy"
+                  width={24}
+                  height={24}
+                  unoptimized
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = "https://cdn.simpleicons.org/android/3DDC84";
                   }}

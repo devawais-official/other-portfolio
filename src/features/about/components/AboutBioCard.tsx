@@ -27,40 +27,21 @@ export default function AboutBioCard({ stats, tagline, availability }: AboutBioC
 
     // --- Dynamic GitHub Stats State ---
     const [githubStats, setGithubStats] = useState<GitHubStats & { loading: boolean }>({
-
         followers: 0,
-
         stars: 0,
-
         loading: true,
-
     });
     useEffect(() => {
-
         let isMounted = true;
-
-
-
         getGitHubStatsAction(data.usernames.github).then((res) => {
-
             if (!isMounted) return;
-
             setGithubStats({
-
                 ...res,
-
                 loading: false,
-
             });
-
         });
-
-
-
         return () => {
-
             isMounted = false;
-
         };
 
     }, []);
@@ -129,27 +110,29 @@ export default function AboutBioCard({ stats, tagline, availability }: AboutBioC
                 {/* Social Credibility Stats (Dynamic GitHub + Live Static LinkedIn) */}
                 <div className="grid grid-cols-2 gap-3 mb-5">
 
-                    {/* GitHub Box (Loads actual Live Stars or Followers) */}
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.01] border border-white/5">
-                        <GithubIcon className="text-primary text-sm" />
+                    {/* GitHub Box */}
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                        <GithubIcon className="text-primary text-base" />
                         <div>
-                            <p className="text-xs font-mono font-bold leading-none text-ink">
+                            <p className="text-sm font-mono font-bold leading-none text-ink">
                                 {githubStats.loading ? "..." : `${githubStats.followers} / ${githubStats.stars} ★`}
                             </p>
-                            <p className="text-[8px] font-mono text-muted/60 uppercase tracking-wider mt-1">
+                            {/* 🛠️ Text size ko 8px se 10px kiya aur opacity hata kar direct clear text-muted lagaya */}
+                            <p className="text-[10px] font-mono text-muted uppercase tracking-wider mt-1.5">
                                 Followers / Stars
                             </p>
                         </div>
                     </div>
 
                     {/* LinkedIn Box */}
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.01] border border-white/5">
-                        <LinkedinIcon className="text-primary text-sm" />
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/10">
+                        <LinkedinIcon className="text-primary text-base" />
                         <div>
-                            <p className="text-xs font-mono font-bold leading-none text-ink">
+                            <p className="text-sm font-mono font-bold leading-none text-ink">
                                 {stats.projectsCompleted || "1,200+"}
                             </p>
-                            <p className="text-[8px] font-mono text-muted/60 uppercase tracking-wider mt-1">
+                            {/* 🛠️ Idhar bhi text size aur contrast tight kar diya taaki easily read ho sake */}
+                            <p className="text-[10px] font-mono text-muted uppercase tracking-wider mt-1.5">
                                 Connections
                             </p>
                         </div>
@@ -161,9 +144,9 @@ export default function AboutBioCard({ stats, tagline, availability }: AboutBioC
                     href="/resume.pdf"
                     target="_blank"
                     rel="noreferrer"
-                    className="group relative flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl text-center text-xs font-mono font-bold tracking-wider uppercase border border-primary/20 bg-primary/5 text-primary hover:bg-primary/10 hover:border-primary/40 transition-all duration-300"
+                    className="group relative flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl text-center text-xs font-mono font-bold tracking-wider uppercase border border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 hover:border-primary/50 transition-all duration-300"
                 >
-                    <DownloadIcon size={13} className="transition-transform duration-300 group-hover:translate-y-[-1px]" />
+                    <DownloadIcon size={14} className="transition-transform duration-300 group-hover:translate-y-[-1px]" />
                     Download CV / Resume
                 </a>
             </div>
