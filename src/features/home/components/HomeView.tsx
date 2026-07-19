@@ -36,7 +36,7 @@ export default function HomeView({ translate, homeData, processSteps }: HomeView
             <HeroSection translate={translate} homeData={homeData} />
 
             {/* 2. Marquee Banner */}
-            <TechMarquee />
+            {/* { <TechMarquee />} */}
 
             {/* 3. Portfolio Grid */}
             <FeaturedProjects translate={translate} homeData={homeData} />
