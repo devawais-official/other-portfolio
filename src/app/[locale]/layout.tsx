@@ -3,10 +3,9 @@ import "@/styles/globals.css";
 import SchemaMarkup from "@/components/seo/SchemaMarkup";
 import Header from "@/components/layout/Header";
 
-// 🚀 Heavy sections ko static ke bajaye Next.js Dynamic Imports me badla
 import dynamic from "next/dynamic";
 const CTASection = dynamic(() => import("@/components/sections/CTASection"), {
-  ssr: true, // SSR true rakhein taake SEO text load ho sake, lekin chunks defer ho jayein
+  ssr: true,
 });
 const Footer = dynamic(() => import("@/components/layout/Footer"), {
   ssr: true,
@@ -51,7 +50,6 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
 
           <Header />
           <main className="flex-grow">{children}</main>
-          {/* Ab inki CSS main bundle ko block nahi karegi balki asynchronosly load hogi */}
           <CTASection />
           <Footer />
         </I18nProvider>

@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { ArrowUpRight, Clock } from "lucide-react";
 import { BlogPost } from "../types";
 import { formatFullDateTime } from "@/utils/date";
 import { siteTheme } from "@/lib/site-config";
+import { ArrowUpRightIcon, ClockIcon } from "@/components/icons/icons";
 
 interface BlogCardProps {
     post: BlogPost;
@@ -37,7 +37,7 @@ export default function BlogCard({ post }: BlogCardProps) {
 
                     {/* Badge ko proper align kiya */}
                     <div className={style.readTimeBadge}>
-                        <Clock size={14} />
+                        <ClockIcon size={14} />
                         <span>{post.readTime} min read</span>
                     </div>
 
@@ -65,7 +65,7 @@ export default function BlogCard({ post }: BlogCardProps) {
                         Read more
                         <span className={style.footerUnderline} />
                     </span>
-                    <ArrowUpRight size={16} className={style.arrowIcon} />
+                    <ArrowUpRightIcon size={16} className={style.arrowIcon} />
                 </div>
             </div>
         </article>

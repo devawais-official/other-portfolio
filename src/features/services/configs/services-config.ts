@@ -1,10 +1,18 @@
-import { Smartphone, Cpu, Zap, GitBranch, type LucideIcon } from "lucide-react";
+import { AndroidIcon, ComposeMultiplatformIcon, FlutterIcon, SmartphoneIcon, StackOutlinedIcon, type IconProps } from "@/components/icons/icons";
 
-export const SERVICES_ICON_MAP: Record<string, LucideIcon> = {
-    Smartphone,
-    Cpu,
-    Zap,
-    GitBranch,
+export const SERVICES_ICON_MAP: Record<string, React.ComponentType<IconProps>> = {
+    // Agar data mein "AndroidIcon" aa raha hai to theek, nahi to lowercase strings add karein:
+    "android": AndroidIcon,
+    "AndroidIcon": AndroidIcon,
+
+    "compose": ComposeMultiplatformIcon,
+    "ComposeMultiplatformIcon": ComposeMultiplatformIcon,
+
+    "flutter": FlutterIcon,
+    "FlutterIcon": FlutterIcon,
+
+    "native": StackOutlinedIcon,
+    "StackOutlinedIcon": StackOutlinedIcon,
 };
 
 export interface LocalizedServiceItem {

@@ -1,10 +1,10 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { ObfuscatedContact } from "@/components/ui/ObfuscatedContact";
 import { ContactOption } from "../types";
 import { siteTheme } from "@/lib/site-config";
+import { ArrowUpRightIcon } from "@/components/icons/icons";
 
 interface ContactCardProps {
     option: ContactOption;
@@ -39,7 +39,7 @@ export default function ContactCard({ option, variants }: ContactCardProps) {
 
             {/* Micro Interactive Arrow */}
             <div className={style.arrowWrapper}>
-                <ArrowRight className={style.arrowClass} />
+                <ArrowUpRightIcon className={style.arrowClass} />
             </div>
 
             {/* Cyberpunk Ambient Dot */}

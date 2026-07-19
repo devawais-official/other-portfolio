@@ -4,6 +4,7 @@ import projects from "./projects.json";
 import testimonials from "./testimonials.json";
 import experiences from "./experiences.json";
 import services from "./services.json";
+import about from "./about.json";
 
 const en = {
 
@@ -12,10 +13,12 @@ const en = {
     seo: {
         ...seo
     },
+
     projectsData: projects,
     testimonialsData: testimonials,
     experiencesData: experiences,
     servicesData: services,
+    aboutData: about,
 };
 
 export default en;

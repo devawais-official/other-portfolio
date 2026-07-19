@@ -1,8 +1,7 @@
-import { Quote, Star } from "lucide-react";
-import { getHomeData } from "@/features/home/data";
 import { getInitials } from "@/utils/string";
 import { siteTheme } from "@/lib/site-config";
 import { Testimonial } from "@/features/testimonials/types";
+import { QuoteIcon, StarIcon } from "@/components/icons/icons";
 //type Testimonial = Awaited<ReturnType<typeof getHomeData>>["featuredTestimonials"][number];
 interface TestimonialCardProps {
   testimonial: Testimonial;
@@ -14,11 +13,11 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
     <div className={cardStyle.container}>
       <div className="flex items-center justify-between">
-        <Quote size={20} className={cardStyle.quoteIcon} />
+        <QuoteIcon size={20} className={cardStyle.quoteIcon} />
 
         <div className="flex gap-0.5">
           {Array.from({ length: testimonial.rating }).map((_, index) => (
-            <Star
+            <StarIcon
               key={index}
               size={12}
               className={cardStyle.starIcon}

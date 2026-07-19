@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { siteTheme } from "@/lib/site-config";
 import AnimatedSection from "../layout/AnimatedSection";
+import { ArrowUpRightIcon } from "../icons/icons";
 
 interface SectionHeaderProps {
   eyebrow: string;
@@ -31,7 +31,7 @@ export default function SectionHeader({
 
       {actionText && actionHref && (
         <Link href={actionHref} className={style.actionLink}>
-          {actionText} <ArrowUpRight size={15} />
+          {actionText} <ArrowUpRightIcon size={15} />
         </Link>
       )}
     </AnimatedSection>

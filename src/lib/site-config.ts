@@ -1,7 +1,7 @@
 import { SiteConfig, NavLink } from "@/types/site";
 import data from "@/data/personal-data.json";
-import { FaGithub, FaLinkedin, FaMedium, FaStackOverflow, FaTwitter } from "react-icons/fa6";
 import { siteTheme } from "@/styles/theme";
+import { GithubIcon, LinkedinIcon, MediumIcon, StackOverflowIcon, XIcon } from "@/components/icons/icons";
 
 const SITE_URL = "https://devawais.com";
 
@@ -46,7 +46,7 @@ export const socialLinks = [
     id: "github",
     href: `${personalData.socialBaseUrls.github}${personalData.usernames.github}`,
     displayValue: `@${personalData.usernames.github}`,
-    icon: FaGithub,
+    icon: GithubIcon,
     label: "GitHub",
     isEmail: false
   },
@@ -54,7 +54,7 @@ export const socialLinks = [
     id: "linkedin",
     href: `${personalData.socialBaseUrls.linkedin}${personalData.usernames.linkedin}`,
     displayValue: `@${personalData.usernames.linkedin}`,
-    icon: FaLinkedin,
+    icon: LinkedinIcon,
     label: "LinkedIn",
     isEmail: false
   },
@@ -62,7 +62,7 @@ export const socialLinks = [
     id: "twitter",
     href: `${personalData.socialBaseUrls.twitter}${personalData.usernames.twitter}`,
     displayValue: `@${personalData.usernames.twitter}`,
-    icon: FaTwitter,
+    icon: XIcon,
     label: "Twitter",
     isEmail: false
   }] : []),
@@ -70,7 +70,7 @@ export const socialLinks = [
     id: "stackoverflow",
     href: `${personalData.socialBaseUrls.stackoverflow}${personalData.usernames.stackoverflow}`,
     displayValue: `@${personalData.usernames.stackoverflow}`,
-    icon: FaStackOverflow,
+    icon: StackOverflowIcon,
     label: "Stack Overflow",
     isEmail: false
   }] : []),
@@ -78,7 +78,7 @@ export const socialLinks = [
     id: "medium",
     href: `${personalData.socialBaseUrls.medium}${personalData.usernames.medium}`,
     displayValue: `@${personalData.usernames.medium}`,
-    icon: FaMedium,
+    icon: MediumIcon,
     label: "Medium",
     isEmail: false
   }] : [])

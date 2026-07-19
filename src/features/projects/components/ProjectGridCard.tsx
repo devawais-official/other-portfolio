@@ -1,11 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { Smartphone, ArrowUpRight } from "lucide-react";
 // IMPORTANT: Yahan wahi interface import karo jo tumne features/projects/types.ts mein banaya hai
 import { Project } from "@/features/projects/data";
 import GenericCard, { CardAction, CardBadge } from "@/components/ui/PreviewCard";
-import { AppStoreIcon, PlayStoreIcon } from "@/components/icons/StoreIcons";
+import { AppStoreIcon, ArrowUpRightIcon, PlayStoreIcon, SmartphoneIcon } from "@/components/icons/icons";
 import { siteTheme } from "@/lib/site-config";
 
 const isPlayStoreLink = (url?: string) => Boolean(url?.includes("play.google.com"));
@@ -40,7 +39,7 @@ export default function ProjectGridCard({ project, labels }: ProjectGridCardProp
     ) : (
         <div aria-hidden className="w-full h-full flex items-center justify-center pt-8 pb-4">
             <div className="relative w-28 h-28 rounded-2xl flex items-center justify-center border border-white/10 bg-white/[0.02] shadow-inner">
-                <Smartphone size={40} style={{ color: project.accent }} className={styles.fallbackIconColorOpacity} />
+                <SmartphoneIcon size={40} style={{ color: project.accent }} className={styles.fallbackIconColorOpacity} />
             </div>
         </div>
     );
@@ -66,7 +65,7 @@ export default function ProjectGridCard({ project, labels }: ProjectGridCardProp
             variant: "primary",
             icon: isPlayStoreLink(project.url)
                 ? <PlayStoreIcon className={styles.storeIconStyle} />
-                : <ArrowUpRight className={styles.storeIconStyle} />
+                : <ArrowUpRightIcon className={styles.storeIconStyle} />
         });
     }
 
@@ -88,7 +87,7 @@ export default function ProjectGridCard({ project, labels }: ProjectGridCardProp
             href: `/projects/${project.slug}`,
             isExternal: false,
             variant: "secondary",
-            icon: <ArrowUpRight className={styles.storeIconStyle} />
+            icon: <ArrowUpRightIcon className={styles.storeIconStyle} />
         });
     }
 

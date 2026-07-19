@@ -22,8 +22,8 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
   const labels = getStandardPageLabels(translate, "about");
 
-  const tagline = translate("about.role");
-  const availability = translate("about.availability");
+  const tagline = translate("aboutData.role");
+  const availability = translate("aboutData.availability");
 
   return (
     <AboutView

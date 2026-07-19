@@ -65,8 +65,8 @@ export default function TechMarquee() {
   const { translate, locale } = useI18n(); // 🎯 'locale' ko extract kiya context se
   const items = [...stack, ...stack, ...stack];
 
-  const eyebrowText = translate("home.skillsEyebrow") || "TOOLKIT";
-  const titleText = translate("home.skillsTitle") || "Technical Skills";
+  const eyebrowText = translate("home.skillsEyebrow") || "TOOLKITs";
+  const titleText = translate("home.skillsTitle") || "Technical Skill";
 
   const styles = siteTheme.home.marquee;
 

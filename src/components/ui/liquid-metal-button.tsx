@@ -1,8 +1,9 @@
 "use client"
 
+import { Sparkles } from "@react-three/drei"
 import type React from "react"
 import { useState, useRef, useEffect, useMemo } from "react"
-import { Sparkles } from "lucide-react"
+import { SparkleIcon } from "../icons/icons"
 
 interface LiquidMetalButtonProps {
     label?: string
@@ -161,7 +162,7 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
                         }}
                     >
                         {viewMode === "icon" ? (
-                            <Sparkles
+                            <SparkleIcon
                                 size={16}
                                 style={{
                                     color: "#F5F0E1", // Ivory tone

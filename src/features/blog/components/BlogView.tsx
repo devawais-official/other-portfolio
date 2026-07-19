@@ -1,12 +1,12 @@
 "use client";
 
-import { BookOpen } from "lucide-react";
 import PageHeader from "@/components/ui/PageHeader";
 import AnimatedSection from "@/components/layout/AnimatedSection";
 import { siteTheme } from "@/lib/site-config";
 import BlogCard from "./BlogCard";
 import { BlogPost } from "../types";
 import { StandardPageLabels } from "@/utils/label-helper";
+import { BookIcon } from "@/components/icons/icons";
 
 interface BlogViewProps {
     posts: BlogPost[];
@@ -34,7 +34,7 @@ export default function BlogView({ posts, labels }: BlogViewProps) {
 
                     {posts.length === 0 && (
                         <div className={style.emptyState}>
-                            <BookOpen className={style.emptyIcon} />
+                            <BookIcon className={style.emptyIcon} />
                             <p>{labels.headerDesc}</p>
                         </div>
                     )}

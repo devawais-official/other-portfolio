@@ -5,14 +5,8 @@ import AnimatedSection from "@/components/layout/AnimatedSection";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { siteTheme } from "@/lib/site-config";
 import { useI18n } from "@/i18n/i18n-provider";
-import {
-    FiTerminal,
-    FiLayers,
-    FiCpu,
-    FiSmartphone,
-    FiSliders,
-    FiTool
-} from "react-icons/fi"; // Rich styling icons
+import { AndroidIcon, ComposeMultiplatformIcon, FlutterIcon, LanguageIcon, LinkedinIcon, StackOutlinedIcon, ToolIcon } from "@/components/icons/icons";
+
 
 interface ExpertiseGroup {
     label: string;
@@ -27,21 +21,21 @@ interface AboutExpertiseProps {
 const getGroupIcon = (label: string) => {
     const cleanLabel = label.toLowerCase();
     if (cleanLabel.includes("lang") || cleanLabel.includes("coding")) {
-        return <FiTerminal className="text-primary text-sm shrink-0" />;
+        return <LanguageIcon className="text-primary text-sm shrink-0" />;
     }
     if (cleanLabel.includes("multi") || cleanLabel.includes("kmp") || cleanLabel.includes("cross")) {
-        return <FiCpu className="text-primary text-sm shrink-0" />;
+        return <LinkedinIcon className="text-primary text-sm shrink-0" />;
     }
     if (cleanLabel.includes("flutter")) {
-        return <FiSmartphone className="text-primary text-sm shrink-0" />;
+        return <FlutterIcon className="text-primary text-sm shrink-0" />;
     }
     if (cleanLabel.includes("arch") || cleanLabel.includes("design")) {
-        return <FiLayers className="text-primary text-sm shrink-0" />;
+        return <StackOutlinedIcon className="text-primary text-sm shrink-0" />;
     }
     if (cleanLabel.includes("tool") || cleanLabel.includes("env")) {
-        return <FiTool className="text-primary text-sm shrink-0" />;
+        return <ToolIcon className="text-primary text-sm shrink-0" />;
     }
-    return <FiSliders className="text-primary text-sm shrink-0" />;
+    return <AndroidIcon className="text-primary text-sm shrink-0" />;
 };
 
 export default function AboutExpertise({ expertiseGroups }: AboutExpertiseProps) {

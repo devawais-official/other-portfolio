@@ -4,7 +4,6 @@ import { useState, useEffect, useMemo } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { useScroll, useMotionValueEvent } from "framer-motion"
-import { Menu, X } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
 import { siteTheme } from "@/lib/site-config";
 import { useI18n } from "@/i18n/i18n-provider"
@@ -13,6 +12,7 @@ import { Button } from "../ui/button"
 import { cn } from "@/lib/utils"
 import DesktopNavbar from "./DesktopNavbar"
 import MobileDrawer from "./MobileDrawer"
+import { MenuIcon, XIcon } from "../icons/icons"
 
 const { header: style } = siteTheme
 
@@ -83,7 +83,7 @@ export default function Header() {
           className={style.mobileToggle}
           onClick={() => setMobileMenuOpen((prev) => !prev)}
         >
-          {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {mobileMenuOpen ? <XIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
         </Button>
       </div>
 

@@ -1,13 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import StatCounter from "@/components/ui/StatCounter";
 import { Button } from "@/components/ui/button";
 import { siteTheme } from "@/lib/site-config";
 import { MappedHomeData } from "./HomeView";
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import AnimatedSection from "@/components/layout/AnimatedSection";
-import { SiAndroid, SiFlutter, SiKotlin } from "react-icons/si";
+import { AndroidIcon, ArrowUpRightIcon, FlutterIcon, KotlinIcon } from "@/components/icons/icons";
 
 interface HeroSectionProps {
     translate: (key: string) => string;
@@ -17,17 +16,17 @@ const stackBadges = [
     {
         name: "Kotlin",
         tooltip: "Kotlin",
-        icon: <SiKotlin className="w-3.5 h-3.5" role="img" aria-label="Kotlin Logo" />
+        icon: <KotlinIcon className="w-3.5 h-3.5" role="img" aria-label="Kotlin Logo" />
     },
     {
         name: "Jetpack Compose",
         tooltip: "Compose",
-        icon: <SiAndroid className="w-3.5 h-3.5" role="img" aria-label="Jetpack Compose Logo" />
+        icon: <AndroidIcon className="w-3.5 h-3.5" role="img" aria-label="Jetpack Compose Logo" />
     },
     {
         name: "Flutter",
         tooltip: "Flutter",
-        icon: <SiFlutter className="w-3.5 h-3.5" role="img" aria-label="Flutter Logo" />
+        icon: <FlutterIcon className="w-3.5 h-3.5" role="img" aria-label="Flutter Logo" />
     }
 ];
 
@@ -69,7 +68,7 @@ export default function HeroSection({ translate, homeData }: HeroSectionProps) {
                     <div className={heroStyle.buttonContainer}>
                         <Button asChild variant="solid" className="w-full sm:w-auto">
                             <Link href={contactPath}>
-                                {translate("home.buttonStart")} <ArrowUpRight size={16} />
+                                {translate("home.buttonStart")} <ArrowUpRightIcon size={16} />
                             </Link>
                         </Button>
 

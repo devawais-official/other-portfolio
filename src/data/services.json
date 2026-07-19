@@ -4,7 +4,7 @@
         "title": "Android Native Development",
         "slug": "android-native",
         "description": "High-performance native Android apps with Jetpack Compose, Material Design 3, and modern Android practices.",
-        "icon": "Smartphone",
+        "icon": "android",
         "tech": [
             "Kotlin",
             "Jetpack Compose",
@@ -17,7 +17,7 @@
         "title": "Kotlin Multiplatform",
         "slug": "kmp",
         "description": "Cross-platform development with KMP and CMP, sharing business logic across Android and iOS.",
-        "icon": "Cpu",
+        "icon": "ComposeMultiplatformIcon",
         "tech": [
             "KMP",
             "CMP",
@@ -30,7 +30,7 @@
         "title": "Flutter Development",
         "slug": "flutter",
         "description": "Fast-moving cross-platform apps with Flutter, ideal for MVP and rapid prototyping.",
-        "icon": "Zap",
+        "icon": "flutter",
         "tech": [
             "Flutter",
             "Dart",
@@ -43,7 +43,7 @@
         "title": "App Architecture & Optimization",
         "slug": "architecture",
         "description": "Designing scalable, maintainable architectures following Clean Architecture and SOLID principles.",
-        "icon": "GitBranch",
+        "icon": "StackOutlinedIcon",
         "tech": [
             "Clean Architecture",
             "MVVM/MVI",

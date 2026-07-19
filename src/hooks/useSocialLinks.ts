@@ -1,13 +1,11 @@
 import { useMemo } from "react";
-import { BsGithub } from "react-icons/bs";
-import { FaLinkedinIn } from "react-icons/fa";
-import { Mail } from "lucide-react";
 import { siteConfig, socialLinks } from "@/lib/site-config";
+import { LinkedinIcon, GithubIcon, MailIcon } from "@/components/icons/icons";
 
 const iconMap = {
-    email: Mail,
-    github: BsGithub,
-    linkedin: FaLinkedinIn,
+    email: MailIcon,
+    github: GithubIcon,
+    linkedin: LinkedinIcon,
 };
 
 export function useSocialLinks() {
@@ -27,7 +25,7 @@ export function useSocialLinks() {
                 href: `mailto:${siteConfig.email}`,
                 displayValue: siteConfig.email,
                 isEmail: true,
-                icon: Mail
+                icon: MailIcon
             }
         ];
     }, []);

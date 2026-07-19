@@ -1,16 +1,15 @@
-import type { LucideIcon } from "lucide-react";
-import { IconType } from "react-icons";
+
 
 export interface ContactInfoItem {
     id: string;
-    icon: LucideIcon;
+    icon: React.ComponentType<any>;
     label: string;
     isLink: boolean;
     href?: string;
 }
 
 export interface ContactOption {
-    icon: LucideIcon | IconType; // Support both React Icons and Lucide Icons cleanly
+    icon: React.ComponentType<any>
     label: string;
     value: string;
     meta: string;

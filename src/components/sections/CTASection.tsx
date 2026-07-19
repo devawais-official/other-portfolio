@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { useI18n } from "@/i18n/i18n-provider";
 import AnimatedSection from "../layout/AnimatedSection";
+import { ArrowUpRightIcon } from "../icons/icons";
 
 export default function CTASection() {
   const { translate } = useI18n();
@@ -27,7 +27,7 @@ export default function CTASection() {
             {/* Primary Button: Standard dynamic btn-primary gradient design */}
             <Button asChild className="btn-primary rounded-full w-full sm:w-auto px-7 py-3">
               <Link href="/contact" className="min-h-[44px] flex items-center justify-center gap-2">
-                {translate("cta.startProject")} <ArrowUpRight size={16} />
+                {translate("cta.startProject")} <ArrowUpRightIcon size={16} />
               </Link>
             </Button>
 

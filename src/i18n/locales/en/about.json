@@ -1,0 +1,14 @@
+{
+    "infoTitle": "Born In",
+    "infoLocation": "Lahore, Pakistan",
+    "infoFocus": "Focus",
+    "infoFocusVal": "Mobile App Development",
+    "role": "Role",
+    "roleVal": "Senior Mobile Engineer",
+    "stats": {
+        "experience": "Experience",
+        "completed": "Completed",
+        "satisfied": "Satisfied",
+        "stores": "Apps on Stores"
+    }
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin } from "lucide-react";
+import { MapPinIcon } from "@/components/icons/icons";
 import { Globe } from "@/components/ui/globe";
 import { siteTheme } from "@/lib/site-config";
 
@@ -26,7 +26,7 @@ export default function SystemStatusPanel({ location }: SystemStatusPanelProps) 
                 <div className={style.contentFooter}>
                     <div className={style.rowAlign}>
                         <div className={style.iconContainer}>
-                            <MapPin className={style.iconColor} />
+                            <MapPinIcon className={style.iconColor} />
                         </div>
                         <h4 className={style.textLabel}>Location</h4>
                     </div>
