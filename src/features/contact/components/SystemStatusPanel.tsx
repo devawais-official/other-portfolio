@@ -1,7 +1,6 @@
 "use client";
 
 import { MapPinIcon } from "@/components/icons/icons";
-import { Globe } from "@/components/ui/globe";
 import { siteTheme } from "@/lib/site-config";
 
 interface SystemStatusPanelProps {
@@ -19,7 +18,7 @@ export default function SystemStatusPanel({ location }: SystemStatusPanelProps) 
 
                 {/* Globe Canvas */}
                 <div className={style.globeOpacity}>
-                    <Globe className={style.globeClass} />
+
                 </div>
 
                 {/* Location Footer Context */}
