@@ -49,8 +49,8 @@ export default function Footer() {
               </a>
             </li>
 
-            {/* FIX 1: Standalone text ko clean <li> ke andar safe kiya */}
-            <li className="text-xs text-muted/80 leading-relaxed mb-3">
+            {/* 🛠️ FIX 1: text-muted/80 ko hata kar text-white/90 kiya aur font-medium lagaya */}
+            <li className="text-xs text-white/90 font-medium leading-relaxed mb-3 antialiased">
               {translate("about.infoLocation") !== "about.infoLocation" ? translate("about.infoLocation") : "Lahore, Pakistan"} — {availabilityText}
             </li>
 

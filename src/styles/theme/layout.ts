@@ -22,7 +22,8 @@ export const headerTheme = {
 };
 
 export const footerTheme = {
-    container: "w-full border-t border-white/5 bg-bg py-14",
+    // 🛠️ FIX 1: Pure bg-bg ke sath halka sa zinc/neutral contrast background optimize kiya (bg-bg/95 aur border solid color)
+    container: "w-full border-t border-white/[0.08] bg-bg/95 py-14 shadow-inner",
     grid: "grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12",
     brandCol: "flex flex-col items-start gap-2",
     logoLink: "relative block mb-1 w-14 h-14 md:w-16 md:h-16 group cursor-pointer",
@@ -31,15 +32,15 @@ export const footerTheme = {
     logoMask: "w-8 h-8 -rotate-45 transition-transform duration-500 bg-ink group-hover:rotate-0",
     brandTitle: "text-xl md:text-2xl font-black text-ink tracking-tight uppercase italic leading-none",
 
-    // 🛠️ FIX 1: text-muted/70 hata kar text-ink/80 kiya (Ab high contrast readable hai)
-    brandTagline: "text-xs text-ink/80 max-w-[200px] leading-relaxed uppercase tracking-wider font-mono font-medium",
+    // 🛠️ FIX 2: Tagline se text-muted/70 complete hata kar solid text-ink kiya
+    brandTagline: "text-xs text-ink/90 max-w-[200px] leading-relaxed uppercase tracking-wider font-mono font-semibold",
 
     eyebrow: "eyebrow",
     listContainer: "mt-4 flex flex-col gap-1.5 text-sm",
     linkText: "text-sm text-muted transition-colors hover:text-ink hover:text-primary focus-visible:outline-none focus-visible:underline min-h-[32px] inline-flex items-center",
 
-    // 🛠️ FIX 2: text-muted (jo faint tha) usay badal kar text-ink/90 kiya taaki lists pass ho sakein
-    staticText: "text-sm text-ink/90 font-medium",
+    // 🛠️ FIX 3: staticText (jo Lahore, Pakistan aur specialties ke liye use hota hai) ko pure text-white/90 standard par update kiya
+    staticText: "text-sm text-white/90 font-medium selection:bg-primary/20",
 
     socialContainer: "flex flex-wrap items-center gap-2.5 mt-3 justify-start",
     socialIconLink: "w-9 h-9 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center text-ink/60 hover:text-primary hover:border-primary/30 hover:shadow-[0_0_10px_rgba(255,177,98,0.1)] transition-all duration-300",
