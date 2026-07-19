@@ -30,11 +30,17 @@ export const footerTheme = {
     logoInnerBg: "absolute inset-2 rotate-45 rounded-lg flex items-center justify-center bg-bg transition-transform duration-500 group-hover:rotate-0",
     logoMask: "w-8 h-8 -rotate-45 transition-transform duration-500 bg-ink group-hover:rotate-0",
     brandTitle: "text-xl md:text-2xl font-black text-ink tracking-tight uppercase italic leading-none",
-    brandTagline: "text-xs text-muted/70 max-w-[200px] leading-relaxed uppercase tracking-wider font-mono",
+
+    // 🛠️ FIX 1: text-muted/70 hata kar text-ink/80 kiya (Ab high contrast readable hai)
+    brandTagline: "text-xs text-ink/80 max-w-[200px] leading-relaxed uppercase tracking-wider font-mono font-medium",
+
     eyebrow: "eyebrow",
     listContainer: "mt-4 flex flex-col gap-1.5 text-sm",
     linkText: "text-sm text-muted transition-colors hover:text-ink hover:text-primary focus-visible:outline-none focus-visible:underline min-h-[32px] inline-flex items-center",
-    staticText: "text-sm text-muted",
+
+    // 🛠️ FIX 2: text-muted (jo faint tha) usay badal kar text-ink/90 kiya taaki lists pass ho sakein
+    staticText: "text-sm text-ink/90 font-medium",
+
     socialContainer: "flex flex-wrap items-center gap-2.5 mt-3 justify-start",
     socialIconLink: "w-9 h-9 rounded-full border border-white/5 bg-white/[0.02] flex items-center justify-center text-ink/60 hover:text-primary hover:border-primary/30 hover:shadow-[0_0_10px_rgba(255,177,98,0.1)] transition-all duration-300",
     metaContainer: "mt-10 pt-6 border-t border-white/5 text-xs text-muted/50 w-full",
