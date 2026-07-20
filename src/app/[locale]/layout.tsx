@@ -4,19 +4,22 @@ import SchemaMarkup from "@/components/seo/SchemaMarkup";
 import Header from "@/components/layout/Header";
 
 import dynamic from "next/dynamic";
+
+import type { Metadata } from "next";
+import { fontClasses } from "@/lib/fonts";
+import { siteTheme } from "@/lib/site-config";
+import { getMetadata, personSchemaData, rtlLocales } from "@/lib/seo";
+import { I18nProvider } from "@/i18n/i18n-client";
+import { getDictionaryServer } from "@/i18n/i18n-server";
+import { Locale, locales, defaultLocale } from "@/i18n/config";
+
+
 const CTASection = dynamic(() => import("@/components/sections/CTASection"), {
   ssr: true,
 });
 const Footer = dynamic(() => import("@/components/layout/Footer"), {
   ssr: true,
 });
-
-import type { Metadata } from "next";
-import { fontClasses } from "@/lib/fonts";
-import { siteTheme } from "@/lib/site-config";
-import { getMetadata, personSchemaData, rtlLocales } from "@/lib/seo";
-import { I18nProvider } from "@/i18n/i18n-provider";
-import { Locale, locales, defaultLocale } from "@/i18n/config";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -33,7 +36,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
   const locale: Locale = locales.includes(rawLocale as Locale)
     ? (rawLocale as Locale)
     : defaultLocale;
-
+  const pageDictionary = getDictionaryServer(locale);
   const dir = rtlLocales.includes(locale) ? "rtl" : "ltr";
 
   const htmlClassNames = `${fontClasses} ${siteTheme.htmlStyles}`;
@@ -45,7 +48,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
         <SchemaMarkup type="Person" data={personSchemaData} />
       </head>
       <body className={siteTheme.bodyStyles}>
-        <I18nProvider initialLocale={locale}>
+        <I18nProvider initialLocale={locale} pageDictionary={pageDictionary}>
           <div className={siteTheme.glowStyles} />
 
           <Header />

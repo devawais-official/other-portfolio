@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import AnimatedSection from "@/components/layout/AnimatedSection";
 import { siteConfig } from "@/lib/site-config";
 import { siteTheme } from "@/lib/site-config";
-import { useI18n } from "@/i18n/i18n-provider";
+import { useI18n } from "@/i18n/i18n-client";
 import data from "@/data/personal-data.json";
 import { DownloadIcon, GithubIcon, LinkedinIcon } from "@/components/icons/icons";
 import { getGitHubStatsAction, GitHubStats } from "../services/githubService";

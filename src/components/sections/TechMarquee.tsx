@@ -1,7 +1,7 @@
 "use client"; // 🎯 React Client Component
 
 import { expertise } from "@/data";
-import { useI18n } from "@/i18n/i18n-provider";
+import { useI18n } from "@/i18n/i18n-client";
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import { siteTheme } from "@/lib/site-config";
 import SectionHeader from "../ui/SectionHeader";

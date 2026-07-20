@@ -1,4 +1,4 @@
-import { getTranslationServer } from "@/i18n/i18n-server";
+import { getTranslationServer, getDictionaryServer } from "@/i18n/i18n-server";
 import HomeView from "@/features/home/components/HomeView";
 import { getHomeData } from "@/features/home/data";
 import { siteRoutes } from "@/lib/site-config";
@@ -21,7 +21,7 @@ export default async function HomePage({ params }: HomeProps) {
   const { locale } = await params;
 
   const translate = getTranslationServer(locale);
-
+  const pageDictionary = getDictionaryServer(locale);
   // FIX: Yahan 'await' lagana zaroori hai
   const rawHomeData = await getHomeData(locale);
 
@@ -57,6 +57,7 @@ export default async function HomePage({ params }: HomeProps) {
       translate={translate}
       homeData={homeData}
       processSteps={processSteps}
+      pageDictionary={pageDictionary}
     />
   );
 }

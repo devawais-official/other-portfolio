@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { useI18n } from "@/i18n/i18n-provider";
+import { useI18n } from "@/i18n/i18n-client";
 import AnimatedSection from "../layout/AnimatedSection";
 import { ArrowUpRightIcon } from "../icons/icons";
 
@@ -12,7 +12,6 @@ export default function CTASection() {
   return (
     <section className="section-pad relative overflow-hidden">
       <div className="container-page relative">
-        {/* 🎯 CORE CHANGE: Applied liquid-glass, soft border-primary, and subtle glow shadow to the main card */}
         <AnimatedSection className="liquid-glass flex flex-col items-center gap-6 px-6 py-14 text-center sm:px-16 border border-primary/15 shadow-2xl shadow-primary/5">
           <p className="eyebrow">{translate("cta.bookedStatus")}</p>
           <h2 className="max-w-xl font-display text-3xl font-semibold leading-tight sm:text-4xl text-ink">

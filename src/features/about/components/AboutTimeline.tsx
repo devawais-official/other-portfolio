@@ -4,7 +4,7 @@
 import AnimatedSection from "@/components/layout/AnimatedSection";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { siteTheme } from "@/lib/site-config";
-import { useI18n } from "@/i18n/i18n-provider";
+import { useI18n } from "@/i18n/i18n-client";
 import type { Experience } from "../types";
 
 interface AboutTimelineProps {

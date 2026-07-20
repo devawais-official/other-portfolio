@@ -109,7 +109,7 @@ export default function HeroSection({ translate, homeData }: HeroSectionProps) {
                             style={{ borderRadius: SQUIRCLE }}
                         >
                             <Image
-                                src="/images/dev-pic.avif"
+                                src="/images/dev-pic.webp"
                                 alt="Muhammad Awais, mobile app developer"
                                 fill
                                 sizes="(max-width: 640px) 260px, (max-width: 768px) 320px, 370px"

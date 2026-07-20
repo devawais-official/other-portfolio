@@ -6,7 +6,7 @@ import Link from "next/link"
 import { useScroll, useMotionValueEvent } from "framer-motion"
 import { siteConfig } from "@/lib/site-config"
 import { siteTheme } from "@/lib/site-config";
-import { useI18n } from "@/i18n/i18n-provider"
+import { useI18n } from "@/i18n/i18n-client"
 import { Magnetic } from "../ui/Magnetic"
 import { Button } from "../ui/button"
 import { cn } from "@/lib/utils"

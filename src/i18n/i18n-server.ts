@@ -1,8 +1,6 @@
 import { cookies } from "next/headers";
 import { locales, Locale, defaultLocale, translations } from "./config";
 
-
-
 export async function getLocaleServer(): Promise<Locale> {
   try {
     const cookieStore = await cookies();
@@ -11,6 +9,11 @@ export async function getLocaleServer(): Promise<Locale> {
   } catch {
     return defaultLocale;
   }
+}
+
+// Client parts ko render-ready object dene ke liye helper function
+export function getDictionaryServer(locale: Locale) {
+  return translations[locale] ? translations[locale] : translations[defaultLocale];
 }
 
 export function getTranslationServer(locale: Locale) {
@@ -25,7 +28,6 @@ export function getTranslationServer(locale: Locale) {
       if (current && typeof current === 'object' && part in current) {
         current = current[part];
       } else {
-        // Fallback logic
         if (currentLocale !== defaultLocale) {
           return getTranslationServer(defaultLocale)(key, replacements);
         }
