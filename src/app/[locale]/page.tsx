@@ -1,4 +1,4 @@
-import { getTranslationServer, getDictionaryServer } from "@/i18n/i18n-server";
+import { getTranslationServer, } from "@/i18n/i18n-server";
 import HomeView from "@/features/home/components/HomeView";
 import { getHomeData } from "@/features/home/data";
 import { siteRoutes } from "@/lib/site-config";
@@ -21,8 +21,7 @@ export default async function HomePage({ params }: HomeProps) {
   const { locale } = await params;
 
   const translate = getTranslationServer(locale);
-  const pageDictionary = getDictionaryServer(locale);
-  // FIX: Yahan 'await' lagana zaroori hai
+
   const rawHomeData = await getHomeData(locale);
 
 
@@ -33,12 +32,11 @@ export default async function HomePage({ params }: HomeProps) {
 
   const featuredTestimonials = rawHomeData.featuredTestimonials.map((item) => ({
     ...item,
-    // Yahan wahi 'testimonialsData' path use karo jo tumne index.ts mein set kiya hai
     message: translate(`testimonialsData.${item.slug}.message`)
   }));
   const homeData = {
     ...rawHomeData,
-    featuredTestimonials, // Ab ye "enriched" data hai
+    featuredTestimonials,
     availabilityText: availabilityText,
     contactPath: contactPath,
     projectsPath: projectsPath,
@@ -57,7 +55,6 @@ export default async function HomePage({ params }: HomeProps) {
       translate={translate}
       homeData={homeData}
       processSteps={processSteps}
-      pageDictionary={pageDictionary}
     />
   );
 }
