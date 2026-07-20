@@ -5,7 +5,9 @@ import { Button } from "../ui/button";
 import { useI18n } from "@/i18n/i18n-client";
 import AnimatedSection from "../layout/AnimatedSection";
 import { ArrowUpRightIcon } from "../icons/icons";
-import { MappedHomeData } from "@/features/home/components/HomeView"; // Path apne mutabiq check kar lein
+import { MappedHomeData } from "@/features/home/components/HomeView";
+import { buttonTheme, ctaTheme } from "@/styles/theme/components";
+// 🎯 FIX 1: Apne theme config aur core button theme tokens ko import karein
 
 interface CTASectionProps {
   homeData: MappedHomeData;
@@ -13,33 +15,46 @@ interface CTASectionProps {
 
 export default function CTASection({ homeData }: CTASectionProps) {
   const { translate } = useI18n();
-  const { contactPath, projectsPath } = homeData; // ⚡ FIX: Hero section ki tarah dynamic paths extraction
+  const { contactPath, projectsPath } = homeData;
+
+  const styles = ctaTheme;
+  const btnStyles = buttonTheme;
 
   return (
-    <section className="section-pad relative overflow-hidden">
+    <section className={styles.sectionPadding}>
       <div className="container-page relative">
-        <AnimatedSection className="liquid-glass flex flex-col items-center gap-6 px-6 py-14 text-center sm:px-16 border border-primary/15 shadow-2xl shadow-primary/5">
-          <p className="eyebrow">{translate("cta.bookedStatus")}</p>
-          <h2 className="max-w-xl font-display text-3xl font-semibold leading-tight sm:text-4xl text-ink">
+        <AnimatedSection
+          // 🎯 FIX 2: Purani rigid glass layer ko clean modern surface container se swap kiya
+          className={styles.boxWrapper}
+        >
+          {/* Ambient background accent tint behind the container text */}
+          <div className="absolute inset-0 bg-primary/[0.02] pointer-events-none mix-blend-overlay" />
+
+          <p className={styles.eyebrow}>{translate("cta.bookedStatus")}</p>
+
+          <h2 className={styles.title}>
             {translate("cta.title")}
           </h2>
-          <p className="max-w-md text-muted text-sm leading-relaxed">
+
+          <p className={styles.description}>
             {translate("cta.description")}
           </p>
 
-          <div className="flex flex-col gap-4 sm:flex-row items-center justify-center w-full sm:w-auto">
-            {/* ⚡ Primary Button: Hero section ke contact button ki tarah absolute target path match */}
-            <Button asChild className="btn-primary rounded-full w-full sm:w-auto px-7 py-3">
+          <div className={styles.buttonContainer}>
+            {/* 🎯 FIX 3: Primary "Start Project" Button - Pill rounded, solid accent pop with text-on-accent */}
+            <Button
+              asChild
+              className={`${btnStyles.base} ${btnStyles.variants.solid} w-full sm:w-auto px-7 py-3.5`}
+            >
               <Link href={contactPath} className="min-h-[44px] flex items-center justify-center gap-2">
                 {translate("home.buttonStart")} <ArrowUpRightIcon size={16} />
               </Link>
             </Button>
 
-            {/* Secondary Button: Overwriting layout with consistent projects path */}
+            {/* 🎯 FIX 4: Secondary "View Projects" Button - Smooth contrast border outline style */}
             <Button
               asChild
-              variant="outline"
-              className="rounded-full border border-white/10 bg-white/[0.03] text-ink/80 hover:bg-white/[0.08] hover:text-ink hover:border-white/20 transition-all duration-300 w-full sm:w-auto px-7 py-3"
+              className={`${btnStyles.base} ${btnStyles.variants.outline} w-full sm:w-auto px-7 py-3.5`}
             >
               <Link href={projectsPath} className="min-h-[44px] flex items-center justify-center">
                 {translate("home.buttonView")}

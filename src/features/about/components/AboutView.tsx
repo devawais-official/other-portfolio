@@ -13,7 +13,7 @@ import { AboutData } from "../types";
 
 interface AboutViewProps {
     labels: StandardPageLabels;
-    data: AboutData; // 🎯 Clean domain model reference
+    data: AboutData;
     tagline: string;
     availability: string;
 }
@@ -45,7 +45,6 @@ export default function AboutView({ labels, data, tagline, availability }: About
 
             {/* Experience Timeline Section */}
             <AboutTimeline experiences={data.experiences} />
-
         </>
     );
 }

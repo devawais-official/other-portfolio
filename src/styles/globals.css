@@ -3,42 +3,55 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: 15, 61, 52;
-  --color-surface: 19, 46, 40;
-  --color-surface-2: 26, 58, 51;
-  --color-border: 112, 134, 124;
-  /* was 46,78,69 - that failed 3:1, invisible */
+  /* 🌲 Dark Cyan / Deep Emerald (Aapki image ka exact core background) */
+  --color-bg: 3, 51, 45;
+  /* #03332D - Super rich dark base */
+  --color-surface: 16, 91, 90;
+  /* #105B5A - Medium Cyan (Cards aur grids ke liye) */
+  --color-surface-2: 24, 110, 108;
+  /* Thoda mazeed lighter accent edge borders ke liye */
 
-  --color-primary: 232, 149, 74;
-  --color-primary-light: 245, 176, 112;
-  --color-primary-dark: 189, 114, 48;
+  /* 🟢 Clean Border (Slightly opaque border taake design heavy na ho) */
+  --color-border: 45, 125, 120;
 
-  --color-ink: 244, 241, 233;
-  --color-muted: 173, 185, 177;
+  /* 🍊 Medium Orange / Luxury Amber (Main branding aur high-importance text/buttons) */
+  --color-primary: 248, 223, 169;
+  /* #F8DFA9 - Warm pale-orange look jo dark green par shandar chamkega */
+  --color-primary-light: 248, 241, 226;
+  /* #F8F1E2 - Pale Orange (Hover states ke liye) */
+  --color-primary-dark: 214, 185, 125;
 
-  /* Always pair with a LIGHT surface (--color-bg), never with ink/muted */
-  --color-text-on-accent: 15, 61, 52;
+  /* 🥛 Pale Orange / Warm Milk (Text ke liye, pure white se 10x zyada premium) */
+  --color-ink: 248, 241, 226;
+  /* #F8F1E2 - Crisp text contrast */
+  --color-muted: 155, 185, 182;
+  /* Screen readers aur secondary details ke liye safe contrast ratio */
 
-  --color-selection-bg: 232, 149, 74;
-  --color-selection-text: 15, 61, 52;
-  --color-focus-outline: 245, 176, 112;
-  /* nichy old */
+  /* ⚡ Deep Cyan / Neon Teal (Vibrant accent pop buttons, active status, aur small links ke liye) */
+  --color-accent: 13, 175, 162;
+  /* #0DAFA2 - Electric Deep Cyan highlight */
+  --color-accent-light: 40, 210, 195;
 
-  --color-accent: 255, 195, 130;
-  --color-accent-light: 255, 210, 160;
+  /* 🛡️ Selection & Focus Outlines */
+  --color-text-on-accent: 3, 51, 45;
+  /* Deep bg text when on light surfaces */
+  --color-selection-bg: 248, 223, 169;
+  /* Text select karne par warm amber background */
+  --color-selection-text: 3, 51, 45;
+  --color-focus-outline: 13, 175, 162;
+  /* Keyboard navigation par crisp neon-teal outline */
 
-  --color-secondary: 115, 105, 100;
-  --color-secondary-light: 135, 125, 120;
-
-  --color-mint: 255, 215, 170;
-
-
+  /* 🩶 Legacy fallbacks */
+  --color-secondary: 115, 145, 140;
+  --color-secondary-light: 135, 165, 160;
+  --color-mint: 248, 223, 169;
 }
 
+/* 🔒 Force Dark Mode Enforcer */
 @media (prefers-color-scheme: light) {
   :root {
     color-scheme: dark only;
-    --color-bg: 15, 61, 52;
+    --color-bg: 3, 51, 45;
   }
 }
 

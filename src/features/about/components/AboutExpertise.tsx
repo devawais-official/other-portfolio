@@ -1,4 +1,4 @@
-// src/components/sections/AboutExpertise.tsx
+// src/features/about/components/AboutExpertise.tsx
 "use client";
 
 import AnimatedSection from "@/components/layout/AnimatedSection";
@@ -6,7 +6,6 @@ import SectionHeader from "@/components/ui/SectionHeader";
 import { siteTheme } from "@/lib/site-config";
 import { useI18n } from "@/i18n/i18n-client";
 import { AndroidIcon, FlutterIcon, LanguageIcon, LinkedinIcon, StackOutlinedIcon, ToolIcon } from "@/components/icons/icons";
-
 
 interface ExpertiseGroup {
     label: string;
@@ -17,25 +16,24 @@ interface AboutExpertiseProps {
     expertiseGroups: ExpertiseGroup[];
 }
 
-// 🎯 Custom Map for dynamic group visual icons based on group labels/keywords
 const getGroupIcon = (label: string) => {
     const cleanLabel = label.toLowerCase();
     if (cleanLabel.includes("lang") || cleanLabel.includes("coding")) {
-        return <LanguageIcon className="text-primary text-sm shrink-0" />;
+        return <LanguageIcon className="text-[rgba(var(--color-primary),1)] text-sm shrink-0" />;
     }
     if (cleanLabel.includes("multi") || cleanLabel.includes("kmp") || cleanLabel.includes("cross")) {
-        return <LinkedinIcon className="text-primary text-sm shrink-0" />;
+        return <LinkedinIcon className="text-[rgba(var(--color-primary),1)] text-sm shrink-0" />;
     }
     if (cleanLabel.includes("flutter")) {
-        return <FlutterIcon className="text-primary text-sm shrink-0" />;
+        return <FlutterIcon className="text-[rgba(var(--color-primary),1)] text-sm shrink-0" />;
     }
     if (cleanLabel.includes("arch") || cleanLabel.includes("design")) {
-        return <StackOutlinedIcon className="text-primary text-sm shrink-0" />;
+        return <StackOutlinedIcon className="text-[rgba(var(--color-primary),1)] text-sm shrink-0" />;
     }
     if (cleanLabel.includes("tool") || cleanLabel.includes("env")) {
-        return <ToolIcon className="text-primary text-sm shrink-0" />;
+        return <ToolIcon className="text-[rgba(var(--color-primary),1)] text-sm shrink-0" />;
     }
-    return <AndroidIcon className="text-primary text-sm shrink-0" />;
+    return <AndroidIcon className="text-[rgba(var(--color-primary),1)] text-sm shrink-0" />;
 };
 
 export default function AboutExpertise({ expertiseGroups }: AboutExpertiseProps) {
@@ -62,7 +60,7 @@ export default function AboutExpertise({ expertiseGroups }: AboutExpertiseProps)
                         <div className="absolute -right-4 -top-4 w-12 h-12 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/10 transition-all duration-300 pointer-events-none" />
 
                         {/* Heading + Dynamic Icon row */}
-                        <div className="flex items-center gap-2 border-b border-white/[0.03] pb-2">
+                        <div className="flex items-center gap-2 border-b border-[rgba(var(--color-border),0.08)] pb-2">
                             {getGroupIcon(group.label)}
                             <h3 className={style.expertiseTitle}>{group.label}</h3>
                         </div>

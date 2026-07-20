@@ -1,4 +1,4 @@
-// src/components/sections/AboutBioCard.tsx
+// src/features/about/components/AboutBioCard.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -43,7 +43,6 @@ export default function AboutBioCard({ stats, tagline, availability }: AboutBioC
         return () => {
             isMounted = false;
         };
-
     }, []);
 
     const finalTagline = !tagline || tagline === "aboutData.roleVal" || tagline === "aboutData.role"
@@ -64,16 +63,13 @@ export default function AboutBioCard({ stats, tagline, availability }: AboutBioC
     const initials = siteConfig.shortName || "MA";
 
     return (
-        // 🎯 Note: Style config classes updated below to prevent overlap and handle dynamic height
-        <AnimatedSection className={`${style.bioCard} flex flex-col justify-between h-auto min-h-full gap-6 pb-8`}>
-
-            {/* Top Area: Avatar + Name + Basic Info */}
+        <AnimatedSection className={`${style.bioCard} flex flex-col justify-between h-full gap-8 pb-9`}>            {/* Top Area: Avatar + Name + Basic Info */}
             <div>
                 <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-primary/10 text-primary font-bold text-lg border border-primary/20">
+                    <div className={style.avatarBadge}>
                         {initials}
                     </div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-mint/80 bg-mint/5 px-2.5 py-1 rounded-full border border-mint/10">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-[rgba(var(--color-primary-light),1)] bg-[rgba(var(--color-primary),0.08)] px-3 py-1 rounded-full border border-[rgba(var(--color-primary),0.15)]">
                         {finalAvailability}
                     </span>
                 </div>
@@ -94,41 +90,38 @@ export default function AboutBioCard({ stats, tagline, availability }: AboutBioC
             </div>
 
             {/* Middle Area: Work Metrics (2x2 Grid) */}
-            <div className="pt-5 border-t border-white/5">
-                <div className={style.statsGrid}>
-                    {statEntries.map((s) => (
-                        <div key={s.label} className="p-3 rounded-xl bg-white/[0.01] border border-white/[0.02]">
-                            <p className={style.statValue}>{s.value}</p>
-                            <p className={style.statLabel}>{s.label}</p>
-                        </div>
-                    ))}
-                </div>
+            <div className={style.statsGrid}>
+                {statEntries.map((s) => (
+                    <div key={s.label} className="p-3 rounded-xl bg-[rgba(var(--color-surface),0.2)] border border-[rgba(var(--color-border),0.08)]">
+                        <p className={style.statValue}>{s.value}</p>
+                        <p className={style.statLabel}>{s.label}</p>
+                    </div>
+                ))}
             </div>
 
             {/* Bottom Area: Social Audience & Action */}
-            <div className="pt-5 border-t border-white/5 mt-auto">
-                {/* Social Credibility Stats (Dynamic GitHub + Live Static LinkedIn) */}
-                <div className="grid grid-cols-2 gap-3 mb-5">
-
+            <div className="mt-auto flex flex-col w-full">
+                {/* Social Credibility Stats */}
+                <div className="grid grid-cols-2 gap-3 mb-4 pt-4 border-t border-[rgba(var(--color-border),0.1)]">
                     {/* GitHub Box */}
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/10">
-                        <GithubIcon className="text-primary text-base" />
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl bg-[rgba(var(--color-surface),0.25)] border border-[rgba(var(--color-border),0.12)]">
+                        <GithubIcon className="text-[rgba(var(--color-primary-light),1)] text-base shrink-0" />
                         <div className="min-w-0">
-                            <div className="flex items-baseline gap-3">
+                            <div className="flex items-baseline gap-2">
                                 <div>
                                     <p className="text-sm font-mono font-bold leading-none text-ink">
                                         {githubStats.loading ? "..." : githubStats.followers}
                                     </p>
-                                    <p className="text-[10px] font-mono text-muted uppercase tracking-wider mt-1">
+                                    <p className="text-[9px] font-mono text-muted uppercase tracking-wider mt-1">
                                         Followers
                                     </p>
                                 </div>
                                 <span className="text-muted/30 text-xs font-mono">·</span>
                                 <div>
                                     <p className="text-sm font-mono font-bold leading-none text-ink">
-                                        {githubStats.loading ? "..." : `${githubStats.stars} ★`}
+                                        {githubStats.loading ? "..." : `${githubStats.stars}★`}
                                     </p>
-                                    <p className="text-[10px] font-mono text-muted uppercase tracking-wider mt-1">
+                                    <p className="text-[9px] font-mono text-muted uppercase tracking-wider mt-1">
                                         Stars
                                     </p>
                                 </div>
@@ -137,26 +130,25 @@ export default function AboutBioCard({ stats, tagline, availability }: AboutBioC
                     </div>
 
                     {/* LinkedIn Box */}
-                    <div className="flex items-center gap-2.5 p-3 rounded-xl bg-white/[0.03] border border-white/10">
-                        <LinkedinIcon className="text-primary text-base" />
-                        <div>
+                    <div className="flex items-center gap-2.5 p-3 rounded-xl bg-[rgba(var(--color-surface),0.25)] border border-[rgba(var(--color-border),0.12)]">
+                        <LinkedinIcon className="text-[rgba(var(--color-primary-light),1)] text-base shrink-0" />
+                        <div className="min-w-0">
                             <p className="text-sm font-mono font-bold leading-none text-ink">
                                 {stats.projectsCompleted || "1,200+"}
                             </p>
-                            {/* 🛠️ Idhar bhi text size aur contrast tight kar diya taaki easily read ho sake */}
-                            <p className="text-[10px] font-mono text-muted uppercase tracking-wider mt-1.5">
+                            <p className="text-[9px] font-mono text-muted uppercase tracking-wider mt-1">
                                 Connections
                             </p>
                         </div>
                     </div>
                 </div>
 
-                {/* Fixed Action Button: Sleek, visible, and non-overlapping */}
+                {/* Fixed Download Button Tag */}
                 <a
                     href="/resume.pdf"
                     target="_blank"
                     rel="noreferrer"
-                    className="group relative flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl text-center text-xs font-mono font-bold tracking-wider uppercase border border-primary/30 bg-primary/10 text-primary hover:bg-primary/20 hover:border-primary/50 transition-all duration-300"
+                    className={`${style.cvButton} flex items-center justify-center gap-2 mt-5 shrink-0`}
                 >
                     <DownloadIcon size={14} className="transition-transform duration-300 group-hover:translate-y-[-1px]" />
                     Download CV / Resume

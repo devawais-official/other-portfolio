@@ -1,7 +1,7 @@
+// src/features/projects/components/ProjectGridCard.tsx
 "use client";
 
 import Image from "next/image";
-// IMPORTANT: Yahan wahi interface import karo jo tumne features/projects/types.ts mein banaya hai
 import { Project } from "@/features/projects/data";
 import GenericCard, { CardAction, CardBadge } from "@/components/ui/PreviewCard";
 import { AppStoreIcon, ArrowUpRightIcon, PlayStoreIcon, SmartphoneIcon } from "@/components/icons/icons";
@@ -44,43 +44,37 @@ export default function ProjectGridCard({ project, labels }: ProjectGridCardProp
         </div>
     );
 
-    // Badges
+    // 🎯 FIX 3: Dynamic platform variant alignment
     const badges: CardBadge[] = [
         { text: project.platform, variant: "primary" },
         { text: project.category, variant: "secondary" }
     ];
 
-    // Tags
     const tags = project.tech.slice(0, 4).map(t => ({ text: t }));
-
-    // Action Buttons
     const actions: CardAction[] = [];
 
-    // PlayStore / URL button
     if (project.url) {
         actions.push({
-            label: labels.ctaPlayStore, // Ab yeh prop se aa raha hai
+            label: labels.ctaPlayStore,
             href: project.url,
             isExternal: true,
-            variant: "primary",
+            variant: "primary", // ⚡ Keeps it prominent solid color
             icon: isPlayStoreLink(project.url)
                 ? <PlayStoreIcon className={styles.storeIconStyle} />
                 : <ArrowUpRightIcon className={styles.storeIconStyle} />
         });
     }
 
-    // AppStore button
     if (project.iosUrl) {
         actions.push({
             label: labels.ctaAppStore,
             href: project.iosUrl,
             isExternal: true,
-            variant: "secondary",
+            variant: "secondary", // ⚡ Transparent smooth contrast outline style
             icon: <AppStoreIcon className={styles.storeIconStyle} />
         });
     }
 
-    // Details button (fallback)
     if (!project.url && !project.iosUrl) {
         actions.push({
             label: labels.ctaDetails,

@@ -1,5 +1,5 @@
 export const headerTheme = {
-    wrapper: "fixed top-0 left-0 w-full z-50 transition-transform duration-300 ease-in-out bg-bg/80 backdrop-blur-md border-b border-border/10",
+    wrapper: "fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-5xl transition-transform duration-300",
     container: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between",
     desktopNavWrapper: "hidden md:flex items-center gap-6",
     desktopNav: "flex items-center gap-1 bg-muted/30 px-3 py-1.5 rounded-full border border-border/20",

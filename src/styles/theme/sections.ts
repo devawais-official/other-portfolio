@@ -19,7 +19,7 @@ export const heroTheme = {
     heading: "mt-5 font-display text-4xl font-semibold leading-[1.06] tracking-tight sm:text-5xl lg:text-6xl",
     headingGradient: "bg-gradient-to-r from-primary to-zinc-100 bg-clip-text text-transparent inline-block pb-3 -mb-1.5 pt-1",
     description: "mt-6 max-w-lg text-base text-muted sm:text-lg",
-    buttonContainer: "mt-8 flex flex-col gap-3 sm:flex-row w-full sm:w-auto",
+    buttonContainer: "mt-8 flex flex-col gap-4 sm:flex-row w-full sm:w-auto items-center justify-center lg:justify-start",
     statsContainer: "mt-12 grid grid-cols-3 gap-6 border-t border-border pt-8 w-full",
 
     // --- Nayi Extracted Spacings & Portrait Classes ---
@@ -41,58 +41,56 @@ export const heroTheme = {
     badgeItem: "relative group flex h-8 w-8 items-center justify-center rounded-full bg-primary/25 text-primary-light transition-all duration-300 hover:bg-primary hover:text-black cursor-pointer",
 };
 export const aboutTheme = {
+    sectionPadding: "pb-24",
+    mainGrid: "container-page grid gap-8 lg:grid-cols-[0.9fr_1.1fr] items-stretch",
 
-    sectionPadding: "pb-16",
-    mainGrid: "container-page grid gap-8 lg:grid-cols-[0.9fr_1.1fr] items-stretch", // stretch items for uniform heights
-
-    // Bio Card (Left Column)
-    bioCard: "p-6 rounded-2xl border border-white/5 bg-white/[0.02] flex flex-col justify-between h-full min-h-[500px]",
-    bioName: "mt-5 font-display text-2xl font-semibold",
-    bioTagline: "text-sm text-muted",
-    infoList: "mt-6 space-y-3 border-t border-border pt-6 text-sm",
+    // 🎯 BIO CARD (Left Column) - Background and Border upgrade
+    bioCard: "p-6 rounded-2xl border border-[rgba(var(--color-border),0.15)] bg-[rgba(var(--color-surface),0.3)] backdrop-blur-md flex flex-col justify-between h-full min-h-[500px]",
+    bioName: "mt-5 font-display text-2xl font-semibold text-ink",
+    bioTagline: "text-sm text-muted/90",
+    infoList: "mt-6 space-y-3 border-t border-[rgba(var(--color-border),0.1)] pt-6 text-sm",
     infoRow: "flex justify-between gap-4",
     infoLabel: "text-muted",
-    infoValue: "text-right",
-    avatarBadge: "w-12 h-12 rounded-xl flex items-center justify-center bg-primary/10 text-primary font-bold text-lg border border-primary/20",
+    infoValue: "text-right text-ink font-medium",
+    avatarBadge: "w-12 h-12 rounded-xl flex items-center justify-center bg-[rgba(var(--color-primary),0.15)] text-[rgba(var(--color-primary-light),1)] font-bold text-lg border border-[rgba(var(--color-primary),0.2)]",
 
-    // Stats Block
-    statsGrid: "mt-8 grid grid-cols-2 gap-5 border-t border-border pt-6",
+    // Stats Block Inside Bio Card
+    statsGrid: "mt-8 grid grid-cols-2 gap-5 border-t border-[rgba(var(--color-border),0.1)] pt-6",
     statValue: "font-display text-xl font-semibold text-ink",
-    statLabel: "mt-1 text-xs text-muted",
+    statLabel: "mt-1 text-xs text-muted/80",
 
-    // 🎯 RE-DESIGNED EXPERTISE CLASSES (Clean & Modern Grid)
+    // 🎯 EXPERTISE CARDS (Right Column) - Clean, high contrast alignment
     expertiseGrid: "grid grid-cols-1 sm:grid-cols-2 gap-4",
-    expertiseCard: "group p-5 rounded-xl border border-white/5 bg-white/[0.015] hover:bg-white/[0.035] hover:border-primary/15 transition-all duration-300 flex flex-col justify-between min-h-[140px] relative overflow-hidden",
-    expertiseTitle: "text-xs font-mono font-bold tracking-wider text-ink/90 uppercase",
-    tagsContainer: "flex flex-wrap gap-1.5 mt-3", // Normal static top margin instead of forcing dynamic bottom stretch
-    tagSpan: "px-2.5 py-1 text-[11px] font-mono font-medium rounded-lg bg-white/[0.03] text-muted/90 hover:bg-primary/10 hover:text-primary hover:border-primary/20 transition-all duration-300 border border-white/[0.03]",
+    expertiseCard: "group p-5 rounded-xl border border-[rgba(var(--color-border),0.12)] bg-[rgba(var(--color-surface),0.2)] hover:bg-[rgba(var(--color-surface),0.4)] hover:border-[rgba(var(--color-primary),0.3)] transition-all duration-300 flex flex-col justify-between min-h-[140px] relative overflow-hidden backdrop-blur-sm",
+    expertiseTitle: "text-xs font-mono font-bold tracking-wider text-[rgba(var(--color-accent),1)] uppercase",
+    tagsContainer: "flex flex-wrap gap-1.5 mt-4",
+    tagSpan: "px-2.5 py-1 text-[11px] font-mono font-medium rounded-lg bg-[rgba(var(--color-surface),0.4)] text-ink/90 hover:bg-[rgba(var(--color-primary),0.15)] hover:text-[rgba(var(--color-primary-light),1)] hover:border-[rgba(var(--color-primary),0.3)] transition-all duration-300 border border-[rgba(var(--color-border),0.1)]",
 
-    // Bio Card (Left Column)
+    // Bio Card Utilities
+    statsDivider: "border-t border-[rgba(var(--color-border),0.1)] my-5",
+    socialStatsGrid: "grid grid-cols-2 gap-4 my-5 pt-4 border-t border-[rgba(var(--color-border),0.1)]",
+    socialStatItem: "flex flex-col gap-1 p-3 rounded-lg bg-[rgba(var(--color-surface),0.1)] border border-[rgba(var(--color-border),0.05)]",
 
-    statsDivider: "border-t border-white/5 my-5",
-    socialStatsGrid: "grid grid-cols-2 gap-4 my-5 pt-4 border-t border-white/5",
-    socialStatItem: "flex flex-col gap-1 p-3 rounded-lg bg-white/[0.01] border border-white/[0.03]",
-    cvButton: "w-full mt-4 py-2.5 px-4 rounded-xl text-center text-xs font-mono font-bold tracking-wider uppercase border border-primary/20 bg-primary/5 text-primary hover:bg-primary/10 hover:border-primary/40 transition-all duration-300"
-    ,   // Expertise Block (Right Column)
+    // 🎯 CV BUTTON - Connected with core pill buttonTheme rules
+    cvButton: "w-full mt-4 py-3 px-4 rounded-full text-center text-xs font-mono font-bold tracking-wider uppercase border border-[rgba(var(--color-primary),0.3)] bg-[rgba(var(--color-primary),0.05)] text-[rgba(var(--color-primary-light),1)] hover:bg-[rgba(var(--color-primary),0.15)] hover:border-[rgba(var(--color-primary),0.5)] transition-all duration-300 active:scale-[0.98]",
 
-    // Experience Timeline Section
-    timelineSection: "py-24 border-t border-white/5",
+    // 🎯 TIMELINE SECTION (Where I've Worked) - Full Width Grid Sync
+    timelineSection: "py-24 border-t border-[rgba(var(--color-border),0.1)]",
     timelineLayout: "container-page mx-auto max-w-6xl px-5 sm:px-8",
     timelineHeaderClass: "max-w-xl mb-12",
-    timelineContainer: "flex flex-col gap-6 mt-12", // thoda sa gap kam kiya cards ke beech
+    timelineContainer: "flex flex-col gap-6 mt-12",
 
-    // Grid layout: Left 1 part for Meta, Right 3 parts for content
-    experienceCard: "p-6 md:p-8 rounded-2xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.02] transition-all duration-300 grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-10",
-    // Left column metadata (Duration, role and company)
-    expDuration: "inline-block px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-primary/90 bg-primary/5 rounded-md border border-primary/10 w-fit mb-2",
+    // Experience Card Structure
+    experienceCard: "p-6 md:p-8 rounded-2xl border border-[rgba(var(--color-border),0.15)] bg-[rgba(var(--color-surface),0.2)] hover:bg-[rgba(var(--color-surface),0.4)] hover:border-[rgba(var(--color-primary),0.3)] transition-all duration-300 grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-10 backdrop-blur-md shadow-lg",
+    expDuration: "inline-block px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-[rgba(var(--color-primary-light),1)] bg-[rgba(var(--color-primary),0.1)] rounded-md border border-[rgba(var(--color-primary),0.2)] w-fit mb-2",
     expRole: "text-base font-bold text-ink leading-snug",
-    expCompany: "text-[11px] font-mono text-muted/60 uppercase tracking-widest mt-1",
+    expCompany: "text-[11px] font-mono text-muted/80 uppercase tracking-widest mt-1",
 
-    // Right column content details
-    expDesc: "text-sm text-zinc-100/95 leading-relaxed",
-    achievementsList: "flex flex-col gap-3 mt-2",
-    achievementItem: "flex items-start gap-3 text-sm text-muted/80 leading-relaxed",
-    bulletPoint: "text-primary/70 text-xs mt-[6px] shrink-0 font-mono font-bold"
+    // Experience Content Details
+    expDesc: "text-sm text-ink/90 leading-relaxed md:col-span-3",
+    achievementsList: "flex flex-col gap-3 mt-4",
+    achievementItem: "flex items-start gap-3 text-sm text-muted/90 leading-relaxed",
+    bulletPoint: "text-[rgba(var(--color-primary),1)] text-xs mt-[4px] shrink-0 font-mono font-bold"
 };
 export const contactTheme = {
     sectionPadding: "pb-24",
