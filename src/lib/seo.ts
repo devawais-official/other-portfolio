@@ -4,31 +4,30 @@ import { locales, Locale } from "@/i18n/config";
 
 const localizedDefaults: Record<Locale, { title: string; description: string }> = {
     en: {
-        title: `${siteConfig.name} — Kotlin Multiplatform & Android Developer`,
+        title: `Muhammad Awais — Senior Mobile App Developer (Android, Flutter, KMP)`,
         description:
-            "Hire Muhammad Awais, a senior mobile developer specializing in Kotlin Multiplatform, Android, and Flutter.",
+            "Looking for a Senior Mobile Developer? Hire Muhammad Awais (Devawais), a specialist in Kotlin Multiplatform, Android Development, Flutter, and Clean Architecture.",
     },
     ur: {
-        title: `${siteConfig.name} — کوٹلن اور اینڈرائیڈ ڈویلپر`,
-        description: "محمد اویس کا پورٹ فولیو — سینئر موبائل ڈویلپر۔",
+        title: `محمد اویس — سینئر موبائل ایپ ڈویلپر (اینڈرائیڈ ، فلاتر)`,
+        description: "محمد اویس (Devawais) کا پورٹ فولیو — سینئر موبائل اور فلٹر ایپ ڈویلپر۔",
     },
     ar: {
-        title: `${siteConfig.name} — مطوّر كوتلن وأندرويد`,
-        description: "محفظة أعمال محمد أويس — مطور تطبيقات جوال أول متخصص في أندرويد وفلاتر.",
+        title: `محمد أويس — مطوّر تطبيقات جوال أول (أندرويد وفلاتر)`,
+        description: "محفظة أعمال محمد أويس — مطور تطبيقات جوال أول متخصص في أندرويد وفلاتر وكوتلن.",
     },
     fr: {
-        title: `${siteConfig.name} — Développeur Kotlin Multiplatform & Android`,
+        title: `Muhammad Awais — Développeur Mobile Senior (Android, Flutter, KMP)`,
         description:
-            "Engagez Muhammad Awais, développeur mobile senior spécialisé en Kotlin Multiplatform, Android et Flutter.",
+            "Engagez Muhammad Awais (Devawais), développeur mobile senior spécialisé en Kotlin Multiplatform, Android et Flutter.",
     },
     tr: {
-        title: `${siteConfig.name} — Kotlin Multiplatform ve Android Geliştiricisi`,
+        title: `Muhammad Awais — Kıdemli Mobil Geliştirici (Android, Flutter)`,
         description:
             "Kotlin Multiplatform, Android ve Flutter konularında uzman kıdemli mobil geliştirici Muhammad Awais.",
     },
 };
 
-// og:locale expects full locale codes, not just the language
 const ogLocaleMap: Record<Locale, string> = {
     en: "en_US",
     ur: "ur_PK",
@@ -59,7 +58,7 @@ export function buildSharedFields(locale: Locale, path: string, title: string, d
             url: `${siteConfig.url}/${locale}${path}`,
             title,
             description,
-            siteName: siteConfig.name,
+            siteName: "Muhammad Awais Portfolio",
             locale: ogLocaleMap[locale],
             images: [
                 {
@@ -95,50 +94,93 @@ export function buildSharedFields(locale: Locale, path: string, title: string, d
 }
 
 function defaultLocaleFallback() {
-    // kept as a function so it can pull from i18n/config's defaultLocale directly if preferred
     return "en";
 }
 
-// Root layout metadata (site-wide default, used when a page has no override)
 export function getMetadata(locale: string): Metadata {
     const resolvedLocale: Locale = locales.includes(locale as Locale) ? (locale as Locale) : "en";
     const { title, description } = localizedDefaults[resolvedLocale];
 
+    // SEO-Rich Global Keywords list taake har page par SEO boost mile
+    const advancedKeywords = [
+        "Muhammad Awais", "Awais", "Devawais", "awaisdevm",
+        "Mobile Dev", "Mobile Developer", "Senior Mobile Developer", "Mobile App Architect",
+        "Android Developer", "Senior Android Developer", "Kotlin Multiplatform", "KMP Developer",
+        "Flutter Developer", "Senior Flutter Developer", "Flutter Expert", "vibe coding", "indie dev",
+        "Clean Architecture", "MVI Architecture", "Jetpack Compose", "Android Lahore"
+    ];
+
     return {
         ...buildSharedFields(resolvedLocale, "", title, description),
         title,
-        keywords: siteConfig.keywords,
+        keywords: advancedKeywords,
     };
 }
 
-
-
-export const personSchemaData = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: siteConfig.name,
-    alternateName: "Devawais",
-    jobTitle: siteConfig.role,
-    url: siteConfig.url,
-    email: siteConfig.email,
-    image: `${siteConfig.url}/profile.jpg`,
-    address: {
-        "@type": "PostalAddress",
-        addressLocality: "Lahore",
-        addressCountry: "Pakistan",
-    },
-    knowsAbout: [
-        "Android Development",
-        "Kotlin Multiplatform",
-        "Flutter",
-        "Jetpack Compose",
-        "Clean Architecture",
-        "MVI Architecture",
-    ],
-    sameAs: [
-        siteConfig.socialBaseUrls.github && `${siteConfig.socialBaseUrls.github}${siteConfig.usernames.github}`,
-        siteConfig.socialBaseUrls.linkedin && `${siteConfig.socialBaseUrls.linkedin}${siteConfig.usernames.linkedin}`,
-        siteConfig.socialBaseUrls.twitter && `${siteConfig.socialBaseUrls.twitter}${siteConfig.usernames.twitter}`].filter(
-            (url): url is string => Boolean(url)
-        ),
+// ⚡ HIGH SEO OPTIMIZATION: Combined WebSite & Person Schema Generator
+export const getCombinedSchemaData = () => {
+    return [
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Muhammad Awais — Mobile App Developer Portfolio",
+            "alternateName": ["Devawais", "awaisdevm", "Muhammad Awais", "devawais-official"],
+            "url": siteConfig.url,
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": `${siteConfig.url}/?q={search_term_string}`
+                },
+                "query-input": "required name=search_term_string"
+            }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Muhammad Awais",
+            "alternateName": ["Devawais", "awaisdevm", "Awais"],
+            "jobTitle": "Senior Mobile App Developer & Architect",
+            "url": siteConfig.url,
+            "email": siteConfig.email,
+            "image": `${siteConfig.url}/profile.jpg`,
+            "gender": "Male",
+            "description": "Senior Mobile Developer specializing in Android, Flutter, Kotlin Multiplatform, and Clean Architecture with a proven track record of building scalable mobile applications.",
+            "nationality": {
+                "@type": "Country",
+                "name": "Pakistan"
+            },
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Lahore",
+                "addressCountry": "Pakistan",
+            },
+            "knowsAbout": [
+                "Mobile Dev",
+                "Mobile Developer",
+                "Android Development",
+                "Kotlin Multiplatform",
+                "Flutter",
+                "Jetpack Compose",
+                "Clean Architecture",
+                "MVI Architecture",
+                "Mobile App Architecture",
+                "Dart",
+                "Kotlin",
+                "Java",
+                "CI/CD Pipelines"
+            ],
+            "worksFor": [
+                { "@type": "Organization", "name": "Netroots Technologies" },
+                { "@type": "Organization", "name": "Healthwire Pvt Ltd" },
+                { "@type": "Organization", "name": "Egora Pvt Ltd" },
+                { "@type": "Organization", "name": "DonGamers" }
+            ],
+            "sameAs": [
+                siteConfig.socialBaseUrls.github && `${siteConfig.socialBaseUrls.github}${siteConfig.usernames.github}`,
+                siteConfig.socialBaseUrls.linkedin && `${siteConfig.socialBaseUrls.linkedin}${siteConfig.usernames.linkedin}`,
+                siteConfig.socialBaseUrls.twitter && `${siteConfig.socialBaseUrls.twitter}${siteConfig.usernames.twitter}`
+            ].filter((url): url is string => Boolean(url)),
+        }
+    ];
 };

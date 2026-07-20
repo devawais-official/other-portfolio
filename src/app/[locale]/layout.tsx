@@ -8,11 +8,10 @@ import dynamic from "next/dynamic";
 import type { Metadata } from "next";
 import { fontClasses } from "@/lib/fonts";
 import { siteTheme } from "@/lib/site-config";
-import { getMetadata, personSchemaData, rtlLocales } from "@/lib/seo";
+import { getMetadata, getCombinedSchemaData, rtlLocales } from "@/lib/seo";
 import { I18nProvider } from "@/i18n/i18n-client";
 import { getDictionaryServer } from "@/i18n/i18n-server";
 import { Locale, locales, defaultLocale } from "@/i18n/config";
-
 
 const CTASection = dynamic(() => import("@/components/sections/CTASection"), {
   ssr: true,
@@ -41,11 +40,17 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
 
   const htmlClassNames = `${fontClasses} ${siteTheme.htmlStyles}`;
 
+  // ⚡ FIX: Layout level par hi localized paths generate kar liye
+  const homeDataMock = {
+    contactPath: `/${locale}/contact`,
+    projectsPath: `/${locale}/projects`,
+  };
+  const schemaData = getCombinedSchemaData();
   return (
     <html lang={locale} dir={dir} className={htmlClassNames}
       data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        <SchemaMarkup type="Person" data={personSchemaData} />
+        <SchemaMarkup type="Person" data={schemaData} />
       </head>
       <body className={siteTheme.bodyStyles}>
         <I18nProvider initialLocale={locale} pageDictionary={pageDictionary}>
@@ -53,7 +58,10 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
 
           <Header />
           <main className="flex-grow">{children}</main>
-          <CTASection />
+
+          {/* ⚡ FIX: Ab yahan homeData prop pass kar di */}
+          <CTASection homeData={homeDataMock as any} />
+
           <Footer />
         </I18nProvider>
       </body>

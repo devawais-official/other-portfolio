@@ -5,9 +5,15 @@ import { Button } from "../ui/button";
 import { useI18n } from "@/i18n/i18n-client";
 import AnimatedSection from "../layout/AnimatedSection";
 import { ArrowUpRightIcon } from "../icons/icons";
+import { MappedHomeData } from "@/features/home/components/HomeView"; // Path apne mutabiq check kar lein
 
-export default function CTASection() {
+interface CTASectionProps {
+  homeData: MappedHomeData;
+}
+
+export default function CTASection({ homeData }: CTASectionProps) {
   const { translate } = useI18n();
+  const { contactPath, projectsPath } = homeData; // ⚡ FIX: Hero section ki tarah dynamic paths extraction
 
   return (
     <section className="section-pad relative overflow-hidden">
@@ -21,23 +27,22 @@ export default function CTASection() {
             {translate("cta.description")}
           </p>
 
-          {/* Buttons Container */}
           <div className="flex flex-col gap-4 sm:flex-row items-center justify-center w-full sm:w-auto">
-            {/* Primary Button: Standard dynamic btn-primary gradient design */}
+            {/* ⚡ Primary Button: Hero section ke contact button ki tarah absolute target path match */}
             <Button asChild className="btn-primary rounded-full w-full sm:w-auto px-7 py-3">
-              <Link href="/contact" className="min-h-[44px] flex items-center justify-center gap-2">
-                {translate("cta.startProject")} <ArrowUpRightIcon size={16} />
+              <Link href={contactPath} className="min-h-[44px] flex items-center justify-center gap-2">
+                {translate("home.buttonStart")} <ArrowUpRightIcon size={16} />
               </Link>
             </Button>
 
-            {/* Secondary Button: Overwriting basic outline with consistent rounded-full capsule & smooth border */}
+            {/* Secondary Button: Overwriting layout with consistent projects path */}
             <Button
               asChild
               variant="outline"
               className="rounded-full border border-white/10 bg-white/[0.03] text-ink/80 hover:bg-white/[0.08] hover:text-ink hover:border-white/20 transition-all duration-300 w-full sm:w-auto px-7 py-3"
             >
-              <Link href="/projects" className="min-h-[44px] flex items-center justify-center">
-                {translate("cta.seeWork")}
+              <Link href={projectsPath} className="min-h-[44px] flex items-center justify-center">
+                {translate("home.buttonView")}
               </Link>
             </Button>
           </div>

@@ -62,10 +62,11 @@ export default function ContactCard({ option, variants }: ContactCardProps) {
             variants={variants}
             href={href}
             target="_blank"
+            role="link"
             rel="noopener noreferrer"
             aria-label={`Contact via ${label}`}
             className="block w-full"
-        >
+        >data-webmcp-tool={`link-${label.toLowerCase()}`}
             {CardMarkup}
         </motion.a>
     );
