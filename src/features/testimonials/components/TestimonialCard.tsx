@@ -30,6 +30,7 @@ export default function TestimonialCard({ testimonial }: TestimonialCardProps) {
         />
 
         <div
+          role="img"
           className="flex gap-1 text-primary-light"
           aria-label={`Rating: ${rating} out of 5 stars`}
         >
