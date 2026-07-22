@@ -8,6 +8,7 @@ import TestimonialsSection from "./TestimonialsSection";
 import type { getHomeData } from "@/features/home/data";
 import type { Locale } from "@/i18n/config";
 import type { TranslateFn } from "@/i18n/translation-core";
+import TechMarquee from "@/components/sections/TechMarquee";
 
 // ============================================================================
 // TYPES
@@ -50,7 +51,7 @@ export default function HomeView({
         <main className="flex flex-col gap-16 md:gap-24">
             {/* 1. Hero Landing Area */}
             <HeroSection translate={translate} homeData={homeData} />
-
+            <TechMarquee />
             {/* 2. Portfolio Grid */}
             <FeaturedProjects translate={translate} homeData={homeData} />
 

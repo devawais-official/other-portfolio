@@ -62,6 +62,13 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/brand/dev-pic.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
         <SchemaMarkup type="Person" data={schemaData} />
       </head>
       <body className="relative flex min-h-screen flex-col bg-background font-sans text-foreground antialiased selection:bg-primary/20 selection:text-primary">

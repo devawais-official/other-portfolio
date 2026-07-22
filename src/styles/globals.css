@@ -4,25 +4,25 @@
    TAILWIND CSS V4 - GLOBAL DESIGN SYSTEM TOKENS (JUNGLE GREEN & BEIGE)
    ========================================================================== */
 :root {
-  /* Rich Vibrant Jungle Green Base (Removes the dead/dark black feel) */
-  --background: #083329;
-  --surface: #0e4438;
-  --surface-elevated: #155547;
-  --surface-sunken: #05241d;
+  /* Deep Navy & Slate Blue Base (from UI palette) */
+  --background: #151828;
+  --surface: #2d3250;
+  --surface-elevated: #424769;
+  --surface-sunken: #10121d;
 
   /* Typography Contrast Tokens */
-  --heading: #faf7ee;
-  --foreground: #e4decb;
-  --muted: #a3c4bd;
-  --inverse: #083329;
-  --link: #10f4d8;
+  --heading: #ffffff;
+  --foreground: #d0d3e2;
+  --muted: #676f9d;
+  --inverse: #151828;
+  --link: #f9b17a;
 
-  /* Premium Cream/Beige Brand Accent (High Contrast & Soft Glow) */
-  --brand: #e8dfcb;
-  --brand-dark: #ccbeaa;
-  --brand-light: #f5f0e4;
+  /* Warm Peach Brand Accent (#f9b17a) */
+  --brand: #f9b17a;
+  --brand-dark: #e09a63;
+  --brand-light: #ffc99e;
   --brand-subtle: color-mix(in srgb, var(--brand) 15%, transparent);
-  --brand-foreground: #083329;
+  --brand-foreground: #151828;
 
   --primary: var(--brand);
   --primary-dark: var(--brand-dark);
@@ -30,17 +30,17 @@
   --primary-subtle: var(--brand-subtle);
   --primary-foreground: var(--brand-foreground);
 
-  /* Vibrant Mint/Cyan Secondary Accent */
-  --accent: #10f4d8;
-  --accent-dark: #08c8b0;
-  --accent-light: #41fbe3;
+  /* Accent Tokens */
+  --accent: #f9b17a;
+  --accent-dark: #e09a63;
+  --accent-light: #ffc99e;
   --accent-subtle: color-mix(in srgb, var(--accent) 15%, transparent);
-  --accent-foreground: #083329;
+  --accent-foreground: #151828;
 
   /* Pure Tokenized Clean Borders */
-  --border: color-mix(in srgb, var(--primary) 12%, transparent);
-  --border-strong: color-mix(in srgb, var(--primary) 30%, transparent);
-  --border-subtle: color-mix(in srgb, var(--primary) 6%, transparent);
+  --border: color-mix(in srgb, var(--surface-elevated) 60%, transparent);
+  --border-strong: color-mix(in srgb, var(--brand) 40%, transparent);
+  --border-subtle: color-mix(in srgb, var(--surface-elevated) 30%, transparent);
   --border-focus: var(--accent);
 }
 
@@ -84,6 +84,13 @@
   --radius-2xl: 24px;
   --radius-3xl: 32px;
   --radius-full: 9999px;
+
+  /* ⚡ Tailwind v4 Theme Keyframe & Animation Registration */
+  --animate-marquee: marquee 25s linear infinite;
+  --animate-marquee-rtl: marquee-rtl 25s linear infinite;
+  --animate-liquid: liquid 12s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* ==========================================================================
@@ -167,7 +174,7 @@ a {
 }
 
 /* ==========================================================================
-   KEYFRAME ANIMATIONS
+   KEYFRAME ANIMATIONS & MARQUEE BEHAVIOR
    ========================================================================== */
 @keyframes liquid {
   0% {
@@ -216,4 +223,29 @@ a {
   to {
     transform: translateX(-50%);
   }
+}
+
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Marquee Utility & RTL/Hover handling */
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: var(--animate-marquee);
+}
+
+[dir="rtl"] .animate-marquee {
+  animation: var(--animate-marquee-rtl);
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
