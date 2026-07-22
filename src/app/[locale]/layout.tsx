@@ -23,36 +23,22 @@ const Footer = dynamic(() => import("@/components/layout/Footer"), {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }> | { locale: string };
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  try {
-    const resolvedParams = await params;
-    const rawLocale = resolvedParams?.locale;
-    const locale = locales.includes(rawLocale as Locale) ? (rawLocale as Locale) : defaultLocale;
-    return getMetadata(locale);
-  } catch {
-    return getMetadata(defaultLocale);
-  }
+  const { locale } = await params;
+  return getMetadata(locale);
 }
 
 type RootLayoutProps = {
   children: React.ReactNode;
-  params: Promise<{ locale: string }> | { locale: string };
+  params: Promise<{ locale: string }>;
 };
 
 export default async function RootLayout({
   children,
   params,
 }: RootLayoutProps) {
-  let rawLocale = defaultLocale;
-
-  try {
-    const resolvedParams = await params;
-    rawLocale = resolvedParams?.locale;
-  } catch {
-    // Fallback agar params resolve na hon
-  }
-
+  const { locale: rawLocale } = await params;
   const locale: Locale = locales.includes(rawLocale as Locale)
     ? (rawLocale as Locale)
     : defaultLocale;
