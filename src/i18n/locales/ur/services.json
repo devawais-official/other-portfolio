@@ -1,18 +1,23 @@
 {
-    "android-native": {
-        "title": "Android Native Development",
-        "description": "High-performance native Android apps with Jetpack Compose, Material Design 3, and modern Android practices."
-    },
-    "kmp": {
-        "title": "Kotlin Multiplatform",
-        "description": "Cross-platform development with KMP and CMP, sharing business logic across Android and iOS."
-    },
-    "flutter": {
-        "title": "Flutter Development",
-        "description": "Fast-moving cross-platform apps with Flutter, ideal for MVP and rapid prototyping."
-    },
-    "architecture": {
-        "title": "App Architecture & Optimization",
-        "description": "Designing scalable, maintainable architectures following Clean Architecture and SOLID principles."
+    "title": "میں کیا پیش کرتا ہوں",
+    "headerTitle": "کسٹم موبائل انجینئرنگ، جو بڑے پیمانے پر نتائج دینے کے لیے تیار کی گئی ہے۔",
+    "headerDesc": "انفرادی فیچرز کی ڈویلپمنٹ سے لے کر اینڈ ٹو اینڈ آرکیٹیکچر ڈیزائن اور کراس پلیٹ فارم پروڈکٹس کے لانچ تک۔",
+    "items": {
+        "android-native": {
+            "title": "نیٹیو اینڈرائیڈ ڈویلپمنٹ",
+            "description": "Jetpack Compose، Material Design 3 اور جدید اینڈرائیڈ طریقوں کے ساتھ تیز رفتار اور بہترین پرفارمنس والی نیٹیو اینڈرائیڈ ایپس۔"
+        },
+        "kmp": {
+            "title": "کوٹلن ملٹی پلیٹ فارم",
+            "description": "KMP اور CMP کے ساتھ کراس پلیٹ فارم ڈویلپمنٹ، جو اینڈرائیڈ اور iOS کے درمیان بزنس لاجک کو مشترکہ طور پر استعمال کرتی ہے۔"
+        },
+        "flutter": {
+            "title": "فلٹر ڈویلپمنٹ",
+            "description": "فلٹر کے ساتھ تیز رفتار کراس پلیٹ فارم ایپس، جو MVP اور فوری پروٹو ٹائپنگ کے لیے بہترین ہیں۔"
+        },
+        "architecture": {
+            "title": "ایپ آرکیٹیکچر اور اپٹمائزیشن",
+            "description": "Clean Architecture اور SOLID اصولوں کی پیروی کرتے ہوئے پائیدار، باآسانی برقرار رہنے والے اور نچلے سے اونچے پیمانے پر چلنے والے آرکیٹیکچر کا ڈیزائن۔"
+        }
     }
 }

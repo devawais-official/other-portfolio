@@ -1,28 +1,46 @@
+// src/features/about/data/index.ts
+
 import { stats } from "@/data";
-import { AboutData, Experience } from "./types";
 import expertise from "@/data/expertise.json";
-// Dono files import karein
 import experiencesMeta from "@/data/experiences.json";
-import experiencesContent from "@/i18n/locales/en/experiences.json";
+import { getTranslationServer } from "@/i18n/i18n-server";
+import { Locale } from "@/i18n/config";
+import { withTranslatedList } from "@/lib/translated-data";
+import type { AboutData } from "./types";
 
-export const getAboutData = (): AboutData => {
+export const getAboutData = (locale: Locale): AboutData => {
+    const translate = getTranslationServer(locale);
 
-    // Metadata list ko iterate karenge aur content ko lookup karenge
-    const mergedExperiences: Experience[] = experiencesMeta.map((meta) => {
-        // slug ke zariye content data nikalna
-        const content = (experiencesContent as any)[meta.slug];
+    // 1. Ensure numeric 'id' is converted to 'string'
+    const normalizedMeta = experiencesMeta.map((item) => ({
+        ...item,
+        id: String(item.id),
+    }));
 
-        return {
-            id: String(meta.id), // ID string chahiye thi
-            slug: meta.slug,
-            company: meta.company,
-            duration: meta.duration,
-            role: content?.role || "", // Agar content na mile toh default empty string
-            description: content?.description || "",
-            // Achievements object ko string array mein convert karna
-            achievements: content ? Object.values(content.achievements) as string[] : []
-        };
-    });
+    // 2. Map translated content with explicit string types
+    const experiences = withTranslatedList(
+        normalizedMeta,
+        "experiencesData",
+        translate,
+        (t) => {
+            const rawAchievements = t<Record<string, string> | string[]>(
+                "achievements",
+                { returnObjects: true }
+            );
+
+            const achievements = Array.isArray(rawAchievements)
+                ? rawAchievements
+                : typeof rawAchievements === "object" && rawAchievements !== null
+                    ? Object.values(rawAchievements)
+                    : [];
+
+            return {
+                role: (t("role") as string) || "",
+                description: (t("description") as string) || "",
+                achievements,
+            };
+        }
+    );
 
     return {
         expertiseGroups: [
@@ -31,9 +49,9 @@ export const getAboutData = (): AboutData => {
             { label: "Multiplatform (KMP / CMP)", items: expertise.multiplatform },
             { label: "Flutter", items: expertise.flutter },
             { label: "Architecture", items: expertise.architecture },
-            { label: "Tools", items: expertise.tools }
+            { label: "Tools", items: expertise.tools },
         ],
-        experiences: mergedExperiences, // Yahan hamara merged data chala gaya
+        experiences,
         stats,
     };
 };

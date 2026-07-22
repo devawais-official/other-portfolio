@@ -1,149 +1,205 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import StatCounter from "@/components/ui/StatCounter";
 import { Button } from "@/components/ui/button";
-import { siteTheme } from "@/lib/site-config";
 import { MappedHomeData } from "./HomeView";
 import SectionWrapper from "@/components/layout/SectionWrapper";
-import AnimatedSection from "@/components/layout/AnimatedSection";
 import { AndroidIcon, ArrowUpRightIcon, FlutterIcon, KotlinIcon } from "@/components/icons/icons";
+import { AnimatedSection } from "@/components/layout/AnimatedSection";
+
+// ============================================================================
+// 1. THEME & CONFIGURATION LAYER (Theme separated, but kept in same file)
+// ============================================================================
+const THEME_CONFIG = {
+  shapes: {
+    squircleRadius: "42% 58% 63% 37% / 41% 45% 55% 59%",
+  },
+  styles: {
+    sectionWrapper: "pb-8 pt-24 sm:pt-28 lg:pt-24",
+    layoutGrid: "container-page grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]",
+    // Promoted to a real reusable class in globals.css — no more inline gradient recipe.
+    headingGradient: "text-gradient-brand",
+    portraitMaskBg: "bg-gradient-to-br from-primary-subtle to-transparent",
+    portraitEchoOuter: "pointer-events-none absolute inset-0 -rotate-3 scale-[0.98] border border-border-subtle md:-rotate-6",
+    portraitEchoInner: "pointer-events-none absolute -inset-2 rotate-2 border border-border-subtle/50 md:-inset-3 md:rotate-3",
+    // .liquid-glass already supplies border-border-subtle — dropped the redundant redeclaration.
+    badgeContainer: "liquid-glass relative z-20 mx-auto -mt-6 flex w-fit items-center gap-4 rounded-full px-6 py-3 shadow-lg",
+    // Now a single shared class in globals.css instead of a one-off string here.
+    badgeItem: "badge-icon",
+    // text-ink removed from tokens — use text-heading (same hex, one canonical name).
+    tooltip: "liquid-glass pointer-events-none absolute bottom-full left-1/2 mb-3 -translate-x-1/2 scale-75 rounded-lg border border-border-subtle px-2.5 py-1 text-[11px] font-medium text-heading shadow-lg opacity-0 transition-all duration-200 group-hover:scale-100 group-hover:opacity-100 whitespace-nowrap z-30",
+    tooltipArrow: "absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary-dark",
+  },
+  // Plain data — no JSX baked in. Serializable, testable without React,
+  // and reusable outside a browser context (e.g. server-side, config export).
+  data: {
+    stackBadges: [
+      { id: "kotlin", tooltip: "Kotlin" },
+      { id: "compose", tooltip: "Compose" },
+      { id: "flutter", tooltip: "Flutter" },
+    ],
+  },
+} as const;
+
+// Types
+type StackBadge = typeof THEME_CONFIG.data.stackBadges[number];
+type StackBadgeId = StackBadge["id"];
+
+// Icons are decorative here — the wrapping badge div in TechBadgeItem already
+// carries the accessible name via aria-label, so we suppress IconBase's own
+// built-in role="img"/aria-label to avoid announcing the tech name twice.
+const STACK_BADGE_ICONS: Record<StackBadgeId, ReactNode> = {
+  kotlin: <KotlinIcon className="h-3.5 w-3.5" aria-hidden="true" />,
+  compose: <AndroidIcon className="h-3.5 w-3.5" aria-hidden="true" />,
+  flutter: <FlutterIcon className="h-3.5 w-3.5" aria-hidden="true" />,
+};
 
 interface HeroSectionProps {
-    translate: (key: string) => string;
-    homeData: MappedHomeData;
+  translate: (key: string) => string;
+  homeData: MappedHomeData;
 }
-const stackBadges = [
-    {
-        name: "Kotlin",
-        tooltip: "Kotlin",
-        icon: <KotlinIcon className="w-3.5 h-3.5" role="img" aria-label="Kotlin Logo" />
-    },
-    {
-        name: "Jetpack Compose",
-        tooltip: "Compose",
-        icon: <AndroidIcon className="w-3.5 h-3.5" role="img" aria-label="Jetpack Compose Logo" />
-    },
-    {
-        name: "Flutter",
-        tooltip: "Flutter",
-        icon: <FlutterIcon className="w-3.5 h-3.5" role="img" aria-label="Flutter Logo" />
-    }
-];
 
-const SQUIRCLE = "42% 58% 63% 37% / 41% 45% 55% 59%";
+// ============================================================================
+// 2. SUB-COMPONENTS (Single Responsibility Principle)
+// ============================================================================
 
+/** Status indicator for availability */
+function AvailabilityBadge({ text }: { text: string }) {
+  return (
+    <p className="eyebrow">
+      <span className="relative flex h-2 w-2">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-success opacity-75 motion-reduce:animate-none" />
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-success" />
+      </span>
+      {text}
+    </p>
+  );
+}
+// ============================================================================
+// MAIN HERO PORTRAIT COMPONENT
+// ============================================================================
+function HeroPortrait() {
+  const { shapes, styles, data } = THEME_CONFIG;
+
+  return (
+    <div className="relative aspect-[4/5] w-full max-w-[260px] sm:max-w-[320px] md:max-w-[340px] lg:max-w-[370px]">
+      {/* Background Echo Shapes */}
+      <div
+        className={styles.portraitEchoOuter}
+        style={{ borderRadius: shapes.squircleRadius }}
+        aria-hidden="true"
+      />
+      <div
+        className={styles.portraitEchoInner}
+        style={{ borderRadius: shapes.squircleRadius }}
+        aria-hidden="true"
+      />
+
+      {/* Masked Portrait Image */}
+      <div
+        className={`relative z-10 h-full w-full overflow-hidden ${styles.portraitMaskBg}`}
+        style={{ borderRadius: shapes.squircleRadius }}
+      >
+        <Image
+          src="/brand/dev-pic.webp"
+          alt="Muhammad Awais, mobile app developer"
+          fill
+          sizes="(max-width: 640px) 260px, (max-width: 768px) 320px, 370px"
+          className="object-cover object-top transition-transform duration-500 hover:scale-105"
+          priority
+          fetchPriority="high"
+        />
+      </div>
+
+      {/* Floating Stack Badges Bar */}
+      <div className={styles.badgeContainer}>
+        {data.stackBadges.map((badge) => (
+          <TechBadgeItem key={badge.id} badge={badge} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ============================================================================
+// INDIVIDUAL TECH STACK BADGE WITH WORKING TOOLTIP
+// ============================================================================
+function TechBadgeItem({ badge }: { badge: StackBadge }) {
+  return (
+    <div
+      className="group relative flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-border bg-surface/80 text-primary backdrop-blur-md transition-all duration-300 hover:border-border-strong hover:bg-surface hover:text-heading"
+      aria-label={`${badge.tooltip} technology`}
+    >
+      {/* Tech Icon */}
+      <span className="flex h-5 w-5 items-center justify-center">
+        {STACK_BADGE_ICONS[badge.id]}
+      </span>
+
+      {/* Modern Tooltip with Smooth Fade-up Animation */}
+      <span className="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 translate-y-1 opacity-0 scale-95 whitespace-nowrap rounded-lg border border-border/60 bg-surface-elevated/95 px-3 py-1 font-mono text-[11px] font-semibold tracking-wide text-heading shadow-xl backdrop-blur-md transition-all duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-hover:scale-100 z-50">
+        {badge.tooltip}
+
+        {/* Tooltip Arrow */}
+        <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 h-2 w-2 rotate-45 border-r border-b border-border/60 bg-surface-elevated" />
+      </span>
+    </div>
+  );
+}
+// ============================================================================
+// 3. MAIN HERO COMPONENT (Assembles UI independently of theme data)
+// ============================================================================
 export default function HeroSection({ translate, homeData }: HeroSectionProps) {
-    const { stats, availabilityText, contactPath, projectsPath } = homeData;
-    const { hero: heroStyle } = siteTheme;
+  const { stats, availabilityText, contactPath, projectsPath } = homeData;
 
-    return (
-        <SectionWrapper className={heroStyle.wrapper}>
-            <div className={heroStyle.layoutGrid}>
+  return (
+    <SectionWrapper className={THEME_CONFIG.styles.sectionWrapper}>
+      <div className={THEME_CONFIG.styles.layoutGrid}>
 
-                {/* Left Side: Content Area */}
-                <AnimatedSection className={heroStyle.contentCol}>
-                    <p className={heroStyle.eyebrow}>
-                        <span className="relative flex h-2 w-2">
-                            <span className="absolute inline-flex h-full w-full animate-ping motion-reduce:animate-none rounded-full bg-emerald-400 opacity-75" />
-                            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-                        </span>
-                        {availabilityText}
-                    </p>
+        {/* Left Side: Content & Actions */}
+        <AnimatedSection className="flex flex-col items-center justify-center text-center lg:items-start lg:text-left w-full">
+          <AvailabilityBadge text={availabilityText} />
 
-                    {/* Main Headings */}
-                    <h1 className={heroStyle.heading}>
-                        {translate("home.heading1")}
-                        <br className="hidden sm:block" />
-                        <span className={heroStyle.headingGradient}>
-                            {" "}{translate("home.heading2")}
-                        </span>
-                    </h1>
+          <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.06] tracking-tight sm:text-5xl lg:text-6xl text-heading">
+            {translate("home.heading1")}
+            <br className="hidden sm:block" />
+            <span className={THEME_CONFIG.styles.headingGradient}>
+              {" "}{translate("home.heading2")}
+            </span>
+          </h1>
 
-                    {/* Paragraph description */}
-                    <p className={heroStyle.description}>
-                        {translate("home.description")}
-                    </p>
+          <p className="mt-6 max-w-lg text-base text-muted sm:text-lg">
+            {translate("home.description")}
+          </p>
 
-                    {/* Action buttons */}
-                    <div className={heroStyle.buttonContainer}>
-                        <Button asChild variant="solid" className="w-full sm:w-auto">
-                            <Link href={contactPath}>
-                                {translate("home.buttonStart")} <ArrowUpRightIcon size={16} />
-                            </Link>
-                        </Button>
+          <div className="mt-8 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row lg:justify-start">
+            <Button asChild variant="solid" className="btn-primary w-full sm:w-auto">
+              <Link href={contactPath}>
+                {translate("home.buttonStart")} <ArrowUpRightIcon size={16} />
+              </Link>
+            </Button>
 
-                        <Button asChild variant="outline" className="w-full sm:w-auto">
-                            <Link href={projectsPath}>
-                                {translate("home.buttonView")}
-                            </Link>
-                        </Button>
-                    </div>
+            <Button asChild variant="outline" className="w-full sm:w-auto">
+              <Link href={projectsPath}>
+                {translate("home.buttonView")}
+              </Link>
+            </Button>
+          </div>
 
-                    {/* Stats segment */}
-                    <div className={heroStyle.statsContainer}>
-                        <StatCounter value={stats.yearsExperience} label={translate("home.stats.experience")} />
-                        <StatCounter value={stats.projectsCompleted} label={translate("home.stats.completed")} />
-                        <StatCounter value={stats.appsOnStores} label={translate("home.stats.stores")} />
-                    </div>
-                </AnimatedSection>
+          {/* Stats Bar */}
+          <div className="mt-12 grid w-full grid-cols-3 gap-6 border-t border-border pt-8">
+            <StatCounter value={stats.yearsExperience} label={translate("home.stats.experience")} />
+            <StatCounter value={stats.projectsCompleted} label={translate("home.stats.completed")} />
+            <StatCounter value={stats.appsOnStores} label={translate("home.stats.stores")} />
+          </div>
+        </AnimatedSection>
 
-                {/* Right Side: Visual/Portrait Area */}
-                <AnimatedSection delay={0.15} className={heroStyle.portraitCol}>
-                    <div className={heroStyle.imageContainer}>
+        {/* Right Side: Portrait Visuals */}
+        <AnimatedSection delay={0.15} className="flex w-full items-center justify-center lg:justify-end">
+          <HeroPortrait />
+        </AnimatedSection>
 
-                        {/* Background Echo Shapes (Rendered dynamically using squircle theme variables) */}
-                        <div
-                            className={heroStyle.echoShape1}
-                            style={{ borderRadius: SQUIRCLE }}
-                            aria-hidden="true"
-                        />
-                        <div
-                            className={heroStyle.echoShape2}
-                            style={{ borderRadius: SQUIRCLE }}
-                            aria-hidden="true"
-                        />
-
-                        {/* Masked Portrait Container */}
-                        <div
-                            className={heroStyle.imageMask}
-                            style={{ borderRadius: SQUIRCLE }}
-                        >
-                            <Image
-                                src="/images/dev-pic.webp"
-                                alt="Muhammad Awais, mobile app developer"
-                                fill
-                                sizes="(max-width: 640px) 260px, (max-width: 768px) 320px, 370px"
-                                className={heroStyle.imageElement}
-                                priority
-                                fetchPriority="high"
-                            />
-
-                        </div>
-
-                        {/* Container: 'mx-auto' and 'w-fit' keeps it centered and tightly wrapped around the badges */}
-                        <div className="liquid-glass w-fit mx-auto flex items-center gap-4 px-6 py-3 rounded-full border border-primary/20 shadow-lg shadow-primary/5 relative z-20">
-                            {stackBadges.map((b) => (
-                                <div
-                                    key={b.name}
-                                    className={`${heroStyle.badgeItem} relative group z-10`}
-                                    aria-label={`${b.name} technology`} /* Screen reader context */
-                                >
-                                    {/* React Icon element (ab isme automatic aria-hidden pass hoga) */}
-                                    {b.icon}
-
-                                    {/* Tooltip */}
-                                    <span className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-200 pointer-events-none liquid-glass bg-gradient-to-br from-primary/10 via-bg/20 to-bg/50 backdrop-blur-xl border border-primary/20 text-[11px] font-medium text-ink px-2.5 py-1 rounded-lg shadow-lg shadow-primary/5 whitespace-nowrap z-30">
-                                        {b.tooltip}
-
-                                        {/* Tooltip Arrow */}
-                                        <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary/80" />
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </AnimatedSection>
-            </div>
-        </SectionWrapper>
-    );
+      </div>
+    </SectionWrapper>
+  );
 }

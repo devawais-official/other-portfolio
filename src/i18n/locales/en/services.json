@@ -1,18 +1,23 @@
 {
-    "android-native": {
-        "title": "Android Native Development",
-        "description": "High-performance native Android apps with Jetpack Compose, Material Design 3, and modern Android practices."
-    },
-    "kmp": {
-        "title": "Kotlin Multiplatform",
-        "description": "Cross-platform development with KMP and CMP, sharing business logic across Android and iOS."
-    },
-    "flutter": {
-        "title": "Flutter Development",
-        "description": "Fast-moving cross-platform apps with Flutter, ideal for MVP and rapid prototyping."
-    },
-    "architecture": {
-        "title": "App Architecture & Optimization",
-        "description": "Designing scalable, maintainable architectures following Clean Architecture and SOLID principles."
+    "title": "What I offer",
+    "headerTitle": "Custom mobile engineering, built for scale.",
+    "headerDesc": "From individual feature development to end-to-end architecture design and cross-platform product launches.",
+    "items": {
+        "android-native": {
+            "title": "Android Native Development",
+            "description": "High-performance native Android apps with Jetpack Compose, Material Design 3, and modern Android practices."
+        },
+        "kmp": {
+            "title": "Kotlin Multiplatform",
+            "description": "Cross-platform development with KMP and CMP, sharing business logic across Android and iOS."
+        },
+        "flutter": {
+            "title": "Flutter Development",
+            "description": "Fast-moving cross-platform apps with Flutter, ideal for MVP and rapid prototyping."
+        },
+        "architecture": {
+            "title": "App Architecture & Optimization",
+            "description": "Designing scalable, maintainable architectures following Clean Architecture and SOLID principles."
+        }
     }
 }

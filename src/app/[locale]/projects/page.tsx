@@ -1,11 +1,13 @@
 // src/app/[locale]/projects/page.tsx
+
 import { getTranslationServer } from "@/i18n/i18n-server";
-import { getStandardPageLabels } from "@/utils/label-helper";
+import { getStandardPageLabels } from "@/lib/utils";
 import ProjectsView from "@/features/projects/components/ProjectsView";
 import { getProjectsGridConfig } from "@/features/projects/configs/projects-config";
-import { getProjectData } from "@/features/projects/data"; // 👈 YE IMPORT KARO
+import { getProjectData } from "@/features/projects/data";
 import type { Metadata } from "next";
 import { generatePageMetadata } from "@/lib/metadata";
+import { resolveLocale } from "@/i18n/config";
 
 interface ProjectsPageProps {
   params: Promise<{ locale: string }>;
@@ -13,19 +15,17 @@ interface ProjectsPageProps {
 
 export async function generateMetadata({ params }: ProjectsPageProps): Promise<Metadata> {
   const { locale } = await params;
-  return generatePageMetadata(locale, "projects");
+  return generatePageMetadata(resolveLocale(locale), "projects");
 }
 
 export default async function ProjectsPage({ params }: ProjectsPageProps) {
-  const { locale } = await params;
-  const translate = getTranslationServer(locale as any);
+  const { locale: rawLocale } = await params;
+  const locale = resolveLocale(rawLocale);
 
-  // 1. Transformation Logic: Data ko translate karke display model mein lao
-  const projects = await getProjectData(locale as any);
-
+  const translate = getTranslationServer(locale);
+  const projects = await getProjectData(locale);
   const labels = getStandardPageLabels(translate, "projects");
   const gridConfig = getProjectsGridConfig(translate);
 
-  // 2. Ab translated 'projects' pass karo
   return <ProjectsView projects={projects} labels={labels} gridConfig={gridConfig} />;
 }

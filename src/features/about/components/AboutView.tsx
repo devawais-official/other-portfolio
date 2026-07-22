@@ -2,49 +2,59 @@
 "use client";
 
 import PageHeader from "@/components/ui/PageHeader";
-import { siteTheme } from "@/lib/site-config";
-import type { StandardPageLabels } from "@/utils/label-helper";
+import type { StandardPageLabels } from "@/lib/utils";
 
-// Local Sub-components
+// Local Feature Sub-components
 import AboutBioCard from "./AboutBioCard";
 import AboutExpertise from "./AboutExpertise";
 import AboutTimeline from "./AboutTimeline";
-import { AboutData } from "../types";
+import type { AboutData } from "../types";
 
+// ============================================================================
+// TYPES & PROPS
+// ============================================================================
 interface AboutViewProps {
-    labels: StandardPageLabels;
-    data: AboutData;
-    tagline: string;
-    availability: string;
+  labels: StandardPageLabels;
+  data: AboutData;
+  tagline: string;
+  availability: string;
 }
 
-export default function AboutView({ labels, data, tagline, availability }: AboutViewProps) {
-    const { about: style } = siteTheme;
+// ============================================================================
+// MAIN VIEW COMPONENT
+// ============================================================================
+export default function AboutView({
+  labels,
+  data,
+  tagline,
+  availability,
+}: AboutViewProps) {
+  return (
+    <>
+      {/* Top Page Header */}
+      <PageHeader
+        eyebrow={labels.title}
+        title={labels.headerTitle}
+        description={labels.headerDesc}
+      />
 
-    return (
-        <>
-            <PageHeader
-                eyebrow={labels.title}
-                title={labels.headerTitle}
-                description={labels.headerDesc}
-            />
+      {/* Main Bio & Expertise Grid Section */}
+      <section className="pb-20 md:pb-28">
+        <div className="container-page grid grid-cols-1 items-stretch gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          {/* Left Column: Bio & Deliverable Stats */}
+          <AboutBioCard
+            stats={data.stats}
+            tagline={tagline}
+            availability={availability}
+          />
 
-            <section className={style.sectionPadding}>
-                <div className={style.mainGrid}>
-                    {/* Left Column - Stats & Bio */}
-                    <AboutBioCard
-                        stats={data.stats}
-                        tagline={tagline}
-                        availability={availability}
-                    />
+          {/* Right Column: Skill & Tech Stack Groups */}
+          <AboutExpertise expertiseGroups={data.expertiseGroups} />
+        </div>
+      </section>
 
-                    {/* Right Column - Skill Tags */}
-                    <AboutExpertise expertiseGroups={data.expertiseGroups} />
-                </div>
-            </section>
-
-            {/* Experience Timeline Section */}
-            <AboutTimeline experiences={data.experiences} />
-        </>
-    );
+      {/* Career Experience Timeline Section */}
+      <AboutTimeline experiences={data.experiences} />
+    </>
+  );
 }

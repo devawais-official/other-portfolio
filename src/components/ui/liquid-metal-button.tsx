@@ -1,42 +1,51 @@
-"use client"
+// src/components/ui/LiquidMetalButton.tsx
+"use client";
 
-import type React from "react"
-import { useState, useRef, useEffect, useMemo } from "react"
-import { SparkleIcon } from "../icons/icons"
+import React, { useState, useRef, useEffect, useMemo } from "react";
+import { SparkleIcon } from "../icons/icons";
 
 interface LiquidMetalButtonProps {
-    label?: string
-    onClick?: () => void
-    viewMode?: "text" | "icon"
+    label?: string;
+    onClick?: () => void;
+    viewMode?: "text" | "icon";
 }
 
-const SMOOTH_TRANSITION = "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.4s ease, height 0.4s ease"
+const SMOOTH_TRANSITION =
+    "all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), width 0.4s ease, height 0.4s ease";
 
-export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "text" }: LiquidMetalButtonProps) {
-    const [isHovered, setIsHovered] = useState(false)
-    const [isPressed, setIsPressed] = useState(false)
-    const [ripples, setRipples] = useState<Array<{ x: number; y: number; id: number }>>([])
+export function LiquidMetalButton({
+    label = "Get Started",
+    onClick,
+    viewMode = "text",
+}: LiquidMetalButtonProps) {
+    const [isHovered, setIsHovered] = useState(false);
+    const [isPressed, setIsPressed] = useState(false);
+    const [ripples, setRipples] = useState<
+        Array<{ x: number; y: number; id: number }>
+    >([]);
 
-    const shaderRef = useRef<HTMLDivElement>(null)
-    const shaderMount = useRef<any>(null)
-    const buttonRef = useRef<HTMLButtonElement>(null)
-    const rippleId = useRef(0)
+    const shaderRef = useRef<HTMLDivElement>(null);
+    const shaderMount = useRef<{ setSpeed?: (speed: number) => void; destroy?: () => void } | null>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const rippleId = useRef(0);
 
     const dim = useMemo(() => {
         return viewMode === "icon"
             ? { w: 46, h: 46, innerW: 42, innerH: 42, shaderW: 46, shaderH: 46 }
-            : { w: 142, h: 46, innerW: 138, innerH: 42, shaderW: 142, shaderH: 46 }
-    }, [viewMode])
+            : { w: 142, h: 46, innerW: 138, innerH: 42, shaderW: 142, shaderH: 46 };
+    }, [viewMode]);
 
     useEffect(() => {
-        let isMounted = true
+        let isMounted = true;
 
         const loadShader = async () => {
             try {
-                const { liquidMetalFragmentShader, ShaderMount } = await import("@paper-design/shaders")
+                const { liquidMetalFragmentShader, ShaderMount } = await import(
+                    "@paper-design/shaders"
+                );
 
                 if (isMounted && shaderRef.current) {
-                    if (shaderMount.current?.destroy) shaderMount.current.destroy()
+                    if (shaderMount.current?.destroy) shaderMount.current.destroy();
 
                     shaderMount.current = new ShaderMount(
                         shaderRef.current,
@@ -44,11 +53,8 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
                         {
                             u_repetition: 4,
                             u_softness: 0.55,
-
-                            // 🎨 Shader Color Tuning: Green aur Sage sheen dene ke liye shifts adjust kiye hain
-                            u_shiftRed: 0.1,    // Red tone kam ki
-                            u_shiftBlue: 0.35,  // Cyan/Green tone ko support karne ke liye
-
+                            u_shiftRed: 0.1,
+                            u_shiftBlue: 0.35,
                             u_distortion: 0.1,
                             u_contour: 0.1,
                             u_angle: 45,
@@ -59,79 +65,81 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
                         },
                         undefined,
                         0.6
-                    )
+                    );
                 }
             } catch (error) {
-                console.error("[v0] Failed to load shader:", error)
+                console.error("[LiquidMetalButton] Failed to load shader:", error);
             }
-        }
+        };
 
-        loadShader()
+        loadShader();
 
         return () => {
-            isMounted = false
+            isMounted = false;
             if (shaderMount.current?.destroy) {
-                shaderMount.current.destroy()
-                shaderMount.current = null
+                shaderMount.current.destroy();
+                shaderMount.current = null;
             }
-        }
-    }, [dim.w, dim.h])
+        };
+    }, [dim.w, dim.h]);
 
     const handleMouseEnter = () => {
-        setIsHovered(true)
-        shaderMount.current?.setSpeed?.(1)
-    }
+        setIsHovered(true);
+        shaderMount.current?.setSpeed?.(1);
+    };
 
     const handleMouseLeave = () => {
-        setIsHovered(false)
-        setIsPressed(false)
-        shaderMount.current?.setSpeed?.(0.6)
-    }
+        setIsHovered(false);
+        setIsPressed(false);
+        shaderMount.current?.setSpeed?.(0.6);
+    };
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         if (shaderMount.current?.setSpeed) {
-            shaderMount.current.setSpeed(2.4)
+            shaderMount.current.setSpeed(2.4);
             setTimeout(() => {
-                shaderMount.current?.setSpeed?.(isHovered ? 1 : 0.6)
-            }, 300)
+                shaderMount.current?.setSpeed?.(isHovered ? 1 : 0.6);
+            }, 300);
         }
 
         if (buttonRef.current) {
-            const rect = buttonRef.current.getBoundingClientRect()
+            const rect = buttonRef.current.getBoundingClientRect();
             const ripple = {
                 x: e.clientX - rect.left,
                 y: e.clientY - rect.top,
-                id: rippleId.current++
-            }
+                id: rippleId.current++,
+            };
 
-            setRipples((prev) => [...prev, ripple])
+            setRipples((prev) => [...prev, ripple]);
             setTimeout(() => {
-                setRipples((prev) => prev.filter((r) => r.id !== ripple.id))
-            }, 600)
+                setRipples((prev) => prev.filter((r) => r.id !== ripple.id));
+            }, 600);
         }
 
-        onClick?.()
-    }
+        onClick?.();
+    };
 
-    const transformZState = isPressed ? "translateY(1px) scale(0.98)" : "translateY(0) scale(1)"
+    const transformZState = isPressed
+        ? "translateY(1px) scale(0.98)"
+        : "translateY(0) scale(1)";
 
     return (
         <div className="relative inline-block">
             <style>{`
-                .shader-container-exploded canvas {
-                    width: 100% !important;
-                    height: 100% !important;
-                    display: block !important;
-                    position: absolute !important;
-                    top: 0 !important;
-                    left: 0 !important;
-                    border-radius: 100px !important;
-                }
-                @keyframes ripple-animation {
-                    0% { transform: translate(-50%, -50%) scale(0); opacity: 0.4; }
-                    100% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
-                }
-            `}</style>
+        .shader-container-exploded canvas {
+          width: 100% !important;
+          height: 100% !important;
+          display: block !important;
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          border-radius: 100px !important;
+        }
+        @keyframes ripple-animation {
+          0% { transform: translate(-50%, -50%) scale(0); opacity: 0.4; }
+          100% { transform: translate(-50%, -50%) scale(4); opacity: 0; }
+        }
+      `}</style>
 
             <div style={{ perspective: "1000px", perspectiveOrigin: "50% 50%" }}>
                 <div
@@ -144,108 +152,71 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
                         transform: "none",
                     }}
                 >
-                    {/* Layer 1: Text / Icon (🎨 Set to Ivory #FFEEDF/#F5F0E1 for readability) */}
+                    {/* Layer 1: Text / Icon Content */}
                     <div
+                        className="pointer-events-none absolute inset-0 z-30 flex items-center justify-center gap-1.5 text-heading"
                         style={{
-                            position: "absolute",
-                            inset: 0,
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            gap: "6px",
                             transformStyle: "preserve-3d",
                             transition: `${SMOOTH_TRANSITION}, gap 0.4s ease`,
                             transform: "translateZ(20px)",
-                            zIndex: 30,
-                            pointerEvents: "none",
                         }}
                     >
                         {viewMode === "icon" ? (
                             <SparkleIcon
                                 size={16}
-                                style={{
-                                    color: "#F5F0E1", // Ivory tone
-                                    filter: "drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.6))",
-                                    transition: SMOOTH_TRANSITION,
-                                }}
+                                className="drop-shadow-sm transition-all"
                             />
                         ) : (
                             <span
-                                style={{
-                                    fontSize: "14px",
-                                    color: "#F5F0E1", // Ivory tone
-                                    fontWeight: 600,  // Thoda bold kiya taake forest background par pop kare
-                                    textShadow: "0px 1px 3px rgba(0, 0, 0, 0.7)",
-                                    transition: SMOOTH_TRANSITION,
-                                    whiteSpace: "nowrap",
-                                }}
+                                className="whitespace-nowrap font-mono text-xs font-semibold uppercase tracking-wider drop-shadow-md"
+                                style={{ transition: SMOOTH_TRANSITION }}
                             >
                                 {label}
                             </span>
                         )}
                     </div>
 
-                    {/* Layer 2: Inner Dark Button Body (🎨 Upgraded to deep Forest Green gradient) */}
+                    {/* Layer 2: Inner Dark Button Body */}
                     <div
+                        className="absolute inset-0 z-20"
                         style={{
-                            position: "absolute",
-                            inset: 0,
                             transformStyle: "preserve-3d",
                             transition: SMOOTH_TRANSITION,
                             transform: `translateZ(10px) ${transformZState}`,
-                            zIndex: 20,
                         }}
                     >
                         <div
+                            className="m-[2px] rounded-full border border-border-subtle bg-surface-sunken shadow-inner transition-all"
                             style={{
                                 width: `${dim.innerW}px`,
                                 height: `${dim.innerH}px`,
-                                margin: "2px",
-                                borderRadius: "100px",
-                                // 🎨 #0A2E27 (Darker Forest Green) se lekar #0F3D34 tak ka natural blend
-                                background: "linear-gradient(180deg, #0F3D34 0%, #061B17 100%)",
-                                border: "1px solid rgba(142, 182, 155, 0.15)", // Sage Green subtle inner border
-                                boxShadow: isPressed
-                                    ? "inset 0px 2px 4px rgba(0, 0, 0, 0.5)"
-                                    : "none",
                                 transition: `${SMOOTH_TRANSITION}, box-shadow 0.15s`,
                             }}
                         />
                     </div>
 
-                    {/* Layer 3: The Shader Background (Liquid Metal / Sage Sheen) */}
+                    {/* Layer 3: Shader Background Frame */}
                     <div
+                        className="absolute inset-0 z-10"
                         style={{
-                            position: "absolute",
-                            inset: 0,
                             transformStyle: "preserve-3d",
                             transition: SMOOTH_TRANSITION,
                             transform: `translateZ(0px) ${transformZState}`,
-                            zIndex: 10,
                         }}
                     >
                         <div
-                            style={{
-                                width: "100%",
-                                height: "100%",
-                                borderRadius: "100px",
-                                // Dark Forest background par soft gold/green shadow
-                                boxShadow: isPressed
-                                    ? "0px 0px 0px 1px rgba(15, 61, 52, 0.5)"
+                            className={`h-full w-full rounded-full bg-transparent transition-all ${isPressed
+                                    ? "shadow-sm"
                                     : isHovered
-                                        ? "0px 0px 0px 1px rgba(142, 182, 155, 0.3), 0px 8px 16px rgba(15, 61, 52, 0.3)"
-                                        : "0px 0px 0px 1px rgba(142, 182, 155, 0.15), 0px 4px 8px rgba(0, 0, 0, 0.2)",
-                                transition: `${SMOOTH_TRANSITION}, box-shadow 0.15s`,
-                                background: "transparent",
-                            }}
+                                        ? "shadow-lg shadow-primary/20"
+                                        : "shadow-md shadow-primary/10"
+                                }`}
+                            style={{ transition: `${SMOOTH_TRANSITION}, box-shadow 0.15s` }}
                         >
                             <div
                                 ref={shaderRef}
-                                className="shader-container-exploded"
+                                className="shader-container-exploded relative overflow-hidden rounded-full transition-all"
                                 style={{
-                                    borderRadius: "100px",
-                                    overflow: "hidden",
-                                    position: "relative",
                                     width: `${dim.shaderW}px`,
                                     height: `${dim.shaderH}px`,
                                     transition: "width 0.4s ease, height 0.4s ease",
@@ -254,7 +225,7 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
                         </div>
                     </div>
 
-                    {/* Layer 4: Interactive Layer with Sage/Ivory ripples */}
+                    {/* Layer 4: Interactive Button Surface */}
                     <button
                         ref={buttonRef}
                         onClick={handleClick}
@@ -263,34 +234,20 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
                         onMouseDown={() => setIsPressed(true)}
                         onMouseUp={() => setIsPressed(false)}
                         aria-label={label}
+                        className="absolute inset-0 z-40 cursor-pointer overflow-hidden rounded-full border-none bg-transparent outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                         style={{
-                            position: "absolute",
-                            inset: 0,
-                            background: "transparent",
-                            border: "none",
-                            cursor: "pointer",
-                            outline: "none",
-                            zIndex: 40,
                             transformStyle: "preserve-3d",
                             transform: "translateZ(25px)",
                             transition: SMOOTH_TRANSITION,
-                            overflow: "hidden",
-                            borderRadius: "100px",
                         }}
                     >
                         {ripples.map((ripple) => (
                             <span
                                 key={ripple.id}
+                                className="pointer-events-none absolute h-5 w-5 rounded-full bg-primary/30"
                                 style={{
-                                    position: "absolute",
                                     left: `${ripple.x}px`,
                                     top: `${ripple.y}px`,
-                                    width: "20px",
-                                    height: "20px",
-                                    borderRadius: "50%",
-                                    // 🎨 Sage Green/Ivory mix ripple effect
-                                    background: "radial-gradient(circle, rgba(142, 182, 155, 0.5) 0%, rgba(255, 255, 255, 0) 70%)",
-                                    pointerEvents: "none",
                                     animation: "ripple-animation 0.6s ease-out",
                                 }}
                             />
@@ -299,5 +256,5 @@ export function LiquidMetalButton({ label = "Get Started", onClick, viewMode = "
                 </div>
             </div>
         </div>
-    )
+    );
 }

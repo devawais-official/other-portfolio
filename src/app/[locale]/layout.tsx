@@ -1,3 +1,4 @@
+// src/app/[locale]/layout.tsx
 import "@/styles/globals.css";
 
 import SchemaMarkup from "@/components/seo/SchemaMarkup";
@@ -7,12 +8,12 @@ import dynamic from "next/dynamic";
 
 import type { Metadata } from "next";
 import { fontClasses } from "@/lib/fonts";
-import { siteTheme } from "@/lib/site-config";
 import { getMetadata, getCombinedSchemaData, rtlLocales } from "@/lib/seo";
 import { I18nProvider } from "@/i18n/i18n-client";
 import { getDictionaryServer } from "@/i18n/i18n-server";
 import { Locale, locales, defaultLocale } from "@/i18n/config";
 
+// Dynamically imported footer sections with SSR preserved
 const CTASection = dynamic(() => import("@/components/sections/CTASection"), {
   ssr: true,
 });
@@ -20,7 +21,11 @@ const Footer = dynamic(() => import("@/components/layout/Footer"), {
   ssr: true,
 });
 
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
   const { locale } = await params;
   return getMetadata(locale);
 }
@@ -30,38 +35,53 @@ type RootLayoutProps = {
   params: Promise<{ locale: string }>;
 };
 
-export default async function RootLayout({ children, params }: RootLayoutProps) {
+export default async function RootLayout({
+  children,
+  params,
+}: RootLayoutProps) {
   const { locale: rawLocale } = await params;
   const locale: Locale = locales.includes(rawLocale as Locale)
     ? (rawLocale as Locale)
     : defaultLocale;
+
   const pageDictionary = getDictionaryServer(locale);
   const dir = rtlLocales.includes(locale) ? "rtl" : "ltr";
+  const schemaData = getCombinedSchemaData();
 
-  const htmlClassNames = `${fontClasses} ${siteTheme.htmlStyles}`;
-
-  // ⚡ FIX: Layout level par hi localized paths generate kar liye
   const homeDataMock = {
     contactPath: `/${locale}/contact`,
     projectsPath: `/${locale}/projects`,
   };
-  const schemaData = getCombinedSchemaData();
+
   return (
-    <html lang={locale} dir={dir} className={htmlClassNames}
-      data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html
+      lang={locale}
+      dir={dir}
+      className={`${fontClasses} scroll-smooth`} // 'dark' yahan se remove kar diya gaya hai
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <head>
         <SchemaMarkup type="Person" data={schemaData} />
       </head>
-      <body className={siteTheme.bodyStyles}>
+      <body className="relative flex min-h-screen flex-col bg-background font-sans text-foreground antialiased selection:bg-primary/20 selection:text-primary">
         <I18nProvider initialLocale={locale} pageDictionary={pageDictionary}>
-          <div className={siteTheme.glowStyles} />
+          {/* Ambient Radial Backdrop Glow */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none fixed inset-0 -z-10 bg-radial-glow opacity-30"
+          />
 
+          {/* Primary Header Navigation */}
           <Header />
+
+          {/* Main Content Area */}
           <main className="flex-grow">{children}</main>
 
-          {/* ⚡ FIX: Ab yahan homeData prop pass kar di */}
+          {/* Global Call to Action */}
           <CTASection homeData={homeDataMock as any} />
 
+          {/* Global Footer */}
           <Footer />
         </I18nProvider>
       </body>

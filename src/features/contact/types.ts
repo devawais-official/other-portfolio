@@ -1,15 +1,9 @@
+// src/features/contact/types/index.ts
 
-
-export interface ContactInfoItem {
-    id: string;
-    icon: React.ComponentType<any>;
-    label: string;
-    isLink: boolean;
-    href?: string;
-}
+import type { ComponentType } from "react";
 
 export interface ContactOption {
-    icon: React.ComponentType<any>
+    icon: ComponentType<{ className?: string }>;
     label: string;
     value: string;
     meta: string;

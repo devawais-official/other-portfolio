@@ -1,73 +1,98 @@
+// src/features/blog/components/BlogCard.tsx
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
-import { BlogPost } from "../types";
-import { formatFullDateTime } from "@/utils/date";
-import { siteTheme } from "@/lib/site-config";
+import Image from "next/image";
+import type { BlogPost } from "../types";
+import { formatFullDateTime } from "@/lib/utils";
 import { ArrowUpRightIcon, ClockIcon } from "@/components/icons/icons";
+import { useI18n } from "@/i18n/i18n-client";
 
+// ============================================================================
+// TYPES & PROPS
+// ============================================================================
 interface BlogCardProps {
-    post: BlogPost;
+  post: BlogPost;
+  priority?: boolean;
 }
 
-export default function BlogCard({ post }: BlogCardProps) {
-    const { blog: style } = siteTheme;
-    const fallbackImage = "/images/placeholder.svg";
+// ============================================================================
+// MAIN COMPONENT
+// ============================================================================
+export default function BlogCard({ post, priority = false }: BlogCardProps) {
+  const { translate } = useI18n();
+  const fallbackImage = "/images/placeholder.svg";
+  const [imgSrc, setImgSrc] = useState(post.thumbnailUrl || fallbackImage);
 
-    const [imgSrc, setImgSrc] = useState(
-        post.thumbnailUrl || fallbackImage
-    );
+  return (
+    <article className="group relative flex w-full max-w-sm flex-col overflow-hidden rounded-2xl border border-border/20 bg-surface/40 backdrop-blur-sm transition-all duration-300 hover:border-border-strong hover:bg-surface/70 hover:shadow-lg">
+      <a
+        href={post.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex h-full flex-col"
+      >
+        {/* Thumbnail Wrapper */}
+        <div className="relative h-40 w-full overflow-hidden bg-surface-sunken">
+          <Image
+            src={imgSrc}
+            alt={post.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            onError={() => setImgSrc(fallbackImage)}
+            priority={priority}
+          />
 
-    return (
-        <article className={style.card}>
-            <a href={post.link} target="_blank" rel="noopener noreferrer">
-                <div className={style.imageWrapper}>
-                    <Image
-                        src={imgSrc}
-                        alt={post.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Ye line add karo
-                        className={style.image}
-                        onError={() => setImgSrc(fallbackImage)}
-                        priority
-                    />
-
-                    {/* Gradient Overlay wala div yahan se HATA DO */}
-
-                    {/* Badge ko proper align kiya */}
-                    <div className={style.readTimeBadge}>
-                        <ClockIcon size={14} />
-                        <span>{post.readTime} min read</span>
-                    </div>
-
-                    {/* Category Badge */}
-                    {post.category && (
-                        <div className={style.categoryBadge}>
-                            {post.category}
-                        </div>
-                    )}
-                </div>
-            </a>
-
-            <div className={style.contentWrapper}>
-                {/* DATE & TIME ALIGNMENT */}
-                <div className="flex items-center justify-between mb-3">
-                    <span className={style.date}>{formatFullDateTime(post.publishDate)}</span>
-                    {post.category && <span className={style.categoryBadge}>{post.category}</span>}
-                </div>
-
-                <h2 className={style.title}>{post.title}</h2>
-                <p className={style.excerpt}>{post.excerpt}</p>
-
-                <div className={style.footer}>
-                    <span className="relative text-sm font-medium text-[rgb(var(--color-primary-light))]">
-                        Read more
-                        <span className={style.footerUnderline} />
-                    </span>
-                    <ArrowUpRightIcon size={16} className={style.arrowIcon} />
-                </div>
+          {/* Read Time Badge */}
+          {post.readTime && (
+            <div className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full border border-border/30 bg-surface-sunken/80 px-3 py-1 text-[11px] font-medium text-foreground backdrop-blur-md">
+              <ClockIcon size={12} className="text-primary-light" aria-hidden="true" />
+              <span>
+                {post.readTime} {translate("blog.minRead") || "min read"}
+              </span>
             </div>
-        </article>
-    );
+          )}
+        </div>
+
+        {/* Content Wrapper */}
+        <div className="flex flex-1 flex-col p-5">
+          {/* Date & Category Row */}
+          <div className="mb-3 flex items-center justify-between gap-2">
+            <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-muted">
+              {formatFullDateTime(post.publishDate)}
+            </span>
+            {post.category && (
+              <span className="rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-primary-light">
+                {post.category}
+              </span>
+            )}
+          </div>
+
+          {/* Title */}
+          <h3 className="mb-2 font-display text-base font-bold leading-snug text-heading transition-colors group-hover:text-primary-light">
+            {post.title}
+          </h3>
+
+          {/* Excerpt */}
+          <p className="mb-4 line-clamp-2 text-xs leading-relaxed text-muted">
+            {post.excerpt}
+          </p>
+
+          {/* Footer Action */}
+          <div className="mt-auto flex items-center justify-between border-t border-border/15 pt-3">
+            <span className="relative font-mono text-xs font-bold text-primary-light">
+              {translate("blog.readArticle") || "Read article"}
+              <span className="absolute -bottom-1 left-0 h-[1px] w-0 bg-primary transition-all duration-300 group-hover:w-full" />
+            </span>
+            <ArrowUpRightIcon
+              size={16}
+              className="text-primary transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+      </a>
+    </article>
+  );
 }

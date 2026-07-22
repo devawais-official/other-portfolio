@@ -1,0 +1,8 @@
+{
+    "title": "Blog",
+    "headerTitle": "Articles & Insights",
+    "headerDesc": "Thoughts on Android, Kotlin Multiplatform, and mobile software architecture.",
+    "minRead": "min read",
+    "readArticle": "Read article",
+    "emptyState": "No articles found at the moment. Check back soon!"
+}

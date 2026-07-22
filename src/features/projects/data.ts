@@ -1,8 +1,9 @@
 // src/features/projects/data.ts
+
 import { rawProjects } from "@/data";
 import { getTranslationServer } from "@/i18n/i18n-server";
-import { Locale } from "@/i18n/config";
-// src/features/projects/data.ts
+import type { Locale } from "@/i18n/config";
+import { withTranslatedFields } from "@/lib/translated-data";
 
 export interface Project {
     id: number;
@@ -13,20 +14,20 @@ export interface Project {
     platform: string;
     image: string;
     url?: string;
-    iosUrl?: string;     // Ye missing tha!
-    accent: string;      // Ye missing tha!
+    isOnPlayStore: boolean;
+    isOnAppStore: boolean;
+    iosUrl?: string;
     tech: string[];
 }
 
-export const getProjectData = async (locale: Locale): Promise<Project[]> => {
-    const t = await getTranslationServer(locale);
+export async function getProjectData(locale: Locale): Promise<Project[]> {
+    const translate = getTranslationServer(locale);
 
-    return rawProjects.map((raw) => {
-        return {
-            ...raw, // ...raw mein id, slug, platform, image, url, iosUrl, accent, tech sab aa jayenge
-            title: t(`projectsData.${raw.slug}.title`),
-            summary: t(`projectsData.${raw.slug}.summary`),
-            category: t(`projectsData.${raw.slug}.category`),
-        } as Project; // Explicit cast taake TS satisfied rahe
-    });
-};
+    return rawProjects.map((raw) =>
+        withTranslatedFields(raw, "projectsData", translate, (st) => ({
+            title: st("title"),
+            summary: st("summary"),
+            category: st("category"),
+        }))
+    ) as Project[];
+}

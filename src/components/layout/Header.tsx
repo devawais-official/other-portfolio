@@ -1,32 +1,33 @@
-"use client"
+// src/components/layout/Header.tsx
+"use client";
 
-import { useState, useEffect, useMemo } from "react"
-import { usePathname } from "next/navigation"
-import Link from "next/link"
-import { useScroll, useMotionValueEvent } from "framer-motion"
-import { siteConfig } from "@/lib/site-config"
-import { siteTheme } from "@/lib/site-config";
-import { useI18n } from "@/i18n/i18n-client"
-import { Magnetic } from "../ui/Magnetic"
-import { Button } from "../ui/button"
-import { cn } from "@/lib/utils"
-import DesktopNavbar from "./DesktopNavbar"
-import MobileDrawer from "./MobileDrawer"
-import { MenuIcon, XIcon } from "../icons/icons"
+import React, { useState, useEffect, useMemo } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { useScroll, useMotionValueEvent } from "framer-motion";
+import { siteConfig } from "@/lib/site-config";
+import { useI18n } from "@/i18n/i18n-client";
+import { Magnetic } from "../ui/Magnetic";
+import { Button } from "../ui/button";
+import { cn } from "@/lib/utils";
+import DesktopNavbar from "./DesktopNavbar";
+import MobileDrawer from "./MobileDrawer";
+import { MenuIcon, XIcon } from "../icons/icons";
 
-const { header: style } = siteTheme
-
+// ============================================================================
+// MAIN HEADER COMPONENT
+// ============================================================================
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [visible, setVisible] = useState(true)
-  const [mounted, setMounted] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
-  const pathname = usePathname()
+  const pathname = usePathname();
 
-  // 🎯 Single source of truth from your i18n context provider
-  const { translate, locale } = useI18n()
+  // Single source of truth from i18n context provider
+  const { translate, locale } = useI18n();
 
-  const { scrollYProgress } = useScroll()
+  const { scrollYProgress } = useScroll();
 
   useEffect(() => {
     requestAnimationFrame(() => {
@@ -36,9 +37,9 @@ export default function Header() {
 
   // Show/Hide Header on Scroll
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    const previous = scrollYProgress.getPrevious() ?? 0
-    setVisible(current < 0.05 || current - previous < 0)
-  })
+    const previous = scrollYProgress.getPrevious() ?? 0;
+    setVisible(current < 0.05 || current - previous < 0);
+  });
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -47,32 +48,40 @@ export default function Header() {
     });
   }, [pathname]);
 
-  // 🎯 Recalculate local links dynamically whenever 'locale' switches
+  // Recalculate local links dynamically whenever 'locale' switches
   const getLocalizedHref = useMemo(() => {
     return (href: string) => {
-      const activeLocale = locale || "en"
-      return href === "/" ? `/${activeLocale}` : `/${activeLocale}${href}`
-    }
-  }, [locale])
+      const activeLocale = locale || "en";
+      return href === "/" ? `/${activeLocale}` : `/${activeLocale}${href}`;
+    };
+  }, [locale]);
 
-  // Hydration safety check (Wallpaper block completely removed!)
-  if (!mounted) return null
+  // Hydration safety check
+  if (!mounted) return null;
 
   return (
-    <header className={cn(style.wrapper, visible ? "translate-y-0" : "-translate-y-full")}>
-      <div className={style.container}>
-        {/* LOGO */}
+    <header
+      className={cn(
+        "fixed left-1/2 top-4 z-50 w-[92%] max-w-5xl -translate-x-1/2 transition-transform duration-300",
+        visible ? "translate-y-0" : "-translate-y-full"
+      )}
+    >
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 lg:px-8">
+        {/* BRAND LOGO */}
         <Magnetic strength={0.2}>
-          <Link href={`/${locale}`} className="group relative flex items-center focus:outline-none">
+          <Link
+            href={`/${locale}`}
+            className="group relative flex items-center focus:outline-none"
+            aria-label={`Go to ${siteConfig.name} home`}
+          >
             <div
-              className="w-24 h-8 sm:w-28 sm:h-10 bg-gradient-to-r from-primary via-mint to-accent [mask-image:url('/images/ma-logo.svg')] [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center_left]"
-              aria-label={siteConfig.shortName}
+              className="h-8 w-24 bg-gradient-to-r from-primary via-accent-dark to-accent [mask-image:url('/brand/ma-logo.svg')] [mask-position:center_left] [mask-repeat:no-repeat] [mask-size:contain] sm:h-10 sm:w-28"
+              aria-hidden="true"
             />
           </Link>
         </Magnetic>
 
         {/* DESKTOP NAVBAR */}
-        {/* 🎯 Re-rendering navbar components strictly on local key change */}
         <DesktopNavbar
           key={`desktop-nav-${locale}`}
           getLocalizedHref={getLocalizedHref}
@@ -82,12 +91,17 @@ export default function Header() {
         {/* MOBILE TOGGLE BUTTON */}
         <Button
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileMenuOpen}
           variant="ghost"
           size="icon"
-          className={style.mobileToggle}
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-border/30 bg-surface/60 text-muted backdrop-blur-md transition-colors hover:border-primary/40 hover:bg-surface hover:text-heading md:hidden"
           onClick={() => setMobileMenuOpen((prev) => !prev)}
         >
-          {mobileMenuOpen ? <XIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
+          {mobileMenuOpen ? (
+            <XIcon className="h-5 w-5" aria-hidden="true" />
+          ) : (
+            <MenuIcon className="h-5 w-5" aria-hidden="true" />
+          )}
         </Button>
       </div>
 
@@ -100,5 +114,5 @@ export default function Header() {
         onClose={() => setMobileMenuOpen(false)}
       />
     </header>
-  )
+  );
 }

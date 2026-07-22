@@ -1,4 +1,5 @@
-import TechMarquee from "@/components/sections/TechMarquee";
+// src/features/home/components/HomeView.tsx
+import React from "react";
 import HeroSection from "./HeroSection";
 import FeaturedProjects from "./FeaturedProjects";
 import ProcessSection from "./ProcessSection";
@@ -7,6 +8,9 @@ import TestimonialsSection from "./TestimonialsSection";
 import { getHomeData } from "@/features/home/data";
 import { Locale } from "next-intl";
 
+// ============================================================================
+// TYPES
+// ============================================================================
 type RawHomeData = Awaited<ReturnType<typeof getHomeData>>;
 
 export type MappedHomeData = RawHomeData & {
@@ -29,23 +33,31 @@ interface HomeViewProps {
     processSteps: ProcessStep[];
 }
 
-export default function HomeView({ translate, homeData, processSteps }: HomeViewProps) {
+// ============================================================================
+// COMPONENT
+// ============================================================================
+/**
+ * HomeView Component
+ * Main page orchestrator composing the primary sections for the home screen.
+ */
+export default function HomeView({
+    translate,
+    homeData,
+    processSteps,
+}: HomeViewProps) {
     return (
-        <>
+        <main className="flex flex-col gap-16 md:gap-24">
             {/* 1. Hero Landing Area */}
             <HeroSection translate={translate} homeData={homeData} />
 
-            {/* 2. Marquee Banner */}
-            {/* { <TechMarquee />} */}
-
-            {/* 3. Portfolio Grid */}
+            {/* 2. Portfolio Grid */}
             <FeaturedProjects translate={translate} homeData={homeData} />
 
-            {/* 4. Methodology & Flow Chart */}
+            {/* 3. Methodology & Flow Chart */}
             <ProcessSection translate={translate} processSteps={processSteps} />
 
-            {/* 5. Client Feedbacks */}
+            {/* 4. Client Feedbacks */}
             <TestimonialsSection translate={translate} homeData={homeData} />
-        </>
+        </main>
     );
 }

@@ -1,13 +1,15 @@
 // src/app/[locale]/about/page.tsx
+
 import { getTranslationServer } from "@/i18n/i18n-server";
 import { getAboutData } from "@/features/about/data";
 import { generatePageMetadata } from "@/lib/metadata";
-import { getStandardPageLabels } from "@/utils/label-helper";
+import { getStandardPageLabels } from "@/lib/utils";
 import AboutView from "@/features/about/components/AboutView";
 import type { Metadata } from "next";
+import type { Locale } from "@/i18n/config";
 
 interface AboutPageProps {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: Locale }>;
 }
 
 export async function generateMetadata({ params }: AboutPageProps): Promise<Metadata> {
@@ -17,11 +19,10 @@ export async function generateMetadata({ params }: AboutPageProps): Promise<Meta
 
 export default async function AboutPage({ params }: AboutPageProps) {
   const { locale } = await params;
-  const translate = getTranslationServer(locale as any);
-  const data = getAboutData();
+  const translate = getTranslationServer(locale);
+  const data = getAboutData(locale);
 
   const labels = getStandardPageLabels(translate, "about");
-
   const tagline = translate("aboutData.roleVal");
   const availability = translate("aboutData.availability") || "Available for freelance";
 

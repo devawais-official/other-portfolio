@@ -1,10 +1,13 @@
 // src/components/ui/PreviewCard.tsx
 "use client";
 
-import { useState, ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import Link from "next/link";
 import { HUDFrame } from "./HUDFrame";
 
+// ============================================================================
+// TYPES
+// ============================================================================
 export interface CardBadge {
   text: string;
   variant?: "primary" | "secondary";
@@ -22,7 +25,7 @@ export interface CardAction {
   variant?: "primary" | "secondary";
 }
 
-interface GenericCardProps {
+export interface PreviewCardProps {
   href?: string;
   title: string;
   summary: string;
@@ -30,22 +33,76 @@ interface GenericCardProps {
   badges?: CardBadge[];
   tags?: CardTag[];
   actions?: CardAction[];
+  className?: string;
 }
 
-export default function GenericCard({
+// ============================================================================
+// SUB-COMPONENTS
+// ============================================================================
+function ActionLink({ action }: { action: CardAction }) {
+  const isPrimary = action.variant === "primary";
+  const href = action.href || "#";
+
+  const baseStyles =
+    "relative inline-flex items-center justify-center gap-1.5 rounded-full px-3.5 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wider transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary active:scale-95 no-underline";
+
+  // Explicitly enforcing text colors and overriding any global anchor styles
+  const variantStyles = isPrimary
+    ? "border border-primary bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
+    : "border border-border-strong bg-surface-elevated text-heading shadow-sm hover:border-primary hover:bg-surface";
+
+  const textStyles = isPrimary ? "!text-primary-foreground" : "!text-heading hover:!text-accent";
+
+  if (action.isExternal) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={(e) => e.stopPropagation()}
+        className={`${baseStyles} ${variantStyles}`}
+      >
+        {action.icon}
+        <span className={textStyles}>{action.label}</span>
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      href={href}
+      onClick={(e) => e.stopPropagation()}
+      className={`${baseStyles} ${variantStyles}`}
+    >
+      {action.icon}
+      <span className={textStyles}>{action.label}</span>
+    </Link>
+  );
+}
+
+// ============================================================================
+// COMPONENT
+// ============================================================================
+/**
+ * PreviewCard (GenericCard)
+ * Interactive card component featuring media previews, hover animated HUD frame overlays,
+ * badges, tag lists, and action buttons.
+ */
+export function PreviewCard({
   title,
   summary,
   media,
   badges = [],
   tags = [],
   actions = [],
-}: GenericCardProps) {
+  className = "",
+}: PreviewCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className={`group relative aspect-[4/5] sm:aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] border border-[rgba(var(--color-border),0.15)] bg-[rgba(var(--color-surface),0.2)] backdrop-blur-md shadow-2xl transition-all duration-500 hover:border-primary/30 hover:shadow-primary/5 flex flex-col justify-between ${isHovered ? "is-hovered" : ""
-        }`}
+      className={`group relative flex aspect-[4/5] w-full flex-col justify-between overflow-hidden rounded-2xl border border-border bg-surface shadow-xl transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 ${isHovered ? "is-hovered" : ""
+        } ${className}`}
       onPointerEnter={() => setIsHovered(true)}
       onPointerLeave={() => setIsHovered(false)}
       onTouchStart={() => setIsHovered((prev) => !prev)}
@@ -53,23 +110,23 @@ export default function GenericCard({
       {/* HUD Effect overlay */}
       <HUDFrame isHovered={isHovered} />
 
-      {/* Dynamic overlay effect on hover */}
+      {/* Dynamic hover overlay highlight */}
       <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-primary/5 mix-blend-overlay opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-primary/5 opacity-0 mix-blend-overlay transition-opacity duration-700 group-hover:opacity-100"
       />
 
-      {/* 🎯 FIX 1: Floating Badges Contrast Fix */}
+      {/* Badges Container */}
       {badges.length > 0 && (
-        <div className="absolute right-5 top-5 z-40 flex flex-col items-end gap-2">
+        <div className="absolute right-4 top-4 z-40 flex flex-col items-end gap-1.5">
           {badges.map((badge, idx) => {
             const isPrimary = badge.variant === "primary" || !badge.variant;
             return (
               <span
                 key={idx}
-                className={`rounded-full border px-3 py-1 font-mono text-[9px] font-bold uppercase tracking-widest transition-all duration-300 ${isPrimary
-                    ? "border-[rgba(var(--color-border),0.3)] bg-[rgba(var(--color-accent),1)] text-[rgba(var(--color-text-on-accent),1)] shadow-[0_0_15px_rgba(var(--color-accent),0.3)]"
-                    : "border-[rgba(var(--color-border),0.4)] bg-[rgba(var(--color-primary),1)] text-[rgba(var(--color-text-on-accent),1)] shadow-[0_0_15px_rgba(var(--color-primary),0.2)]"
+                className={`rounded-full border px-2.5 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest transition-all duration-300 ${isPrimary
+                  ? "border-accent/40 bg-accent text-accent-foreground shadow-sm shadow-accent/20"
+                  : "border-primary/40 bg-primary text-primary-foreground shadow-sm shadow-primary/20"
                   }`}
               >
                 {badge.text}
@@ -80,24 +137,26 @@ export default function GenericCard({
       )}
 
       {/* Media Block */}
-      <div className="w-full h-[40%] sm:h-[50%] relative flex items-center justify-center border-b border-[rgba(var(--color-border),0.1)]">
-        {media}
+      <div className="relative flex h-[45%] w-full items-center justify-center overflow-hidden border-b border-border/50 bg-surface-sunken/40">
+        <div className="relative h-full w-full flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-105">
+          {media}
+        </div>
       </div>
 
-      {/* Bottom Content Area */}
-      <div className="relative z-40 px-5 pb-5 pt-4 sm:px-6 sm:pb-6 flex-grow flex flex-col justify-end bg-gradient-to-t from-[rgba(var(--color-bg),0.95)] via-[rgba(var(--color-bg),0.6)] to-transparent">
-        <h3 className="inline-block font-display text-lg font-bold tracking-tight text-ink sm:text-xl group-hover:text-[rgba(var(--color-primary),1)] transition-colors duration-300">
+      {/* Bottom Content Area - Solid surface background to prevent mixing with page background */}
+      <div className="relative z-40 flex flex-grow flex-col justify-end bg-surface px-5 pb-5 pt-4 sm:px-6 sm:pb-6">
+        <h3 className="font-display text-lg font-bold tracking-tight text-heading transition-colors duration-300 group-hover:text-primary sm:text-xl">
           {title}
         </h3>
 
         <div
-          className={`grid transition-all duration-500 mt-2 ${isHovered
-              ? "grid-rows-[1fr] opacity-100"
-              : "grid-rows-[1fr] opacity-100 sm:grid-rows-[0fr] sm:opacity-0"
+          className={`mt-2 grid transition-all duration-500 ${isHovered
+            ? "grid-rows-[1fr] opacity-100"
+            : "grid-rows-[1fr] opacity-100 sm:grid-rows-[0fr] sm:opacity-0"
             }`}
         >
           <div className="overflow-hidden">
-            <p className="text-xs leading-relaxed text-muted mt-1 line-clamp-2 sm:line-clamp-none">
+            <p className="mt-1 text-xs leading-relaxed text-foreground/80 line-clamp-2 sm:line-clamp-none">
               {summary}
             </p>
 
@@ -107,7 +166,7 @@ export default function GenericCard({
                 {tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="border border-[rgba(var(--color-border),0.1)] bg-[rgba(var(--color-surface),0.3)] px-2 py-0.5 rounded-md font-mono text-[8px] font-semibold uppercase tracking-wide text-[rgba(var(--color-primary),0.9)]"
+                    className="rounded border border-border/60 bg-surface-elevated px-2 py-0.5 font-mono text-[9px] font-medium uppercase tracking-wide text-primary"
                   >
                     {tag.text}
                   </span>
@@ -115,32 +174,12 @@ export default function GenericCard({
               </div>
             )}
 
-            {/* 🎯 FIX 2: Action Buttons Shape and Color Setup */}
+            {/* Action Buttons */}
             {actions.length > 0 && (
               <div className="mt-4 flex flex-wrap gap-2">
-                {actions.map((action, idx) => {
-                  const isPrimary = action.variant === "primary";
-                  const Comp = action.isExternal ? "a" : Link;
-                  const extraProps = action.isExternal
-                    ? { target: "_blank", rel: "noreferrer" }
-                    : {};
-
-                  return (
-                    <Comp
-                      key={idx}
-                      href={action.href || "#"}
-                      onClick={(e) => e.stopPropagation()}
-                      className={`relative inline-flex items-center gap-2 overflow-hidden rounded-full px-4 py-2 transition-all duration-300 min-h-[34px] border font-mono text-[9px] font-bold uppercase tracking-widest active:scale-95 ${isPrimary
-                          ? "border-[rgba(var(--color-border),0.2)] bg-[rgba(var(--color-primary),1)] text-[rgba(var(--color-text-on-accent),1)] hover:bg-[rgba(var(--color-primary-light),1)] shadow-[0_2px_10px_rgba(var(--color-primary),0.2)]"
-                          : "border-[rgba(var(--color-border),0.3)] bg-[rgba(var(--color-bg),0.6)] text-[rgba(var(--color-ink),1)] hover:bg-[rgba(var(--color-surface),0.5)] hover:border-[rgba(var(--color-primary),0.3)]"
-                        }`}
-                      {...extraProps}
-                    >
-                      {action.icon}
-                      <span>{action.label}</span>
-                    </Comp>
-                  );
-                })}
+                {actions.map((action, idx) => (
+                  <ActionLink key={idx} action={action} />
+                ))}
               </div>
             )}
           </div>
@@ -149,3 +188,5 @@ export default function GenericCard({
     </div>
   );
 }
+
+export default PreviewCard;

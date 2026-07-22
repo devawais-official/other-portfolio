@@ -4,29 +4,42 @@ import React from "react";
 export interface IconProps extends React.ComponentPropsWithoutRef<"svg"> {
   size?: number | string;
 }
+const IconBase = React.memo(function IconBase({
+  label,
+  viewBox = "0 0 24 24",
+  size,
+  className,
+  children,
+  ...props
+}: IconProps & { label: string; children: React.ReactNode }) {
+  return (
+    <svg
+      className={className}
+      viewBox={viewBox}
+      role="img"
+      aria-label={label}
+      width={size ?? props.width ?? "1em"}
+      height={size ?? props.height ?? "1em"}
+      {...props}
+    >
+      {children}
+    </svg>
+  );
+});
 
 function createIcon(
   label: string,
-  pathElement: React.ReactNode, // 👈 Ab hum string ke bajaye direct path element pass karenge flexible rehne ke liye
+  pathElement: React.ReactNode,
   viewBox = "0 0 24 24"
 ) {
-  return React.memo(function IconComponent({ className, size, ...props }: IconProps) {
-    return (
-      <svg
-        className={className}
-        viewBox={viewBox}
-        role="img"
-        aria-label={label}
-        width={size ?? props.width ?? "1em"}
-        height={size ?? props.height ?? "1em"}
-        {...props}
-      >
-        {pathElement}
-      </svg>
-    );
-  });
+  const Component = (props: IconProps) => (
+    <IconBase label={label} viewBox={viewBox} {...props}>
+      {pathElement}
+    </IconBase>
+  );
+  Component.displayName = label.replace(/\s+/g, "");
+  return Component;
 }
-
 // 1. Play Store Icon
 export const PlayStoreIcon = createIcon(
   "Google Play Store",
