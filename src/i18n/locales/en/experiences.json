@@ -1,37 +1,39 @@
 {
-    "egora": {
-        "role": "Senior Mobile Developer",
-        "description": "Architecting enterprise-scale Android & Kotlin Multiplatform (KMP) ecosystems. Led a 40% performance gain in mission-critical hardware integrations and designed shared multiplatform codebases with a zero-failure deployment record.",
-        "achievements": {
-            "0": "Shipped 3 production apps across Android and KMP",
-            "1": "Mentored 2 junior developers",
-            "2": "Reduced app crashes by 40%"
-        }
-    },
-    "healthwire": {
-        "role": "Software Engineer, Mobile Developer",
-        "description": "Revolutionized healthcare delivery via advanced Google Maps location intelligence. Scaled a modular Clean Architecture core that streamlined client applications for thousands of active daily healthcare providers.",
-        "achievements": {
-            "0": "Scaled app to 2M+ downloads",
-            "1": "Implemented complex payment integration",
-            "2": "Built location-based services"
-        }
-    },
-    "dongamers": {
-        "role": "Senior Mobile App Developer",
-        "description": "Engineered high-frequency e-sports systems handling real-time chat and tournament data. Successfully solved high-latency challenges in global gaming platforms with 92% reactive state stability.",
-        "achievements": {
-            "0": "Shipped 5+ production apps",
-            "1": "Learned modern Android stack",
-            "2": "Improved code quality practices"
-        }
-    },
-    "netroots": {
-        "role": "Android Developer",
-        "description": "Developed high-retention consumer Android apps with a focus on UI/UX excellence and robust RESTful API integrations using Kotlin.",
-        "achievements": {
-            "0": "Learned modern Android stack",
-            "1": "Improved code quality practices"
+    "items": {
+        "egora": {
+            "role": "Senior Mobile Developer",
+            "description": "Architecting enterprise-scale Android & Kotlin Multiplatform (KMP) ecosystems. Led a 40% performance gain in mission-critical hardware integrations and designed shared multiplatform codebases with a zero-failure deployment record.",
+            "achievements": [
+                "Shipped 3 production apps across Android and KMP",
+                "Mentored 2 junior developers",
+                "Reduced app crashes by 40%"
+            ]
+        },
+        "healthwire": {
+            "role": "Software Engineer, Mobile Developer",
+            "description": "Revolutionized healthcare delivery via advanced Google Maps location intelligence. Scaled a modular Clean Architecture core that streamlined client applications for thousands of active daily healthcare providers.",
+            "achievements": [
+                "Scaled app to 2M+ downloads",
+                "Implemented complex payment integration",
+                "Built location-based services"
+            ]
+        },
+        "dongamers": {
+            "role": "Senior Mobile App Developer",
+            "description": "Engineered high-frequency e-sports systems handling real-time chat and tournament data. Successfully solved high-latency challenges in global gaming platforms with 92% reactive state stability.",
+            "achievements": [
+                "Shipped 5+ production apps",
+                "Learned modern Android stack",
+                "Improved code quality practices"
+            ]
+        },
+        "netroots": {
+            "role": "Android Developer",
+            "description": "Developed high-retention consumer Android apps with a focus on UI/UX excellence and robust RESTful API integrations using Kotlin.",
+            "achievements": [
+                "Learned modern Android stack",
+                "Improved code quality practices"
+            ]
         }
     }
 }

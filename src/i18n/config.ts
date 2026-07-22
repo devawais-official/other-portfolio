@@ -1,18 +1,24 @@
 import en from "./locales/en";
 import ur from "./locales/ur";
-import ar from "./locales/ar";
-import fr from "./locales/fr";
-import tr from "./locales/tr";
 
-// 1. Array banaya taake runtime check bhi ho sake
-export const locales = ["en", "ur", "ar", "fr", "tr"] as const;
-
-// 2. Union Type extract ki: "en" | "ur"
+export const locales = ["en", "ur"] as const;
 export type Locale = (typeof locales)[number];
-
-// 3. Default locale configuration
 export const defaultLocale: Locale = "en";
 
-// 4. Import translations here (ek hi jagah load honge)
+export type TranslationDictionary = typeof en;
 
-export const translations: Record<Locale, any> = { en, ur, ar, fr, tr };
+type DeepPartial<T> = T extends object
+    ? { [K in keyof T]?: DeepPartial<T[K]> }
+    : T;
+
+export const translations: Record<Locale, DeepPartial<TranslationDictionary>> = {
+    en, ur,
+};
+
+export function isLocale(value: string | undefined | null): value is Locale {
+    return !!value && (locales as readonly string[]).includes(value);
+}
+
+export function resolveLocale(locale: string | undefined | null): Locale {
+    return isLocale(locale) ? locale : defaultLocale;
+}

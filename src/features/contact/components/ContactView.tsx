@@ -1,68 +1,97 @@
+// src/features/contact/components/ContactView.tsx
 "use client";
 
+import { motion, type Variants } from "framer-motion";
 import PageHeader from "@/components/ui/PageHeader";
-import { StandardPageLabels } from "@/utils/label-helper";
-import { motion, Variants } from "framer-motion";
-
-import { siteTheme } from "@/lib/site-config";
+import type { StandardPageLabels } from "@/lib/utils";
 import { transformSocialLinksToOptions } from "../configs/contact-options";
 import SystemStatusPanel from "./SystemStatusPanel";
 import ContactCard from "./ContactCard";
 
+// ============================================================================
+// TYPES & PROPS
+// ============================================================================
 interface ContactViewProps {
-    labels: StandardPageLabels;
-    location: string; // 🎯 Received directly as a prop
+  labels: StandardPageLabels;
+  location: string;
 }
 
-const systemInitVariants: Variants = {
-    hidden: { opacity: 0, filter: "blur(5px)", scale: 0.98, y: 10 },
-    visible: {
-        opacity: 1,
-        filter: "blur(0px)",
-        scale: 1,
-        y: 0,
-        transition: {
-            type: "spring",
-            stiffness: 100,
-            damping: 20,
-            staggerChildren: 0.1
-        }
-    }
+// ============================================================================
+// ANIMATION VARIANTS
+// ============================================================================
+const containerVariants: Variants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      staggerChildren: 0.08,
+    },
+  },
 };
 
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 10, filter: "blur(4px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: {
+      type: "spring",
+      stiffness: 120,
+      damping: 18,
+    },
+  },
+};
+
+// ============================================================================
+// MAIN VIEW COMPONENT
+// ============================================================================
 export default function ContactView({ labels, location }: ContactViewProps) {
-    const contactOptions = transformSocialLinksToOptions();
-    const layout = siteTheme.contact;
+  const contactOptions = transformSocialLinksToOptions();
 
-    return (
-        <>
-            <PageHeader
-                eyebrow={labels.title}
-                title={labels.headerTitle}
-                description={labels.headerDesc}
-            />
+  return (
+    <>
+      {/* Top Section Header */}
+      <PageHeader
+        eyebrow={labels.title}
+        title={labels.headerTitle}
+        description={labels.headerDesc}
+      />
 
-            <div className={layout.containerClass}>
-                <div className={layout.grid}>
+      {/* Main Content Layout */}
+      <section className="pb-20 md:pb-28">
+        <div className="container-page">
+          <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
+            {/* Left Panel: Location & Status */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={cardVariants}
+              className="lg:col-span-5"
+            >
+              <SystemStatusPanel location={location} />
+            </motion.div>
 
-                    {/* LEFT PANEL (GLOBE) */}
-                    <motion.div variants={systemInitVariants} className="lg:col-span-5">
-                        <SystemStatusPanel location={location} />
-                    </motion.div>
-
-                    {/* RIGHT PANEL (TACTICAL NODES) */}
-                    <div className="lg:col-span-7 grid gap-4">
-                        {contactOptions.map((option) => (
-                            <ContactCard
-                                key={option.label}
-                                option={option}
-                                variants={systemInitVariants}
-                            />
-                        ))}
-                    </div>
-
-                </div>
-            </div>
-        </>
-    );
+            {/* Right Panel: Interactive Contact Cards */}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={containerVariants}
+              className="grid gap-4 lg:col-span-7"
+            >
+              {contactOptions.map((option) => (
+                <ContactCard
+                  key={option.value}
+                  option={option}
+                  variants={cardVariants}
+                />
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }

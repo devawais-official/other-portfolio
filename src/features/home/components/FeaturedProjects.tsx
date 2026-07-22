@@ -1,19 +1,32 @@
+// src/features/home/components/FeaturedProjects.tsx
+
 import SectionHeader from "@/components/ui/SectionHeader";
-import ProjectGridCard from "@/features/projects/components/ProjectGridCard"; // 👈 Centralized import
+import ProjectGridCard from "@/features/projects/components/ProjectGridCard";
 import { getProjectsGridConfig } from "@/features/projects/configs/projects-config";
 import { MappedHomeData } from "./HomeView";
-import AnimatedSection from "@/components/layout/AnimatedSection";
 import SectionWrapper from "@/components/layout/SectionWrapper";
-// 👈 Sahi wala interface import karo
+import { AnimatedSection } from "@/components/layout/AnimatedSection";
+import type { TranslateFn } from "@/i18n/translation-core";
+import type { Project } from "@/features/projects/data";
 
+// ============================================================================
+// TYPES
+// ============================================================================
 interface FeaturedProjectsProps {
-    translate: (key: string) => string;
-    homeData: MappedHomeData; // Yeh کافی hai
+    translate: TranslateFn;
+    homeData: MappedHomeData;
 }
 
-export default function FeaturedProjects({ translate, homeData }: FeaturedProjectsProps) {
-    const { featuredProjects, projectsPath } = homeData; // Yeh data sahi aa raha hai
+// ============================================================================
+// COMPONENT
+// ============================================================================
+export default function FeaturedProjects({
+    translate,
+    homeData,
+}: FeaturedProjectsProps) {
+    const { featuredProjects, projectsPath } = homeData;
     const gridConfig = getProjectsGridConfig(translate);
+
     return (
         <SectionWrapper className="section-pad" showBlobs={false}>
             <div className="container-page">
@@ -23,10 +36,14 @@ export default function FeaturedProjects({ translate, homeData }: FeaturedProjec
                     actionText={translate("home.allProjectsLink")}
                     actionHref={projectsPath}
                 />
-                <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+                <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {featuredProjects.map((project, index) => (
                         <AnimatedSection key={project.slug} delay={index * 0.08}>
-                            <ProjectGridCard project={project} labels={gridConfig.labels} />
+                            <ProjectGridCard
+                                project={project as Project}
+                                labels={gridConfig.labels}
+                            />
                         </AnimatedSection>
                     ))}
                 </div>

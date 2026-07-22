@@ -1,48 +1,28 @@
 import { cookies } from "next/headers";
-import { locales, Locale, defaultLocale, translations } from "./config";
+import { Locale, defaultLocale, translations, resolveLocale } from "./config";
+import { createTranslator, TranslateFn, Dictionary } from "./translation-core";
 
 export async function getLocaleServer(): Promise<Locale> {
   try {
     const cookieStore = await cookies();
-    const locale = cookieStore.get("NEXT_LOCALE")?.value as Locale;
-    return locales.includes(locale) ? locale : defaultLocale;
+    const locale = cookieStore.get("NEXT_LOCALE")?.value;
+    return resolveLocale(locale);
   } catch {
     return defaultLocale;
   }
 }
 
-// Client parts ko render-ready object dene ke liye helper function
-export function getDictionaryServer(locale: Locale) {
-  return translations[locale] ? translations[locale] : translations[defaultLocale];
+export function getDictionaryServer(locale: Locale): Dictionary {
+  return (translations[locale] ?? translations[defaultLocale]) as Dictionary;
 }
 
-export function getTranslationServer(locale: Locale) {
+export function getTranslationServer(locale: Locale): TranslateFn {
   const currentLocale = translations[locale] ? locale : defaultLocale;
-  const data = translations[currentLocale];
+  const dictionary = (translations[currentLocale] ?? {}) as Dictionary;
+  const fallback =
+    currentLocale !== defaultLocale
+      ? ((translations[defaultLocale] ?? {}) as Dictionary)
+      : undefined;
 
-  return function t(key: string, replacements?: Record<string, string>): string {
-    const parts = key.split(".");
-    let current: any = data;
-
-    for (const part of parts) {
-      if (current && typeof current === 'object' && part in current) {
-        current = current[part];
-      } else {
-        if (currentLocale !== defaultLocale) {
-          return getTranslationServer(defaultLocale)(key, replacements);
-        }
-        return key;
-      }
-    }
-
-    if (typeof current !== "string") return key;
-
-    let result = current;
-    if (replacements) {
-      Object.entries(replacements).forEach(([k, v]) => {
-        result = result.replace(new RegExp(`{${k}}`, "g"), v);
-      });
-    }
-    return result;
-  };
+  return createTranslator(dictionary, fallback);
 }

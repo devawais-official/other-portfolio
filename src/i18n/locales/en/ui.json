@@ -86,39 +86,11 @@
         "feedbackSubtitle": "What clients say",
         "allTestimonialsLink": "All testimonials"
     },
-    "about": {
-        "title": "About",
-        "headerTitle": "Hi, I'm Muhammad — a mobile app developer.",
-        "headerDesc": "I focus on building scalable mobile systems using native Android, Kotlin Multiplatform, and Flutter, with a passion for clean architecture.",
-        "expertiseTitle": "Expertise",
-        "expertiseSubtitle": "What I bring to a mobile team",
-        "experienceTitle": "Experience",
-        "experienceSubtitle": "Where I've worked"
-    },
-    "projects": {
-        "title": "Projects",
-        "headerTitle": "Shipped apps across Android Native and Kotlin Multiplatform.",
-        "headerDesc": "Filter by platform to see how the architecture and stack shift depending on what the product actually needs.",
-        "filters": {
-            "all": "All",
-            "android": "Android",
-            "ios": "iOS",
-            "kmp": "KMP",
-            "cmp": "CMP",
-            "flutter": "Flutter"
-        },
-        "ctas": {
-            "playStore": "Google Play",
-            "appStore": "App Store",
-            "details": "View details"
-        },
-        "backToProjects": "All projects",
-        "techStack": "Tech stack"
-    },
     "contact": {
         "title": "Contact",
         "headerTitle": "Tell me about what you're building.",
         "headerDesc": "Reach out directly via email or connect on professional channels — I reply personally within one business day.",
+        "locationTitle": "Location",
         "form": {
             "nameLabel": "Name",
             "emailLabel": "Email",
@@ -130,24 +102,9 @@
             "successMessage": "Thanks for reaching out — I read every message myself."
         }
     },
-    "services": {
-        "title": "What I offer",
-        "headerDesc": "From individual feature development to end-to-end architecture design and cross-platform product launches.",
-        "headerTitle": "Custom mobile engineering, built for scale."
-    },
-    "testimonials": {
-        "title": "Testimonials",
-        "headerTitle": "What it's like to work together.",
-        "headerDesc": "Don't just take my word for it—here is what founders, product leads, and partners have to say about our collaborations."
-    },
     "notfound": {
         "eyebrow": "404",
         "title": "This screen doesn't exist.",
         "button": "Back to home"
-    },
-    "blog": {
-        "title": "Blog",
-        "headerTitle": "Technical insights & lessons.",
-        "headerDesc": "My thoughts on mobile architecture, KMP best practices, and the lessons learned while shipping production apps."
     }
 }

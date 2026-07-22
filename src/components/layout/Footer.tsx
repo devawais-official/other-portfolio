@@ -1,98 +1,118 @@
 // src/components/layout/Footer.tsx
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { useI18n } from "@/i18n/i18n-client";
-import { siteTheme } from "@/lib/site-config";
 import { siteConfig, socialLinks } from "@/lib/site-config";
 
+// ============================================================================
+// TYPES
+// ============================================================================
+interface FooterBrandProps {
+  name: string;
+  tagline: string;
+}
+
+interface FooterColProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+interface FooterSocialsProps {
+  links: typeof socialLinks;
+}
+
+interface FooterMetaProps {
+  copyright: string;
+}
+
+// ============================================================================
+// MAIN COMPONENT
+// ============================================================================
 export default function Footer() {
   const { translate } = useI18n();
-  const { footer: style } = siteTheme;
 
-  // Fallbacks in case translation keys are missing
-  const tagline = translate("about.role") !== "about.role" ? translate("about.role") : "Mobile App Developer";
-  const availabilityText = translate("about.availability") !== "about.availability" ? translate("about.availability") : "Available for freelance";
+  // Clean key lookups mapped directly from ui.json
+  const tagline = translate("profile.title");
+  const location = translate("profile.location");
+  const availability = translate("profile.availability");
 
   const rawSpecialties = translate("footer.specialtiesList", { returnObjects: true });
   const specialties: string[] = Array.isArray(rawSpecialties)
     ? (rawSpecialties as string[])
     : [];
 
+  const currentYear = new Date().getFullYear().toString();
+  const copyrightText = translate("footer.copyright", { params: { year: currentYear }, });
+
   return (
-    <footer className={style.container}>
-      <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
-
-        <div className={style.grid}>
-
+    <footer className="w-full border-t border-border/30 bg-surface/40 py-12 backdrop-blur-md">
+      <div className="container-page">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3 lg:gap-12">
           {/* 1. Brand Column */}
-          <FooterBrand name={siteConfig.name} tagline={tagline} style={style} />
+          <FooterBrand name={siteConfig.name} tagline={tagline} />
 
           {/* 2. Specialties Column */}
           {specialties.length > 0 && (
-            <FooterCol title={translate("footer.specialties")} style={style} isStatic>
-              {specialties.map((s) => (
-                <li key={s} className="leading-relaxed">{s}</li>
+            <FooterCol title={translate("footer.specialties")}>
+              {specialties.map((specialty) => (
+                <li key={specialty} className="leading-relaxed text-muted">
+                  {specialty}
+                </li>
               ))}
             </FooterCol>
           )}
 
           {/* 3. Contact & Social Column */}
-          <FooterCol title={translate("footer.getInTouch")} style={style} isStatic>
+          <FooterCol title={translate("footer.getInTouch")}>
             <li className="mb-1">
               <a
                 href={`mailto:${siteConfig.email}`}
-                className={style.linkText}
+                className="inline-flex min-h-[32px] items-center text-sm text-foreground transition-colors hover:text-accent-light focus-visible:underline focus-visible:outline-none"
                 aria-label={`Send an email to ${siteConfig.email}`}
               >
                 {siteConfig.email}
               </a>
             </li>
 
-            {/* 🛠️ FIX 1: text-muted/80 ko hata kar text-white/90 kiya aur font-medium lagaya */}
-            <li className="text-xs text-white/90 font-medium leading-relaxed mb-3 antialiased">
-              {translate("about.infoLocation") !== "about.infoLocation" ? translate("about.infoLocation") : "Lahore, Pakistan"} — {availabilityText}
+            <li className="mb-3 text-xs font-medium leading-relaxed text-muted">
+              {location} — {availability}
             </li>
 
-            {/* FIX 2: Socials wrapper div ko direct parent list ke badle <li> ke andar encompass kiya */}
             <li className="block w-full">
-              <FooterSocials links={socialLinks} style={style} />
+              <FooterSocials links={socialLinks} />
             </li>
           </FooterCol>
-
         </div>
 
         {/* 4. Bottom Copyright Row */}
-        {/* FIX 3: Year string ko dynamic server/client safe context diya (2026) */}
-        <FooterMeta
-          copyright={translate("footer.copyright", { year: "2026" })}
-          style={style}
-        />
+        <FooterMeta copyright={copyrightText} />
       </div>
     </footer>
   );
 }
 
-// ==========================================
-// Sub-Components
-// ==========================================
-
-interface FooterStyleProps {
-  style: any;
-}
+// ============================================================================
+// SUB-COMPONENTS
+// ============================================================================
 
 /* 🏢 Brand Block */
-function FooterBrand({ name, tagline, style }: FooterStyleProps & { name: string; tagline: string }) {
+function FooterBrand({ name, tagline }: FooterBrandProps) {
   return (
-    <div className={style.brandCol}>
-      <Link href="/" className={style.logoLink} aria-label={`Go to ${name} homepage`}>
-        <div className={style.logoGradientBg} />
-        <div className={style.logoInnerBg}>
+    <div className="flex flex-col items-start gap-2">
+      <Link
+        href="/"
+        className="group relative mb-1 h-14 w-14 cursor-pointer md:h-16 md:w-16"
+        aria-label={`Go to ${name} homepage`}
+      >
+        <div className="absolute inset-0 rotate-45 rounded-lg bg-gradient-to-r from-primary via-accent-dark to-accent shadow-lg shadow-primary/20 transition-transform duration-500 group-hover:rotate-90" />
+        <div className="absolute inset-2 flex rotate-45 items-center justify-center rounded-lg bg-surface transition-transform duration-500 group-hover:rotate-0">
           <div
-            className={style.logoMask}
+            className="h-8 w-8 -rotate-45 bg-heading transition-transform duration-500 group-hover:rotate-0"
             style={{
-              maskImage: 'url("/images/ma-logo.svg")',
-              WebkitMaskImage: 'url("/images/ma-logo.svg")',
+              maskImage: 'url("/brand/ma-logo.svg")',
+              WebkitMaskImage: 'url("/brand/ma-logo.svg")',
               maskSize: "contain",
               WebkitMaskSize: "contain",
               maskRepeat: "no-repeat",
@@ -102,8 +122,10 @@ function FooterBrand({ name, tagline, style }: FooterStyleProps & { name: string
           />
         </div>
       </Link>
-      <h3 className={style.brandTitle}>{name}</h3>
-      <p className={style.brandTagline}>
+      <h3 className="font-display text-xl font-bold italic uppercase leading-none tracking-tight text-heading md:text-2xl">
+        {name}
+      </h3>
+      <p className="max-w-[200px] font-mono text-xs font-semibold uppercase leading-relaxed tracking-wider text-muted">
         {tagline}
       </p>
     </div>
@@ -111,27 +133,19 @@ function FooterBrand({ name, tagline, style }: FooterStyleProps & { name: string
 }
 
 /* 📦 Reusable Footer Column Wrapper */
-interface FooterColProps extends FooterStyleProps {
-  title: string;
-  children: React.ReactNode;
-  isStatic?: boolean;
-}
-
-function FooterCol({ title, children, style, isStatic = false }: FooterColProps) {
+function FooterCol({ title, children }: FooterColProps) {
   return (
     <div>
-      <p className={style.eyebrow}>{title}</p>
-      <ul className={`${style.listContainer} ${isStatic ? style.staticText : ""}`}>
-        {children}
-      </ul>
+      <p className="eyebrow mb-4">{title}</p>
+      <ul className="flex flex-col gap-1.5 text-sm font-medium">{children}</ul>
     </div>
   );
 }
 
-/* 🌐 Clean Social Links (Tooltips Removed & Discernible Names Added) */
-function FooterSocials({ links, style }: FooterStyleProps & { links: typeof socialLinks }) {
+/* 🌐 Clean Social Links */
+function FooterSocials({ links }: FooterSocialsProps) {
   return (
-    <div className={style.socialContainer}>
+    <div className="mt-3 flex flex-wrap items-center justify-start gap-2.5">
       {links.map(({ href, icon: Icon, label }) => (
         <a
           key={label}
@@ -139,7 +153,7 @@ function FooterSocials({ links, style }: FooterStyleProps & { links: typeof soci
           target="_blank"
           rel="noreferrer"
           aria-label={`Visit my ${label} profile`}
-          className={style.socialIconLink}
+          className="flex h-9 w-9 items-center justify-center rounded-full border border-border/40 bg-surface/60 text-muted transition-all duration-300 hover:border-accent/40 hover:bg-surface hover:text-accent-light hover:shadow-md"
         >
           <Icon size={15} />
         </a>
@@ -149,11 +163,13 @@ function FooterSocials({ links, style }: FooterStyleProps & { links: typeof soci
 }
 
 /* 📝 Meta copyrights footer */
-function FooterMeta({ copyright, style }: FooterStyleProps & { copyright: string }) {
+function FooterMeta({ copyright }: FooterMetaProps) {
   return (
-    <div className={style.metaContainer}>
-      <div className={style.metaLayout}>
-        <p className="tracking-wide text-left text-ink/80 text-sm antialiased selection:bg-selection-bg">{copyright}</p>
+    <div className="mt-10 w-full border-t border-border/20 pt-6 text-xs text-muted">
+      <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+        <p className="text-left text-xs tracking-wide text-muted">
+          {copyright}
+        </p>
       </div>
     </div>
   );

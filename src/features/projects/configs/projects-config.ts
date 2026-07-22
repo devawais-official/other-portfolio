@@ -1,5 +1,16 @@
-export const PROJECT_FILTER_KEYS = ["android", "kmp", "flutter"] as const;
-export type ProjectFilterKey = typeof PROJECT_FILTER_KEYS[number];
+// src/features/projects/configs/projects-config.ts
+
+import type { TranslateFn } from "@/i18n/translation-core";
+
+export const PROJECT_FILTER_KEYS = [
+    "android",
+    "ios",
+    "kmp",
+    "cmp",
+    "flutter",
+] as const;
+
+export type ProjectFilterKey = (typeof PROJECT_FILTER_KEYS)[number];
 
 export interface ProjectsGridConfig {
     allLabel: string;
@@ -15,34 +26,23 @@ export interface ProjectsGridConfig {
     };
 }
 
-export function getProjectsGridConfig(translate: (key: string) => string): ProjectsGridConfig {
-
-    // Improved fallback mechanism
-    const safeTranslate = (key: string, fallback: string) => {
-        const val = translate(key);
-        // Agar translation key wapis aa rahi hai (missing), toh fallback show karo
-        return val === key ? fallback : val;
-    };
-
+export function getProjectsGridConfig(
+    translate: TranslateFn
+): ProjectsGridConfig {
     return {
-        allLabel: safeTranslate("projects.filters.all", "All"),
-
-        // Filters map securely using defined keys
+        allLabel: translate("projects.filters.all"),
         filters: PROJECT_FILTER_KEYS.map((key) => ({
             value: key,
-            label: safeTranslate(`projects.filters.${key}`, key.charAt(0).toUpperCase() + key.slice(1))
+            label: translate(`projects.filters.${key}`),
         })),
-
         labels: {
-            noProjectsFound: safeTranslate("projects.noProjectsFound", "No projects found for this category."),
-            backToAll: safeTranslate("projects.backToProjects", "Back to Projects"),
-            viewProject: safeTranslate("projects.ctas.details", "View Details"),
-            techStack: safeTranslate("projects.techStack", "Tech Stack"),
-
-            // Nested CTAs
-            ctaPlayStore: safeTranslate("projects.ctas.playStore", "Google Play"),
-            ctaAppStore: safeTranslate("projects.ctas.appStore", "App Store"),
-            ctaDetails: safeTranslate("projects.ctas.details", "View Details"),
-        }
+            noProjectsFound: translate("projects.noProjectsFound"),
+            backToAll: translate("projects.backToProjects"),
+            viewProject: translate("projects.ctas.details"),
+            techStack: translate("projects.techStack"),
+            ctaPlayStore: translate("projects.ctas.playStore"),
+            ctaAppStore: translate("projects.ctas.appStore"),
+            ctaDetails: translate("projects.ctas.details"),
+        },
     };
 }

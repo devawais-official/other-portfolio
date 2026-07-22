@@ -1,15 +1,7 @@
 import type { Config } from "tailwindcss";
 
-function colorWithOpacity(variableName: string, defaultOpacity?: number): any {
-  return ({ opacityValue }: { opacityValue?: string }) => {
-    if (opacityValue !== undefined) {
-      return `rgba(var(${variableName}), ${opacityValue})`;
-    }
-    if (defaultOpacity !== undefined) {
-      return `rgba(var(${variableName}), ${defaultOpacity})`;
-    }
-    return `rgb(var(${variableName}))`;
-  };
+function colorWithOpacity(variableName: string): any {
+  return `var(${variableName})`;
 }
 
 const config: Config = {
@@ -26,21 +18,28 @@ const config: Config = {
       colors: {
         bg: colorWithOpacity("--color-bg"),
         surface: colorWithOpacity("--color-surface"),
-        surface2: colorWithOpacity("--color-surface2"),
-        border: colorWithOpacity("--color-border", 0.15),
+        surface2: colorWithOpacity("--color-surface-2"),
+        border: colorWithOpacity("--color-border"),
         primary: {
           DEFAULT: colorWithOpacity("--color-primary"),
           light: colorWithOpacity("--color-primary-light"),
           dark: colorWithOpacity("--color-primary-dark"),
+          foreground: colorWithOpacity("--color-primary-foreground"),
+          subtle: colorWithOpacity("--color-primary-subtle"),
         },
         accent: {
           DEFAULT: colorWithOpacity("--color-accent"),
           light: colorWithOpacity("--color-accent-light"),
+          dark: colorWithOpacity("--color-accent-dark"),
+          subtle: colorWithOpacity("--color-accent-subtle"),
+          foreground: colorWithOpacity("--color-accent-foreground"),
         },
         secondary: {
           DEFAULT: colorWithOpacity("--color-secondary"),
           light: colorWithOpacity("--color-secondary-light"),
         },
+        heading: colorWithOpacity("--color-heading"),
+        body: colorWithOpacity("--color-body"),
         mint: colorWithOpacity("--color-mint"),
         ink: colorWithOpacity("--color-ink"),
         muted: colorWithOpacity("--color-muted"),

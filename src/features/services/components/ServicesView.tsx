@@ -1,36 +1,41 @@
 // src/features/services/components/ServicesView.tsx
-import PageHeader from "@/components/ui/PageHeader";
-import ServiceCard from "./ServiceCard";
-import { siteTheme } from "@/lib/site-config";
-import type { StandardPageLabels } from "@/utils/label-helper";
-import AnimatedSection from "@/components/layout/AnimatedSection";
+"use client";
 
+import PageHeader from "@/components/ui/PageHeader";
+import { AnimatedSection } from "@/components/layout/AnimatedSection";
+import ServiceCard from "./ServiceCard";
+import type { StandardPageLabels } from "@/lib/utils";
+import type { LocalizedServiceItem } from "../configs/services-config";
+
+// ============================================================================
+// TYPES & PROPS
+// ============================================================================
 interface ServicesViewProps {
-    labels: StandardPageLabels;
-    services: any[];
+  labels: StandardPageLabels;
+  services: LocalizedServiceItem[];
 }
 
+// ============================================================================
+// MAIN VIEW COMPONENT
+// ============================================================================
 export default function ServicesView({ labels, services }: ServicesViewProps) {
-    const styles = siteTheme.services;
+  return (
+    <>
+      <PageHeader
+        eyebrow={labels.title}
+        title={labels.headerTitle}
+        description={labels.headerDesc}
+      />
 
-    return (
-        <>
-            <PageHeader
-                eyebrow={labels.title}
-                title={labels.headerTitle}
-                description={labels.headerDesc}
-            />
-
-            <section className={styles.sectionPadding}>
-                <div className={styles.grid}>
-                    {services.map((service, index) => (
-                        <AnimatedSection key={service.id || index} delay={index * 0.08}>
-                            <ServiceCard service={service} />
-                        </AnimatedSection>
-                    ))}
-                </div>
-            </section>
-
-        </>
-    );
+      <section className="section-pad pt-0">
+        <div className="container-page grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8">
+          {services.map((service, index) => (
+            <AnimatedSection key={service.id} delay={index * 0.08}>
+              <ServiceCard service={service} />
+            </AnimatedSection>
+          ))}
+        </div>
+      </section>
+    </>
+  );
 }

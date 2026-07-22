@@ -1,6 +1,5 @@
 import { SiteConfig, NavLink } from "@/types/site";
 import data from "@/data/personal-data.json";
-import { siteTheme } from "@/styles/theme";
 import { GithubIcon, LinkedinIcon, MediumIcon, StackOverflowIcon, XIcon } from "@/components/icons/icons";
 
 const SITE_URL = "https://devawais.com";
@@ -14,7 +13,6 @@ export const siteConfig: SiteConfig = {
   tagline: personalData.subtitle || "Building Clean & Performant Apps",
   bio: personalData.bio || "",
 
-  //  FIXED: personalData.email ki jagah nested object read kiya
   email: personalData.contact?.email || "mughal963@gmail.com",
 
   location: personalData.location || "Lahore, Pakistan",
@@ -103,8 +101,6 @@ export const siteRoutes = {
   blog: "/blog",
   contact: "/contact",
 } as const;
-
-export { siteTheme };
 
 export const pageMetaDefaults = {
   home: { slug: "home", keyPrefix: "home" },

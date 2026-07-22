@@ -1,9 +1,24 @@
+// src/components/ui/SectionHeader.tsx
 import Link from "next/link";
-import { siteTheme } from "@/lib/site-config";
-import AnimatedSection from "../layout/AnimatedSection";
 import { ArrowUpRightIcon } from "../icons/icons";
+import { cn } from "@/lib/utils";
+import { AnimatedSection } from "../layout/AnimatedSection";
 
-interface SectionHeaderProps {
+// ============================================================================
+// STYLING CONFIGURATION (Aligned with globals.css Design Tokens)
+// ============================================================================
+const sectionHeaderStyles = {
+  container: "flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between",
+  eyebrow: "eyebrow",
+  title: "mt-3 font-display text-3xl font-bold tracking-tight text-heading sm:text-4xl",
+  actionLink:
+    "inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-primary-light focus-visible:underline focus-visible:outline-none",
+} as const;
+
+// ============================================================================
+// TYPES
+// ============================================================================
+export interface SectionHeaderProps {
   eyebrow: string;
   title: string;
   actionText?: string;
@@ -11,6 +26,14 @@ interface SectionHeaderProps {
   className?: string;
 }
 
+// ============================================================================
+// COMPONENT
+// ============================================================================
+/**
+ * SectionHeader
+ * Standard section heading block featuring an eyebrow label, main section title,
+ * and an optional right-aligned action link with entry animation.
+ */
 export default function SectionHeader({
   eyebrow,
   title,
@@ -18,20 +41,19 @@ export default function SectionHeader({
   actionHref,
   className = "",
 }: SectionHeaderProps) {
-  const { sectionHeader: style } = siteTheme;
-
   return (
     <AnimatedSection
-      className={`${style.container} ${className}`.trim()}
+      className={cn(sectionHeaderStyles.container, className)}
     >
       <div>
-        <p className={style.eyebrow}>{eyebrow}</p>
-        <h2 className={style.title}>{title}</h2>
+        <p className={sectionHeaderStyles.eyebrow}>{eyebrow}</p>
+        <h2 className={sectionHeaderStyles.title}>{title}</h2>
       </div>
 
       {actionText && actionHref && (
-        <Link href={actionHref} className={style.actionLink}>
-          {actionText} <ArrowUpRightIcon size={15} />
+        <Link href={actionHref} className={sectionHeaderStyles.actionLink}>
+          <span>{actionText}</span>
+          <ArrowUpRightIcon size={15} />
         </Link>
       )}
     </AnimatedSection>

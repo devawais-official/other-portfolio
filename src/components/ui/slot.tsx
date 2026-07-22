@@ -1,23 +1,33 @@
+// src/components/ui/Slot.tsx
 import { cloneElement, isValidElement, forwardRef } from "react";
-import type { HTMLAttributes, ReactElement } from "react";
+import type { HTMLAttributes, ReactElement, Ref } from "react";
+import { cn } from "@/lib/utils";
+
+export interface SlotProps extends HTMLAttributes<HTMLElement> {
+  children?: React.ReactNode;
+}
 
 /**
- * Minimal Radix-style Slot: merges the props passed to <Component asChild>
+ * Minimal Radix-style Slot: merges the props passed to `<Component asChild>`
  * onto its single child element instead of rendering a wrapper node.
- * Enough for our use case (Button asChild wrapping an <a>) without pulling
- * in @radix-ui/react-slot as a dependency.
+ * Eliminates the need for external `@radix-ui/react-slot` dependency.
  */
-export const Slot = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
+export const Slot = forwardRef<HTMLElement, SlotProps>(
   ({ children, className, ...props }, ref) => {
-    if (!isValidElement(children)) return null;
+    if (!isValidElement(children)) {
+      return null;
+    }
 
-    const child = children as ReactElement<{ className?: string }>;
+    const child = children as ReactElement<{
+      className?: string;
+      ref?: Ref<HTMLElement>;
+    }>;
 
     return cloneElement(child, {
       ...props,
-      // @ts-expect-error — ref forwarding onto an arbitrary child element
-      ref,
-      className: [className, child.props.className].filter(Boolean).join(" "),
+      ...child.props,
+      ref: ref ? ref : child.props.ref,
+      className: cn(className, child.props.className),
     });
   }
 );

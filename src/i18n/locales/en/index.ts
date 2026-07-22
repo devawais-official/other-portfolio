@@ -1,23 +1,27 @@
 import ui from "./ui.json";
 import seo from "./seo.json";
+import about from "./about.json";
 import projects from "./projects.json";
+import services from "./services.json";
 import testimonials from "./testimonials.json";
 import experiences from "./experiences.json";
-import services from "./services.json";
-import about from "./about.json";
+import blog from "./blog.json";
 
 const en = {
-
     ...ui,
 
-    seo: {
-        ...seo
-    },
+    seo,
+    about,
+    projects,
+    services,
+    testimonials,
+    experiences,
+    blog,
 
-    projectsData: projects,
-    testimonialsData: testimonials,
-    experiencesData: experiences,
-    servicesData: services,
+    // Direct Aliases for item datasets
+    projectsData: projects.items,
+    testimonialsData: testimonials.items,
+    experiencesData: experiences.items,
     aboutData: about,
 };
 

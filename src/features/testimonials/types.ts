@@ -1,4 +1,6 @@
-export interface Testimonial {
+// src/features/testimonials/types.ts
+
+export interface RawTestimonial {
     id: number;
     slug: string;
     clientName: string;
@@ -7,5 +9,8 @@ export interface Testimonial {
     rating: number;
     verified: boolean;
     appUrl: string;
+}
+
+export interface Testimonial extends RawTestimonial {
     message: string;
 }

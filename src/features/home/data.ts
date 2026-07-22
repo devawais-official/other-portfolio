@@ -1,23 +1,30 @@
-import { testimonials, stats, rawProjects } from "@/data/index";
-import testimonialMessages from "@/data/testimonials.json";
+import { stats, testimonials, rawProjects } from "@/data/index";
 import { getTranslationServer } from "@/i18n/i18n-server";
 import { Locale } from "@/i18n/config";
-import { Project } from "@/features/projects/data";
+import { withTranslatedList } from "@/lib/translated-data";
 
 export const getHomeData = async (locale: Locale) => {
-    const translate = await getTranslationServer(locale);
+    const translate = getTranslationServer(locale);
 
-    const featuredProjects: Project[] = rawProjects.slice(0, 3).map((raw) => ({
-        ...raw,
-        title: translate(`projectsData.${raw.slug}.title`),
-        summary: translate(`projectsData.${raw.slug}.summary`),
-        category: translate(`projectsData.${raw.slug}.category`),
-    }));
+    const featuredProjects = withTranslatedList(
+        rawProjects.slice(0, 3),
+        "projectsData",
+        translate,
+        (t: (key: string) => string) => ({
+            title: t("title"),
+            summary: t("summary"),
+            category: t("category"),
+        })
+    );
 
-    const featuredTestimonials = testimonials.slice(0, 3).map((item) => ({
-        ...item,
-        message: (testimonialMessages as any)[item.slug]?.message || ""
-    }));
+    const featuredTestimonials = withTranslatedList(
+        testimonials.slice(0, 3),
+        "testimonialsData",
+        translate,
+        (t: (key: string) => string) => ({
+            message: t("message"),
+        })
+    );
 
     return {
         featuredProjects,
