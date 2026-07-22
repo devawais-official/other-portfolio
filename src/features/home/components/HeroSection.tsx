@@ -32,7 +32,6 @@ const THEME_CONFIG = {
     tooltipArrow: "absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary-dark",
   },
 
-
   data: {
     stackBadges: [
       { id: "kotlin", tooltip: "Kotlin" },
@@ -42,12 +41,8 @@ const THEME_CONFIG = {
   },
 } as const;
 
-
 type StackBadge = typeof THEME_CONFIG.data.stackBadges[number];
 type StackBadgeId = StackBadge["id"];
-
-
-
 
 const STACK_BADGE_ICONS: Record<StackBadgeId, ReactNode> = {
   kotlin: <KotlinIcon className="h-3.5 w-3.5" aria-hidden="true" />,
@@ -76,6 +71,7 @@ function AvailabilityBadge({ text }: { text: string }) {
     </p>
   );
 }
+
 // ============================================================================
 // MAIN HERO PORTRAIT COMPONENT
 // ============================================================================
@@ -146,6 +142,7 @@ function TechBadgeItem({ badge }: { badge: StackBadge }) {
     </div>
   );
 }
+
 // ============================================================================
 // 3. MAIN HERO COMPONENT (Assembles UI independently of theme data)
 // ============================================================================
@@ -194,10 +191,10 @@ export default function HeroSection({ translate, homeData }: HeroSectionProps) {
           </div>
         </AnimatedSection>
 
-        {/* Right Side: Portrait Visuals */}
-        <AnimatedSection delay={0.15} className="flex w-full items-center justify-center lg:justify-end">
+        {/* Right Side: Portrait Visuals (Removed AnimatedSection to eliminate LCP render delay) */}
+        <div className="flex w-full items-center justify-center lg:justify-end">
           <HeroPortrait />
-        </AnimatedSection>
+        </div>
 
       </div>
     </SectionWrapper>
