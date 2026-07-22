@@ -1,24 +1,17 @@
+// src/features/home/components/TestimonialsSection.tsx
+
 import SectionHeader from "@/components/ui/SectionHeader";
 import TestimonialCard from "@/features/testimonials/components/TestimonialCard";
 import SectionWrapper from "@/components/layout/SectionWrapper";
-import { MappedHomeData } from "./HomeView";
 import { AnimatedSection } from "@/components/layout/AnimatedSection";
+import type { MappedHomeData } from "./HomeView";
+import type { TranslateFn } from "@/i18n/translation-core";
 
-// ============================================================================
-// TYPES
-// ============================================================================
 interface TestimonialsSectionProps {
-    translate: (key: string) => string;
+    translate: TranslateFn;
     homeData: MappedHomeData;
 }
 
-// ============================================================================
-// COMPONENT
-// ============================================================================
-/**
- * TestimonialsSection Component
- * Displays curated client feedback cards in a responsive grid layout.
- */
 export default function TestimonialsSection({
     translate,
     homeData,
@@ -38,7 +31,7 @@ export default function TestimonialsSection({
                 <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {featuredTestimonials.map((testimonial, index) => (
                         <AnimatedSection
-                            key={testimonial.id ?? testimonial.clientName}
+                            key={testimonial.slug ?? testimonial.id ?? index}
                             delay={index * 0.08}
                         >
                             <TestimonialCard testimonial={testimonial} />

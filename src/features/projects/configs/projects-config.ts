@@ -2,7 +2,14 @@
 
 import type { TranslateFn } from "@/i18n/translation-core";
 
-export const PROJECT_FILTER_KEYS = ["android", "kmp", "flutter"] as const;
+export const PROJECT_FILTER_KEYS = [
+    "android",
+    "ios",
+    "kmp",
+    "cmp",
+    "flutter",
+] as const;
+
 export type ProjectFilterKey = (typeof PROJECT_FILTER_KEYS)[number];
 
 export interface ProjectsGridConfig {
@@ -19,7 +26,9 @@ export interface ProjectsGridConfig {
     };
 }
 
-export function getProjectsGridConfig(translate: TranslateFn): ProjectsGridConfig {
+export function getProjectsGridConfig(
+    translate: TranslateFn
+): ProjectsGridConfig {
     return {
         allLabel: translate("projects.filters.all"),
         filters: PROJECT_FILTER_KEYS.map((key) => ({

@@ -1,5 +1,3 @@
-// src/i18n/locales/en/index.ts
-
 import ui from "./ui.json";
 import seo from "./seo.json";
 import about from "./about.json";
@@ -22,6 +20,7 @@ const en = {
 
     // Direct Aliases for item datasets
     projectsData: projects.items,
+    testimonialsData: testimonials.items,
     experiencesData: experiences.items,
     aboutData: about,
 };

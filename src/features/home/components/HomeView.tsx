@@ -5,8 +5,9 @@ import FeaturedProjects from "./FeaturedProjects";
 import ProcessSection from "./ProcessSection";
 import TestimonialsSection from "./TestimonialsSection";
 
-import { getHomeData } from "@/features/home/data";
-import { Locale } from "next-intl";
+import type { getHomeData } from "@/features/home/data";
+import type { Locale } from "@/i18n/config";
+import type { TranslateFn } from "@/i18n/translation-core";
 
 // ============================================================================
 // TYPES
@@ -28,7 +29,7 @@ export interface ProcessStep {
 
 interface HomeViewProps {
     locale: Locale;
-    translate: (key: string) => string;
+    translate: TranslateFn;
     homeData: MappedHomeData;
     processSteps: ProcessStep[];
 }

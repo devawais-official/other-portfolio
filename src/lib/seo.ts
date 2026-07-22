@@ -12,31 +12,15 @@ const localizedDefaults: Record<Locale, { title: string; description: string }> 
         title: `محمد اویس — سینئر موبائل ایپ ڈویلپر (اینڈرائیڈ ، فلاتر)`,
         description: "محمد اویس (Devawais) کا پورٹ فولیو — سینئر موبائل اور فلٹر ایپ ڈویلپر۔",
     },
-    ar: {
-        title: `محمد أويس — مطوّر تطبيقات جوال أول (أندرويد وفلاتر)`,
-        description: "محفظة أعمال محمد أويس — مطور تطبيقات جوال أول متخصص في أندرويد وفلاتر وكوتلن.",
-    },
-    fr: {
-        title: `Muhammad Awais — Développeur Mobile Senior (Android, Flutter, KMP)`,
-        description:
-            "Engagez Muhammad Awais (Devawais), développeur mobile senior spécialisé en Kotlin Multiplatform, Android et Flutter.",
-    },
-    tr: {
-        title: `Muhammad Awais — Kıdemli Mobil Geliştirici (Android, Flutter)`,
-        description:
-            "Kotlin Multiplatform, Android ve Flutter konularında uzman kıdemli mobil geliştirici Muhammad Awais.",
-    },
+
 };
 
 const ogLocaleMap: Record<Locale, string> = {
     en: "en_US",
     ur: "ur_PK",
-    ar: "ar_SA",
-    fr: "fr_FR",
-    tr: "tr_TR",
 };
 
-export const rtlLocales: Locale[] = ["ur", "ar"];
+export const rtlLocales: Locale[] = ["ur"];
 
 export function buildSharedFields(locale: Locale, path: string, title: string, description: string): Metadata {
     const languageAlternates = Object.fromEntries(

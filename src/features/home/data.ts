@@ -1,4 +1,3 @@
-// src/features/home/data/index.ts
 import { stats, testimonials, rawProjects } from "@/data/index";
 import { getTranslationServer } from "@/i18n/i18n-server";
 import { Locale } from "@/i18n/config";
@@ -11,7 +10,7 @@ export const getHomeData = async (locale: Locale) => {
         rawProjects.slice(0, 3),
         "projectsData",
         translate,
-        (t) => ({
+        (t: (key: string) => string) => ({
             title: t("title"),
             summary: t("summary"),
             category: t("category"),
@@ -22,7 +21,7 @@ export const getHomeData = async (locale: Locale) => {
         testimonials.slice(0, 3),
         "testimonialsData",
         translate,
-        (t) => ({
+        (t: (key: string) => string) => ({
             message: t("message"),
         })
     );
