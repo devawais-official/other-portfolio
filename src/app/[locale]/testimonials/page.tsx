@@ -2,12 +2,12 @@
 
 import { getTranslationServer } from "@/i18n/i18n-server";
 import { generatePageMetadata } from "@/lib/metadata";
-import TestimonialsView from "@/features/testimonials/components/TestimonialsView";
 import type { Metadata } from "next";
 import { testimonials as rawTestimonials } from "@/data";
 import { getStandardPageLabels } from "@/lib/utils";
 import { resolveLocale } from "@/i18n/config";
 import type { RawTestimonial, Testimonial } from "@/features/testimonials/types";
+import TestimonialsView from "@/features/testimonials/components/TestimonialsView";
 
 interface TestimonialsPageProps {
   params: Promise<{ locale: string }>;

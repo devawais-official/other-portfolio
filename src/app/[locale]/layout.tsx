@@ -1,4 +1,3 @@
-// src/app/[locale]/layout.tsx
 import "@/styles/globals.css";
 
 import SchemaMarkup from "@/components/seo/SchemaMarkup";
@@ -24,22 +23,36 @@ const Footer = dynamic(() => import("@/components/layout/Footer"), {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: string }> | { locale: string };
 }): Promise<Metadata> {
-  const { locale } = await params;
-  return getMetadata(locale);
+  try {
+    const resolvedParams = await params;
+    const rawLocale = resolvedParams?.locale;
+    const locale = locales.includes(rawLocale as Locale) ? (rawLocale as Locale) : defaultLocale;
+    return getMetadata(locale);
+  } catch {
+    return getMetadata(defaultLocale);
+  }
 }
 
 type RootLayoutProps = {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: Promise<{ locale: string }> | { locale: string };
 };
 
 export default async function RootLayout({
   children,
   params,
 }: RootLayoutProps) {
-  const { locale: rawLocale } = await params;
+  let rawLocale = defaultLocale;
+
+  try {
+    const resolvedParams = await params;
+    rawLocale = resolvedParams?.locale;
+  } catch {
+    // Fallback agar params resolve na hon
+  }
+
   const locale: Locale = locales.includes(rawLocale as Locale)
     ? (rawLocale as Locale)
     : defaultLocale;
@@ -57,7 +70,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir={dir}
-      className={`${fontClasses} scroll-smooth`} // 'dark' yahan se remove kar diya gaya hai
+      className={`${fontClasses} scroll-smooth`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >

@@ -4,10 +4,7 @@ import { getTranslationServer } from "@/i18n/i18n-server";
 import { generatePageMetadata } from "@/lib/metadata";
 import { getStandardPageLabels } from "@/lib/utils";
 import ServicesView from "@/features/services/components/ServicesView";
-import {
-  getLocalizedServices,
-  type RawService,
-} from "@/features/services/configs/services-config";
+import { getLocalizedServices, type RawService, } from "@/features/services/configs/services-config";
 import rawServices from "@/data/services.json";
 import type { Metadata } from "next";
 import { resolveLocale } from "@/i18n/config";
