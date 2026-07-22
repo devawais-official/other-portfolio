@@ -1,4 +1,4 @@
-// src/components/ui/LiquidMetalButton.tsx
+
 "use client";
 
 import React, { useState, useRef, useEffect, useMemo } from "react";
@@ -206,10 +206,10 @@ export function LiquidMetalButton({
                     >
                         <div
                             className={`h-full w-full rounded-full bg-transparent transition-all ${isPressed
-                                    ? "shadow-sm"
-                                    : isHovered
-                                        ? "shadow-lg shadow-primary/20"
-                                        : "shadow-md shadow-primary/10"
+                                ? "shadow-sm"
+                                : isHovered
+                                    ? "shadow-lg shadow-primary/20"
+                                    : "shadow-md shadow-primary/10"
                                 }`}
                             style={{ transition: `${SMOOTH_TRANSITION}, box-shadow 0.15s` }}
                         >

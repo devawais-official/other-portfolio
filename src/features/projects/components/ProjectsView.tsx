@@ -1,4 +1,4 @@
-// src/features/projects/components/ProjectsView.tsx
+
 "use client";
 
 import { useMemo } from "react";

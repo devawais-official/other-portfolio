@@ -1,4 +1,4 @@
-// src/features/services/configs/services-config.ts
+
 
 import type { TranslateFn } from "@/i18n/translation-core";
 import {
@@ -9,7 +9,7 @@ import {
     type IconProps,
 } from "@/components/icons/icons";
 
-// Standard Normalized Icon Registry
+
 export const SERVICES_ICON_MAP: Record<string, React.ComponentType<IconProps>> = {
     android: AndroidIcon,
     compose: ComposeMultiplatformIcon,
@@ -17,7 +17,7 @@ export const SERVICES_ICON_MAP: Record<string, React.ComponentType<IconProps>> =
     architecture: StackOutlinedIcon,
 };
 
-// Raw JSON Structure matching src/data/services.json
+
 export interface RawService {
     id: number;
     slug: string;
@@ -25,7 +25,7 @@ export interface RawService {
     tech: string[];
 }
 
-// Resulting Localized Service Object
+
 export interface LocalizedServiceItem {
     id: string;
     slug: string;

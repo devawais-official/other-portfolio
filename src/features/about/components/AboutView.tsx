@@ -1,10 +1,10 @@
-// src/features/about/components/AboutView.tsx
+
 "use client";
 
 import PageHeader from "@/components/ui/PageHeader";
 import type { StandardPageLabels } from "@/lib/utils";
 
-// Local Feature Sub-components
+
 import AboutBioCard from "./AboutBioCard";
 import AboutExpertise from "./AboutExpertise";
 import AboutTimeline from "./AboutTimeline";

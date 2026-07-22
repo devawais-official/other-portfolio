@@ -1,4 +1,4 @@
-// src/app/[locale]/contact/page.tsx
+
 
 import { getTranslationServer } from "@/i18n/i18n-server";
 import { generatePageMetadata } from "@/lib/metadata";

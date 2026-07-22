@@ -1,4 +1,3 @@
-// src/features/about/components/AboutExpertise.tsx
 "use client";
 
 import SectionHeader from "@/components/ui/SectionHeader";
@@ -56,9 +55,9 @@ export default function AboutExpertise({ expertiseGroups }: AboutExpertiseProps)
   const { translate } = useI18n();
 
   return (
-    <div className="flex h-full flex-col justify-between">
-      {/* Section Header */}
-      <div>
+    <div className="flex h-full flex-col justify-between pt-1">
+      {/* Section Header with Proper Spacing Alignment */}
+      <div className="mb-6">
         <SectionHeader
           eyebrow={translate("about.expertiseTitle")}
           title={translate("about.expertiseSubtitle")}

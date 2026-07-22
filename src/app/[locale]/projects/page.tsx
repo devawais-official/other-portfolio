@@ -1,4 +1,4 @@
-// src/app/[locale]/projects/page.tsx
+
 
 import { getTranslationServer } from "@/i18n/i18n-server";
 import { getStandardPageLabels } from "@/lib/utils";

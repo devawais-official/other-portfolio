@@ -1,4 +1,4 @@
-// src/app/[locale]/about/page.tsx
+
 
 import { getTranslationServer } from "@/i18n/i18n-server";
 import { getAboutData } from "@/features/about/data";

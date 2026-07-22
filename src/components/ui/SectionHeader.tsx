@@ -1,4 +1,4 @@
-// src/components/ui/SectionHeader.tsx
+
 import Link from "next/link";
 import { ArrowUpRightIcon } from "../icons/icons";
 import { cn } from "@/lib/utils";

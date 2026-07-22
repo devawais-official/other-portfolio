@@ -1,4 +1,4 @@
-// src/features/testimonials/types.ts
+
 
 export interface RawTestimonial {
     id: number;

@@ -1,4 +1,4 @@
-// src/features/home/components/FeaturedProjects.tsx
+
 
 import SectionHeader from "@/components/ui/SectionHeader";
 import ProjectGridCard from "@/features/projects/components/ProjectGridCard";

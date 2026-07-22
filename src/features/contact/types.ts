@@ -1,4 +1,4 @@
-// src/features/contact/types/index.ts
+
 
 import type { ComponentType } from "react";
 

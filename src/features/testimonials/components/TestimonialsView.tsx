@@ -1,4 +1,4 @@
-// src/features/testimonials/components/TestimonialsView.tsx
+
 "use client";
 
 import PageHeader from "@/components/ui/PageHeader";

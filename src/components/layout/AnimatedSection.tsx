@@ -16,7 +16,7 @@ export const AnimatedSection = ({
 }: AnimatedSectionProps) => {
   const shouldReduceMotion = useReducedMotion();
 
-  // Initial and in-view state logic respecting prefers-reduced-motion
+
   const initial = shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 };
   const animate = { opacity: 1, y: 0 };
 

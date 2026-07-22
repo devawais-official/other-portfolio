@@ -1,4 +1,4 @@
-// src/features/testimonials/components/TestimonialCard.tsx
+
 "use client";
 
 import React from "react";

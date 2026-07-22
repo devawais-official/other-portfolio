@@ -1,4 +1,4 @@
-// src/features/home/components/TestimonialsSection.tsx
+
 
 import SectionHeader from "@/components/ui/SectionHeader";
 import TestimonialCard from "@/features/testimonials/components/TestimonialCard";

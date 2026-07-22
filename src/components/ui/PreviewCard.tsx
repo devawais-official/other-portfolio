@@ -1,4 +1,4 @@
-// src/components/ui/PreviewCard.tsx
+
 "use client";
 
 import { useState, type ReactNode } from "react";
@@ -39,6 +39,9 @@ export interface PreviewCardProps {
 // ============================================================================
 // SUB-COMPONENTS
 // ============================================================================
+// ============================================================================
+// SUB-COMPONENTS
+// ============================================================================
 function ActionLink({ action }: { action: CardAction }) {
   const isPrimary = action.variant === "primary";
   const href = action.href || "#";
@@ -51,7 +54,9 @@ function ActionLink({ action }: { action: CardAction }) {
     ? "border border-primary bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
     : "border border-border-strong bg-surface-elevated text-heading shadow-sm hover:border-primary hover:bg-surface";
 
-  const textStyles = isPrimary ? "!text-primary-foreground" : "!text-heading hover:!text-accent";
+
+  const textStyles = isPrimary ? "!text-primary-foreground font-extrabold" : "!text-heading hover:!text-accent";
+  const iconColorClass = isPrimary ? "[&_svg]:text-primary-foreground [&_svg]:fill-primary-foreground" : "[&_svg]:text-accent";
 
   if (action.isExternal) {
     return (
@@ -60,7 +65,7 @@ function ActionLink({ action }: { action: CardAction }) {
         target="_blank"
         rel="noopener noreferrer"
         onClick={(e) => e.stopPropagation()}
-        className={`${baseStyles} ${variantStyles}`}
+        className={`${baseStyles} ${variantStyles} ${iconColorClass}`}
       >
         {action.icon}
         <span className={textStyles}>{action.label}</span>
@@ -72,14 +77,13 @@ function ActionLink({ action }: { action: CardAction }) {
     <Link
       href={href}
       onClick={(e) => e.stopPropagation()}
-      className={`${baseStyles} ${variantStyles}`}
+      className={`${baseStyles} ${variantStyles} ${iconColorClass}`}
     >
       {action.icon}
       <span className={textStyles}>{action.label}</span>
     </Link>
   );
 }
-
 // ============================================================================
 // COMPONENT
 // ============================================================================

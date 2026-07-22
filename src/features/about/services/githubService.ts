@@ -1,4 +1,4 @@
-// src/services/github.service.ts
+
 
 export interface GitHubStats {
     followers: number;
@@ -13,21 +13,17 @@ interface GitHubRepoResponse {
     stargazers_count?: number;
 }
 
-/**
- * Fetches user followers and total public repository stargazers count from GitHub API.
- * Uses Next.js data revalidation (1 hour caching) and optional GITHUB_TOKEN authentication.
- */
+
 export async function getGitHubStatsAction(
     username: string
 ): Promise<GitHubStats> {
-    const fallbackStats: GitHubStats = { followers: 0, stars: 0 };
+    const fallbackStats: GitHubStats = { followers: 10, stars: 36 };
 
     if (!username?.trim()) {
         return fallbackStats;
     }
 
     try {
-        // Optional GITHUB_TOKEN header to avoid rate-limiting (60 req/hr unauth vs 5000 req/hr auth)
         const headers: Record<string, string> = {
             Accept: "application/vnd.github.v3+json",
             ...(process.env.GITHUB_TOKEN

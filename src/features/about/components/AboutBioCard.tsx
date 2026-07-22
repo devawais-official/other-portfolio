@@ -1,7 +1,7 @@
-// src/features/about/components/AboutBioCard.tsx
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { siteConfig } from "@/lib/site-config";
 import { useI18n } from "@/i18n/i18n-client";
 import data from "@/data/personal-data.json";
@@ -46,7 +46,6 @@ export default function AboutBioCard({ stats, tagline, availability }: AboutBioC
     };
   }, []);
 
-  // --- Fallbacks ---
   const finalTagline =
     !tagline || tagline === "aboutData.roleVal" || tagline === "aboutData.role"
       ? translate("aboutData.roleVal") || "Mobile App Developer"
@@ -64,16 +63,22 @@ export default function AboutBioCard({ stats, tagline, availability }: AboutBioC
     { label: translate("aboutData.stats.stores"), value: stats.appsOnStores },
   ];
 
-  const initials = siteConfig.shortName || "MA";
   const resumeHref = "/resume.pdf";
 
   return (
     <AnimatedSection className="card-surface flex min-h-[500px] flex-col justify-between gap-8 p-6 pb-8">
-      {/* Top Section: Avatar + Identity + Key Metadata */}
+      {/* Top Section: Dev Picture Avatar + Identity + Key Metadata */}
       <div>
         <div className="mb-6 flex items-center justify-between">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-border/40 bg-primary/15 font-display text-lg font-bold text-primary-light">
-            {initials}
+          <div className="relative h-14 w-14 overflow-hidden rounded-2xl border border-border/40 bg-primary/15 shadow-sm">
+            <Image
+              src="/brand/dev-pic.webp"
+              alt={siteConfig.name}
+              fill
+              className="object-cover object-top"
+              sizes="56px"
+              priority
+            />
           </div>
           <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-widest text-primary-light">
             {finalAvailability}

@@ -1,4 +1,4 @@
-// src/i18n/locales/en/index.ts
+
 
 import ui from "./ui.json";
 import seo from "./seo.json";
@@ -20,7 +20,7 @@ const ur = {
     experiences,
     blog,
 
-    // Direct Aliases for item datasets
+
     projectsData: projects.items,
     experiencesData: experiences.items,
     aboutData: about,

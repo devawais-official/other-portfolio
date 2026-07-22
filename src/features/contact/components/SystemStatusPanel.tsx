@@ -1,4 +1,4 @@
-// src/features/contact/components/SystemStatusPanel.tsx
+
 "use client";
 
 import { MapPinIcon } from "@/components/icons/icons";

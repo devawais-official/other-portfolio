@@ -1,4 +1,4 @@
-// src/components/layout/SectionWrapper.tsx
+
 import React from "react";
 import GradientBlob from "../ui/GradientBlob";
 import { cn } from "@/lib/utils";
@@ -27,7 +27,7 @@ export default function SectionWrapper({
     id,
 }: SectionWrapperProps) {
     return (
-        // 'py-20 md:py-28' yahan se hata diya gaya hai taake custom class control kare
+
         <section id={id} className={cn("relative overflow-hidden", className)}>
             {showBlobs && (
                 <>

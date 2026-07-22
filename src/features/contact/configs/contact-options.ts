@@ -1,4 +1,4 @@
-// src/features/contact/configs/contact-options.ts
+
 
 import { socialLinks } from "@/lib/site-config";
 import type { ContactOption } from "../types";

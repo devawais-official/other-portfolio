@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 interface SchemaMarkupProps {
   type?: "Person" | "Article" | "SoftwareApplication" | "WebSite";
   data: Record<string, any> | Record<string, any>[];

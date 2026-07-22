@@ -1,38 +1,55 @@
 {
     "items": {
-        "egora": {
-            "role": "Senior Mobile Developer",
-            "description": "Architecting enterprise-scale Android & Kotlin Multiplatform (KMP) ecosystems. Led a 40% performance gain in mission-critical hardware integrations and designed shared multiplatform codebases with a zero-failure deployment record.",
+        "quickgem": {
+            "role": "Sr. Mobile Application Developer",
+            "description": "Architecting a high-scale, multitenant HealthTech ecosystem by consolidating legacy doctor and patient applications into a unified codebase using Jetpack Compose and MVI architecture. Integrated low-latency Agora SDK telehealth features and reactive hardware drivers for 6-in-1 medical monitors.",
             "achievements": [
-                "Shipped 3 production apps across Android and KMP",
-                "Mentored 2 junior developers",
-                "Reduced app crashes by 40%"
+                "Unified legacy doctor and patient apps into a single Jetpack Compose & MVI codebase",
+                "Integrated Agora SDK for low-latency video calls and real-time doctor-patient chat",
+                "Architected reactive integrations for Spectra Care 6-in-1 medical hardware and EHR SOAP APIs"
+            ]
+        },
+        "egora": {
+            "role": "Sr. Mobile Application Developer",
+            "description": "Engineered high-scale reservation modules using Flutter, Dio, and GetIt, driving a 30% boost in customer adoption. Architected Jetpack Compose apps for Bluetooth thermal printing and integrated high-throughput payment gateways.",
+            "achievements": [
+                "Engineered core reservation system in Flutter, driving a 30% increase in customer adoption",
+                "Architected Bluetooth thermal printer integration achieving 100% reliability and 50% reduced query latency",
+                "Integrated XStax payment gateway processing 10k+ monthly transactions with 99% uptime"
             ]
         },
         "healthwire": {
-            "role": "Software Engineer, Mobile Developer",
-            "description": "Revolutionized healthcare delivery via advanced Google Maps location intelligence. Scaled a modular Clean Architecture core that streamlined client applications for thousands of active daily healthcare providers.",
+            "role": "Software Engineer, Android Developer",
+            "description": "Developed a dual-app Patient/Doctor ecosystem using MVVM, Hilt/Dagger, Coroutines, and Flow. Scaled telehealth capabilities via Twilio video, secured local payment gateways, and migrated legacy UI to Jetpack Compose.",
             "achievements": [
-                "Scaled app to 2M+ downloads",
-                "Implemented complex payment integration",
-                "Built location-based services"
+                "Boosted user engagement by 15% through Twilio video consultations and deep-link navigation",
+                "Maintained a 99%+ crash-free rate across dual apps via Firebase Crashlytics and Room DB optimization",
+                "Integrated Meezan, JazzCash, and Foree payment gateways with 100% security compliance"
             ]
         },
         "dongamers": {
-            "role": "Senior Mobile App Developer",
-            "description": "Engineered high-frequency e-sports systems handling real-time chat and tournament data. Successfully solved high-latency challenges in global gaming platforms with 92% reactive state stability.",
+            "role": "Senior Android Developer",
+            "description": "Led mobile engineering for an international gaming platform[cite: 1]. Migrated legacy Java code to Kotlin, architected real-time chat infrastructure using Pusher, and optimized monetization frameworks[cite: 1].",
             "achievements": [
-                "Shipped 5+ production apps",
-                "Learned modern Android stack",
-                "Improved code quality practices"
+                "Elevated app stability to 99% crash-free sessions and reduced production bugs by 20%[cite: 1]",
+                "Migrated app from Java to Kotlin with global availability (99% coverage)[cite: 1]",
+                "Architected real-time chat using Pusher (+15% engagement) and boosted sales by 10% via AdMob/IAP[cite: 1]"
+            ]
+        },
+        "freelance": {
+            "role": "Freelance Mobile Developer",
+            "description": "Architected and delivered responsive cross-platform mobile applications using Flutter and Dart for international clients, managing full lifecycle delivery from UI prototyping to API integration[cite: 1].",
+            "achievements": [
+                "Delivered high-fidelity cross-platform Flutter solutions, accelerating client time-to-market[cite: 1]",
+                "Managed end-to-end development lifecycles and stakeholder technical consultations[cite: 1]"
             ]
         },
         "netroots": {
-            "role": "Android Developer",
-            "description": "Developed high-retention consumer Android apps with a focus on UI/UX excellence and robust RESTful API integrations using Kotlin.",
+            "role": "Android Developer Intern",
+            "description": "Developed enterprise Java applications, including a GPS-based attendance system with image validation and automated HR administrative workflows[cite: 1].",
             "achievements": [
-                "Learned modern Android stack",
-                "Improved code quality practices"
+                "Engineered Java GPS attendance system with image validation, boosting accuracy by 40%[cite: 1]",
+                "Automated HR profiling workflows, reducing manual administrative overhead by 50%[cite: 1]"
             ]
         }
     }

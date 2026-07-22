@@ -41,19 +41,16 @@ export function proxy(request: NextRequest) {
         upgrade-insecure-requests;
     `.replace(/\s{2,}/g, ' ').trim();
 
-    // Headers set karne ke liye clone banayein
     const requestHeaders = new Headers(request.headers);
     requestHeaders.set('x-nonce', nonce);
     requestHeaders.set('Content-Security-Policy', cspHeader);
 
-    // Final optimized next response with headers injection
     const response = NextResponse.next({
         request: {
             headers: requestHeaders,
         },
     });
 
-    // Browser enforcement active karne ke liye response par headers lagayein
     response.headers.set('Content-Security-Policy', cspHeader);
 
     return response;

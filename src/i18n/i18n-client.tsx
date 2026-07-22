@@ -41,7 +41,7 @@ export function I18nProvider({
         document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
         setLocale(newLocale);
 
-        // Smooth Next.js server-revalidation without hard page refresh
+
         startTransition(() => {
             router.refresh();
         });

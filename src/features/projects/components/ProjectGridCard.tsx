@@ -1,4 +1,4 @@
-// src/features/projects/components/ProjectGridCard.tsx
+
 "use client";
 
 import Image from "next/image";
@@ -33,7 +33,7 @@ export default function ProjectGridCard({
   project,
   labels,
 }: ProjectGridCardProps) {
-  // Media Block Representation
+
   const media = project.image ? (
     <div className="relative flex h-full w-full flex-col items-center justify-center pb-4 pt-8">
       <div
@@ -61,7 +61,7 @@ export default function ProjectGridCard({
     </div>
   );
 
-  // Badges & Tags Mapping
+
   const badges: CardBadge[] = [
     { text: project.platform, variant: "primary" },
     { text: project.category, variant: "secondary" },
@@ -71,7 +71,7 @@ export default function ProjectGridCard({
   const actions: CardAction[] = [];
   const storeIconStyle = "h-3.5 w-3.5 shrink-0";
 
-  // Clean Store URL Resolution
+
   const playStoreUrl =
     [project.url, project.iosUrl].find((link) =>
       link?.includes("play.google.com")

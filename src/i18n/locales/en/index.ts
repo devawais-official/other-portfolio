@@ -18,7 +18,7 @@ const en = {
     experiences,
     blog,
 
-    // Direct Aliases for item datasets
+
     projectsData: projects.items,
     testimonialsData: testimonials.items,
     experiencesData: experiences.items,

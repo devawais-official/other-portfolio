@@ -1,4 +1,4 @@
-// src/features/blog/components/BlogView.tsx
+
 "use client";
 
 import PageHeader from "@/components/ui/PageHeader";

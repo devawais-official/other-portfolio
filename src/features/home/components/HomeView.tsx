@@ -1,4 +1,4 @@
-// src/features/home/components/HomeView.tsx
+
 import React from "react";
 import HeroSection from "./HeroSection";
 import FeaturedProjects from "./FeaturedProjects";

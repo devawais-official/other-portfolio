@@ -9,11 +9,11 @@
         "testimonials": "Testimonials"
     },
     "cta": {
-        "bookedStatus": "Currently booking Q3 2026",
-        "title": "Have a mobile app idea that needs to ship?",
-        "description": "Tell me about your product and platform needs — I'll reply within one business day with next steps.",
+        "bookedStatus": "Currently booking Q3 2026 engagements",
+        "title": "Have a high-scale mobile app idea or multiplatform project?",
+        "description": "Tell me about your product goals, architecture needs, or KMP/Flutter migration — I'll reply within one business day with a clear technical roadmap.",
         "startProject": "Start a project",
-        "seeWork": "See my work"
+        "seeWork": "Explore portfolio"
     },
     "footer": {
         "copyright": "© {year} Muhammad Awais. All rights reserved.",
@@ -22,89 +22,89 @@
         "specialties": "Specialties",
         "getInTouch": "Get in touch",
         "specialtiesList": [
-            "Native Android (Kotlin)",
-            "Kotlin Multiplatform",
-            "Compose Multiplatform",
-            "Flutter & Cross-platform"
+            "Native Android (Kotlin & Java)",
+            "Kotlin Multiplatform (KMP)",
+            "Compose Multiplatform (CMP)",
+            "Flutter Cross-Platform"
         ]
     },
     "profile": {
-        "title": "Mobile App Developer",
-        "subtitle": "Android • Kotlin Multiplatform • Compose Multiplatform • Flutter",
-        "bio": "Mobile developer with 4+ years shipping production apps. Specialized in Android native, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), and Flutter. Building scalable, maintainable cross-platform systems with clean architecture.",
-        "location": "Lahore, Pakistan",
-        "availability": "Open to opportunities"
+        "title": "Senior Mobile App Developer & Architect",
+        "subtitle": "Native Android • Kotlin Multiplatform (KMP) • Compose Multiplatform (CMP) • Flutter",
+        "bio": "Senior Mobile App Developer with 6+ years of engineering experience shipping scalable production apps for HealthTech, FinTech, IoT, and E-commerce. Specialized in Native Android, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), and Flutter with Clean Architecture and MVI/MVVM design patterns.",
+        "location": "Lahore, Pakistan (Available Globally)",
+        "availability": "Open for Senior Roles & Strategic Consulting"
     },
     "skills": {
-        "title": "Technical Skills",
-        "subtitle": "My professional toolkit across ecosystems",
-        "languages": "Languages",
-        "android": "Native Android",
-        "multiplatform": "Multiplatform (KMP/CMP)",
-        "flutter": "Flutter",
-        "architecture": "Architecture & Practices",
-        "tools": "Tools & Integrations"
+        "title": "Technical Arsenal",
+        "subtitle": "My professional toolkit across native and multiplatform ecosystems",
+        "languages": "Languages (Kotlin, Dart, Java)",
+        "android": "Native Android (Jetpack Compose, TV, Custom UI)",
+        "multiplatform": "Multiplatform (KMP & CMP)",
+        "flutter": "Flutter (BLoC, Riverpod, GetIt)",
+        "architecture": "Architecture & Async (Clean, MVI, MVVM, Coroutines)",
+        "tools": "IoT, Payments & DevOps (Agora, Hardware SDKs, CI/CD)"
     },
     "home": {
-        "availability": "Available for freelance projects",
-        "heading1": "Mobile apps that ship once, ",
-        "heading2": "run everywhere.",
-        "description": "I'm Muhammad Awais, a mobile app developer with a strong foundation in native Android (Kotlin & Java), plus 2+ years building production apps with Kotlin Multiplatform, Compose Multiplatform, and Flutter.",
+        "availability": "Available for contract & full-cycle development",
+        "heading1": "High-performance mobile apps. ",
+        "heading2": "Native, KMP, & Flutter.",
+        "description": "I'm Muhammad Awais, a Senior Mobile Developer with 6+ years of experience engineering robust mobile systems. I specialize in Native Android (Kotlin/Java), Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), and Flutter—maintaining a 99%+ crash-free rate across 25+ deployed applications.",
         "buttonStart": "Start a project",
-        "buttonView": "View projects",
-        "skillsEyebrow": "ToolKit",
+        "buttonView": "View selected work",
+        "skillsEyebrow": "Tech Stack",
         "skillsTitle": "Technical Skills",
         "stats": {
-            "experience": "Years experience",
-            "completed": "Projects completed",
-            "stores": "Apps on stores"
+            "experience": "6+ Years Experience",
+            "completed": "25+ Projects Deployed",
+            "stores": "Apps on Store"
         },
-        "selectedWork": "Selected work",
-        "recentProjects": "Recent projects",
-        "allProjectsLink": "All projects",
-        "processTitle": "How engagements work",
-        "processSubtitle": "A process built around shipping, not meetings",
+        "selectedWork": "Selected Work",
+        "recentProjects": "Featured Production Projects",
+        "allProjectsLink": "View all projects",
+        "processTitle": "How Engagements Work",
+        "processSubtitle": "A pragmatic process built around shipping resilient, scalable code",
         "processSteps": {
             "01": {
-                "title": "Discovery",
-                "body": "A focused call to define scope, platforms, and what 'done' looks like for launch."
+                "title": "Discovery & Scoping",
+                "body": "A deep dive into scope, key platform requirements (Android, iOS, KMP, or Flutter), and clear engineering milestones."
             },
             "02": {
-                "title": "Architecture",
-                "body": "I design the module structure — Clean Architecture layers, shared vs. platform code — before writing UI."
+                "title": "Architecture First",
+                "body": "Designing modular Clean Architecture—shared KMP business logic, predictable MVI/MVVM state management, and decoupled platform UI."
             },
             "03": {
-                "title": "Build",
-                "body": "Weekly builds you can install and test on a real device, not just progress reports."
+                "title": "Iterative Build",
+                "body": "Weekly production-grade builds you can install and test on physical devices, backed by CI/CD automation."
             },
             "04": {
-                "title": "Ship",
-                "body": "Store listing, release pipeline, and a handover doc your future team can actually use."
+                "title": "Ship & Scale",
+                "body": "Store launch, release pipelines setup, crash reporting, and a comprehensive technical handover for long-term scalability."
             }
         },
-        "feedbackTitle": "Client feedback",
-        "feedbackSubtitle": "What clients say",
-        "allTestimonialsLink": "All testimonials"
+        "feedbackTitle": "Client Feedback",
+        "feedbackSubtitle": "What engineering leaders and founders say",
+        "allTestimonialsLink": "Read all testimonials"
     },
     "contact": {
         "title": "Contact",
-        "headerTitle": "Tell me about what you're building.",
-        "headerDesc": "Reach out directly via email or connect on professional channels — I reply personally within one business day.",
+        "headerTitle": "Let's build your next mobile milestone.",
+        "headerDesc": "Reach out directly via email or connect on professional channels — I reply within one business day.",
         "locationTitle": "Location",
         "form": {
             "nameLabel": "Name",
             "emailLabel": "Email",
-            "platformLabel": "Platform",
+            "platformLabel": "Platform (Android / KMP / CMP / Flutter)",
             "budgetLabel": "Budget range",
-            "detailsLabel": "Project details",
+            "detailsLabel": "Project details or role scope",
             "buttonSend": "Send message",
-            "successTitle": "Message sent",
-            "successMessage": "Thanks for reaching out — I read every message myself."
+            "successTitle": "Message sent successfully",
+            "successMessage": "Thanks for reaching out — I read and respond to every inquiry promptly."
         }
     },
     "notfound": {
-        "eyebrow": "404",
+        "eyebrow": "404 Error",
         "title": "This screen doesn't exist.",
-        "button": "Back to home"
+        "button": "Back to Home"
     }
 }

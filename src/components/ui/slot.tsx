@@ -1,4 +1,4 @@
-// src/components/ui/Slot.tsx
+
 import { cloneElement, isValidElement, forwardRef } from "react";
 import type { HTMLAttributes, ReactElement, Ref } from "react";
 import { cn } from "@/lib/utils";

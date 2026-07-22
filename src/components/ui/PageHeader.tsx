@@ -1,4 +1,4 @@
-// src/components/layout/PageHeader.tsx
+
 import React from "react";
 import { AnimatedSection } from "../layout/AnimatedSection";
 

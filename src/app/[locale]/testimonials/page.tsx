@@ -1,4 +1,4 @@
-// src/app/[locale]/testimonials/page.tsx
+
 
 import { getTranslationServer } from "@/i18n/i18n-server";
 import { generatePageMetadata } from "@/lib/metadata";
@@ -25,7 +25,7 @@ export default async function TestimonialsPage({ params }: TestimonialsPageProps
   const translate = getTranslationServer(locale);
   const labels = getStandardPageLabels(translate, "testimonials");
 
-  // Map raw data safely to include translated messages
+
   const testimonials: Testimonial[] = (rawTestimonials as RawTestimonial[]).map((item) => ({
     ...item,
     message: translate(`testimonials.items.${item.slug}.message`),

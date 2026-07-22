@@ -1,18 +1,30 @@
 {
-    "title": "Testimonials",
-    "headerTitle": "What it's like to work together.",
-    "headerDesc": "Don't just take my word for it—here is what founders, product leads, and partners have to say about our collaborations.",
+    "title": "Client Reviews & Testimonials",
+    "headerTitle": "Trusted by Engineering Leaders, Founders & Product Teams",
+    "headerDesc": "Authentic feedback from technical founders, product leads, and healthcare partners on shipping scalable Android, Kotlin Multiplatform, and Flutter applications.",
     "items": {
         "louis-wong": {
+            "name": "Louis Wong",
+            "role": "Product Lead & Engineering Partner",
+            "project": "Mobile Performance Optimization",
             "message": "Working with Awais was a great experience. He optimized our application, reduced its RAM usage, and improved performance by 30%. His expertise in code optimization and shared architectures made a noticeable impact on our product quality."
         },
         "nasir": {
+            "name": "Nasir",
+            "role": "Software Architect & Client",
+            "project": "Android & KMP Architecture",
             "message": "Awais did great work on our app. His attention to detail, clean architecture, and focus on solid, maintainable code made the entire development process smooth from start to finish. Highly recommended for any serious Android or Kotlin Multiplatform project."
         },
         "ahsan": {
+            "name": "Ahsan",
+            "role": "Product Founder",
+            "project": "Eco Grocery App",
             "message": "Awais built our Eco Grocery app end-to-end, from the barcode scanner to the recipe recommendation engine. The app runs smoothly, the architecture is clean, and it has genuinely improved how our users manage their groceries and expiry tracking."
         },
         "spectra-care": {
+            "name": "Spectra Care Engineering Team",
+            "role": "Healthcare & Telehealth Partner",
+            "project": "Spectra Care Telehealth & IoT Platform",
             "message": "Awais delivered an outstanding telehealth app for our hospital, integrating video consultations and IoT health monitor data reliably. Our patients and doctors both rely on the app daily, and it has held up flawlessly under real-world clinical use."
         }
     }

@@ -1,4 +1,4 @@
-// src/features/blog/components/BlogCard.tsx
+
 "use client";
 
 import { useState } from "react";

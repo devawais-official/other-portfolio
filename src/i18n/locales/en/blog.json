@@ -1,8 +1,8 @@
 {
-    "title": "Blog",
-    "headerTitle": "Articles & Insights",
-    "headerDesc": "Thoughts on Android, Kotlin Multiplatform, and mobile software architecture.",
+    "title": "Technical Articles & Engineering Insights",
+    "headerTitle": "Mobile Architecture & Tech Insights",
+    "headerDesc": "Deep dives into Native Android, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), Flutter, and production-grade Clean Architecture.",
     "minRead": "min read",
-    "readArticle": "Read article",
-    "emptyState": "No articles found at the moment. Check back soon!"
+    "readArticle": "Read full article",
+    "emptyState": "Articles on KMP, Compose Multiplatform, and mobile architecture are coming soon[cite: 1]. In the meantime, explore my featured production projects!"
 }

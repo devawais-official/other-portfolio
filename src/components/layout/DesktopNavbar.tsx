@@ -1,4 +1,4 @@
-// src/components/layout/DesktopNavbar.tsx
+
 "use client";
 
 import React from "react";

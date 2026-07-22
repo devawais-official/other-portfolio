@@ -1,4 +1,4 @@
-// src/components/ui/Magnetic.tsx
+
 "use client";
 
 import React, { useRef, type ReactNode } from "react";

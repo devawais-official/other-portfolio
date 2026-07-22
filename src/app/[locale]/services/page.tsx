@@ -1,4 +1,4 @@
-// src/app/[locale]/services/page.tsx
+
 
 import { getTranslationServer } from "@/i18n/i18n-server";
 import { generatePageMetadata } from "@/lib/metadata";
@@ -28,7 +28,7 @@ export default async function ServicesPage({ params }: ServicesPageProps) {
   const translate = getTranslationServer(locale);
   const labels = getStandardPageLabels(translate, "services");
 
-  // Direct 100% type-safe conversion without 'as unknown' hacks
+
   const localizedServices = getLocalizedServices(
     translate,
     rawServices as RawService[]

@@ -10,7 +10,7 @@ export interface BlogPost {
     readTime: number;       // Dynamically calculated read time
 }
 
-// 👈 Yeh interface add karein jo api.rss2json.com ke raw data ko map karega
+
 export interface MediumRawItem {
     title: string;
     pubDate: string;

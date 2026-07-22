@@ -1,4 +1,4 @@
-// src/features/home/components/ProcessSection.tsx
+
 import SectionHeader from "@/components/ui/SectionHeader";
 import SectionWrapper from "@/components/layout/SectionWrapper";
 import { ProcessStep } from "./HomeView";

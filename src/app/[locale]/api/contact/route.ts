@@ -6,10 +6,10 @@ export const runtime = "nodejs";
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Rudimentary in-memory rate limiting per server instance: 5 submissions
-// per IP per 10 minutes. This resets on redeploy/cold start, which is an
-// acceptable tradeoff for a low-traffic contact form and avoids needing
-// an external store.
+
+
+
+
 const submissions = new Map<string, number[]>();
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 5;
@@ -47,12 +47,12 @@ export async function POST(request: Request) {
     const platform = String(body.platform || "Not specified").trim();
     const budget = String(body.budget || "Not specified").trim();
     const message = String(body.message || "").trim();
-    // Honeypot field: real users never fill this in. Bots that
-    // autofill every input will trip it.
+
+
     const honeypot = String(body.company || "").trim();
 
     if (honeypot) {
-      // Silently succeed so bots don't learn the honeypot was detected.
+
       return NextResponse.json({ ok: true });
     }
 
@@ -106,8 +106,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // Best-effort confirmation email to the sender. Failure here should
-    // never fail the overall request — the inquiry already reached us.
+
+
     resend.emails
       .send({
         from: `${siteConfig.name} <${fromEmail}>`,

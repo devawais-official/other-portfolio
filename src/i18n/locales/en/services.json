@@ -1,23 +1,23 @@
 {
-    "title": "What I offer",
-    "headerTitle": "Custom mobile engineering, built for scale.",
-    "headerDesc": "From individual feature development to end-to-end architecture design and cross-platform product launches.",
+    "title": "Services & Solutions",
+    "headerTitle": "Custom mobile engineering built for scale, performance, and stability.",
+    "headerDesc": "From multiplatform system architecture and KMP/CMP shared logic to end-to-end Native Android and Flutter production app launches.",
     "items": {
         "android-native": {
-            "title": "Android Native Development",
-            "description": "High-performance native Android apps with Jetpack Compose, Material Design 3, and modern Android practices."
+            "title": "Native Android & Hardware Integration",
+            "description": "High-performance native Android apps engineered with Jetpack Compose, Kotlin, and MVI/MVVM patterns. Specialized in IoT medical hardware drivers, Agora/Twilio video SDKs, Android TV, and secure payment processing."
         },
         "kmp": {
-            "title": "Kotlin Multiplatform",
-            "description": "Cross-platform development with KMP and CMP, sharing business logic across Android and iOS."
+            "title": "Kotlin & Compose Multiplatform (KMP/CMP)",
+            "description": "Shared business logic and reactive UI across Android and iOS using Kotlin Multiplatform (KMP) and Compose Multiplatform (CMP)—cutting codebase duplication while retaining 100% native execution speed."
         },
         "flutter": {
-            "title": "Flutter Development",
-            "description": "Fast-moving cross-platform apps with Flutter, ideal for MVP and rapid prototyping."
+            "title": "Flutter Cross-Platform Engineering",
+            "description": "Scalable, high-fidelity cross-platform apps built with Flutter, BLoC/Riverpod, and Dio. Designed for fast time-to-market, complex REST/SOAP integrations, and high-conversion UI/UX."
         },
         "architecture": {
-            "title": "App Architecture & Optimization",
-            "description": "Designing scalable, maintainable architectures following Clean Architecture and SOLID principles."
+            "title": "Mobile Architecture & Codebase Modernization",
+            "description": "Refactoring monolithic codebases into modular Clean Architecture, migrating Java to Kotlin, and tuning app stability to achieve 99%+ crash-free session rates[cite: 1]."
         }
     }
 }

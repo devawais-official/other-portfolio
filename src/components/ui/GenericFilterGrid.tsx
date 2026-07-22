@@ -1,4 +1,4 @@
-// src/components/ui/GenericFilterGrid.tsx
+
 "use client";
 
 import { useState, useMemo, ReactNode } from "react";

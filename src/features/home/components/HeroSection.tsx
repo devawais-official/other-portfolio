@@ -18,21 +18,21 @@ const THEME_CONFIG = {
   styles: {
     sectionWrapper: "pb-8 pt-24 sm:pt-28 lg:pt-24",
     layoutGrid: "container-page grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]",
-    // Promoted to a real reusable class in globals.css — no more inline gradient recipe.
+
     headingGradient: "text-gradient-brand",
     portraitMaskBg: "bg-gradient-to-br from-primary-subtle to-transparent",
     portraitEchoOuter: "pointer-events-none absolute inset-0 -rotate-3 scale-[0.98] border border-border-subtle md:-rotate-6",
     portraitEchoInner: "pointer-events-none absolute -inset-2 rotate-2 border border-border-subtle/50 md:-inset-3 md:rotate-3",
-    // .liquid-glass already supplies border-border-subtle — dropped the redundant redeclaration.
+
     badgeContainer: "liquid-glass relative z-20 mx-auto -mt-6 flex w-fit items-center gap-4 rounded-full px-6 py-3 shadow-lg",
-    // Now a single shared class in globals.css instead of a one-off string here.
+
     badgeItem: "badge-icon",
-    // text-ink removed from tokens — use text-heading (same hex, one canonical name).
+
     tooltip: "liquid-glass pointer-events-none absolute bottom-full left-1/2 mb-3 -translate-x-1/2 scale-75 rounded-lg border border-border-subtle px-2.5 py-1 text-[11px] font-medium text-heading shadow-lg opacity-0 transition-all duration-200 group-hover:scale-100 group-hover:opacity-100 whitespace-nowrap z-30",
     tooltipArrow: "absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-primary-dark",
   },
-  // Plain data — no JSX baked in. Serializable, testable without React,
-  // and reusable outside a browser context (e.g. server-side, config export).
+
+
   data: {
     stackBadges: [
       { id: "kotlin", tooltip: "Kotlin" },
@@ -42,13 +42,13 @@ const THEME_CONFIG = {
   },
 } as const;
 
-// Types
+
 type StackBadge = typeof THEME_CONFIG.data.stackBadges[number];
 type StackBadgeId = StackBadge["id"];
 
-// Icons are decorative here — the wrapping badge div in TechBadgeItem already
-// carries the accessible name via aria-label, so we suppress IconBase's own
-// built-in role="img"/aria-label to avoid announcing the tech name twice.
+
+
+
 const STACK_BADGE_ICONS: Record<StackBadgeId, ReactNode> = {
   kotlin: <KotlinIcon className="h-3.5 w-3.5" aria-hidden="true" />,
   compose: <AndroidIcon className="h-3.5 w-3.5" aria-hidden="true" />,

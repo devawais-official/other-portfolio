@@ -1,4 +1,4 @@
-// src/features/about/data/index.ts
+
 
 import { stats } from "@/data";
 import expertise from "@/data/expertise.json";

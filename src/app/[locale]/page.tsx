@@ -1,4 +1,3 @@
-// src/app/[locale]/page.tsx
 import { getTranslationServer } from "@/i18n/i18n-server";
 import HomeView from "@/features/home/components/HomeView";
 import { getHomeData } from "@/features/home/data";

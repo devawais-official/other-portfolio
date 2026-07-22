@@ -1,4 +1,4 @@
-// src/app/[locale]/blog/page.tsx
+
 
 import { fetchMediumBlogs } from "@/features/blog/services/medium-service";
 import BlogView from "@/features/blog/components/BlogView";
@@ -23,8 +23,8 @@ export default async function BlogPage({ params }: BlogPageProps) {
   const translate = getTranslationServer(locale);
   const labels = getStandardPageLabels(translate, "blog");
 
-  // Dynamic Medium Username from personal data with fallback
-  const mediumUsername = personalData.usernames?.medium ;
+
+  const mediumUsername = personalData.usernames?.medium;
   const posts = await fetchMediumBlogs(mediumUsername);
 
   return <BlogView posts={posts} labels={labels} />;

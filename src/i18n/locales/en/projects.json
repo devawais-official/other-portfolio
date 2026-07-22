@@ -1,17 +1,17 @@
 {
     "title": "Projects",
-    "headerTitle": "Shipped apps across Android Native and Kotlin Multiplatform.",
-    "headerDesc": "Filter by platform to see how the architecture and stack shift depending on what the product actually needs.",
+    "headerTitle": "Shipped apps across Native Android and Flutter ecosystems.",
+    "headerDesc": "Filter by platform to see how the architecture and tech stack adapt to deliver optimal performance, security, and real-time connectivity.",
     "noProjectsFound": "No projects found for this category.",
     "backToProjects": "All projects",
     "techStack": "Tech stack",
     "filters": {
         "all": "All",
         "android": "Android",
+        "flutter": "Flutter",
         "ios": "iOS",
         "kmp": "KMP",
-        "cmp": "CMP",
-        "flutter": "Flutter"
+        "cmp": "CMP"
     },
     "ctas": {
         "playStore": "Google Play",
@@ -20,121 +20,121 @@
     },
     "items": {
         "spectra-care": {
-            "title": "Spectra Care App",
+            "title": "Spectra Care: Telehealth & Hardware Platform",
             "category": "Telehealth & IoT",
-            "summary": "Telehealth app with Jetpack Compose, Agora video SDK, and IoT health monitoring.",
-            "description": "Premium Android Native telehealth app built with Jetpack Compose — integrating Agora SDK video calling, Spectra SDK for 6-in-1 IoT health monitors, appointments, and lab tests.",
+            "summary": "Enterprise telehealth platform with Jetpack Compose, Agora video calling, and 6-in-1 medical monitor integration.",
+            "description": "Production Android telehealth app built with Jetpack Compose and MVI architecture. Features low-latency Agora video consultations, reactive device drivers for Spectra Care 6-in-1 health monitors, and secure SOAP EHR data synchronization.",
             "ctaText": "View on Google Play",
-            "altText": "Spectra Care — Android Native telehealth app with Agora video calling and Spectra IoT health monitor integration, built by Senior Android Developer Muhammad Awais",
+            "altText": "Spectra Care — Android Native telehealth app with Agora video calling and Spectra IoT health monitor integration built by Muhammad Awais[cite: 1]",
             "highlights": [
-                "Real-time video consultations",
-                "Live health metrics streaming",
-                "Offline appointment sync"
+                "Agora SDK real-time video consultations[cite: 1]",
+                "Spectra Care 6-in-1 IoT health monitor sync[cite: 1]",
+                "MVI architecture with Jetpack Compose[cite: 1]"
             ]
         },
         "zouris": {
             "title": "Zouris: Holistic Wellness Platform",
             "category": "Health & Wellness",
-            "summary": "Cross-platform meditation app built with Compose Multiplatform, shipping iOS and Android from one codebase.",
-            "description": "Zouris is a holistic wellness platform engineered using Compose Multiplatform (KMP) where certified coaches, counselors, and wellness practitioners share guided sessions, meditations, and affirmations across iOS and Android.",
+            "summary": "Cross-platform wellness app delivering guided sessions, audio streams, and affirmations.",
+            "description": "Zouris is a holistic wellness platform engineered using Flutter where certified coaches and practitioners share guided sessions, meditations, and real-time audio streams with native UX performance across Android and iOS.",
             "ctaText": "Google Play",
             "iosCtaText": "App Store",
-            "altText": "Zouris wellness coaching app — cross-platform meditation and coaching UI shared across iOS and Android using Compose Multiplatform",
+            "altText": "Zouris wellness coaching app — cross-platform meditation and audio streaming platform built by Muhammad Awais",
             "highlights": [
-                "80% code sharing with KMP",
-                "Native UI on both platforms",
-                "Real-time audio streaming"
+                "Cross-platform Flutter architecture",
+                "Low-latency real-time audio streaming",
+                "Clean state management with BLoC"
             ]
         },
         "egora-b2b": {
             "title": "Egora B2B: Restaurant Partner Platform",
             "category": "B2B Solutions",
-            "summary": "White-labeled KMP dashboard for restaurant owners to manage orders, pick-ups, and native table reservations.",
-            "description": "White-labeled B2B counterpart of the Egora ecosystem. Built using Kotlin Multiplatform (KMP), it empowers restaurant owners on both Android & iOS to independently manage dine-in, pickup, reservations, and QR code ordering operations with full native payment integration.",
+            "summary": "White-labeled partner dashboard for restaurant owners to manage orders, pick-ups, and live reservations[cite: 1].",
+            "description": "White-labeled partner platform engineered using Flutter, Dio, and GetIt[cite: 1]. Empowers restaurant owners to independently manage dine-in, pickup, QR code ordering, and thermal receipt printing with reliable payment integrations[cite: 1].",
             "ctaText": "View Project Details",
-            "altText": "Egora B2B restaurant partner dashboard — white-labeled order, reservation and QR ordering management built with a shared KMP codebase",
+            "altText": "Egora B2B restaurant partner dashboard — order, reservation, and QR management built by Muhammad Awais[cite: 1]",
             "highlights": [
-                "Independent owner dashboards",
-                "Cross-platform state engine",
-                "Real-time operations sync"
+                "Flutter, Dio, and GetIt architecture[cite: 1]",
+                "Independent multi-merchant dashboards[cite: 1]",
+                "Real-time order sync and notification engine[cite: 1]"
             ]
         },
         "egora": {
             "title": "Egora: Smart Restaurant Ecosystem",
             "category": "Food & Beverage",
-            "summary": "Smart restaurant app with QR ordering, dine-in, and reservation management via shared KMP core.",
-            "description": "Comprehensive Kotlin Multiplatform (KMP) restaurant management app streamlining dine-in, pickup, and reservation flows across platforms. Features unified QR code ordering logic and secure native payment gateway integrations for a seamless dining experience.",
+            "summary": "High-scale restaurant ecosystem with QR ordering, reservation management, and Bluetooth hardware integrations[cite: 1].",
+            "description": "Scalable reservation and dining system built using Flutter and Jetpack Compose[cite: 1]. Features QR code ordering, integrated XStax payment processing (10k+ monthly transactions), and custom Bluetooth thermal printer hardware drivers achieving 100% reliability[cite: 1].",
             "ctaText": "View Project Details",
-            "altText": "Egora restaurant ecosystem app — QR ordering, dine-in and pickup flows powered by a shared multiplatform business logic layer",
+            "altText": "Egora restaurant app — QR ordering, reservation system, and Bluetooth thermal printer integration built by Muhammad Awais[cite: 1]",
             "highlights": [
-                "QR code ordering engine",
-                "Real-time order sync",
-                "Multi-platform consistency"
+                "Driven 30% increase in customer adoption[cite: 1]",
+                "Bluetooth thermal printer integration with 50% reduced latency[cite: 1]",
+                "XStax payment gateway processing 10k+ monthly transactions[cite: 1]"
             ]
         },
         "makernote": {
-            "title": "Makernote: Multiplatform EdTech",
+            "title": "Makernote: Interactive EdTech",
             "category": "Education App",
-            "summary": "Educational platform with real-time collaboration built with KMP and Firebase.",
-            "description": "High-performance educational app for teachers and students — built with Kotlin Multiplatform (KMP) for seamless native iOS and Android delivery with real-time multiplatform collaboration features.",
+            "summary": "Educational platform with real-time collaboration and offline synchronization.",
+            "description": "High-performance educational platform for teachers and students — engineered with Clean Architecture for real-time collaboration, instant note synchronization, and seamless offline data persistence.",
             "ctaText": "View on App Store",
-            "altText": "Makernote EdTech app for teachers and students — real-time collaboration built with MVI architecture on Kotlin Multiplatform",
+            "altText": "Makernote EdTech app — real-time collaboration and offline synchronization built by Muhammad Awais",
             "highlights": [
-                "Real-time collaboration",
-                "Offline support",
-                "Performance optimized"
+                "Real-time multi-user collaboration",
+                "Offline-first local storage",
+                "Clean MVVM architecture"
             ]
         },
         "eco-grocery": {
-            "title": "Eco Grocery: Smart Inventory & Recipes",
+            "title": "Eco Grocery: Smart Inventory Tracker",
             "category": "Smart Utility",
-            "summary": "Smart grocery tracker with barcode scanning, recipe recommendations, and expiry tracking.",
-            "description": "Intelligent Android grocery management app featuring a dynamic to-buy list linked to a recipe recommendation engine, plus a built-in barcode scanner for real-time nutritional tracking and expiry management.",
+            "summary": "Smart grocery tracking app with barcode scanning, recipe recommendations, and expiry alerts.",
+            "description": "Intelligent Android utility app featuring a dynamic grocery list linked to a recipe recommendation engine, paired with built-in camera barcode scanning for instant item cataloging and expiry management.",
             "ctaText": "View Project Details",
-            "altText": "Eco Grocery Android app — barcode-scanning grocery tracker with recipe recommendations and expiry alerts",
+            "altText": "Eco Grocery Android app — barcode scanning grocery tracker built by Muhammad Awais",
             "highlights": [
-                "Barcode scanning integration",
-                "Recipe ML model",
-                "Smart notifications"
+                "Camera barcode scanner integration",
+                "Smart notification & expiry system",
+                "Reactive UI state handling"
             ]
         },
         "hcloud": {
             "title": "HCloud: Clinic Management Suite",
             "category": "Doctors App",
-            "summary": "Enterprise-grade operations portal for doctor clinics built with Clean Architecture.",
-            "description": "Enterprise-grade clinic operations platform serving thousands of healthcare providers with real-time prescription sync and smart appointment scheduling.",
+            "summary": "Enterprise operations portal for healthcare providers with appointment and prescription sync[cite: 1].",
+            "description": "Enterprise-grade clinic management application engineered for doctors[cite: 1]. Built with MVVM, Hilt, and Room DB to enable real-time prescription creation, patient records management, and offline-first appointment scheduling[cite: 1].",
             "ctaText": "View on Google Play",
-            "altText": "HCloud clinic management suite — real-time prescription sync and appointment scheduling for healthcare providers",
+            "altText": "HCloud clinic management suite — real-time prescription sync and appointment scheduling built by Muhammad Awais[cite: 1]",
             "highlights": [
-                "Enterprise appointment sync",
-                "Offline-first sync queue",
-                "Highly responsive physician UI"
+                "Dual-app architecture core[cite: 1]",
+                "Offline-first sync queue using Room DB[cite: 1]",
+                "Responsive physician clinical UI[cite: 1]"
             ]
         },
         "healthwire": {
-            "title": "Healthwire: HealthTech Platform",
+            "title": "Healthwire: HealthTech Ecosystem",
             "category": "Telehealth Platform",
-            "summary": "Leading healthcare app with pharmacy logistics, lab booking, and telemedicine.",
-            "description": "Architected Pakistan's leading healthcare app — optimizing pharmacy logistics, lab-test booking, and telemedicine for thousands of daily active users.",
+            "summary": "Leading healthcare application with 2M+ downloads, telemedicine, lab bookings, and secure payment integrations[cite: 1].",
+            "description": "Architected one of Pakistan's top healthcare platforms — powering pharmacy logistics, lab-test bookings, Twilio video consultations, and local payment gateways (Meezan, JazzCash, Foree) with a 99%+ crash-free session rate[cite: 1].",
             "ctaText": "View on Google Play",
-            "altText": "Healthwire healthcare app — pharmacy logistics, lab test booking and telemedicine built with Jetpack Compose",
+            "altText": "Healthwire healthcare app — pharmacy logistics, lab booking, and Twilio telemedicine built by Muhammad Awais[cite: 1]",
             "highlights": [
-                "2M+ downloads",
-                "Complex payment integration",
-                "Location-based services"
+                "2M+ downloads on Google Play Store[cite: 1]",
+                "Twilio real-time video consultations (+15% engagement)[cite: 1]",
+                "100% secure payment processing (Meezan, JazzCash, Foree)[cite: 1]"
             ]
         },
         "dongamers": {
             "title": "DonGamers: E-Sports Platform",
             "category": "E-Gaming Platform",
-            "summary": "Gaming tournament platform featuring robust real-time chats, brackets, and interactive custom animations.",
-            "description": "Built a global gaming community platform with real-time chat, tournament brackets, and Unity-powered interactive features — handling thousands of concurrent sessions.",
+            "summary": "Global gaming platform featuring real-time Pusher chat, tournament brackets, and optimized monetization[cite: 1].",
+            "description": "Engineered an international e-sports platform on Native Android[cite: 1]. Migrated codebase from Java to Kotlin, architected scalable real-time chat using Pusher (+15% engagement), and optimized In-App Purchases and Google AdMob[cite: 1].",
             "ctaText": "View on Google Play",
-            "altText": "DonGamers e-sports community platform — real-time tournament chat built with Socket.IO on Android",
+            "altText": "DonGamers e-sports platform — real-time chat and tournament tracking built by Muhammad Awais[cite: 1]",
             "highlights": [
-                "Instant matchmaking socket integrations",
-                "Real-time brackets tracking",
-                "Interactive Unity widgets"
+                "99% crash-free rate across global availability[cite: 1]",
+                "Real-time chat infrastructure using Pusher[cite: 1]",
+                "Monetization optimization boosting sales by 10%[cite: 1]"
             ]
         }
     }

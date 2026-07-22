@@ -1,4 +1,4 @@
-// src/features/projects/configs/projects-config.ts
+
 
 import type { TranslateFn } from "@/i18n/translation-core";
 

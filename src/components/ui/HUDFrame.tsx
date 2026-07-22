@@ -1,4 +1,4 @@
-// src/components/ui/HUDFrame.tsx
+
 "use client";
 
 import React from "react";

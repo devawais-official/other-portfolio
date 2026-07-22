@@ -4,15 +4,15 @@ import { locales, Locale } from "@/i18n/config";
 
 const localizedDefaults: Record<Locale, { title: string; description: string }> = {
     en: {
-        title: `Muhammad Awais — Senior Mobile App Developer (Android, Flutter, KMP)`,
+        title: `Muhammad Awais — Senior Mobile App Developer & Architect (Android, KMP, CMP, Flutter)`,
         description:
-            "Looking for a Senior Mobile Developer? Hire Muhammad Awais (Devawais), a specialist in Kotlin Multiplatform, Android Development, Flutter, and Clean Architecture.",
+            "Senior Mobile Developer with 6+ years of engineering experience. Specialist in Native Android (Jetpack Compose), Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), Flutter, and Clean Architecture.",
     },
     ur: {
-        title: `محمد اویس — سینئر موبائل ایپ ڈویلپر (اینڈرائیڈ ، فلاتر)`,
-        description: "محمد اویس (Devawais) کا پورٹ فولیو — سینئر موبائل اور فلٹر ایپ ڈویلپر۔",
+        title: `محمد اویس — سینئر موبائل ایپ ڈویلپر (اینڈرائیڈ، KMP، CMP، فلٹر)`,
+        description:
+            "محمد اویس (Devawais) — 6+ سالہ تجربہ کار سینئر موبائل ایپ ڈویلپر اور آرکیٹیکٹ۔ اینڈرائیڈ، فلٹر، کوٹلن ملٹی پلیٹ فارم (KMP) اور کمپوز ملٹی پلیٹ فارم (CMP) کے ماہر۔",
     },
-
 };
 
 const ogLocaleMap: Record<Locale, string> = {
@@ -42,7 +42,7 @@ export function buildSharedFields(locale: Locale, path: string, title: string, d
             url: `${siteConfig.url}/${locale}${path}`,
             title,
             description,
-            siteName: "Muhammad Awais Portfolio",
+            siteName: "Muhammad Awais — Senior Mobile Developer Portfolio",
             locale: ogLocaleMap[locale],
             images: [
                 {
@@ -85,13 +85,15 @@ export function getMetadata(locale: string): Metadata {
     const resolvedLocale: Locale = locales.includes(locale as Locale) ? (locale as Locale) : "en";
     const { title, description } = localizedDefaults[resolvedLocale];
 
-    // SEO-Rich Global Keywords list taake har page par SEO boost mile
+    // ⚡ SEO & GEO HIGH-INTENT KEYWORDS: Optimized for Google SERPs, Perplexity & SearchGPT
     const advancedKeywords = [
-        "Muhammad Awais", "Awais", "Devawais", "awaisdevm",
+        "Muhammad Awais", "Awais", "Devawais", "devawais-official", "awaisdevm",
         "Mobile Dev", "Mobile Developer", "Senior Mobile Developer", "Mobile App Architect",
         "Android Developer", "Senior Android Developer", "Kotlin Multiplatform", "KMP Developer",
-        "Flutter Developer", "Senior Flutter Developer", "Flutter Expert", "vibe coding", "indie dev",
-        "Clean Architecture", "MVI Architecture", "Jetpack Compose", "Android Lahore"
+        "Compose Multiplatform", "CMP Developer", "Flutter Developer", "Senior Flutter Developer",
+        "Flutter Expert", "Clean Architecture", "MVI Architecture", "Jetpack Compose",
+        "Agora SDK Integration", "IoT Hardware Integration", "Telehealth App Developer",
+        "FinTech App Developer", "Android Developer Lahore", "Mobile Consultant Pakistan"
     ];
 
     return {
@@ -101,13 +103,13 @@ export function getMetadata(locale: string): Metadata {
     };
 }
 
-// ⚡ HIGH SEO OPTIMIZATION: Combined WebSite & Person Schema Generator
+// ⚡ HIGH SEO & GEO OPTIMIZATION: Schema.org Knowledge Graph Generator for Google & AI Engines
 export const getCombinedSchemaData = () => {
     return [
         {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "name": "Muhammad Awais — Mobile App Developer Portfolio",
+            "name": "Muhammad Awais — Mobile App Developer & Multiplatform Architect",
             "alternateName": ["Devawais", "awaisdevm", "Muhammad Awais", "devawais-official"],
             "url": siteConfig.url,
             "potentialAction": {
@@ -123,13 +125,13 @@ export const getCombinedSchemaData = () => {
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Muhammad Awais",
-            "alternateName": ["Devawais", "awaisdevm", "Awais"],
+            "alternateName": ["Devawais", "awaisdevm", "Awais", "devawais-official"],
             "jobTitle": "Senior Mobile App Developer & Architect",
             "url": siteConfig.url,
             "email": siteConfig.email,
             "image": `${siteConfig.url}/profile.jpg`,
             "gender": "Male",
-            "description": "Senior Mobile Developer specializing in Android, Flutter, Kotlin Multiplatform, and Clean Architecture with a proven track record of building scalable mobile applications.",
+            "description": "Senior Mobile App Developer with 6+ years of engineering experience specializing in Native Android, Kotlin Multiplatform (KMP), Compose Multiplatform (CMP), Flutter, and Clean Architecture.",
             "nationality": {
                 "@type": "Country",
                 "name": "Pakistan"
@@ -137,28 +139,36 @@ export const getCombinedSchemaData = () => {
             "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Lahore",
-                "addressCountry": "Pakistan",
+                "addressRegion": "Punjab",
+                "addressCountry": "Pakistan"
+            },
+            "alumniOf": {
+                "@type": "EducationalOrganization",
+                "name": "University of South Asia",
+                "address": "Lahore, Pakistan"
             },
             "knowsAbout": [
-                "Mobile Dev",
-                "Mobile Developer",
-                "Android Development",
-                "Kotlin Multiplatform",
-                "Flutter",
+                "Mobile App Architecture",
+                "Native Android Development",
+                "Kotlin Multiplatform (KMP)",
+                "Compose Multiplatform (CMP)",
+                "Flutter & Dart",
                 "Jetpack Compose",
                 "Clean Architecture",
-                "MVI Architecture",
-                "Mobile App Architecture",
-                "Dart",
+                "MVI & MVVM Patterns",
+                "Agora SDK & Real-Time Telehealth",
+                "IoT & Medical Hardware Driver Integration",
+                "FinTech & Payment Gateways",
                 "Kotlin",
                 "Java",
-                "CI/CD Pipelines"
+                "CI/CD Automation & Bitbucket/GitHub Pipelines"
             ],
             "worksFor": [
-                { "@type": "Organization", "name": "Netroots Technologies" },
-                { "@type": "Organization", "name": "Healthwire Pvt Ltd" },
+                { "@type": "Organization", "name": "QuickGem Solutions" },
                 { "@type": "Organization", "name": "Egora Pvt Ltd" },
-                { "@type": "Organization", "name": "DonGamers" }
+                { "@type": "Organization", "name": "Healthwire Pvt Ltd" },
+                { "@type": "Organization", "name": "DonGamers" },
+                { "@type": "Organization", "name": "Netroots Technologies LLC" }
             ],
             "sameAs": [
                 siteConfig.socialBaseUrls.github && `${siteConfig.socialBaseUrls.github}${siteConfig.usernames.github}`,
